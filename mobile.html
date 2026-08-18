@@ -1,0 +1,934 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>CloudBite | Mobile</title>
+<link rel="stylesheet" href="mobile.css" />
+</head>
+<body>
+  <div class="m-login">
+
+    <!-- ============ View: Login ============ -->
+    <div id="view-login" class="m-view">
+
+      <!-- Top banner -->
+      <div class="m-banner" role="img" aria-label="Streamline Sales, Simplify Business"></div>
+
+      <!-- Content sheet -->
+      <div class="m-sheet">
+
+        <div class="m-logo">
+          <img src="https://www.figma.com/api/mcp/asset/baae3891-dc06-4e43-a9fd-bf5b06a3a789.png" alt="QubeApps" class="m-logo__img" />
+        </div>
+
+        <div class="m-welcome">
+          <h1>Hello! Let&rsquo;s get started</h1>
+          <p>Sign in to continue</p>
+        </div>
+
+        <form class="m-fields" onsubmit="return false;">
+          <div class="m-field">
+            <label for="m-username">Username <span class="m-required">*</span></label>
+            <input type="text" id="m-username" name="username" placeholder="Enter Username" autocomplete="username" />
+          </div>
+
+          <div class="m-field">
+            <label for="m-password">Password <span class="m-required">*</span></label>
+            <div class="m-input m-input--password">
+              <input type="password" id="m-password" name="password" placeholder="Enter Password" autocomplete="current-password" inputmode="numeric" pattern="[0-9]*" />
+              <button type="button" class="m-input-icon-btn m-toggle-password" aria-label="Show password" aria-pressed="false">
+                <img src="assets/close-eye.png" alt="" class="m-input-icon m-eye-icon" />
+              </button>
+            </div>
+          </div>
+        </form>
+
+        <button type="submit" id="m-login-btn" class="m-btn-primary">Login</button>
+
+        <div class="m-powered-by">
+          <img src="https://www.figma.com/api/mcp/asset/76e833f8-9031-42b9-bfc6-6a96ea48a408.svg" alt="CloudBite" class="m-powered-by__logo" />
+          <p>Powered by QubePOS</p>
+        </div>
+
+        <div class="m-footer-copy">
+          <p>Cloudbite POS System | Powered by QubePos &reg;<br />
+          &copy; 2026 Qube Apps Solutions Sdn. Bhd. All rights reserved.</p>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ============ View: Choose your brand ============ -->
+    <div id="view-brand" class="m-view" hidden>
+
+      <!-- Top banner -->
+      <div class="m-banner" role="img" aria-label="Streamline Sales, Simplify Business"></div>
+
+      <!-- Content sheet -->
+      <div class="m-sheet">
+
+        <h1 class="m-brand-title">Choose your brand</h1>
+
+        <div class="m-brand-list">
+          <a href="#" id="brand-oiso" class="m-brand-item">
+            <img src="assets/oiso-logo.png" alt="OiSO — Korean Traditional Cuisine &amp; Cafe" class="m-brand-item__logo" />
+          </a>
+
+          <a href="#" id="brand-mimi" class="m-brand-item">
+            <img src="assets/mimi-logo.png" alt="MIMI — Korean B.B.Q Restaurant" class="m-brand-item__logo" />
+          </a>
+        </div>
+
+        <div class="m-powered-by">
+          <img src="https://www.figma.com/api/mcp/asset/76e833f8-9031-42b9-bfc6-6a96ea48a408.svg" alt="CloudBite" class="m-powered-by__logo" />
+          <p>Powered by QubePOS</p>
+        </div>
+
+        <div class="m-footer-copy">
+          <p>Cloudbite POS System | Powered by QubePos &reg;<br />
+          &copy; 2026 Qube Apps Solutions Sdn. Bhd. All rights reserved.</p>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ============ View: Dashboard ============ -->
+    <div id="view-dashboard" class="m-view m-view--dashboard" hidden>
+
+      <!-- Nav drawer (full-screen) -->
+      <aside class="m-drawer" id="dash-drawer">
+        <div class="m-drawer__header">
+          <img src="assets/oiso-logo.png" alt="OiSO" class="m-drawer__brand-logo" />
+          <button type="button" class="m-drawer__close" id="dash-drawer-close" aria-label="Close menu">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          </button>
+        </div>
+
+        <nav class="m-drawer-nav">
+
+          <div class="m-drawer-group is-expanded">
+            <button type="button" class="m-drawer-nav__item">
+              <span class="m-drawer-nav__icon"><img src="assets/nav-dashboard.png" alt="" /></span>
+              <span class="m-drawer-nav__label">Dashboard</span>
+              <span class="m-drawer-nav__chevron"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
+            </button>
+            <div class="m-drawer-nav__panel">
+              <a href="#" class="m-drawer-nav__sub m-drawer-nav__sub--active"><span class="m-drawer-nav__dot"></span>Sales Dashboard</a>
+            </div>
+          </div>
+
+          <div class="m-drawer-group">
+            <button type="button" class="m-drawer-nav__item">
+              <span class="m-drawer-nav__icon"><img src="assets/nav-report.png" alt="" /></span>
+              <span class="m-drawer-nav__label">Reports</span>
+              <span class="m-drawer-nav__chevron"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
+            </button>
+            <div class="m-drawer-nav__panel">
+              <a href="#" id="sub-operation" class="m-drawer-nav__sub m-drawer-nav__sub--active"><span class="m-drawer-nav__dot"></span>Operation</a>
+              <a href="#" id="sub-transaction" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Transaction</a>
+            </div>
+          </div>
+
+          <div class="m-drawer-group">
+            <button type="button" class="m-drawer-nav__item">
+              <span class="m-drawer-nav__icon"><img src="assets/nav-company.png" alt="" /></span>
+              <span class="m-drawer-nav__label">Company</span>
+              <span class="m-drawer-nav__chevron"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
+            </button>
+            <div class="m-drawer-nav__panel">
+              <a href="#" class="m-drawer-nav__sub m-drawer-nav__sub--active"><span class="m-drawer-nav__dot"></span>Company Structure</a>
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Classification</a>
+            </div>
+          </div>
+
+          <div class="m-drawer-group">
+            <button type="button" class="m-drawer-nav__item">
+              <span class="m-drawer-nav__icon"><img src="assets/nav-stock.png" alt="" /></span>
+              <span class="m-drawer-nav__label">Stock</span>
+              <span class="m-drawer-nav__chevron"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
+            </button>
+            <div class="m-drawer-nav__panel">
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Item</a>
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Bill of Materials</a>
+              <a href="#" class="m-drawer-nav__sub m-drawer-nav__sub--active"><span class="m-drawer-nav__dot"></span>Classification</a>
+            </div>
+          </div>
+
+          <div class="m-drawer-group">
+            <button type="button" class="m-drawer-nav__item">
+              <span class="m-drawer-nav__icon"><img src="assets/nav-condiment.png" alt="" /></span>
+              <span class="m-drawer-nav__label">Condiment</span>
+              <span class="m-drawer-nav__chevron"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
+            </button>
+            <div class="m-drawer-nav__panel">
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Group</a>
+              <a href="#" class="m-drawer-nav__sub m-drawer-nav__sub--active"><span class="m-drawer-nav__dot"></span>Item</a>
+            </div>
+          </div>
+
+          <div class="m-drawer-group">
+            <button type="button" class="m-drawer-nav__item">
+              <span class="m-drawer-nav__icon"><img src="assets/nav-pos.png" alt="" /></span>
+              <span class="m-drawer-nav__label">POS</span>
+              <span class="m-drawer-nav__chevron"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
+            </button>
+            <div class="m-drawer-nav__panel">
+              <a href="#" class="m-drawer-nav__sub m-drawer-nav__sub--active"><span class="m-drawer-nav__dot"></span>Shift</a>
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Payment</a>
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Tax</a>
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Money Note</a>
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Discount</a>
+            </div>
+          </div>
+
+          <div class="m-drawer-group">
+            <button type="button" class="m-drawer-nav__item">
+              <span class="m-drawer-nav__icon"><img src="assets/nav-usermanagement.png" alt="" /></span>
+              <span class="m-drawer-nav__label">User Management</span>
+              <span class="m-drawer-nav__chevron"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
+            </button>
+            <div class="m-drawer-nav__panel">
+              <a href="#" class="m-drawer-nav__sub m-drawer-nav__sub--active"><span class="m-drawer-nav__dot"></span>User Profile</a>
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Role Management</a>
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Classification</a>
+            </div>
+          </div>
+
+          <div class="m-drawer-group">
+            <button type="button" class="m-drawer-nav__item">
+              <span class="m-drawer-nav__icon"><img src="assets/nav-customer.png" alt="" /></span>
+              <span class="m-drawer-nav__label">Customer</span>
+              <span class="m-drawer-nav__chevron"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
+            </button>
+            <div class="m-drawer-nav__panel">
+              <a href="#" class="m-drawer-nav__sub m-drawer-nav__sub--active"><span class="m-drawer-nav__dot"></span>Details</a>
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Discount Type</a>
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Closing</a>
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Classification</a>
+            </div>
+          </div>
+
+          <div class="m-drawer-group">
+            <button type="button" class="m-drawer-nav__item">
+              <span class="m-drawer-nav__icon"><img src="assets/nav-inventory.png" alt="" /></span>
+              <span class="m-drawer-nav__label">Inventory</span>
+              <span class="m-drawer-nav__chevron"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
+            </button>
+            <div class="m-drawer-nav__panel">
+              <a href="#" class="m-drawer-nav__sub m-drawer-nav__sub--active"><span class="m-drawer-nav__dot"></span>Transaction</a>
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Production</a>
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Stock Take</a>
+            </div>
+          </div>
+
+          <div class="m-drawer-group">
+            <button type="button" class="m-drawer-nav__item">
+              <span class="m-drawer-nav__icon"><img src="assets/nav-supplier.png" alt="" /></span>
+              <span class="m-drawer-nav__label">Supplier</span>
+              <span class="m-drawer-nav__chevron"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
+            </button>
+            <div class="m-drawer-nav__panel">
+              <a href="#" class="m-drawer-nav__sub m-drawer-nav__sub--active"><span class="m-drawer-nav__dot"></span>Transaction</a>
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Details</a>
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Classification</a>
+            </div>
+          </div>
+
+          <div class="m-drawer-group">
+            <button type="button" class="m-drawer-nav__item">
+              <span class="m-drawer-nav__icon"><img src="assets/nav-emenu.png" alt="" /></span>
+              <span class="m-drawer-nav__label">E-Menu</span>
+              <span class="m-drawer-nav__chevron"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
+            </button>
+            <div class="m-drawer-nav__panel">
+              <a href="#" class="m-drawer-nav__sub m-drawer-nav__sub--active"><span class="m-drawer-nav__dot"></span>Menu</a>
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Promotion</a>
+            </div>
+          </div>
+
+          <div class="m-drawer-group">
+            <button type="button" class="m-drawer-nav__item">
+              <span class="m-drawer-nav__icon"><img src="assets/nav-crm.png" alt="" /></span>
+              <span class="m-drawer-nav__label">CRM &amp; Promotion</span>
+              <span class="m-drawer-nav__chevron"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
+            </button>
+            <div class="m-drawer-nav__panel">
+              <a href="#" class="m-drawer-nav__sub m-drawer-nav__sub--active"><span class="m-drawer-nav__dot"></span>CRM</a>
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Promotion</a>
+            </div>
+          </div>
+
+          <div class="m-drawer-group">
+            <button type="button" class="m-drawer-nav__item">
+              <span class="m-drawer-nav__icon"><img src="assets/nav-settings.png" alt="" /></span>
+              <span class="m-drawer-nav__label">Settings</span>
+              <span class="m-drawer-nav__chevron"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
+            </button>
+            <div class="m-drawer-nav__panel">
+              <a href="#" class="m-drawer-nav__sub m-drawer-nav__sub--active"><span class="m-drawer-nav__dot"></span>Stock</a>
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>E-Menu</a>
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Preferences</a>
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Inventory</a>
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Supplier</a>
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Kitchen Printing</a>
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Miscellaneous</a>
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>POS</a>
+            </div>
+          </div>
+
+          <div class="m-drawer-group">
+            <button type="button" class="m-drawer-nav__item">
+              <span class="m-drawer-nav__icon"><img src="assets/nav-housekeeping.png" alt="" /></span>
+              <span class="m-drawer-nav__label">Housekeeping</span>
+              <span class="m-drawer-nav__chevron"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
+            </button>
+            <div class="m-drawer-nav__panel">
+              <a href="#" class="m-drawer-nav__sub m-drawer-nav__sub--active"><span class="m-drawer-nav__dot"></span>Housekeeping</a>
+            </div>
+          </div>
+
+        </nav>
+      </aside>
+
+      <!-- Full-screen: report picker -->
+      <div class="m-sheet-popup" id="report-sheet">
+        <div class="m-sheet-popup__head">
+          <button type="button" class="m-sheet-popup__back" id="report-sheet-back" aria-label="Back">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+          </button>
+          <p class="m-sheet-popup__label">Operation Report</p>
+        </div>
+        <div class="m-sheet-popup__card">
+          <a href="#" class="m-sheet-popup__item"><span class="m-sheet-popup__dot"></span>Hourly Sales</a>
+          <a href="#" class="m-sheet-popup__item"><span class="m-sheet-popup__dot"></span>Tax Transaction</a>
+          <a href="#" class="m-sheet-popup__item"><span class="m-sheet-popup__dot"></span>Category Sales</a>
+          <a href="#" class="m-sheet-popup__item"><span class="m-sheet-popup__dot"></span>Department Sales</a>
+          <a href="#" class="m-sheet-popup__item"><span class="m-sheet-popup__dot"></span>Group Sales</a>
+          <a href="#" class="m-sheet-popup__item"><span class="m-sheet-popup__dot"></span>Item Sales</a>
+          <a href="#" class="m-sheet-popup__item"><span class="m-sheet-popup__dot"></span>Price Level Shift</a>
+          <a href="#" class="m-sheet-popup__item"><span class="m-sheet-popup__dot"></span>Sales Remark</a>
+          <a href="#" class="m-sheet-popup__item"><span class="m-sheet-popup__dot"></span>Sold Item Analysis</a>
+          <a href="#" class="m-sheet-popup__item"><span class="m-sheet-popup__dot"></span>Operator Collection</a>
+          <a href="#" class="m-sheet-popup__item"><span class="m-sheet-popup__dot"></span>Receipt Analysis</a>
+          <a href="#" class="m-sheet-popup__item"><span class="m-sheet-popup__dot"></span>Inactive Stock</a>
+          <a href="#" class="m-sheet-popup__item"><span class="m-sheet-popup__dot"></span>Average Sales Summary</a>
+          <a href="#" class="m-sheet-popup__item"><span class="m-sheet-popup__dot"></span>Attendance Report</a>
+          <a href="#" class="m-sheet-popup__item"><span class="m-sheet-popup__dot"></span>Stock Enquiry</a>
+          <a href="#" class="m-sheet-popup__item"><span class="m-sheet-popup__dot"></span>Production Enquiry</a>
+        </div>
+      </div>
+
+      <!-- Full-screen: transaction report picker -->
+      <div class="m-sheet-popup" id="transaction-sheet">
+        <div class="m-sheet-popup__head">
+          <button type="button" class="m-sheet-popup__back" id="transaction-sheet-back" aria-label="Back">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+          </button>
+          <p class="m-sheet-popup__label">Transaction Report</p>
+        </div>
+        <div class="m-sheet-popup__card">
+          <a href="#" class="m-sheet-popup__item"><span class="m-sheet-popup__dot"></span>Transaction Details</a>
+          <a href="#" class="m-sheet-popup__item"><span class="m-sheet-popup__dot"></span>Payment Type</a>
+          <a href="#" class="m-sheet-popup__item"><span class="m-sheet-popup__dot"></span>Terminal Collection</a>
+        </div>
+      </div>
+
+      <!-- Bottom sheet: date range picker -->
+      <div class="m-datesheet-backdrop" id="date-sheet-backdrop"></div>
+      <div class="m-datesheet" id="date-sheet">
+        <div class="m-datesheet__handle"></div>
+
+        <div class="m-datesheet__head">
+          <p class="m-datesheet__title">Select Date Range</p>
+          <button type="button" class="m-datesheet__close" id="date-sheet-close" aria-label="Close">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          </button>
+        </div>
+
+        <div class="m-datesheet__presets" id="date-sheet-presets">
+          <button type="button" class="m-datesheet__preset" data-preset="today">Today</button>
+          <button type="button" class="m-datesheet__preset" data-preset="yesterday">Yesterday</button>
+          <button type="button" class="m-datesheet__preset" data-preset="this-week">This week</button>
+          <button type="button" class="m-datesheet__preset" data-preset="last-week">Last week</button>
+          <button type="button" class="m-datesheet__preset m-datesheet__preset--active" data-preset="this-month">This month</button>
+          <button type="button" class="m-datesheet__preset" data-preset="last-month">Last month</button>
+          <button type="button" class="m-datesheet__preset" data-preset="this-year">This year</button>
+          <button type="button" class="m-datesheet__preset" data-preset="last-year">Last year</button>
+        </div>
+
+        <div class="m-datesheet__cal-head">
+          <button type="button" class="m-datesheet__nav" id="date-sheet-prev" aria-label="Previous month">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+          </button>
+          <span class="m-datesheet__month" id="date-sheet-month">January 2026</span>
+          <button type="button" class="m-datesheet__nav" id="date-sheet-next" aria-label="Next month">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+          </button>
+        </div>
+
+        <div class="m-datesheet__weekdays">
+          <span>Sun</span><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span>
+        </div>
+
+        <div class="m-datesheet__grid" id="date-sheet-grid"></div>
+
+        <div class="m-datesheet__footer">
+          <span class="m-datesheet__range" id="date-sheet-range">01 Jan 2026 &ndash; 31 Jan 2026</span>
+          <button type="button" class="m-datesheet__apply" id="date-sheet-apply">Apply</button>
+        </div>
+      </div>
+
+      <header class="m-dash-topbar">
+        <button type="button" class="m-dash-icon-btn m-dash-menu-btn" aria-label="Menu">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+
+        <div class="m-dash-brand">
+          <img src="assets/oiso-logo.png" alt="OiSO" class="m-dash-brand__logo" />
+        </div>
+
+        <div class="m-dash-topbar__right">
+          <button type="button" class="m-dash-icon-btn" aria-label="Notifications">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+          </button>
+          <div class="m-dash-avatar">JT</div>
+        </div>
+      </header>
+
+      <div class="m-dash-storebar">
+        <button type="button" class="m-dash-store-select">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l1-5h16l1 5"/><path d="M4 9h16v10a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V9z"/></svg>
+          Oiso
+          <svg class="m-dash-chevron" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <button type="button" class="m-dash-store-select">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l1-5h16l1 5"/><path d="M4 9h16v10a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V9z"/></svg>
+          All Store
+          <svg class="m-dash-chevron" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+
+      <div class="m-dash-body">
+
+        <div class="m-dash-titlebar">
+          <h1>Dashboard</h1>
+          <p>Dashboard</p>
+        </div>
+
+        <div class="m-dash-filters">
+          <label class="m-dash-search">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <input type="text" placeholder="Search" />
+          </label>
+          <button type="button" class="m-dash-filter-btn" id="date-range-btn">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            <span id="date-range-label">01-01-2026 To 31-12-2026</span>
+          </button>
+          <button type="button" class="m-dash-filter-btn">All Store <svg class="m-dash-chevron" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
+        </div>
+
+        <div class="m-dash-tabs">
+          <button type="button" class="m-dash-tab m-dash-tab--active">Hourly</button>
+          <button type="button" class="m-dash-tab">Daily</button>
+          <button type="button" class="m-dash-tab">Month To Date</button>
+          <button type="button" class="m-dash-tab">Year To Date</button>
+        </div>
+
+        <div class="m-dash-kpis">
+          <div class="m-dash-kpi">
+            <span class="m-dash-kpi__label">Hourly Sales</span>
+            <strong class="m-dash-kpi__value">RM 1,250.50</strong>
+            <span class="m-dash-kpi__delta m-dash-kpi__delta--up">&#8599; RM61.00 +30%</span>
+          </div>
+          <div class="m-dash-kpi">
+            <span class="m-dash-kpi__label">Hourly Profit</span>
+            <strong class="m-dash-kpi__value">RM 2,610.00</strong>
+            <span class="m-dash-kpi__delta m-dash-kpi__delta--up">&#8599; RM61.00 +30%</span>
+          </div>
+          <div class="m-dash-kpi">
+            <span class="m-dash-kpi__label">Hourly Transaction</span>
+            <strong class="m-dash-kpi__value">286</strong>
+            <span class="m-dash-kpi__delta">Receipts</span>
+          </div>
+          <div class="m-dash-kpi">
+            <span class="m-dash-kpi__label">Hourly Transactions</span>
+            <strong class="m-dash-kpi__value">RM 31.26</strong>
+          </div>
+          <div class="m-dash-kpi m-dash-kpi--alert">
+            <span class="m-dash-kpi__label">Hourly Refund</span>
+            <strong class="m-dash-kpi__value m-dash-kpi__value--danger">RM 96.50</strong>
+            <span class="m-dash-kpi__delta">RM0.00 0%</span>
+          </div>
+          <div class="m-dash-kpi m-dash-kpi--alert">
+            <span class="m-dash-kpi__label">Hourly Void</span>
+            <strong class="m-dash-kpi__value m-dash-kpi__value--danger">RM 180.00</strong>
+            <span class="m-dash-kpi__delta">&#8599; RM0.00 +30%</span>
+          </div>
+        </div>
+
+        <div class="m-dash-card">
+          <div class="m-dash-card__head">
+            <h2>Hourly Sales</h2>
+          </div>
+          <div class="m-dash-chart-wrap">
+            <canvas id="chartSales" height="220"></canvas>
+          </div>
+        </div>
+
+        <div class="m-dash-card">
+          <div class="m-dash-card__head">
+            <h2>Payment Type</h2>
+          </div>
+          <div class="m-dash-donut-wrap">
+            <div class="m-dash-donut-canvas">
+              <canvas id="chartPayment" width="170" height="170"></canvas>
+              <div class="m-dash-donut-center">
+                <span>Total Sales</span>
+                <strong>$1,024,900.00</strong>
+              </div>
+            </div>
+          </div>
+          <table class="m-dash-table">
+            <thead>
+              <tr><th>Method</th><th>Txns</th><th>Amount</th><th>%</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><span class="m-dash-dot" style="background:#f0393c"></span>Credit Card</td><td>3,450</td><td>487,500.00</td><td>42%</td></tr>
+              <tr><td><span class="m-dash-dot" style="background:#3b82f6"></span>E-Wallet</td><td>2,890</td><td>312,400.00</td><td>35%</td></tr>
+              <tr><td><span class="m-dash-dot" style="background:#22c55e"></span>Cash</td><td>1,240</td><td>156,800.00</td><td>15%</td></tr>
+              <tr><td><span class="m-dash-dot" style="background:#f59e0b"></span>Others</td><td>620</td><td>68,200.00</td><td>8%</td></tr>
+            </tbody>
+            <tfoot>
+              <tr><td>Total</td><td>8,200</td><td>1,024,900.00</td><td>100%</td></tr>
+            </tfoot>
+          </table>
+        </div>
+
+        <div class="m-dash-card">
+          <div class="m-dash-card__head">
+            <h2>Top 5 Sales Contribution</h2>
+          </div>
+          <div class="m-dash-pills">
+            <button type="button" class="m-dash-pill m-dash-pill--active">By Group</button>
+            <button type="button" class="m-dash-pill">By Department</button>
+            <button type="button" class="m-dash-pill">By Category</button>
+            <button type="button" class="m-dash-pill">By Brand</button>
+          </div>
+          <table class="m-dash-table">
+            <thead>
+              <tr><th>#</th><th>Group</th><th>Sales (RM)</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>1</td><td>Beverage</td><td>780.33</td></tr>
+              <tr><td>2</td><td>Set Menu</td><td>661.40</td></tr>
+              <tr><td>3</td><td>Appetizers</td><td>457.00</td></tr>
+              <tr><td>4</td><td>Appetizers</td><td>400.00</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="m-dash-card">
+          <div class="m-dash-card__head">
+            <h2>Top 10 outlets</h2>
+            <div class="m-dash-seg">
+              <button type="button" class="m-dash-seg__btn m-dash-seg__btn--active">Day</button>
+              <button type="button" class="m-dash-seg__btn">Week</button>
+              <button type="button" class="m-dash-seg__btn">Month</button>
+            </div>
+          </div>
+          <div class="m-dash-chart-wrap">
+            <canvas id="chartOutlets" height="220"></canvas>
+          </div>
+        </div>
+
+        <div class="m-dash-card">
+          <div class="m-dash-card__head">
+            <h2>Inventory Alert</h2>
+          </div>
+          <table class="m-dash-table">
+            <thead>
+              <tr><th>Outlet</th><th>Stock</th><th>Qty</th><th>Status</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Oiso PJ Store 2</td><td>Salmon</td><td>30</td><td><span class="m-dash-badge m-dash-badge--low">Low Stock</span></td></tr>
+              <tr><td>Oiso KL Store 1</td><td>Rice</td><td>0</td><td><span class="m-dash-badge m-dash-badge--out">Out of Stock</span></td></tr>
+              <tr><td>Oiso PJ Store 1</td><td>Chicken Chop</td><td>23</td><td><span class="m-dash-badge m-dash-badge--low">Low Stock</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="m-dash-footer">
+          <p>Copyright &copy; 2026</p>
+          <p>Powered by Qube Apps Solutions Sdn Bhd (981542-A)</p>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.4/chart.umd.min.js"></script>
+  <script>
+    const toggleBtn = document.querySelector('.m-toggle-password');
+    const passwordInput = document.getElementById('m-password');
+    const eyeIcon = toggleBtn.querySelector('.m-eye-icon');
+    toggleBtn.addEventListener('click', () => {
+      const isPassword = passwordInput.type === 'password';
+      passwordInput.type = isPassword ? 'text' : 'password';
+      eyeIcon.src = isPassword ? 'assets/open-eye.png' : 'assets/close-eye.png';
+      toggleBtn.setAttribute('aria-pressed', String(isPassword));
+      toggleBtn.setAttribute('aria-label', isPassword ? 'Hide password' : 'Show password');
+    });
+
+    const viewLogin = document.getElementById('view-login');
+    const viewBrand = document.getElementById('view-brand');
+    const viewDashboard = document.getElementById('view-dashboard');
+
+    function showView(view) {
+      [viewLogin, viewBrand, viewDashboard].forEach((v) => { v.hidden = v !== view; });
+      window.scrollTo(0, 0);
+    }
+
+    document.getElementById('m-login-btn').addEventListener('click', () => {
+      showView(viewBrand);
+    });
+
+    document.getElementById('brand-oiso').addEventListener('click', (e) => {
+      e.preventDefault();
+      showView(viewDashboard);
+    });
+
+    document.getElementById('brand-mimi').addEventListener('click', (e) => {
+      e.preventDefault();
+      // No dashboard built for MIMI yet.
+    });
+
+    const dashDrawer = document.getElementById('dash-drawer');
+
+    function openDrawer() {
+      dashDrawer.classList.add('is-open');
+    }
+
+    function closeDrawer() {
+      dashDrawer.classList.remove('is-open');
+    }
+
+    function closeDrawerInstant() {
+      // Hide the drawer immediately (no slide-out transition) so it can't
+      // be seen behind a popup that is opening on top of it.
+      dashDrawer.style.transition = 'none';
+      dashDrawer.classList.remove('is-open');
+      dashDrawer.offsetHeight; // force reflow to apply the transition:none
+      dashDrawer.style.transition = '';
+    }
+
+    document.querySelector('.m-dash-menu-btn')?.addEventListener('click', openDrawer);
+    document.getElementById('dash-drawer-close')?.addEventListener('click', closeDrawer);
+
+    const drawerGroups = document.querySelectorAll('.m-drawer-group');
+    drawerGroups.forEach((group) => {
+      const trigger = group.querySelector('.m-drawer-nav__item');
+      trigger.addEventListener('click', () => {
+        const willExpand = !group.classList.contains('is-expanded');
+        drawerGroups.forEach((g) => g.classList.remove('is-expanded'));
+        if (willExpand) {
+          group.classList.add('is-expanded');
+        }
+      });
+    });
+
+    const reportSheet = document.getElementById('report-sheet');
+
+    function openReportSheet() {
+      reportSheet.classList.add('is-open');
+    }
+
+    function closeReportSheet() {
+      reportSheet.classList.remove('is-open');
+    }
+
+    document.getElementById('sub-operation')?.addEventListener('click', (e) => {
+      e.preventDefault();
+      closeDrawerInstant();
+      openReportSheet();
+    });
+
+    document.getElementById('report-sheet-back')?.addEventListener('click', () => {
+      closeReportSheet();
+      openDrawer();
+    });
+
+    const transactionSheet = document.getElementById('transaction-sheet');
+
+    function openTransactionSheet() {
+      transactionSheet.classList.add('is-open');
+    }
+
+    function closeTransactionSheet() {
+      transactionSheet.classList.remove('is-open');
+    }
+
+    document.getElementById('sub-transaction')?.addEventListener('click', (e) => {
+      e.preventDefault();
+      closeDrawerInstant();
+      openTransactionSheet();
+    });
+
+    document.getElementById('transaction-sheet-back')?.addEventListener('click', () => {
+      closeTransactionSheet();
+      openDrawer();
+    });
+
+    /* ---------- Date range picker ---------- */
+    (function () {
+      const MONTH_NAMES = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+      const dateBtn = document.getElementById('date-range-btn');
+      const dateLabel = document.getElementById('date-range-label');
+      const sheet = document.getElementById('date-sheet');
+      const backdrop = document.getElementById('date-sheet-backdrop');
+      const monthLabel = document.getElementById('date-sheet-month');
+      const grid = document.getElementById('date-sheet-grid');
+      const rangeLabel = document.getElementById('date-sheet-range');
+      const presets = document.querySelectorAll('.m-datesheet__preset');
+
+      if (!dateBtn || !sheet) return;
+
+      let viewYear = 2026;
+      let viewMonth = 0; // 0 = January
+      let rangeStart = new Date(2026, 0, 1);
+      let rangeEnd = new Date(2026, 0, 31);
+
+      function fmt(d) {
+        const day = String(d.getDate()).padStart(2, '0');
+        const mon = MONTH_NAMES[d.getMonth()].slice(0, 3);
+        return `${day} ${mon} ${d.getFullYear()}`;
+      }
+
+      function fmtShort(d) {
+        const day = String(d.getDate()).padStart(2, '0');
+        const mon = String(d.getMonth() + 1).padStart(2, '0');
+        return `${day}-${mon}-${d.getFullYear()}`;
+      }
+
+      function sameDay(a, b) {
+        return a.getFullYear() === b.getFullYear() && a.getMonth() === b.getMonth() && a.getDate() === b.getDate();
+      }
+
+      function renderCalendar() {
+        monthLabel.textContent = `${MONTH_NAMES[viewMonth]} ${viewYear}`;
+        grid.innerHTML = '';
+
+        const firstDay = new Date(viewYear, viewMonth, 1).getDay();
+        const daysInMonth = new Date(viewYear, viewMonth + 1, 0).getDate();
+
+        for (let i = 0; i < firstDay; i++) {
+          const blank = document.createElement('button');
+          blank.type = 'button';
+          blank.className = 'm-datesheet__day';
+          blank.disabled = true;
+          grid.appendChild(blank);
+        }
+
+        for (let d = 1; d <= daysInMonth; d++) {
+          const cellDate = new Date(viewYear, viewMonth, d);
+          const btn = document.createElement('button');
+          btn.type = 'button';
+          btn.className = 'm-datesheet__day';
+
+          const inRange = rangeStart && rangeEnd && cellDate >= rangeStart && cellDate <= rangeEnd;
+          const isStart = rangeStart && sameDay(cellDate, rangeStart);
+          const isEnd = rangeEnd && sameDay(cellDate, rangeEnd);
+
+          if (inRange) btn.classList.add('is-in-range');
+          if (isStart) btn.classList.add('is-range-start');
+          if (isEnd) btn.classList.add('is-range-end');
+
+          const span = document.createElement('span');
+          span.textContent = String(d);
+          btn.appendChild(span);
+
+          btn.addEventListener('click', () => {
+            if (!rangeStart || (rangeStart && rangeEnd)) {
+              rangeStart = cellDate;
+              rangeEnd = null;
+            } else if (cellDate < rangeStart) {
+              rangeEnd = rangeStart;
+              rangeStart = cellDate;
+            } else {
+              rangeEnd = cellDate;
+            }
+            presets.forEach((p) => p.classList.remove('m-datesheet__preset--active'));
+            updateRangeLabel();
+            renderCalendar();
+          });
+
+          grid.appendChild(btn);
+        }
+      }
+
+      function updateRangeLabel() {
+        if (rangeStart && rangeEnd) {
+          rangeLabel.textContent = `${fmt(rangeStart)} – ${fmt(rangeEnd)}`;
+        } else if (rangeStart) {
+          rangeLabel.textContent = fmt(rangeStart);
+        } else {
+          rangeLabel.textContent = 'Select a date range';
+        }
+      }
+
+      function goToMonth(date) {
+        viewYear = date.getFullYear();
+        viewMonth = date.getMonth();
+      }
+
+      function openDateSheet() {
+        sheet.classList.add('is-open');
+        backdrop.classList.add('is-open');
+        renderCalendar();
+        updateRangeLabel();
+      }
+
+      function closeDateSheet() {
+        sheet.classList.remove('is-open');
+        backdrop.classList.remove('is-open');
+      }
+
+      dateBtn.addEventListener('click', openDateSheet);
+      backdrop.addEventListener('click', closeDateSheet);
+      document.getElementById('date-sheet-close')?.addEventListener('click', closeDateSheet);
+
+      document.getElementById('date-sheet-prev')?.addEventListener('click', () => {
+        viewMonth -= 1;
+        if (viewMonth < 0) { viewMonth = 11; viewYear -= 1; }
+        renderCalendar();
+      });
+
+      document.getElementById('date-sheet-next')?.addEventListener('click', () => {
+        viewMonth += 1;
+        if (viewMonth > 11) { viewMonth = 0; viewYear += 1; }
+        renderCalendar();
+      });
+
+      presets.forEach((preset) => {
+        preset.addEventListener('click', () => {
+          presets.forEach((p) => p.classList.remove('m-datesheet__preset--active'));
+          preset.classList.add('m-datesheet__preset--active');
+
+          const today = new Date(2026, 6, 15); // fixed "today" reference for this prototype
+          const startOfWeek = (d) => {
+            const s = new Date(d);
+            s.setDate(s.getDate() - s.getDay());
+            return s;
+          };
+
+          switch (preset.dataset.preset) {
+            case 'today':
+              rangeStart = today; rangeEnd = today; break;
+            case 'yesterday': {
+              const y = new Date(today); y.setDate(y.getDate() - 1);
+              rangeStart = y; rangeEnd = y; break;
+            }
+            case 'this-week':
+              rangeStart = startOfWeek(today); rangeEnd = today; break;
+            case 'last-week': {
+              const end = new Date(startOfWeek(today)); end.setDate(end.getDate() - 1);
+              const start = startOfWeek(end);
+              rangeStart = start; rangeEnd = end; break;
+            }
+            case 'this-month':
+              rangeStart = new Date(today.getFullYear(), today.getMonth(), 1);
+              rangeEnd = new Date(today.getFullYear(), today.getMonth() + 1, 0); break;
+            case 'last-month':
+              rangeStart = new Date(today.getFullYear(), today.getMonth() - 1, 1);
+              rangeEnd = new Date(today.getFullYear(), today.getMonth(), 0); break;
+            case 'this-year':
+              rangeStart = new Date(today.getFullYear(), 0, 1);
+              rangeEnd = new Date(today.getFullYear(), 11, 31); break;
+            case 'last-year':
+              rangeStart = new Date(today.getFullYear() - 1, 0, 1);
+              rangeEnd = new Date(today.getFullYear() - 1, 11, 31); break;
+          }
+
+          goToMonth(rangeStart);
+          updateRangeLabel();
+          renderCalendar();
+        });
+      });
+
+      document.getElementById('date-sheet-apply')?.addEventListener('click', () => {
+        if (rangeStart && rangeEnd) {
+          dateLabel.textContent = `${fmtShort(rangeStart)} To ${fmtShort(rangeEnd)}`;
+        }
+        closeDateSheet();
+      });
+    })();
+
+    if (window.Chart) {
+      const primary = '#be2026';
+
+      new Chart(document.getElementById('chartSales'), {
+        type: 'line',
+        data: {
+          labels: ['12am', '2am', '4am', '6am', '8am', '10am', '12pm', '2pm', '4pm', '6pm', '8pm', '10pm'],
+          datasets: [{
+            data: [80, 50, 10, 90, 350, 580, 980, 920, 420, 600, 500, 300],
+            borderColor: '#8b7ff0',
+            backgroundColor: 'rgba(139,127,240,0.15)',
+            fill: true,
+            tension: 0.4,
+            pointRadius: 3,
+            pointBackgroundColor: '#8b7ff0',
+          }],
+        },
+        options: {
+          responsive: true,
+          plugins: { legend: { display: false } },
+          scales: {
+            x: { ticks: { font: { size: 10 } }, grid: { display: false } },
+            y: { ticks: { font: { size: 10 } }, grid: { color: '#f0f0f0' } },
+          },
+        },
+      });
+
+      new Chart(document.getElementById('chartPayment'), {
+        type: 'doughnut',
+        data: {
+          labels: ['Credit Card', 'E-Wallet', 'Cash', 'Others'],
+          datasets: [{
+            data: [42, 35, 15, 8],
+            backgroundColor: ['#f0393c', '#3b82f6', '#22c55e', '#f59e0b'],
+            borderWidth: 0,
+          }],
+        },
+        options: {
+          responsive: true,
+          cutout: '72%',
+          plugins: { legend: { display: false } },
+        },
+      });
+
+      new Chart(document.getElementById('chartOutlets'), {
+        type: 'bar',
+        data: {
+          labels: ['1', '2', '3', '4', '5', '6', '7', '8'],
+          datasets: [{
+            data: [5300, 4800, 4500, 3500, 3200, 2900, 1600, 1200],
+            backgroundColor: '#f7a531',
+            borderRadius: 4,
+            maxBarThickness: 28,
+          }],
+        },
+        options: {
+          responsive: true,
+          plugins: { legend: { display: false } },
+          scales: {
+            x: { ticks: { font: { size: 10 } }, grid: { display: false } },
+            y: { ticks: { font: { size: 10 } }, grid: { color: '#f0f0f0' } },
+          },
+        },
+      });
+    }
+  </script>
+</body>
+</html>
