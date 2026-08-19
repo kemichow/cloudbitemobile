@@ -109,24 +109,29 @@
     });
 
     const brandSheet = document.getElementById('brand-sheet');
+    const brandSheetBackdrop = document.getElementById('brand-sheet-backdrop');
 
     function openBrandSheet() {
       brandSheet.classList.add('is-open');
+      brandSheetBackdrop.classList.add('is-open');
     }
 
     function closeBrandSheet() {
       brandSheet.classList.remove('is-open');
+      brandSheetBackdrop.classList.remove('is-open');
     }
 
     document.getElementById('store-select-oiso')?.addEventListener('click', (e) => {
       e.preventDefault();
-      closeDrawerInstant();
       openBrandSheet();
     });
 
     document.getElementById('brand-sheet-back')?.addEventListener('click', () => {
       closeBrandSheet();
-      openDrawer();
+    });
+
+    brandSheetBackdrop?.addEventListener('click', () => {
+      closeBrandSheet();
     });
 
     document.getElementById('brand-sheet-oiso')?.addEventListener('click', (e) => {
@@ -137,6 +142,219 @@
     document.getElementById('brand-sheet-mimi')?.addEventListener('click', (e) => {
       e.preventDefault();
       closeBrandSheet();
+    });
+
+    const storeSheet = document.getElementById('store-sheet');
+    const storeSheetBackdrop = document.getElementById('store-sheet-backdrop');
+    const storeFilterLabel = document.getElementById('store-filter-label');
+    const drawerStoreLabel = document.getElementById('drawer-store-label');
+    const storeItems = document.querySelectorAll('.m-store-item');
+
+    function openStoreSheet() {
+      storeSheet.classList.add('is-open');
+      storeSheetBackdrop.classList.add('is-open');
+    }
+
+    function closeStoreSheet() {
+      storeSheet.classList.remove('is-open');
+      storeSheetBackdrop.classList.remove('is-open');
+    }
+
+    document.getElementById('store-filter-btn')?.addEventListener('click', () => {
+      openStoreSheet();
+    });
+
+    document.getElementById('drawer-store-select')?.addEventListener('click', () => {
+      openStoreSheet();
+    });
+
+    document.getElementById('store-sheet-back')?.addEventListener('click', () => {
+      closeStoreSheet();
+    });
+
+    storeSheetBackdrop?.addEventListener('click', () => {
+      closeStoreSheet();
+    });
+
+    storeItems.forEach((item) => {
+      item.addEventListener('click', () => {
+        storeItems.forEach((i) => i.classList.remove('is-active'));
+        item.classList.add('is-active');
+        if (storeFilterLabel) {
+          storeFilterLabel.textContent = item.dataset.store;
+        }
+        if (drawerStoreLabel) {
+          drawerStoreLabel.textContent = item.dataset.store;
+        }
+        closeStoreSheet();
+      });
+    });
+
+    const KPI_DATA = {
+      hourly: {
+        sales: { label: 'Hourly Sales', value: 'RM 1,250.50', delta: '&#8599; RM61.00 +30%', deltaUp: true },
+        profit: { label: 'Hourly Profit', value: 'RM 2,610.00', delta: '&#8599; RM61.00 +30%', deltaUp: true },
+        transaction: { label: 'Hourly Transaction', value: '286', delta: 'Receipts' },
+        avg: { label: 'Average Transactions', value: 'RM 31.26', delta: '' },
+        refund: { label: 'Hourly Refund', value: 'RM 96.50', delta: 'RM0.00 0%' },
+        void: { label: 'Hourly Void', value: 'RM 180.00', delta: '&#8599; RM0.00 +30%' },
+      },
+      daily: {
+        sales: { label: 'Daily Sales', value: 'RM 8,940.20', delta: '&#8599; RM61.00 +30%', deltaUp: true },
+        profit: { label: 'Daily Profit', value: 'RM 2,610.00', delta: '&#8599; RM61.00 +30%', deltaUp: true },
+        transaction: { label: 'Daily Transaction', value: '286', delta: 'Receipts' },
+        avg: { label: 'Average Transactions', value: 'RM 31.26', delta: '' },
+        refund: { label: 'Daily Refund', value: 'RM 96.50', delta: 'RM0.00 0%' },
+        void: { label: 'Daily Void', value: 'RM 180.00', delta: '&#8599; RM0.00 +30%' },
+      },
+      mtd: {
+        sales: { label: 'MTD Sales', value: 'RM 38,240.00', delta: '&#8599; RM61.00 +30%', deltaUp: true },
+        profit: { label: 'MTD Profit', value: 'RM 11,930.00', delta: '&#8599; RM61.00 +30%', deltaUp: true },
+        transaction: { label: 'MTD Transaction', value: '1,204', delta: 'Receipts' },
+        avg: { label: 'Average Transactions', value: 'RM 31.76', delta: '' },
+        refund: { label: 'MTD Refund', value: 'RM 412.00', delta: 'RM0.00 0%' },
+        void: { label: 'MTD Void', value: 'RM 760.00', delta: '&#8599; RM0.00 +30%' },
+      },
+      ytd: {
+        sales: { label: 'YTD Sales', value: 'RM 1,250.50', delta: '&#8599; RM61.00 +30%', deltaUp: true },
+        profit: { label: 'YTD Profit', value: 'RM 413.00', delta: '&#8599; RM61.00 +30%', deltaUp: true },
+        transaction: { label: 'YTD Transaction', value: '42', delta: 'Receipts' },
+        avg: { label: 'Average Transactions', value: 'RM 28.10', delta: '' },
+        refund: { label: 'YTD Refund', value: 'RM 15.00', delta: 'RM0.00 0%' },
+        void: { label: 'YTD Void', value: 'RM 42.00', delta: '&#8599; RM0.00 +30%' },
+      },
+    };
+
+    const dashTabs = document.querySelectorAll('.m-dash-tab');
+    const dashKpis = document.querySelectorAll('.m-dash-kpi');
+
+    function applyKpiPeriod(period) {
+      const data = KPI_DATA[period];
+      if (!data) return;
+      dashKpis.forEach((kpi) => {
+        const key = kpi.dataset.kpi;
+        const entry = data[key];
+        if (!entry) return;
+        const labelEl = kpi.querySelector('.m-dash-kpi__label');
+        const valueEl = kpi.querySelector('.m-dash-kpi__value');
+        const deltaEl = kpi.querySelector('.m-dash-kpi__delta');
+        if (labelEl) labelEl.textContent = entry.label;
+        if (valueEl) valueEl.textContent = entry.value;
+        if (deltaEl) {
+          deltaEl.innerHTML = entry.delta || '';
+          deltaEl.classList.toggle('m-dash-kpi__delta--up', !!entry.deltaUp);
+        }
+      });
+    }
+
+    dashTabs.forEach((tab) => {
+      tab.addEventListener('click', () => {
+        dashTabs.forEach((t) => t.classList.remove('m-dash-tab--active'));
+        tab.classList.add('m-dash-tab--active');
+        applyKpiPeriod(tab.dataset.period);
+      });
+    });
+
+    const kpiInfoBtns = document.querySelectorAll('.m-kpi-info');
+
+    kpiInfoBtns.forEach((btn) => {
+      const tip = document.createElement('span');
+      tip.className = 'm-kpi-info__tooltip';
+      tip.textContent = btn.dataset.tooltip || '';
+      btn.appendChild(tip);
+
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const wasOpen = btn.classList.contains('is-open');
+        kpiInfoBtns.forEach((b) => b.classList.remove('is-open'));
+        if (!wasOpen) {
+          btn.classList.add('is-open');
+        }
+      });
+    });
+
+    document.addEventListener('click', () => {
+      kpiInfoBtns.forEach((b) => b.classList.remove('is-open'));
+    });
+
+    const dashKpisRow = document.getElementById('dash-kpis');
+    const dashKpisDots = document.getElementById('dash-kpis-dots');
+
+    if (dashKpisRow && dashKpisDots) {
+      const kpiCards = Array.from(dashKpisRow.querySelectorAll('.m-dash-kpi'));
+
+      function cardTarget(index) {
+        const maxScroll = dashKpisRow.scrollWidth - dashKpisRow.clientWidth;
+        if (index === kpiCards.length - 1) {
+          return maxScroll;
+        }
+        const card = kpiCards[index];
+        const target = card.getBoundingClientRect().left - dashKpisRow.getBoundingClientRect().left + dashKpisRow.scrollLeft;
+        return Math.min(target, maxScroll);
+      }
+
+      kpiCards.forEach((card, i) => {
+        const dot = document.createElement('button');
+        dot.type = 'button';
+        dot.className = 'm-dash-kpis-dots__dot';
+        dot.setAttribute('aria-label', `Go to card ${i + 1}`);
+        dot.addEventListener('click', () => {
+          dashKpisRow.scrollTo({ left: cardTarget(i), behavior: 'smooth' });
+        });
+        dashKpisDots.appendChild(dot);
+      });
+
+      const dotEls = Array.from(dashKpisDots.querySelectorAll('.m-dash-kpis-dots__dot'));
+
+      function updateActiveDot() {
+        const rowLeft = dashKpisRow.scrollLeft;
+        const maxScroll = dashKpisRow.scrollWidth - dashKpisRow.clientWidth;
+        if (rowLeft >= maxScroll - 2) {
+          dotEls.forEach((dot, i) => dot.classList.toggle('is-active', i === kpiCards.length - 1));
+          return;
+        }
+        let closestIndex = 0;
+        let closestDist = Infinity;
+        kpiCards.forEach((card, i) => {
+          const cardLeft = card.getBoundingClientRect().left - dashKpisRow.getBoundingClientRect().left + rowLeft;
+          const dist = Math.abs(cardLeft - rowLeft);
+          if (dist < closestDist) {
+            closestDist = dist;
+            closestIndex = i;
+          }
+        });
+        dotEls.forEach((dot, i) => dot.classList.toggle('is-active', i === closestIndex));
+      }
+
+      dashKpisRow.addEventListener('scroll', () => {
+        window.requestAnimationFrame(updateActiveDot);
+      });
+      updateActiveDot();
+    }
+
+    const filterSheet = document.getElementById('filter-sheet');
+    const filterSheetBackdrop = document.getElementById('filter-sheet-backdrop');
+
+    function openFilterSheet() {
+      filterSheet.classList.add('is-open');
+      filterSheetBackdrop.classList.add('is-open');
+    }
+
+    function closeFilterSheet() {
+      filterSheet.classList.remove('is-open');
+      filterSheetBackdrop.classList.remove('is-open');
+    }
+
+    document.getElementById('dash-filter-btn')?.addEventListener('click', () => {
+      openFilterSheet();
+    });
+
+    document.getElementById('filter-sheet-close')?.addEventListener('click', () => {
+      closeFilterSheet();
+    });
+
+    filterSheetBackdrop?.addEventListener('click', () => {
+      closeFilterSheet();
     });
 
     const notifSheet = document.getElementById('notif-sheet');

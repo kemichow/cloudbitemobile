@@ -72,11 +72,11 @@
 
         <div class="m-brand-list">
           <a href="#" id="brand-oiso" class="m-brand-item">
-            <img src="assets/oiso-logo.png" alt="OiSO — Korean Traditional Cuisine &amp; Cafe" class="m-brand-item__logo" />
+            <img src="assets/oiso-logo.svg" alt="OiSO — Korean Traditional Cuisine &amp; Cafe" class="m-brand-item__logo" />
           </a>
 
           <a href="#" id="brand-mimi" class="m-brand-item">
-            <img src="assets/mimi-logo.png" alt="MIMI — Korean B.B.Q Restaurant" class="m-brand-item__logo" />
+            <img src="assets/mimi-logo.svg" alt="MIMI — Korean B.B.Q Restaurant" class="m-brand-item__logo" />
           </a>
         </div>
 
@@ -105,9 +105,9 @@
               Oiso
               <svg class="m-dash-chevron" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
             </button>
-            <button type="button" class="m-dash-store-select">
+            <button type="button" class="m-dash-store-select" id="drawer-store-select">
               <img src="assets/nav-store.svg" alt="" class="m-dash-store-select__icon" />
-              All Store
+              <span id="drawer-store-label">All Store</span>
               <svg class="m-dash-chevron" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
             </button>
           </div>
@@ -346,23 +346,71 @@
         </div>
       </div>
 
-      <!-- Full-screen: brand picker -->
-      <div class="m-sheet-popup" id="brand-sheet">
-        <div class="m-sheet-popup__head">
+      <!-- Bottom sheet: brand picker -->
+      <div class="m-brand-sheet-backdrop" id="brand-sheet-backdrop"></div>
+      <div class="m-brand-sheet" id="brand-sheet">
+        <div class="m-brand-sheet__handle"></div>
+        <div class="m-sheet-popup__head m-brand-sheet__head">
           <button type="button" class="m-sheet-popup__back" id="brand-sheet-back" aria-label="Back">
-            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
           </button>
           <p class="m-sheet-popup__label">Select Brand</p>
         </div>
-        <div class="m-sheet-popup__card">
+        <div class="m-sheet-popup__card m-brand-sheet__card">
           <a href="#" class="m-sheet-popup__item m-sheet-popup__item--brand" id="brand-sheet-oiso">
-            <img src="assets/oiso-logo.png" alt="" class="m-sheet-popup__brand-logo" />
+            <img src="assets/oiso-logo.svg" alt="" class="m-sheet-popup__brand-logo" />
             Oiso
           </a>
           <a href="#" class="m-sheet-popup__item m-sheet-popup__item--brand" id="brand-sheet-mimi">
-            <img src="assets/mimi-logo.png" alt="" class="m-sheet-popup__brand-logo" />
+            <img src="assets/mimi-logo.svg" alt="" class="m-sheet-popup__brand-logo" />
             Mimi
           </a>
+        </div>
+      </div>
+
+      <!-- Bottom sheet: store picker -->
+      <div class="m-brand-sheet-backdrop" id="store-sheet-backdrop"></div>
+      <div class="m-brand-sheet m-store-sheet" id="store-sheet">
+        <div class="m-brand-sheet__handle"></div>
+        <div class="m-sheet-popup__head m-brand-sheet__head">
+          <button type="button" class="m-sheet-popup__back" id="store-sheet-back" aria-label="Back">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+          </button>
+          <p class="m-sheet-popup__label">All Store</p>
+        </div>
+        <div class="m-store-tree">
+          <button type="button" class="m-store-item m-store-item--hq is-active" data-store="All Store">
+            <svg class="m-store-item__icon" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13.7273 12.5556H15V14H1V12.5556H2.27273V1.72222C2.27273 1.53068 2.33977 1.34698 2.45911 1.21153C2.57846 1.07609 2.74032 1 2.90909 1H9.27273C9.4415 1 9.60336 1.07609 9.7227 1.21153C9.84205 1.34698 9.90909 1.53068 9.90909 1.72222V12.5556H11.1818V5.33333H13.0909C13.2597 5.33333 13.4215 5.40942 13.5409 5.54487C13.6602 5.68031 13.7273 5.86401 13.7273 6.05556V12.5556ZM4.81818 6.77778V8.22222H7.36364V6.77778H4.81818ZM4.81818 3.88889V5.33333H7.36364V3.88889H4.81818Z" fill="currentColor"/></svg>
+            Oiso (HQ)
+          </button>
+          <button type="button" class="m-store-item m-store-item--city" data-store="Oiso Kuala Lumpur">
+            <svg class="m-store-item__icon" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13.7273 12.5556H15V14H1V12.5556H2.27273V1.72222C2.27273 1.53068 2.33977 1.34698 2.45911 1.21153C2.57846 1.07609 2.74032 1 2.90909 1H9.27273C9.4415 1 9.60336 1.07609 9.7227 1.21153C9.84205 1.34698 9.90909 1.53068 9.90909 1.72222V12.5556H11.1818V5.33333H13.0909C13.2597 5.33333 13.4215 5.40942 13.5409 5.54487C13.6602 5.68031 13.7273 5.86401 13.7273 6.05556V12.5556ZM4.81818 6.77778V8.22222H7.36364V6.77778H4.81818ZM4.81818 3.88889V5.33333H7.36364V3.88889H4.81818Z" fill="currentColor"/></svg>
+            Oiso Kuala Lumpur
+          </button>
+          <button type="button" class="m-store-item m-store-item--outlet" data-store="Oiso Midvalley">
+            <span class="m-store-item__dot"></span>
+            Oiso Midvalley
+          </button>
+          <button type="button" class="m-store-item m-store-item--outlet" data-store="Oiso Pavilion KL">
+            <span class="m-store-item__dot"></span>
+            Oiso Pavilion KL
+          </button>
+          <button type="button" class="m-store-item m-store-item--outlet" data-store="Oiso Kepong">
+            <span class="m-store-item__dot"></span>
+            Oiso Kepong
+          </button>
+          <button type="button" class="m-store-item m-store-item--city" data-store="Oiso Selangor">
+            <svg class="m-store-item__icon" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13.7273 12.5556H15V14H1V12.5556H2.27273V1.72222C2.27273 1.53068 2.33977 1.34698 2.45911 1.21153C2.57846 1.07609 2.74032 1 2.90909 1H9.27273C9.4415 1 9.60336 1.07609 9.7227 1.21153C9.84205 1.34698 9.90909 1.53068 9.90909 1.72222V12.5556H11.1818V5.33333H13.0909C13.2597 5.33333 13.4215 5.40942 13.5409 5.54487C13.6602 5.68031 13.7273 5.86401 13.7273 6.05556V12.5556ZM4.81818 6.77778V8.22222H7.36364V6.77778H4.81818ZM4.81818 3.88889V5.33333H7.36364V3.88889H4.81818Z" fill="currentColor"/></svg>
+            Oiso Selangor
+          </button>
+          <button type="button" class="m-store-item m-store-item--outlet" data-store="Oiso Damansara Uptown">
+            <span class="m-store-item__dot"></span>
+            Oiso Damansara Uptown
+          </button>
+          <button type="button" class="m-store-item m-store-item--outlet" data-store="Oiso Kajang">
+            <span class="m-store-item__dot"></span>
+            Oiso Kajang
+          </button>
         </div>
       </div>
 
@@ -521,7 +569,7 @@
         </button>
 
         <div class="m-dash-brand">
-          <img src="assets/oiso-logo.png" alt="OiSO" class="m-dash-brand__logo" />
+          <img src="assets/oiso-logo.svg" alt="OiSO" class="m-dash-brand__logo" />
         </div>
 
         <div class="m-dash-topbar__right">
@@ -541,60 +589,132 @@
           <p>Dashboard</p>
         </div>
 
-        <div class="m-dash-filters">
+        <div class="m-dash-filters m-dash-filters--row">
           <label class="m-dash-search">
             <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
             <input type="text" placeholder="Search" />
           </label>
-          <button type="button" class="m-dash-filter-btn" id="date-range-btn">
-            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-            <span id="date-range-label">01-01-2026 To 31-12-2026</span>
+          <button type="button" class="m-dash-filter-icon-btn" id="dash-filter-btn" aria-label="Filters">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="4 4 20 4 14 12.5 14 19 10 21 10 12.5 4 4"/></svg>
           </button>
-          <button type="button" class="m-dash-filter-btn">All Store <svg class="m-dash-chevron" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
+        </div>
+
+        <!-- Bottom sheet: dashboard filters (date range + store) -->
+        <div class="m-filter-sheet-backdrop" id="filter-sheet-backdrop"></div>
+        <div class="m-brand-sheet m-filter-sheet" id="filter-sheet">
+          <div class="m-brand-sheet__handle"></div>
+          <div class="m-sheet-popup__head m-brand-sheet__head">
+            <button type="button" class="m-sheet-popup__back" id="filter-sheet-close" aria-label="Close">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+            </button>
+            <p class="m-sheet-popup__label">Filters</p>
+          </div>
+          <div class="m-filter-sheet__body">
+            <button type="button" class="m-dash-filter-btn" id="date-range-btn">
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              <span id="date-range-label">01-01-2026 To 31-12-2026</span>
+            </button>
+            <button type="button" class="m-dash-filter-btn" id="store-filter-btn"><span id="store-filter-label">All Store</span> <svg class="m-dash-chevron" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
+          </div>
         </div>
 
         <div class="m-dash-tabs">
-          <button type="button" class="m-dash-tab m-dash-tab--active">Hourly</button>
-          <button type="button" class="m-dash-tab">Daily</button>
-          <button type="button" class="m-dash-tab">Month To Date</button>
-          <button type="button" class="m-dash-tab">Year To Date</button>
+          <button type="button" class="m-dash-tab m-dash-tab--active" data-period="hourly">Hourly</button>
+          <button type="button" class="m-dash-tab" data-period="daily">Daily</button>
+          <button type="button" class="m-dash-tab" data-period="mtd">MTD</button>
+          <button type="button" class="m-dash-tab" data-period="ytd">YTD</button>
         </div>
 
-        <div class="m-dash-kpis">
-          <div class="m-dash-kpi">
-            <span class="m-dash-kpi__label">Hourly Sales</span>
+        <div class="m-dash-kpis-wrap">
+        <div class="m-dash-kpis" id="dash-kpis">
+          <div class="m-dash-kpi" data-kpi="sales">
+            <div class="m-dash-kpi__head">
+              <span class="m-dash-kpi__title">
+                <span class="m-dash-kpi__label">Hourly Sales</span>
+                <button type="button" class="m-kpi-info" data-tooltip="Your actual revenue: Gross sales minus discounts and returns." aria-label="Info">
+                  <img src="assets/info.svg" alt="" />
+                </button>
+              </span>
+              <img src="assets/grosssales.svg" alt="" class="m-dash-kpi__icon" />
+            </div>
             <strong class="m-dash-kpi__value">RM 1,250.50</strong>
             <span class="m-dash-kpi__delta m-dash-kpi__delta--up">&#8599; RM61.00 +30%</span>
           </div>
-          <div class="m-dash-kpi">
-            <span class="m-dash-kpi__label">Hourly Profit</span>
+          <div class="m-dash-kpi" data-kpi="profit">
+            <div class="m-dash-kpi__head">
+              <span class="m-dash-kpi__title">
+                <span class="m-dash-kpi__label">Hourly Profit</span>
+                <button type="button" class="m-kpi-info" data-tooltip="The money remaining after subtracting the cost of goods sold (COGS) from your total sales." aria-label="Info">
+                  <img src="assets/info.svg" alt="" />
+                </button>
+              </span>
+              <img src="assets/profit.svg" alt="" class="m-dash-kpi__icon" />
+            </div>
             <strong class="m-dash-kpi__value">RM 2,610.00</strong>
             <span class="m-dash-kpi__delta m-dash-kpi__delta--up">&#8599; RM61.00 +30%</span>
           </div>
-          <div class="m-dash-kpi">
-            <span class="m-dash-kpi__label">Hourly Transaction</span>
+          <div class="m-dash-kpi" data-kpi="transaction">
+            <div class="m-dash-kpi__head">
+              <span class="m-dash-kpi__title">
+                <span class="m-dash-kpi__label">Hourly Transaction</span>
+                <button type="button" class="m-kpi-info" data-tooltip="The total number of checkout sessions completed." aria-label="Info">
+                  <img src="assets/info.svg" alt="" />
+                </button>
+              </span>
+              <img src="assets/transaction.svg" alt="" class="m-dash-kpi__icon" />
+            </div>
             <strong class="m-dash-kpi__value">286</strong>
             <span class="m-dash-kpi__delta">Receipts</span>
           </div>
-          <div class="m-dash-kpi">
-            <span class="m-dash-kpi__label">Hourly Transactions</span>
+          <div class="m-dash-kpi" data-kpi="avg">
+            <div class="m-dash-kpi__head">
+              <span class="m-dash-kpi__title">
+                <span class="m-dash-kpi__label">Average Transactions</span>
+                <button type="button" class="m-kpi-info" data-tooltip="The average amount spent per customer per visit. Calculated as: Total Sales / Number of Transactions" aria-label="Info">
+                  <img src="assets/info.svg" alt="" />
+                </button>
+              </span>
+              <img src="assets/amount.svg" alt="" class="m-dash-kpi__icon" />
+            </div>
             <strong class="m-dash-kpi__value">RM 31.26</strong>
           </div>
-          <div class="m-dash-kpi m-dash-kpi--alert">
-            <span class="m-dash-kpi__label">Hourly Refund</span>
+          <div class="m-dash-kpi m-dash-kpi--alert" data-kpi="refund">
+            <div class="m-dash-kpi__head">
+              <span class="m-dash-kpi__title">
+                <span class="m-dash-kpi__label">Hourly Refund</span>
+                <button type="button" class="m-kpi-info" data-tooltip="The total amount returned to customers for returned or cancelled orders." aria-label="Info">
+                  <img src="assets/info.svg" alt="" />
+                </button>
+              </span>
+              <img src="assets/refund.svg" alt="" class="m-dash-kpi__icon" />
+            </div>
             <strong class="m-dash-kpi__value m-dash-kpi__value--danger">RM 96.50</strong>
             <span class="m-dash-kpi__delta">RM0.00 0%</span>
           </div>
-          <div class="m-dash-kpi m-dash-kpi--alert">
-            <span class="m-dash-kpi__label">Hourly Void</span>
+          <div class="m-dash-kpi m-dash-kpi--alert" data-kpi="void">
+            <div class="m-dash-kpi__head">
+              <span class="m-dash-kpi__title">
+                <span class="m-dash-kpi__label">Hourly Void</span>
+                <button type="button" class="m-kpi-info" data-tooltip="The total value of transactions cancelled before completion during the selected period." aria-label="Info">
+                  <img src="assets/info.svg" alt="" />
+                </button>
+              </span>
+              <img src="assets/void.svg" alt="" class="m-dash-kpi__icon" />
+            </div>
             <strong class="m-dash-kpi__value m-dash-kpi__value--danger">RM 180.00</strong>
             <span class="m-dash-kpi__delta">&#8599; RM0.00 +30%</span>
           </div>
         </div>
+        <div class="m-dash-kpis-dots" id="dash-kpis-dots"></div>
+        </div>
 
         <div class="m-dash-card">
           <div class="m-dash-card__head">
-            <h2>Hourly Sales</h2>
+            <button type="button" class="m-dash-card__title-btn" id="sales-chart-toggle">
+              <svg class="m-dash-card__title-icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 7-8"/><path d="M14 7h7v7"/></svg>
+              <h2>Hourly Sales</h2>
+              <svg class="m-dash-card__title-chevron" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
           </div>
           <div class="m-dash-chart-wrap m-dash-chart-wrap--scroll">
             <div class="m-dash-chart-inner">
