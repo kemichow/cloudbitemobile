@@ -38,7 +38,7 @@
             <div class="m-input m-input--password">
               <input type="password" id="m-password" name="password" placeholder="Enter Password" autocomplete="current-password" inputmode="numeric" pattern="[0-9]*" />
               <button type="button" class="m-input-icon-btn m-toggle-password" aria-label="Show password" aria-pressed="false">
-                <img src="assets/close-eye.png" alt="" class="m-input-icon m-eye-icon" />
+                <img src="assets/closeeye.svg" alt="" class="m-input-icon m-eye-icon" />
               </button>
             </div>
           </div>
@@ -99,7 +99,19 @@
       <!-- Nav drawer (full-screen) -->
       <aside class="m-drawer" id="dash-drawer">
         <div class="m-drawer__header">
-          <img src="assets/oiso-logo.png" alt="OiSO" class="m-drawer__brand-logo" />
+          <div class="m-dash-storebar">
+            <button type="button" class="m-dash-store-select" id="store-select-oiso">
+              <svg class="m-dash-store-select__icon" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13.7273 12.5556H15V14H1V12.5556H2.27273V1.72222C2.27273 1.53068 2.33977 1.34698 2.45911 1.21153C2.57846 1.07609 2.74032 1 2.90909 1H9.27273C9.4415 1 9.60336 1.07609 9.7227 1.21153C9.84205 1.34698 9.90909 1.53068 9.90909 1.72222V12.5556H11.1818V5.33333H13.0909C13.2597 5.33333 13.4215 5.40942 13.5409 5.54487C13.6602 5.68031 13.7273 5.86401 13.7273 6.05556V12.5556ZM4.81818 6.77778V8.22222H7.36364V6.77778H4.81818ZM4.81818 3.88889V5.33333H7.36364V3.88889H4.81818Z" fill="currentColor"/></svg>
+              Oiso
+              <svg class="m-dash-chevron" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <button type="button" class="m-dash-store-select">
+              <img src="assets/nav-store.svg" alt="" class="m-dash-store-select__icon" />
+              All Store
+              <svg class="m-dash-chevron" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+          </div>
+
           <button type="button" class="m-drawer__close" id="dash-drawer-close" aria-label="Close menu">
             <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
           </button>
@@ -334,6 +346,130 @@
         </div>
       </div>
 
+      <!-- Full-screen: brand picker -->
+      <div class="m-sheet-popup" id="brand-sheet">
+        <div class="m-sheet-popup__head">
+          <button type="button" class="m-sheet-popup__back" id="brand-sheet-back" aria-label="Back">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+          </button>
+          <p class="m-sheet-popup__label">Select Brand</p>
+        </div>
+        <div class="m-sheet-popup__card">
+          <a href="#" class="m-sheet-popup__item m-sheet-popup__item--brand" id="brand-sheet-oiso">
+            <img src="assets/oiso-logo.png" alt="" class="m-sheet-popup__brand-logo" />
+            Oiso
+          </a>
+          <a href="#" class="m-sheet-popup__item m-sheet-popup__item--brand" id="brand-sheet-mimi">
+            <img src="assets/mimi-logo.png" alt="" class="m-sheet-popup__brand-logo" />
+            Mimi
+          </a>
+        </div>
+      </div>
+
+      <!-- Full-screen: notifications -->
+      <div class="m-notif-sheet" id="notif-sheet">
+        <div class="m-notif-sheet__head">
+          <p class="m-notif-sheet__title">Notifications</p>
+          <button type="button" class="m-notif-sheet__close" id="notif-sheet-close" aria-label="Close">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          </button>
+        </div>
+
+        <div class="m-notif-sheet__body">
+          <div class="m-notif-sheet__section-row">
+            <span class="m-notif-sheet__section-label">Today</span>
+            <button type="button" class="m-notif-sheet__readall">
+              <img src="assets/notif-readall.svg" alt="" width="24" height="24" />
+              Read All
+            </button>
+          </div>
+
+          <button type="button" class="m-notif-item m-notif-item--unread">
+            <span class="m-notif-item__icon"><img src="assets/notif-unread.svg" alt="" class="m-notif-item__icon-img" /></span>
+            <span class="m-notif-item__text">Stock In #STK-1009 is pending approval.</span>
+            <span class="m-notif-item__time">09:00</span>
+          </button>
+          <button type="button" class="m-notif-item">
+            <span class="m-notif-item__icon"><img src="assets/notif-read.svg" alt="" class="m-notif-item__icon-img" /></span>
+            <span class="m-notif-item__text">Stock In #STK-1010 is pending approval.</span>
+            <span class="m-notif-item__time">11 Nov</span>
+          </button>
+          <button type="button" class="m-notif-item">
+            <span class="m-notif-item__icon"><img src="assets/notif-read.svg" alt="" class="m-notif-item__icon-img" /></span>
+            <span class="m-notif-item__text m-notif-item__text--truncate">Stock In record #STK-1008 has been successfully...</span>
+            <span class="m-notif-item__time">17 Nov</span>
+          </button>
+          <button type="button" class="m-notif-item">
+            <span class="m-notif-item__icon"><img src="assets/notif-read.svg" alt="" class="m-notif-item__icon-img" /></span>
+            <span class="m-notif-item__text">Stock In #STK-1007 is pending approval.</span>
+            <span class="m-notif-item__time">20 Nov</span>
+          </button>
+
+          <span class="m-notif-sheet__section-label m-notif-sheet__section-label--earlier">Earlier</span>
+
+          <button type="button" class="m-notif-item m-notif-item--unread">
+            <span class="m-notif-item__icon"><img src="assets/notif-unread.svg" alt="" class="m-notif-item__icon-img" /></span>
+            <span class="m-notif-item__text">Stock In #STK-1006 is pending approval.</span>
+            <span class="m-notif-item__time">22 Oct</span>
+          </button>
+          <button type="button" class="m-notif-item m-notif-item--unread">
+            <span class="m-notif-item__icon"><img src="assets/notif-unread.svg" alt="" class="m-notif-item__icon-img" /></span>
+            <span class="m-notif-item__text">Stock In #STK-1005 is pending approval.</span>
+            <span class="m-notif-item__time">21 Oct</span>
+          </button>
+          <button type="button" class="m-notif-item m-notif-item--unread">
+            <span class="m-notif-item__icon"><img src="assets/notif-unread.svg" alt="" class="m-notif-item__icon-img" /></span>
+            <span class="m-notif-item__text">Stock In record #STK-1004 has been successfully added to the system.</span>
+            <span class="m-notif-item__time">19 Oct</span>
+          </button>
+          <button type="button" class="m-notif-item">
+            <span class="m-notif-item__icon"><img src="assets/notif-read.svg" alt="" class="m-notif-item__icon-img" /></span>
+            <span class="m-notif-item__text">Stock In #STK-1003 is pending approval.</span>
+            <span class="m-notif-item__time">13 Oct</span>
+          </button>
+          <button type="button" class="m-notif-item">
+            <span class="m-notif-item__icon"><img src="assets/notif-read.svg" alt="" class="m-notif-item__icon-img" /></span>
+            <span class="m-notif-item__text">Stock In #STK-1002 is pending approval.</span>
+            <span class="m-notif-item__time">9 Oct</span>
+          </button>
+
+          <p class="m-notif-sheet__end">&mdash; End &mdash;</p>
+        </div>
+      </div>
+
+      <!-- Full-screen: account menu -->
+      <div class="m-notif-sheet" id="account-sheet">
+        <div class="m-notif-sheet__head">
+          <p class="m-notif-sheet__title">Account</p>
+          <button type="button" class="m-notif-sheet__close" id="account-sheet-close" aria-label="Close">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          </button>
+        </div>
+        <div class="m-notif-sheet__body">
+          <div class="m-profile-sheet__pic-wrap">
+            <img src="assets/img_profile.svg" alt="Profile" class="m-profile-sheet__pic" id="profile-sheet-pic" />
+          </div>
+          <p class="m-profile-sheet__name">Hi，Jennie Tan</p>
+          <p class="m-profile-sheet__role">HQ</p>
+
+          <div class="m-avatar-menu__list">
+            <button type="button" class="m-avatar-menu__item" id="avatar-menu-profile">
+              <span class="m-avatar-menu__icon"><img src="assets/user.svg" alt="" /></span>
+              <span class="m-avatar-menu__label">Profile</span>
+              <span class="m-avatar-menu__badge">HQ</span>
+            </button>
+            <button type="button" class="m-avatar-menu__item" id="avatar-menu-password">
+              <span class="m-avatar-menu__icon"><img src="assets/pw.svg" alt="" /></span>
+              <span class="m-avatar-menu__label">Change Password</span>
+            </button>
+            <button type="button" class="m-avatar-menu__item" id="avatar-menu-logout">
+              <span class="m-avatar-menu__icon"><img src="assets/logout.svg" alt="" /></span>
+              <span class="m-avatar-menu__label">Logout</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
       <!-- Bottom sheet: date range picker -->
       <div class="m-datesheet-backdrop" id="date-sheet-backdrop"></div>
       <div class="m-datesheet" id="date-sheet">
@@ -389,25 +525,14 @@
         </div>
 
         <div class="m-dash-topbar__right">
-          <button type="button" class="m-dash-icon-btn" aria-label="Notifications">
-            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+          <button type="button" class="m-dash-icon-btn m-dash-icon-btn--alert" id="notif-btn" aria-label="Notifications">
+            <img src="assets/btn-alert.svg" alt="" class="m-dash-icon-btn__img" />
           </button>
-          <div class="m-dash-avatar">JT</div>
+          <button type="button" class="m-avatar-btn" id="avatar-btn" aria-label="Account menu">
+            <img src="assets/img_profile.svg" alt="Profile" class="m-dash-avatar" />
+          </button>
         </div>
       </header>
-
-      <div class="m-dash-storebar">
-        <button type="button" class="m-dash-store-select">
-          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l1-5h16l1 5"/><path d="M4 9h16v10a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V9z"/></svg>
-          Oiso
-          <svg class="m-dash-chevron" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-        </button>
-        <button type="button" class="m-dash-store-select">
-          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l1-5h16l1 5"/><path d="M4 9h16v10a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V9z"/></svg>
-          All Store
-          <svg class="m-dash-chevron" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-        </button>
-      </div>
 
       <div class="m-dash-body">
 
@@ -471,8 +596,10 @@
           <div class="m-dash-card__head">
             <h2>Hourly Sales</h2>
           </div>
-          <div class="m-dash-chart-wrap">
-            <canvas id="chartSales" height="220"></canvas>
+          <div class="m-dash-chart-wrap m-dash-chart-wrap--scroll">
+            <div class="m-dash-chart-inner">
+              <canvas id="chartSales" height="220"></canvas>
+            </div>
           </div>
         </div>
 
@@ -568,367 +695,19 @@
 
   </div>
 
+  <!-- Modal: logout confirmation -->
+  <div class="m-confirm-backdrop" id="logout-confirm-backdrop"></div>
+  <div class="m-confirm" id="logout-confirm" role="dialog" aria-modal="true" aria-labelledby="logout-confirm-title">
+    <p class="m-confirm__title" id="logout-confirm-title">Confirmation</p>
+    <p class="m-confirm__message">Are you sure you want to Logout?</p>
+    <div class="m-confirm__actions">
+      <button type="button" class="m-confirm__btn m-confirm__btn--no" id="logout-confirm-no">No</button>
+      <button type="button" class="m-confirm__btn m-confirm__btn--yes" id="logout-confirm-yes">Yes</button>
+    </div>
+  </div>
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.4/chart.umd.min.js"></script>
-  <script>
-    const toggleBtn = document.querySelector('.m-toggle-password');
-    const passwordInput = document.getElementById('m-password');
-    const eyeIcon = toggleBtn.querySelector('.m-eye-icon');
-    toggleBtn.addEventListener('click', () => {
-      const isPassword = passwordInput.type === 'password';
-      passwordInput.type = isPassword ? 'text' : 'password';
-      eyeIcon.src = isPassword ? 'assets/open-eye.png' : 'assets/close-eye.png';
-      toggleBtn.setAttribute('aria-pressed', String(isPassword));
-      toggleBtn.setAttribute('aria-label', isPassword ? 'Hide password' : 'Show password');
-    });
-
-    const viewLogin = document.getElementById('view-login');
-    const viewBrand = document.getElementById('view-brand');
-    const viewDashboard = document.getElementById('view-dashboard');
-
-    function showView(view) {
-      [viewLogin, viewBrand, viewDashboard].forEach((v) => { v.hidden = v !== view; });
-      window.scrollTo(0, 0);
-    }
-
-    document.getElementById('m-login-btn').addEventListener('click', () => {
-      showView(viewBrand);
-    });
-
-    document.getElementById('brand-oiso').addEventListener('click', (e) => {
-      e.preventDefault();
-      showView(viewDashboard);
-    });
-
-    document.getElementById('brand-mimi').addEventListener('click', (e) => {
-      e.preventDefault();
-      // No dashboard built for MIMI yet.
-    });
-
-    const dashDrawer = document.getElementById('dash-drawer');
-
-    function openDrawer() {
-      dashDrawer.classList.add('is-open');
-    }
-
-    function closeDrawer() {
-      dashDrawer.classList.remove('is-open');
-    }
-
-    function closeDrawerInstant() {
-      // Hide the drawer immediately (no slide-out transition) so it can't
-      // be seen behind a popup that is opening on top of it.
-      dashDrawer.style.transition = 'none';
-      dashDrawer.classList.remove('is-open');
-      dashDrawer.offsetHeight; // force reflow to apply the transition:none
-      dashDrawer.style.transition = '';
-    }
-
-    document.querySelector('.m-dash-menu-btn')?.addEventListener('click', openDrawer);
-    document.getElementById('dash-drawer-close')?.addEventListener('click', closeDrawer);
-
-    const drawerGroups = document.querySelectorAll('.m-drawer-group');
-    drawerGroups.forEach((group) => {
-      const trigger = group.querySelector('.m-drawer-nav__item');
-      trigger.addEventListener('click', () => {
-        const willExpand = !group.classList.contains('is-expanded');
-        drawerGroups.forEach((g) => g.classList.remove('is-expanded'));
-        if (willExpand) {
-          group.classList.add('is-expanded');
-        }
-      });
-    });
-
-    const reportSheet = document.getElementById('report-sheet');
-
-    function openReportSheet() {
-      reportSheet.classList.add('is-open');
-    }
-
-    function closeReportSheet() {
-      reportSheet.classList.remove('is-open');
-    }
-
-    document.getElementById('sub-operation')?.addEventListener('click', (e) => {
-      e.preventDefault();
-      closeDrawerInstant();
-      openReportSheet();
-    });
-
-    document.getElementById('report-sheet-back')?.addEventListener('click', () => {
-      closeReportSheet();
-      openDrawer();
-    });
-
-    const transactionSheet = document.getElementById('transaction-sheet');
-
-    function openTransactionSheet() {
-      transactionSheet.classList.add('is-open');
-    }
-
-    function closeTransactionSheet() {
-      transactionSheet.classList.remove('is-open');
-    }
-
-    document.getElementById('sub-transaction')?.addEventListener('click', (e) => {
-      e.preventDefault();
-      closeDrawerInstant();
-      openTransactionSheet();
-    });
-
-    document.getElementById('transaction-sheet-back')?.addEventListener('click', () => {
-      closeTransactionSheet();
-      openDrawer();
-    });
-
-    /* ---------- Date range picker ---------- */
-    (function () {
-      const MONTH_NAMES = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-      const dateBtn = document.getElementById('date-range-btn');
-      const dateLabel = document.getElementById('date-range-label');
-      const sheet = document.getElementById('date-sheet');
-      const backdrop = document.getElementById('date-sheet-backdrop');
-      const monthLabel = document.getElementById('date-sheet-month');
-      const grid = document.getElementById('date-sheet-grid');
-      const rangeLabel = document.getElementById('date-sheet-range');
-      const presets = document.querySelectorAll('.m-datesheet__preset');
-
-      if (!dateBtn || !sheet) return;
-
-      let viewYear = 2026;
-      let viewMonth = 0; // 0 = January
-      let rangeStart = new Date(2026, 0, 1);
-      let rangeEnd = new Date(2026, 0, 31);
-
-      function fmt(d) {
-        const day = String(d.getDate()).padStart(2, '0');
-        const mon = MONTH_NAMES[d.getMonth()].slice(0, 3);
-        return `${day} ${mon} ${d.getFullYear()}`;
-      }
-
-      function fmtShort(d) {
-        const day = String(d.getDate()).padStart(2, '0');
-        const mon = String(d.getMonth() + 1).padStart(2, '0');
-        return `${day}-${mon}-${d.getFullYear()}`;
-      }
-
-      function sameDay(a, b) {
-        return a.getFullYear() === b.getFullYear() && a.getMonth() === b.getMonth() && a.getDate() === b.getDate();
-      }
-
-      function renderCalendar() {
-        monthLabel.textContent = `${MONTH_NAMES[viewMonth]} ${viewYear}`;
-        grid.innerHTML = '';
-
-        const firstDay = new Date(viewYear, viewMonth, 1).getDay();
-        const daysInMonth = new Date(viewYear, viewMonth + 1, 0).getDate();
-
-        for (let i = 0; i < firstDay; i++) {
-          const blank = document.createElement('button');
-          blank.type = 'button';
-          blank.className = 'm-datesheet__day';
-          blank.disabled = true;
-          grid.appendChild(blank);
-        }
-
-        for (let d = 1; d <= daysInMonth; d++) {
-          const cellDate = new Date(viewYear, viewMonth, d);
-          const btn = document.createElement('button');
-          btn.type = 'button';
-          btn.className = 'm-datesheet__day';
-
-          const inRange = rangeStart && rangeEnd && cellDate >= rangeStart && cellDate <= rangeEnd;
-          const isStart = rangeStart && sameDay(cellDate, rangeStart);
-          const isEnd = rangeEnd && sameDay(cellDate, rangeEnd);
-
-          if (inRange) btn.classList.add('is-in-range');
-          if (isStart) btn.classList.add('is-range-start');
-          if (isEnd) btn.classList.add('is-range-end');
-
-          const span = document.createElement('span');
-          span.textContent = String(d);
-          btn.appendChild(span);
-
-          btn.addEventListener('click', () => {
-            if (!rangeStart || (rangeStart && rangeEnd)) {
-              rangeStart = cellDate;
-              rangeEnd = null;
-            } else if (cellDate < rangeStart) {
-              rangeEnd = rangeStart;
-              rangeStart = cellDate;
-            } else {
-              rangeEnd = cellDate;
-            }
-            presets.forEach((p) => p.classList.remove('m-datesheet__preset--active'));
-            updateRangeLabel();
-            renderCalendar();
-          });
-
-          grid.appendChild(btn);
-        }
-      }
-
-      function updateRangeLabel() {
-        if (rangeStart && rangeEnd) {
-          rangeLabel.textContent = `${fmt(rangeStart)} – ${fmt(rangeEnd)}`;
-        } else if (rangeStart) {
-          rangeLabel.textContent = fmt(rangeStart);
-        } else {
-          rangeLabel.textContent = 'Select a date range';
-        }
-      }
-
-      function goToMonth(date) {
-        viewYear = date.getFullYear();
-        viewMonth = date.getMonth();
-      }
-
-      function openDateSheet() {
-        sheet.classList.add('is-open');
-        backdrop.classList.add('is-open');
-        renderCalendar();
-        updateRangeLabel();
-      }
-
-      function closeDateSheet() {
-        sheet.classList.remove('is-open');
-        backdrop.classList.remove('is-open');
-      }
-
-      dateBtn.addEventListener('click', openDateSheet);
-      backdrop.addEventListener('click', closeDateSheet);
-      document.getElementById('date-sheet-close')?.addEventListener('click', closeDateSheet);
-
-      document.getElementById('date-sheet-prev')?.addEventListener('click', () => {
-        viewMonth -= 1;
-        if (viewMonth < 0) { viewMonth = 11; viewYear -= 1; }
-        renderCalendar();
-      });
-
-      document.getElementById('date-sheet-next')?.addEventListener('click', () => {
-        viewMonth += 1;
-        if (viewMonth > 11) { viewMonth = 0; viewYear += 1; }
-        renderCalendar();
-      });
-
-      presets.forEach((preset) => {
-        preset.addEventListener('click', () => {
-          presets.forEach((p) => p.classList.remove('m-datesheet__preset--active'));
-          preset.classList.add('m-datesheet__preset--active');
-
-          const today = new Date(2026, 6, 15); // fixed "today" reference for this prototype
-          const startOfWeek = (d) => {
-            const s = new Date(d);
-            s.setDate(s.getDate() - s.getDay());
-            return s;
-          };
-
-          switch (preset.dataset.preset) {
-            case 'today':
-              rangeStart = today; rangeEnd = today; break;
-            case 'yesterday': {
-              const y = new Date(today); y.setDate(y.getDate() - 1);
-              rangeStart = y; rangeEnd = y; break;
-            }
-            case 'this-week':
-              rangeStart = startOfWeek(today); rangeEnd = today; break;
-            case 'last-week': {
-              const end = new Date(startOfWeek(today)); end.setDate(end.getDate() - 1);
-              const start = startOfWeek(end);
-              rangeStart = start; rangeEnd = end; break;
-            }
-            case 'this-month':
-              rangeStart = new Date(today.getFullYear(), today.getMonth(), 1);
-              rangeEnd = new Date(today.getFullYear(), today.getMonth() + 1, 0); break;
-            case 'last-month':
-              rangeStart = new Date(today.getFullYear(), today.getMonth() - 1, 1);
-              rangeEnd = new Date(today.getFullYear(), today.getMonth(), 0); break;
-            case 'this-year':
-              rangeStart = new Date(today.getFullYear(), 0, 1);
-              rangeEnd = new Date(today.getFullYear(), 11, 31); break;
-            case 'last-year':
-              rangeStart = new Date(today.getFullYear() - 1, 0, 1);
-              rangeEnd = new Date(today.getFullYear() - 1, 11, 31); break;
-          }
-
-          goToMonth(rangeStart);
-          updateRangeLabel();
-          renderCalendar();
-        });
-      });
-
-      document.getElementById('date-sheet-apply')?.addEventListener('click', () => {
-        if (rangeStart && rangeEnd) {
-          dateLabel.textContent = `${fmtShort(rangeStart)} To ${fmtShort(rangeEnd)}`;
-        }
-        closeDateSheet();
-      });
-    })();
-
-    if (window.Chart) {
-      const primary = '#be2026';
-
-      new Chart(document.getElementById('chartSales'), {
-        type: 'line',
-        data: {
-          labels: ['12am', '2am', '4am', '6am', '8am', '10am', '12pm', '2pm', '4pm', '6pm', '8pm', '10pm'],
-          datasets: [{
-            data: [80, 50, 10, 90, 350, 580, 980, 920, 420, 600, 500, 300],
-            borderColor: '#8b7ff0',
-            backgroundColor: 'rgba(139,127,240,0.15)',
-            fill: true,
-            tension: 0.4,
-            pointRadius: 3,
-            pointBackgroundColor: '#8b7ff0',
-          }],
-        },
-        options: {
-          responsive: true,
-          plugins: { legend: { display: false } },
-          scales: {
-            x: { ticks: { font: { size: 10 } }, grid: { display: false } },
-            y: { ticks: { font: { size: 10 } }, grid: { color: '#f0f0f0' } },
-          },
-        },
-      });
-
-      new Chart(document.getElementById('chartPayment'), {
-        type: 'doughnut',
-        data: {
-          labels: ['Credit Card', 'E-Wallet', 'Cash', 'Others'],
-          datasets: [{
-            data: [42, 35, 15, 8],
-            backgroundColor: ['#f0393c', '#3b82f6', '#22c55e', '#f59e0b'],
-            borderWidth: 0,
-          }],
-        },
-        options: {
-          responsive: true,
-          cutout: '72%',
-          plugins: { legend: { display: false } },
-        },
-      });
-
-      new Chart(document.getElementById('chartOutlets'), {
-        type: 'bar',
-        data: {
-          labels: ['1', '2', '3', '4', '5', '6', '7', '8'],
-          datasets: [{
-            data: [5300, 4800, 4500, 3500, 3200, 2900, 1600, 1200],
-            backgroundColor: '#f7a531',
-            borderRadius: 4,
-            maxBarThickness: 28,
-          }],
-        },
-        options: {
-          responsive: true,
-          plugins: { legend: { display: false } },
-          scales: {
-            x: { ticks: { font: { size: 10 } }, grid: { display: false } },
-            y: { ticks: { font: { size: 10 } }, grid: { color: '#f0f0f0' } },
-          },
-        },
-      });
-    }
-  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-datalabels/2.2.0/chartjs-plugin-datalabels.min.js"></script>
+  <script src="mobile.js"></script>
 </body>
 </html>
