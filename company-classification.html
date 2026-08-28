@@ -1,0 +1,941 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>CloudBite | Company Classification</title>
+<link rel="stylesheet" href="mobile.css" />
+</head>
+<body>
+  <div class="m-login">
+    <div class="m-view m-view--dashboard m-view--reports">
+
+      <!-- Nav drawer (full-screen) -->
+      <aside class="m-drawer" id="dash-drawer">
+        <div class="m-drawer__header">
+          <div class="m-dash-storebar">
+            <button type="button" class="m-dash-store-select" id="store-select-oiso">
+              <svg class="m-dash-store-select__icon" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13.7273 12.5556H15V14H1V12.5556H2.27273V1.72222C2.27273 1.53068 2.33977 1.34698 2.45911 1.21153C2.57846 1.07609 2.74032 1 2.90909 1H9.27273C9.4415 1 9.60336 1.07609 9.7227 1.21153C9.84205 1.34698 9.90909 1.53068 9.90909 1.72222V12.5556H11.1818V5.33333H13.0909C13.2597 5.33333 13.4215 5.40942 13.5409 5.54487C13.6602 5.68031 13.7273 5.86401 13.7273 6.05556V12.5556ZM4.81818 6.77778V8.22222H7.36364V6.77778H4.81818ZM4.81818 3.88889V5.33333H7.36364V3.88889H4.81818Z" fill="currentColor"/></svg>
+              Oiso
+              <svg class="m-dash-chevron" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <button type="button" class="m-dash-store-select" id="drawer-store-select">
+              <img src="assets/nav-store.svg" alt="" class="m-dash-store-select__icon" />
+              <span id="drawer-store-label">All Store</span>
+              <svg class="m-dash-chevron" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+          </div>
+
+          <button type="button" class="m-drawer__close" id="dash-drawer-close" aria-label="Close menu">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          </button>
+        </div>
+
+        <nav class="m-drawer-nav">
+
+          <div class="m-drawer-group">
+            <button type="button" class="m-drawer-nav__item">
+              <span class="m-drawer-nav__icon"><img src="assets/nav-dashboard.svg" alt="" /></span>
+              <span class="m-drawer-nav__label">Dashboard</span>
+              <span class="m-drawer-nav__chevron"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
+            </button>
+            <div class="m-drawer-nav__panel">
+              <a href="dashboard.html" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Sales Dashboard</a>
+            </div>
+          </div>
+
+          <div class="m-drawer-group">
+            <button type="button" class="m-drawer-nav__item">
+              <span class="m-drawer-nav__icon"><img src="assets/nav-report.svg" alt="" /></span>
+              <span class="m-drawer-nav__label">Reports</span>
+              <span class="m-drawer-nav__chevron"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
+            </button>
+            <div class="m-drawer-nav__panel">
+              <a href="reports.html" id="sub-operation" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Operation</a>
+              <a href="reports.html?view=txd" id="sub-transaction" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Transaction</a>
+            </div>
+          </div>
+
+          <div class="m-drawer-group is-expanded">
+            <button type="button" class="m-drawer-nav__item">
+              <span class="m-drawer-nav__icon"><img src="assets/nav-company.svg" alt="" /></span>
+              <span class="m-drawer-nav__label">Company</span>
+              <span class="m-drawer-nav__chevron"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
+            </button>
+            <div class="m-drawer-nav__panel">
+              <a href="company.html" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Company Structure</a>
+              <a href="company-classification.html" class="m-drawer-nav__sub m-drawer-nav__sub--active"><span class="m-drawer-nav__dot"></span>Classification</a>
+            </div>
+          </div>
+
+          <div class="m-drawer-group">
+            <button type="button" class="m-drawer-nav__item">
+              <span class="m-drawer-nav__icon"><img src="assets/nav-stock.svg" alt="" /></span>
+              <span class="m-drawer-nav__label">Stock</span>
+              <span class="m-drawer-nav__chevron"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
+            </button>
+            <div class="m-drawer-nav__panel">
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Item</a>
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Bill of Materials</a>
+              <a href="#" class="m-drawer-nav__sub m-drawer-nav__sub--active"><span class="m-drawer-nav__dot"></span>Classification</a>
+            </div>
+          </div>
+
+          <div class="m-drawer-group">
+            <button type="button" class="m-drawer-nav__item">
+              <span class="m-drawer-nav__icon"><img src="assets/nav-condiment.svg" alt="" /></span>
+              <span class="m-drawer-nav__label">Condiment</span>
+              <span class="m-drawer-nav__chevron"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
+            </button>
+            <div class="m-drawer-nav__panel">
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Group</a>
+              <a href="#" class="m-drawer-nav__sub m-drawer-nav__sub--active"><span class="m-drawer-nav__dot"></span>Item</a>
+            </div>
+          </div>
+
+          <div class="m-drawer-group">
+            <button type="button" class="m-drawer-nav__item">
+              <span class="m-drawer-nav__icon"><img src="assets/nav-pos.svg" alt="" /></span>
+              <span class="m-drawer-nav__label">POS</span>
+              <span class="m-drawer-nav__chevron"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
+            </button>
+            <div class="m-drawer-nav__panel">
+              <a href="#" class="m-drawer-nav__sub m-drawer-nav__sub--active"><span class="m-drawer-nav__dot"></span>Shift</a>
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Payment</a>
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Tax</a>
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Money Note</a>
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Discount</a>
+            </div>
+          </div>
+
+          <div class="m-drawer-group">
+            <button type="button" class="m-drawer-nav__item">
+              <span class="m-drawer-nav__icon"><img src="assets/nav-usermanagement.svg" alt="" /></span>
+              <span class="m-drawer-nav__label">User Management</span>
+              <span class="m-drawer-nav__chevron"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
+            </button>
+            <div class="m-drawer-nav__panel">
+              <a href="#" class="m-drawer-nav__sub m-drawer-nav__sub--active"><span class="m-drawer-nav__dot"></span>User Profile</a>
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Role Management</a>
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Classification</a>
+            </div>
+          </div>
+
+          <div class="m-drawer-group">
+            <button type="button" class="m-drawer-nav__item">
+              <span class="m-drawer-nav__icon"><img src="assets/nav-customer.svg" alt="" /></span>
+              <span class="m-drawer-nav__label">Customer</span>
+              <span class="m-drawer-nav__chevron"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
+            </button>
+            <div class="m-drawer-nav__panel">
+              <a href="#" class="m-drawer-nav__sub m-drawer-nav__sub--active"><span class="m-drawer-nav__dot"></span>Details</a>
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Discount Type</a>
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Closing</a>
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Classification</a>
+            </div>
+          </div>
+
+          <div class="m-drawer-group">
+            <button type="button" class="m-drawer-nav__item">
+              <span class="m-drawer-nav__icon"><img src="assets/nav-inventory.svg" alt="" /></span>
+              <span class="m-drawer-nav__label">Inventory</span>
+              <span class="m-drawer-nav__chevron"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
+            </button>
+            <div class="m-drawer-nav__panel">
+              <a href="#" class="m-drawer-nav__sub m-drawer-nav__sub--active"><span class="m-drawer-nav__dot"></span>Transaction</a>
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Production</a>
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Stock Take</a>
+            </div>
+          </div>
+
+          <div class="m-drawer-group">
+            <button type="button" class="m-drawer-nav__item">
+              <span class="m-drawer-nav__icon"><img src="assets/nav-supplier.svg" alt="" /></span>
+              <span class="m-drawer-nav__label">Supplier</span>
+              <span class="m-drawer-nav__chevron"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
+            </button>
+            <div class="m-drawer-nav__panel">
+              <a href="#" class="m-drawer-nav__sub m-drawer-nav__sub--active"><span class="m-drawer-nav__dot"></span>Transaction</a>
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Details</a>
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Classification</a>
+            </div>
+          </div>
+
+          <div class="m-drawer-group">
+            <button type="button" class="m-drawer-nav__item">
+              <span class="m-drawer-nav__icon"><img src="assets/nav-emenu.svg" alt="" /></span>
+              <span class="m-drawer-nav__label">E-Menu</span>
+              <span class="m-drawer-nav__chevron"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
+            </button>
+            <div class="m-drawer-nav__panel">
+              <a href="#" class="m-drawer-nav__sub m-drawer-nav__sub--active"><span class="m-drawer-nav__dot"></span>Menu</a>
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Promotion</a>
+            </div>
+          </div>
+
+          <div class="m-drawer-group">
+            <button type="button" class="m-drawer-nav__item">
+              <span class="m-drawer-nav__icon"><img src="assets/nav-crm.svg" alt="" /></span>
+              <span class="m-drawer-nav__label">CRM &amp; Promotion</span>
+              <span class="m-drawer-nav__chevron"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
+            </button>
+            <div class="m-drawer-nav__panel">
+              <a href="#" class="m-drawer-nav__sub m-drawer-nav__sub--active"><span class="m-drawer-nav__dot"></span>CRM</a>
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Promotion</a>
+            </div>
+          </div>
+
+          <div class="m-drawer-group">
+            <button type="button" class="m-drawer-nav__item">
+              <span class="m-drawer-nav__icon"><img src="assets/nav-settings.svg" alt="" /></span>
+              <span class="m-drawer-nav__label">Settings</span>
+              <span class="m-drawer-nav__chevron"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
+            </button>
+            <div class="m-drawer-nav__panel">
+              <a href="#" class="m-drawer-nav__sub m-drawer-nav__sub--active"><span class="m-drawer-nav__dot"></span>Stock</a>
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>E-Menu</a>
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Preferences</a>
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Inventory</a>
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Supplier</a>
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Kitchen Printing</a>
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Miscellaneous</a>
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>POS</a>
+            </div>
+          </div>
+
+          <div class="m-drawer-group">
+            <button type="button" class="m-drawer-nav__item">
+              <span class="m-drawer-nav__icon"><img src="assets/nav-housekeeping.svg" alt="" /></span>
+              <span class="m-drawer-nav__label">Housekeeping</span>
+              <span class="m-drawer-nav__chevron"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
+            </button>
+            <div class="m-drawer-nav__panel">
+              <a href="#" class="m-drawer-nav__sub m-drawer-nav__sub--active"><span class="m-drawer-nav__dot"></span>Housekeeping</a>
+            </div>
+          </div>
+
+        </nav>
+      </aside>
+
+      <header class="m-dash-topbar" id="main-topbar">
+        <button type="button" class="m-dash-icon-btn m-dash-menu-btn" aria-label="Menu">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+
+        <div class="m-dash-brand">
+          <img src="assets/oiso-logo.svg" alt="OiSO" class="m-dash-brand__logo" />
+        </div>
+
+        <div class="m-dash-topbar__right">
+          <button type="button" class="m-dash-icon-btn m-dash-icon-btn--alert" id="notif-btn" aria-label="Notifications">
+            <img src="assets/btn-alert.svg" alt="" class="m-dash-icon-btn__img" />
+          </button>
+          <button type="button" class="m-avatar-btn" id="avatar-btn" aria-label="Account menu">
+            <img src="assets/img_profile.svg" alt="Profile" class="m-dash-avatar" />
+          </button>
+        </div>
+      </header>
+
+      <header class="m-dash-topbar m-editbrand-topbar" id="storegroup-topbar" hidden>
+        <button type="button" class="m-dash-icon-btn" id="storegroup-back-btn" aria-label="Back">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+        <h1 class="m-editbrand-topbar__title" id="storegroup-topbar-title">Add Store Group</h1>
+        <span class="m-editbrand-topbar__spacer" aria-hidden="true"></span>
+      </header>
+
+      <!-- Full-screen: notifications (shared template — same on every page) -->
+      <div class="m-notif-sheet" id="notif-sheet">
+        <div class="m-notif-sheet__head">
+          <p class="m-notif-sheet__title">Notifications</p>
+          <button type="button" class="m-notif-sheet__close" id="notif-sheet-close" aria-label="Close">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          </button>
+        </div>
+
+        <div class="m-notif-sheet__body">
+          <div class="m-notif-sheet__section-row">
+            <span class="m-notif-sheet__section-label">Today</span>
+            <button type="button" class="m-notif-sheet__readall">
+              <img src="assets/notif-readall.svg" alt="" width="24" height="24" />
+              Read All
+            </button>
+          </div>
+
+          <button type="button" class="m-notif-item m-notif-item--unread">
+            <span class="m-notif-item__icon"><img src="assets/notif-unread.svg" alt="" class="m-notif-item__icon-img" /></span>
+            <span class="m-notif-item__text">Stock In #STK-1009 is pending approval.</span>
+            <span class="m-notif-item__time">09:00</span>
+          </button>
+          <button type="button" class="m-notif-item">
+            <span class="m-notif-item__icon"><img src="assets/notif-read.svg" alt="" class="m-notif-item__icon-img" /></span>
+            <span class="m-notif-item__text">Stock In #STK-1010 is pending approval.</span>
+            <span class="m-notif-item__time">11 Nov</span>
+          </button>
+          <button type="button" class="m-notif-item">
+            <span class="m-notif-item__icon"><img src="assets/notif-read.svg" alt="" class="m-notif-item__icon-img" /></span>
+            <span class="m-notif-item__text m-notif-item__text--truncate">Stock In record #STK-1008 has been successfully...</span>
+            <span class="m-notif-item__time">17 Nov</span>
+          </button>
+          <button type="button" class="m-notif-item">
+            <span class="m-notif-item__icon"><img src="assets/notif-read.svg" alt="" class="m-notif-item__icon-img" /></span>
+            <span class="m-notif-item__text">Stock In #STK-1007 is pending approval.</span>
+            <span class="m-notif-item__time">20 Nov</span>
+          </button>
+
+          <span class="m-notif-sheet__section-label m-notif-sheet__section-label--earlier">Earlier</span>
+
+          <button type="button" class="m-notif-item m-notif-item--unread">
+            <span class="m-notif-item__icon"><img src="assets/notif-unread.svg" alt="" class="m-notif-item__icon-img" /></span>
+            <span class="m-notif-item__text">Stock In #STK-1006 is pending approval.</span>
+            <span class="m-notif-item__time">22 Oct</span>
+          </button>
+          <button type="button" class="m-notif-item m-notif-item--unread">
+            <span class="m-notif-item__icon"><img src="assets/notif-unread.svg" alt="" class="m-notif-item__icon-img" /></span>
+            <span class="m-notif-item__text">Stock In #STK-1005 is pending approval.</span>
+            <span class="m-notif-item__time">21 Oct</span>
+          </button>
+          <button type="button" class="m-notif-item m-notif-item--unread">
+            <span class="m-notif-item__icon"><img src="assets/notif-unread.svg" alt="" class="m-notif-item__icon-img" /></span>
+            <span class="m-notif-item__text">Stock In record #STK-1004 has been successfully added to the system.</span>
+            <span class="m-notif-item__time">19 Oct</span>
+          </button>
+          <button type="button" class="m-notif-item">
+            <span class="m-notif-item__icon"><img src="assets/notif-read.svg" alt="" class="m-notif-item__icon-img" /></span>
+            <span class="m-notif-item__text">Stock In #STK-1003 is pending approval.</span>
+            <span class="m-notif-item__time">13 Oct</span>
+          </button>
+          <button type="button" class="m-notif-item">
+            <span class="m-notif-item__icon"><img src="assets/notif-read.svg" alt="" class="m-notif-item__icon-img" /></span>
+            <span class="m-notif-item__text">Stock In #STK-1002 is pending approval.</span>
+            <span class="m-notif-item__time">9 Oct</span>
+          </button>
+
+          <p class="m-notif-sheet__end">&mdash; End &mdash;</p>
+        </div>
+      </div>
+
+      <!-- Full-screen: account menu (shared template — same on every page) -->
+      <div class="m-notif-sheet" id="account-sheet">
+        <div class="m-notif-sheet__head">
+          <p class="m-notif-sheet__title">Account</p>
+          <button type="button" class="m-notif-sheet__close" id="account-sheet-close" aria-label="Close">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          </button>
+        </div>
+        <div class="m-notif-sheet__body">
+          <div class="m-profile-sheet__pic-wrap">
+            <img src="assets/img_profile.svg" alt="Profile" class="m-profile-sheet__pic" id="profile-sheet-pic" />
+          </div>
+          <p class="m-profile-sheet__name">Hi，Jennie Tan</p>
+          <p class="m-profile-sheet__role">HQ</p>
+
+          <div class="m-avatar-menu__list">
+            <button type="button" class="m-avatar-menu__item" id="avatar-menu-profile">
+              <span class="m-avatar-menu__icon"><img src="assets/user.svg" alt="" /></span>
+              <span class="m-avatar-menu__label">Profile</span>
+              <span class="m-avatar-menu__badge">HQ</span>
+            </button>
+            <button type="button" class="m-avatar-menu__item" id="avatar-menu-password">
+              <span class="m-avatar-menu__icon"><img src="assets/pw.svg" alt="" /></span>
+              <span class="m-avatar-menu__label">Change Password</span>
+            </button>
+            <button type="button" class="m-avatar-menu__item" id="avatar-menu-logout">
+              <span class="m-avatar-menu__icon"><img src="assets/logout.svg" alt="" /></span>
+              <span class="m-avatar-menu__label">Logout</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal: logout confirmation (shared template — same on every page) -->
+      <div class="m-confirm-backdrop" id="logout-confirm-backdrop"></div>
+      <div class="m-confirm" id="logout-confirm" role="dialog" aria-modal="true" aria-labelledby="logout-confirm-title">
+        <p class="m-confirm__title" id="logout-confirm-title">Confirmation</p>
+        <p class="m-confirm__message">Are you sure you want to Logout?</p>
+        <div class="m-confirm__actions">
+          <button type="button" class="m-confirm__btn m-confirm__btn--no" id="logout-confirm-no">No</button>
+          <button type="button" class="m-confirm__btn m-confirm__btn--yes" id="logout-confirm-yes">Yes</button>
+        </div>
+      </div>
+
+      <!-- Modal: store group save confirmation -->
+      <div class="m-confirm-backdrop" id="storegroup-confirm-backdrop"></div>
+      <div class="m-confirm" id="storegroup-confirm" role="dialog" aria-modal="true" aria-labelledby="storegroup-confirm-title">
+        <p class="m-confirm__title" id="storegroup-confirm-title">Confirmation</p>
+        <p class="m-confirm__message" id="storegroup-confirm-message">Are you sure you want to Add Store Group?</p>
+        <div class="m-confirm__actions">
+          <button type="button" class="m-confirm__btn m-confirm__btn--no" id="storegroup-confirm-no">No</button>
+          <button type="button" class="m-confirm__btn m-confirm__btn--yes" id="storegroup-confirm-yes">Yes</button>
+        </div>
+      </div>
+
+      <!-- Modal: store group save success -->
+      <div class="m-confirm-backdrop" id="storegroup-success-backdrop"></div>
+      <div class="m-confirm" id="storegroup-success" role="dialog" aria-modal="true" aria-labelledby="storegroup-success-title">
+        <div class="m-confirm__icon">
+          <span class="m-confirm__icon-inner">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          </span>
+        </div>
+        <p class="m-confirm__message" id="storegroup-success-title">Store Group Added Successfully</p>
+        <div class="m-confirm__actions m-confirm__actions--single">
+          <button type="button" class="m-confirm__btn m-confirm__btn--no" id="storegroup-success-close">Close</button>
+        </div>
+      </div>
+
+      <!-- Modal: store group delete confirmation -->
+      <div class="m-confirm-backdrop" id="storegroup-delete-confirm-backdrop"></div>
+      <div class="m-confirm" id="storegroup-delete-confirm" role="dialog" aria-modal="true" aria-labelledby="storegroup-delete-confirm-title">
+        <p class="m-confirm__title" id="storegroup-delete-confirm-title">Confirmation</p>
+        <p class="m-confirm__message" id="storegroup-delete-confirm-message">Are you sure you want to delete this Store Group?</p>
+        <div class="m-confirm__actions">
+          <button type="button" class="m-confirm__btn m-confirm__btn--no" id="storegroup-delete-confirm-no">No</button>
+          <button type="button" class="m-confirm__btn m-confirm__btn--yes" id="storegroup-delete-confirm-yes">Yes</button>
+        </div>
+      </div>
+
+      <!-- Modal: store group delete success -->
+      <div class="m-confirm-backdrop" id="storegroup-delete-success-backdrop"></div>
+      <div class="m-confirm" id="storegroup-delete-success" role="dialog" aria-modal="true" aria-labelledby="storegroup-delete-success-title">
+        <div class="m-confirm__icon">
+          <span class="m-confirm__icon-inner">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          </span>
+        </div>
+        <p class="m-confirm__message">Store Group Deleted Successfully</p>
+        <div class="m-confirm__actions m-confirm__actions--single">
+          <button type="button" class="m-confirm__btn m-confirm__btn--no" id="storegroup-delete-success-close">Close</button>
+        </div>
+      </div>
+
+      <div class="m-rpt-page" id="page-company">
+      <div class="m-rpt-body">
+
+      <div id="company-list-view">
+        <div class="m-company-headercard">
+          <div class="m-rpt-header">
+            <div class="m-rpt-header__titleblock">
+              <h1>Company Classification</h1>
+              <div class="m-rpt-breadcrumb">
+                <span>Company</span>
+                <span class="m-rpt-breadcrumb__sep">&rsaquo;</span>
+                <span class="m-rpt-breadcrumb__current">Company Classification</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="m-company-tabs" id="company-tabs">
+            <button type="button" class="m-company-tab is-active" data-tab="storegroup">
+              <img src="assets/Group.svg" alt="" class="m-company-tab__icon-img" />
+              Store Group
+            </button>
+            <button type="button" class="m-company-tab" data-tab="country">
+              <img src="assets/country.svg" alt="" class="m-company-tab__icon-img" />
+              Country
+            </button>
+            <button type="button" class="m-company-tab" data-tab="state">
+              <img src="assets/state.svg" alt="" class="m-company-tab__icon-img" />
+              State
+            </button>
+            <button type="button" class="m-company-tab" data-tab="city">
+              <img src="assets/city.svg" alt="" class="m-company-tab__icon-img" />
+              City
+            </button>
+          </div>
+        </div>
+
+        <div class="m-company-panel" id="company-panel-storegroup">
+          <p class="m-company-panel__title">Store Group</p>
+
+          <div class="m-company-toolbar">
+            <span class="m-company-search">
+              <svg class="m-company-search__icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/></svg>
+              <input type="text" class="m-company-search__input" id="storegroup-search-input" placeholder="Search" />
+            </span>
+            <button type="button" class="m-rpt-export" id="storegroup-export-btn">
+              <img src="assets/upload.svg" alt="" class="m-rpt-export__icon" />
+              Export
+            </button>
+            <button type="button" class="m-company-btn m-company-btn--save m-company-addstore-btn" id="storegroup-add-btn">
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              Add Store Group
+            </button>
+          </div>
+
+          <div class="m-rpt-card">
+            <div class="m-rpt-table-wrap">
+              <table class="m-rpt-table m-rpt-table--tax">
+                <thead>
+                  <tr class="m-rpt-headrow">
+                    <th class="m-rpt-th" data-col-index="0"><span class="m-rpt-th-inner">Code<span class="m-rpt-sorticon" aria-hidden="true"></span></span></th>
+                    <th class="m-rpt-th" data-col-index="1"><span class="m-rpt-th-inner">Description<span class="m-rpt-sorticon" aria-hidden="true"></span></span></th>
+                    <th class="m-rpt-th" data-col-index="2"><span class="m-rpt-th-inner">Status<span class="m-rpt-sorticon" aria-hidden="true"></span></span></th>
+                    <th class="m-rpt-th">Action</th>
+                  </tr>
+                  <tr class="m-rpt-filterrow">
+                    <th class="m-rpt-filtercell"><span class="m-rpt-filterwrap"><img src="assets/filter.svg" alt="" class="m-rpt-filtericon" /><input type="text" class="m-rpt-colfilter" data-col-index="0" placeholder="" /></span></th>
+                    <th class="m-rpt-filtercell"><span class="m-rpt-filterwrap"><img src="assets/filter.svg" alt="" class="m-rpt-filtericon" /><input type="text" class="m-rpt-colfilter" data-col-index="1" placeholder="" /></span></th>
+                    <th class="m-rpt-filtercell"><span class="m-rpt-filterwrap"><img src="assets/filter.svg" alt="" class="m-rpt-filtericon" /><input type="text" class="m-rpt-colfilter" data-col-index="2" placeholder="" /></span></th>
+                    <th class="m-rpt-filtercell"></th>
+                  </tr>
+                </thead>
+                <tbody id="storegroup-tbody">
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <div class="m-company-panel" id="company-panel-country" hidden>
+          <p class="m-company-panel__title">Country</p>
+          <div class="m-rpt-card">
+            <p class="m-company-empty">Coming soon.</p>
+          </div>
+        </div>
+
+        <div class="m-company-panel" id="company-panel-state" hidden>
+          <p class="m-company-panel__title">State</p>
+          <div class="m-rpt-card">
+            <p class="m-company-empty">Coming soon.</p>
+          </div>
+        </div>
+
+        <div class="m-company-panel" id="company-panel-city" hidden>
+          <p class="m-company-panel__title">City</p>
+          <div class="m-rpt-card">
+            <p class="m-company-empty">Coming soon.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="m-company-editview" id="company-storegroup-view" hidden>
+        <div class="m-company-editform">
+          <div class="m-company-formfield">
+            <label for="storegroup-code">Code <span class="m-required">*</span></label>
+            <input type="text" id="storegroup-code" class="m-company-forminput" placeholder="Enter Code" />
+          </div>
+          <div class="m-company-formfield">
+            <label for="storegroup-description">Description <span class="m-required">*</span></label>
+            <input type="text" id="storegroup-description" class="m-company-forminput" placeholder="Enter Description" />
+          </div>
+          <div class="m-company-formfield m-company-formfield--switch">
+            <label>Active <span class="m-required">*</span></label>
+            <label class="m-company-switch">
+              <input type="checkbox" id="storegroup-active" checked />
+              <span class="m-company-switch__track"><span class="m-company-switch__thumb"></span></span>
+            </label>
+          </div>
+        </div>
+
+        <div class="m-company-editview__footer">
+          <button type="button" class="m-company-btn m-company-btn--cancel m-company-btn--block" id="storegroup-cancel-btn">Cancel</button>
+          <button type="button" class="m-company-btn m-company-btn--save m-company-btn--block" id="storegroup-save-btn">Save</button>
+        </div>
+      </div>
+
+      </div>
+
+    </div>
+  </div>
+
+
+      </div>
+
+    </div>
+  </div>
+
+<script>
+  /* ---------- Nav drawer (copied from the dashboard top navigation bar) ---------- */
+  const dashDrawer = document.getElementById('dash-drawer');
+
+  function openDrawer() {
+    dashDrawer.classList.add('is-open');
+  }
+  function closeDrawer() {
+    dashDrawer.classList.remove('is-open');
+  }
+  function closeDrawerInstant() {
+    dashDrawer.style.transition = 'none';
+    dashDrawer.classList.remove('is-open');
+    dashDrawer.offsetHeight;
+    dashDrawer.style.transition = '';
+  }
+
+  document.querySelector('.m-dash-menu-btn')?.addEventListener('click', openDrawer);
+  document.getElementById('dash-drawer-close')?.addEventListener('click', closeDrawer);
+
+  const drawerGroups = document.querySelectorAll('.m-drawer-group');
+  drawerGroups.forEach((group) => {
+    const trigger = group.querySelector('.m-drawer-nav__item');
+    trigger.addEventListener('click', () => {
+      const willExpand = !group.classList.contains('is-expanded');
+      drawerGroups.forEach((g) => g.classList.remove('is-expanded'));
+      if (willExpand) {
+        group.classList.add('is-expanded');
+      }
+    });
+  });
+
+  /* ---------- Notifications (shared template — same on every page) ---------- */
+  const notifSheet = document.getElementById('notif-sheet');
+
+  function openNotifSheet() {
+    notifSheet.classList.add('is-open');
+  }
+  function closeNotifSheet() {
+    notifSheet.classList.remove('is-open');
+  }
+
+  document.getElementById('notif-btn')?.addEventListener('click', openNotifSheet);
+  document.getElementById('notif-sheet-close')?.addEventListener('click', closeNotifSheet);
+
+  function setNotifItemRead(item, isUnread) {
+    item.classList.toggle('m-notif-item--unread', isUnread);
+    const icon = item.querySelector('.m-notif-item__icon-img');
+    if (icon) icon.src = isUnread ? 'assets/notif-unread.svg' : 'assets/notif-read.svg';
+  }
+
+  notifSheet?.querySelectorAll('.m-notif-item').forEach((item) => {
+    item.addEventListener('click', () => {
+      setNotifItemRead(item, !item.classList.contains('m-notif-item--unread'));
+    });
+  });
+
+  notifSheet?.querySelector('.m-notif-sheet__readall')?.addEventListener('click', () => {
+    notifSheet.querySelectorAll('.m-notif-item').forEach((item) => setNotifItemRead(item, false));
+  });
+
+  /* ---------- Account menu (shared template — same on every page) ---------- */
+  const avatarBtn = document.getElementById('avatar-btn');
+  const accountSheet = document.getElementById('account-sheet');
+
+  function openAccountSheet() {
+    accountSheet.classList.add('is-open');
+  }
+  function closeAccountSheet() {
+    accountSheet.classList.remove('is-open');
+  }
+
+  avatarBtn?.addEventListener('click', openAccountSheet);
+  document.getElementById('account-sheet-close')?.addEventListener('click', closeAccountSheet);
+
+  /* ---------- Logout confirmation (shared template — same on every page) ---------- */
+  const logoutBackdrop = document.getElementById('logout-confirm-backdrop');
+  const logoutModal = document.getElementById('logout-confirm');
+  const logoutBtn = document.getElementById('avatar-menu-logout');
+
+  function openLogoutConfirm() {
+    logoutBackdrop.classList.add('is-open');
+    logoutModal.classList.add('is-open');
+  }
+  function closeLogoutConfirm() {
+    logoutBackdrop.classList.remove('is-open');
+    logoutModal.classList.remove('is-open');
+  }
+
+  logoutBtn?.addEventListener('click', openLogoutConfirm);
+  logoutBackdrop?.addEventListener('click', closeLogoutConfirm);
+  document.getElementById('logout-confirm-no')?.addEventListener('click', closeLogoutConfirm);
+  document.getElementById('logout-confirm-yes')?.addEventListener('click', () => {
+    window.location.href = 'mobile.html';
+  });
+
+  /* ================= AG Grid style: shared column sort + filter helpers ================= */
+  function gridCompare(a, b) {
+    const sa = String(a);
+    const sb = String(b);
+    const na = parseFloat(sa.replace(/[^0-9.\-]/g, ''));
+    const nb = parseFloat(sb.replace(/[^0-9.\-]/g, ''));
+    const numericA = /[0-9]/.test(sa) && !isNaN(na);
+    const numericB = /[0-9]/.test(sb) && !isNaN(nb);
+    if (numericA && numericB) return na - nb;
+    return sa.localeCompare(sb);
+  }
+
+  function getGridRows(rows, sortState, filterState) {
+    let result = rows.filter((r) => Object.keys(filterState).every((idx) => String(r[idx]).toLowerCase().includes(filterState[idx])));
+    if (sortState.index !== null) {
+      result = result.slice().sort((a, b) => gridCompare(a[sortState.index], b[sortState.index]) * sortState.dir);
+    }
+    return result;
+  }
+
+  function wireGridHeader(theadEl, sortState, filterState, onChange) {
+    if (!theadEl) return;
+    theadEl.querySelectorAll('.m-rpt-headrow th[data-col-index]').forEach((th) => {
+      th.addEventListener('click', () => {
+        const idx = parseInt(th.dataset.colIndex, 10);
+        if (sortState.index === idx) {
+          sortState.dir *= -1;
+        } else {
+          sortState.index = idx;
+          sortState.dir = 1;
+        }
+        theadEl.querySelectorAll('.m-rpt-headrow th[data-col-index]').forEach((h) => h.classList.remove('is-sorted-asc', 'is-sorted-desc'));
+        th.classList.add(sortState.dir === 1 ? 'is-sorted-asc' : 'is-sorted-desc');
+        onChange();
+      });
+    });
+    theadEl.querySelectorAll('input.m-rpt-colfilter').forEach((input) => {
+      input.addEventListener('click', (e) => e.stopPropagation());
+      input.addEventListener('input', () => {
+        const idx = parseInt(input.dataset.colIndex, 10);
+        const val = input.value.trim().toLowerCase();
+        if (val) {
+          filterState[idx] = val;
+        } else {
+          delete filterState[idx];
+        }
+        onChange();
+      });
+    });
+  }
+
+  /* ================= Company Structure page (isolated scope) ================= */
+  (function () {
+  /* ---------- Tab switching ---------- */
+  const tabs = document.querySelectorAll('#company-tabs .m-company-tab');
+  const panels = {
+    storegroup: document.getElementById('company-panel-storegroup'),
+    country: document.getElementById('company-panel-country'),
+    state: document.getElementById('company-panel-state'),
+    city: document.getElementById('company-panel-city'),
+  };
+
+  tabs.forEach((tab) => {
+    tab.addEventListener('click', () => {
+      tabs.forEach((t) => t.classList.remove('is-active'));
+      tab.classList.add('is-active');
+      Object.keys(panels).forEach((key) => {
+        panels[key].hidden = key !== tab.dataset.tab;
+      });
+    });
+  });
+
+  function statusBadge(status) {
+    const cls = status === 'Active' ? 'm-rpt-badge--green' : 'm-rpt-badge--gray';
+    return `<span class="m-rpt-badge ${cls}">${status}</span>`;
+  }
+
+  /* ---------- Store Group table ---------- */
+  const STORE_GROUP_ROWS = [
+    ['A1', 'Shop Lot', 'Active'],
+    ['A2', 'Shopping Mall', 'Active'],
+    ['A3', 'Restaurant', 'Active'],
+  ];
+
+  const storegroupTbody = document.getElementById('storegroup-tbody');
+  const storegroupSearchInput = document.getElementById('storegroup-search-input');
+  const storegroupFilterState = {};
+  const storegroupSortState = { index: null, dir: 1 };
+  let storegroupSearchQuery = '';
+  let storegroupEditIndex = null;
+
+  function storegroupActionBtns(code) {
+    return `<div class="m-company-actionrow">
+      <button type="button" class="m-company-editbtn" aria-label="Edit" data-code="${code}">
+        <img src="assets/edit.svg" alt="" class="m-company-editbtn__icon" />
+      </button>
+      <button type="button" class="m-company-deletebtn" aria-label="Delete" data-code="${code}">
+        <img src="assets/delete.svg" alt="" class="m-company-editbtn__icon" />
+      </button>
+    </div>`;
+  }
+
+  function storegroupRowMatches(r) {
+    const matchesFilters = Object.keys(storegroupFilterState).every((idx) => String(r[idx]).toLowerCase().includes(storegroupFilterState[idx]));
+    const matchesSearch = !storegroupSearchQuery || r.some((c) => String(c).toLowerCase().includes(storegroupSearchQuery));
+    return matchesFilters && matchesSearch;
+  }
+
+  function renderStoreGroupTable() {
+    let rows = STORE_GROUP_ROWS.map((r, i) => ({ r, i })).filter(({ r }) => storegroupRowMatches(r));
+    if (storegroupSortState.index !== null) {
+      rows = rows.slice().sort((a, b) => gridCompare(a.r[storegroupSortState.index], b.r[storegroupSortState.index]) * storegroupSortState.dir);
+    }
+    const html = rows.map(({ r }) => `<tr><td>${r[0]}</td><td>${r[1]}</td><td>${statusBadge(r[2])}</td><td>${storegroupActionBtns(r[0])}</td></tr>`).join('');
+    storegroupTbody.innerHTML = html || '<tr><td colspan="4" class="m-company-empty-row">No store groups found.</td></tr>';
+  }
+
+  wireGridHeader(document.querySelector('#company-panel-storegroup thead'), storegroupSortState, storegroupFilterState, renderStoreGroupTable);
+
+  document.querySelectorAll('#company-panel-storegroup thead input.m-rpt-colfilter').forEach((input) => {
+    input.addEventListener('click', (e) => e.stopPropagation());
+    input.addEventListener('input', () => {
+      const idx = parseInt(input.dataset.colIndex, 10);
+      const val = input.value.trim().toLowerCase();
+      if (val) {
+        storegroupFilterState[idx] = val;
+      } else {
+        delete storegroupFilterState[idx];
+      }
+      renderStoreGroupTable();
+    });
+  });
+
+  storegroupSearchInput.addEventListener('input', () => {
+    storegroupSearchQuery = storegroupSearchInput.value.trim().toLowerCase();
+    renderStoreGroupTable();
+  });
+
+  document.getElementById('storegroup-export-btn').addEventListener('click', () => {
+    console.log('Export clicked (not wired up in this prototype yet).');
+  });
+
+  renderStoreGroupTable();
+
+  /* ---------- Add / Edit Store Group view ---------- */
+  const listView = document.getElementById('company-list-view');
+  const mainTopbar = document.getElementById('main-topbar');
+  const storegroupView = document.getElementById('company-storegroup-view');
+  const storegroupTopbar = document.getElementById('storegroup-topbar');
+  const storegroupTopbarTitle = document.getElementById('storegroup-topbar-title');
+  const storegroupCodeInput = document.getElementById('storegroup-code');
+  const storegroupDescriptionInput = document.getElementById('storegroup-description');
+  const storegroupActiveToggle = document.getElementById('storegroup-active');
+
+  function openStoreGroupView(mode, index) {
+    storegroupEditIndex = mode === 'edit' ? index : null;
+    if (mode === 'edit') {
+      const r = STORE_GROUP_ROWS[index];
+      storegroupTopbarTitle.textContent = 'Edit Store Group';
+      storegroupCodeInput.value = r[0];
+      storegroupDescriptionInput.value = r[1];
+      storegroupActiveToggle.checked = r[2] === 'Active';
+    } else {
+      storegroupTopbarTitle.textContent = 'Add Store Group';
+      storegroupCodeInput.value = '';
+      storegroupDescriptionInput.value = '';
+      storegroupActiveToggle.checked = true;
+    }
+    listView.hidden = true;
+    storegroupView.hidden = false;
+    mainTopbar.hidden = true;
+    storegroupTopbar.hidden = false;
+  }
+
+  function closeStoreGroupView() {
+    storegroupView.hidden = true;
+    listView.hidden = false;
+    storegroupTopbar.hidden = true;
+    mainTopbar.hidden = false;
+  }
+
+  document.getElementById('storegroup-back-btn').addEventListener('click', closeStoreGroupView);
+  document.getElementById('storegroup-cancel-btn').addEventListener('click', closeStoreGroupView);
+  document.getElementById('storegroup-add-btn').addEventListener('click', () => openStoreGroupView('add'));
+
+  storegroupTbody.addEventListener('click', (e) => {
+    const editBtn = e.target.closest('.m-company-editbtn');
+    if (editBtn) {
+      const code = editBtn.dataset.code;
+      const index = STORE_GROUP_ROWS.findIndex((r) => r[0] === code);
+      if (index !== -1) openStoreGroupView('edit', index);
+      return;
+    }
+    const deleteBtn = e.target.closest('.m-company-deletebtn');
+    if (deleteBtn) {
+      openStoregroupDeleteConfirm(deleteBtn.dataset.code);
+    }
+  });
+
+  /* ---------- Save confirmation + success modals ---------- */
+  const storegroupConfirmBackdrop = document.getElementById('storegroup-confirm-backdrop');
+  const storegroupConfirmModal = document.getElementById('storegroup-confirm');
+  const storegroupConfirmMessage = document.getElementById('storegroup-confirm-message');
+  const storegroupSuccessBackdrop = document.getElementById('storegroup-success-backdrop');
+  const storegroupSuccessModal = document.getElementById('storegroup-success');
+  const storegroupSuccessTitle = document.getElementById('storegroup-success-title');
+
+  function openStoregroupConfirm() {
+    const isEdit = storegroupEditIndex !== null;
+    storegroupConfirmMessage.textContent = `Are you sure you want to ${isEdit ? 'Edit' : 'Add'} Store Group?`;
+    storegroupConfirmBackdrop.classList.add('is-open');
+    storegroupConfirmModal.classList.add('is-open');
+  }
+  function closeStoregroupConfirm() {
+    storegroupConfirmBackdrop.classList.remove('is-open');
+    storegroupConfirmModal.classList.remove('is-open');
+  }
+  function openStoregroupSuccess() {
+    const isEdit = storegroupEditIndex !== null;
+    storegroupSuccessTitle.textContent = isEdit ? 'Store Group Updated Successfully' : 'Store Group Added Successfully';
+    storegroupSuccessBackdrop.classList.add('is-open');
+    storegroupSuccessModal.classList.add('is-open');
+  }
+  function closeStoregroupSuccess() {
+    storegroupSuccessBackdrop.classList.remove('is-open');
+    storegroupSuccessModal.classList.remove('is-open');
+  }
+
+  document.getElementById('storegroup-save-btn').addEventListener('click', openStoregroupConfirm);
+  storegroupConfirmBackdrop.addEventListener('click', closeStoregroupConfirm);
+  document.getElementById('storegroup-confirm-no').addEventListener('click', closeStoregroupConfirm);
+  document.getElementById('storegroup-confirm-yes').addEventListener('click', () => {
+    const row = [
+      storegroupCodeInput.value.trim(),
+      storegroupDescriptionInput.value.trim(),
+      storegroupActiveToggle.checked ? 'Active' : 'Inactive',
+    ];
+    if (storegroupEditIndex !== null) {
+      STORE_GROUP_ROWS[storegroupEditIndex] = row;
+    } else {
+      STORE_GROUP_ROWS.push(row);
+    }
+    renderStoreGroupTable();
+    closeStoregroupConfirm();
+    openStoregroupSuccess();
+  });
+  storegroupSuccessBackdrop.addEventListener('click', () => {
+    closeStoregroupSuccess();
+    closeStoreGroupView();
+  });
+  document.getElementById('storegroup-success-close').addEventListener('click', () => {
+    closeStoregroupSuccess();
+    closeStoreGroupView();
+  });
+
+  /* ---------- Delete confirmation + success modals ---------- */
+  const storegroupDeleteConfirmBackdrop = document.getElementById('storegroup-delete-confirm-backdrop');
+  const storegroupDeleteConfirmModal = document.getElementById('storegroup-delete-confirm');
+  const storegroupDeleteConfirmMessage = document.getElementById('storegroup-delete-confirm-message');
+  const storegroupDeleteSuccessBackdrop = document.getElementById('storegroup-delete-success-backdrop');
+  const storegroupDeleteSuccessModal = document.getElementById('storegroup-delete-success');
+  let storegroupDeleteCode = null;
+
+  function openStoregroupDeleteConfirm(code) {
+    storegroupDeleteCode = code;
+    storegroupDeleteConfirmMessage.textContent = `Are you sure you want to delete ${code}?`;
+    storegroupDeleteConfirmBackdrop.classList.add('is-open');
+    storegroupDeleteConfirmModal.classList.add('is-open');
+  }
+  function closeStoregroupDeleteConfirm() {
+    storegroupDeleteConfirmBackdrop.classList.remove('is-open');
+    storegroupDeleteConfirmModal.classList.remove('is-open');
+  }
+  function openStoregroupDeleteSuccess() {
+    storegroupDeleteSuccessBackdrop.classList.add('is-open');
+    storegroupDeleteSuccessModal.classList.add('is-open');
+  }
+  function closeStoregroupDeleteSuccess() {
+    storegroupDeleteSuccessBackdrop.classList.remove('is-open');
+    storegroupDeleteSuccessModal.classList.remove('is-open');
+  }
+
+  document.getElementById('storegroup-delete-confirm-no').addEventListener('click', closeStoregroupDeleteConfirm);
+  storegroupDeleteConfirmBackdrop.addEventListener('click', closeStoregroupDeleteConfirm);
+  document.getElementById('storegroup-delete-confirm-yes').addEventListener('click', () => {
+    const index = STORE_GROUP_ROWS.findIndex((r) => r[0] === storegroupDeleteCode);
+    if (index !== -1) STORE_GROUP_ROWS.splice(index, 1);
+    renderStoreGroupTable();
+    closeStoregroupDeleteConfirm();
+    openStoregroupDeleteSuccess();
+  });
+  storegroupDeleteSuccessBackdrop.addEventListener('click', closeStoregroupDeleteSuccess);
+  document.getElementById('storegroup-delete-success-close').addEventListener('click', closeStoregroupDeleteSuccess);
+
+  })();
+</script>
+</body>
+</html>

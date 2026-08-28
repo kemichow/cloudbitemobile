@@ -1,0 +1,2305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>CloudBite | Company Structure</title>
+<link rel="stylesheet" href="mobile.css" />
+</head>
+<body>
+  <div class="m-login">
+    <div class="m-view m-view--dashboard m-view--reports">
+
+      <!-- Nav drawer (full-screen) -->
+      <aside class="m-drawer" id="dash-drawer">
+        <div class="m-drawer__header">
+          <div class="m-dash-storebar">
+            <button type="button" class="m-dash-store-select" id="store-select-oiso">
+              <svg class="m-dash-store-select__icon" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13.7273 12.5556H15V14H1V12.5556H2.27273V1.72222C2.27273 1.53068 2.33977 1.34698 2.45911 1.21153C2.57846 1.07609 2.74032 1 2.90909 1H9.27273C9.4415 1 9.60336 1.07609 9.7227 1.21153C9.84205 1.34698 9.90909 1.53068 9.90909 1.72222V12.5556H11.1818V5.33333H13.0909C13.2597 5.33333 13.4215 5.40942 13.5409 5.54487C13.6602 5.68031 13.7273 5.86401 13.7273 6.05556V12.5556ZM4.81818 6.77778V8.22222H7.36364V6.77778H4.81818ZM4.81818 3.88889V5.33333H7.36364V3.88889H4.81818Z" fill="currentColor"/></svg>
+              Oiso
+              <svg class="m-dash-chevron" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <button type="button" class="m-dash-store-select" id="drawer-store-select">
+              <img src="assets/nav-store.svg" alt="" class="m-dash-store-select__icon" />
+              <span id="drawer-store-label">All Store</span>
+              <svg class="m-dash-chevron" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+          </div>
+
+          <button type="button" class="m-drawer__close" id="dash-drawer-close" aria-label="Close menu">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          </button>
+        </div>
+
+        <nav class="m-drawer-nav">
+
+          <div class="m-drawer-group">
+            <button type="button" class="m-drawer-nav__item">
+              <span class="m-drawer-nav__icon"><img src="assets/nav-dashboard.svg" alt="" /></span>
+              <span class="m-drawer-nav__label">Dashboard</span>
+              <span class="m-drawer-nav__chevron"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
+            </button>
+            <div class="m-drawer-nav__panel">
+              <a href="dashboard.html" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Sales Dashboard</a>
+            </div>
+          </div>
+
+          <div class="m-drawer-group">
+            <button type="button" class="m-drawer-nav__item">
+              <span class="m-drawer-nav__icon"><img src="assets/nav-report.svg" alt="" /></span>
+              <span class="m-drawer-nav__label">Reports</span>
+              <span class="m-drawer-nav__chevron"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
+            </button>
+            <div class="m-drawer-nav__panel">
+              <a href="reports.html" id="sub-operation" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Operation</a>
+              <a href="reports.html?view=txd" id="sub-transaction" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Transaction</a>
+            </div>
+          </div>
+
+          <div class="m-drawer-group is-expanded">
+            <button type="button" class="m-drawer-nav__item">
+              <span class="m-drawer-nav__icon"><img src="assets/nav-company.svg" alt="" /></span>
+              <span class="m-drawer-nav__label">Company</span>
+              <span class="m-drawer-nav__chevron"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
+            </button>
+            <div class="m-drawer-nav__panel">
+              <a href="company.html" class="m-drawer-nav__sub m-drawer-nav__sub--active"><span class="m-drawer-nav__dot"></span>Company Structure</a>
+              <a href="company-classification.html" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Classification</a>
+            </div>
+          </div>
+
+          <div class="m-drawer-group">
+            <button type="button" class="m-drawer-nav__item">
+              <span class="m-drawer-nav__icon"><img src="assets/nav-stock.svg" alt="" /></span>
+              <span class="m-drawer-nav__label">Stock</span>
+              <span class="m-drawer-nav__chevron"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
+            </button>
+            <div class="m-drawer-nav__panel">
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Item</a>
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Bill of Materials</a>
+              <a href="#" class="m-drawer-nav__sub m-drawer-nav__sub--active"><span class="m-drawer-nav__dot"></span>Classification</a>
+            </div>
+          </div>
+
+          <div class="m-drawer-group">
+            <button type="button" class="m-drawer-nav__item">
+              <span class="m-drawer-nav__icon"><img src="assets/nav-condiment.svg" alt="" /></span>
+              <span class="m-drawer-nav__label">Condiment</span>
+              <span class="m-drawer-nav__chevron"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
+            </button>
+            <div class="m-drawer-nav__panel">
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Group</a>
+              <a href="#" class="m-drawer-nav__sub m-drawer-nav__sub--active"><span class="m-drawer-nav__dot"></span>Item</a>
+            </div>
+          </div>
+
+          <div class="m-drawer-group">
+            <button type="button" class="m-drawer-nav__item">
+              <span class="m-drawer-nav__icon"><img src="assets/nav-pos.svg" alt="" /></span>
+              <span class="m-drawer-nav__label">POS</span>
+              <span class="m-drawer-nav__chevron"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
+            </button>
+            <div class="m-drawer-nav__panel">
+              <a href="#" class="m-drawer-nav__sub m-drawer-nav__sub--active"><span class="m-drawer-nav__dot"></span>Shift</a>
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Payment</a>
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Tax</a>
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Money Note</a>
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Discount</a>
+            </div>
+          </div>
+
+          <div class="m-drawer-group">
+            <button type="button" class="m-drawer-nav__item">
+              <span class="m-drawer-nav__icon"><img src="assets/nav-usermanagement.svg" alt="" /></span>
+              <span class="m-drawer-nav__label">User Management</span>
+              <span class="m-drawer-nav__chevron"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
+            </button>
+            <div class="m-drawer-nav__panel">
+              <a href="#" class="m-drawer-nav__sub m-drawer-nav__sub--active"><span class="m-drawer-nav__dot"></span>User Profile</a>
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Role Management</a>
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Classification</a>
+            </div>
+          </div>
+
+          <div class="m-drawer-group">
+            <button type="button" class="m-drawer-nav__item">
+              <span class="m-drawer-nav__icon"><img src="assets/nav-customer.svg" alt="" /></span>
+              <span class="m-drawer-nav__label">Customer</span>
+              <span class="m-drawer-nav__chevron"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
+            </button>
+            <div class="m-drawer-nav__panel">
+              <a href="#" class="m-drawer-nav__sub m-drawer-nav__sub--active"><span class="m-drawer-nav__dot"></span>Details</a>
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Discount Type</a>
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Closing</a>
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Classification</a>
+            </div>
+          </div>
+
+          <div class="m-drawer-group">
+            <button type="button" class="m-drawer-nav__item">
+              <span class="m-drawer-nav__icon"><img src="assets/nav-inventory.svg" alt="" /></span>
+              <span class="m-drawer-nav__label">Inventory</span>
+              <span class="m-drawer-nav__chevron"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
+            </button>
+            <div class="m-drawer-nav__panel">
+              <a href="#" class="m-drawer-nav__sub m-drawer-nav__sub--active"><span class="m-drawer-nav__dot"></span>Transaction</a>
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Production</a>
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Stock Take</a>
+            </div>
+          </div>
+
+          <div class="m-drawer-group">
+            <button type="button" class="m-drawer-nav__item">
+              <span class="m-drawer-nav__icon"><img src="assets/nav-supplier.svg" alt="" /></span>
+              <span class="m-drawer-nav__label">Supplier</span>
+              <span class="m-drawer-nav__chevron"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
+            </button>
+            <div class="m-drawer-nav__panel">
+              <a href="#" class="m-drawer-nav__sub m-drawer-nav__sub--active"><span class="m-drawer-nav__dot"></span>Transaction</a>
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Details</a>
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Classification</a>
+            </div>
+          </div>
+
+          <div class="m-drawer-group">
+            <button type="button" class="m-drawer-nav__item">
+              <span class="m-drawer-nav__icon"><img src="assets/nav-emenu.svg" alt="" /></span>
+              <span class="m-drawer-nav__label">E-Menu</span>
+              <span class="m-drawer-nav__chevron"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
+            </button>
+            <div class="m-drawer-nav__panel">
+              <a href="#" class="m-drawer-nav__sub m-drawer-nav__sub--active"><span class="m-drawer-nav__dot"></span>Menu</a>
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Promotion</a>
+            </div>
+          </div>
+
+          <div class="m-drawer-group">
+            <button type="button" class="m-drawer-nav__item">
+              <span class="m-drawer-nav__icon"><img src="assets/nav-crm.svg" alt="" /></span>
+              <span class="m-drawer-nav__label">CRM &amp; Promotion</span>
+              <span class="m-drawer-nav__chevron"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
+            </button>
+            <div class="m-drawer-nav__panel">
+              <a href="#" class="m-drawer-nav__sub m-drawer-nav__sub--active"><span class="m-drawer-nav__dot"></span>CRM</a>
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Promotion</a>
+            </div>
+          </div>
+
+          <div class="m-drawer-group">
+            <button type="button" class="m-drawer-nav__item">
+              <span class="m-drawer-nav__icon"><img src="assets/nav-settings.svg" alt="" /></span>
+              <span class="m-drawer-nav__label">Settings</span>
+              <span class="m-drawer-nav__chevron"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
+            </button>
+            <div class="m-drawer-nav__panel">
+              <a href="#" class="m-drawer-nav__sub m-drawer-nav__sub--active"><span class="m-drawer-nav__dot"></span>Stock</a>
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>E-Menu</a>
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Preferences</a>
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Inventory</a>
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Supplier</a>
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Kitchen Printing</a>
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Miscellaneous</a>
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>POS</a>
+            </div>
+          </div>
+
+          <div class="m-drawer-group">
+            <button type="button" class="m-drawer-nav__item">
+              <span class="m-drawer-nav__icon"><img src="assets/nav-housekeeping.svg" alt="" /></span>
+              <span class="m-drawer-nav__label">Housekeeping</span>
+              <span class="m-drawer-nav__chevron"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
+            </button>
+            <div class="m-drawer-nav__panel">
+              <a href="#" class="m-drawer-nav__sub m-drawer-nav__sub--active"><span class="m-drawer-nav__dot"></span>Housekeeping</a>
+            </div>
+          </div>
+
+        </nav>
+      </aside>
+
+      <header class="m-dash-topbar" id="main-topbar">
+        <button type="button" class="m-dash-icon-btn m-dash-menu-btn" aria-label="Menu">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+
+        <div class="m-dash-brand">
+          <img src="assets/oiso-logo.svg" alt="OiSO" class="m-dash-brand__logo" />
+        </div>
+
+        <div class="m-dash-topbar__right">
+          <button type="button" class="m-dash-icon-btn m-dash-icon-btn--alert" id="notif-btn" aria-label="Notifications">
+            <img src="assets/btn-alert.svg" alt="" class="m-dash-icon-btn__img" />
+          </button>
+          <button type="button" class="m-avatar-btn" id="avatar-btn" aria-label="Account menu">
+            <img src="assets/img_profile.svg" alt="Profile" class="m-dash-avatar" />
+          </button>
+        </div>
+      </header>
+
+      <header class="m-dash-topbar m-editbrand-topbar" id="editbrand-topbar" hidden>
+        <button type="button" class="m-dash-icon-btn" id="editbrand-back-btn" aria-label="Back">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+        <h1 class="m-editbrand-topbar__title">Edit Brand</h1>
+        <span class="m-editbrand-topbar__spacer" aria-hidden="true"></span>
+      </header>
+
+      <header class="m-dash-topbar m-editbrand-topbar" id="editlegal-topbar" hidden>
+        <button type="button" class="m-dash-icon-btn" id="editlegal-back-btn" aria-label="Back">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+        <h1 class="m-editbrand-topbar__title">Edit Legal Entity</h1>
+        <span class="m-editbrand-topbar__spacer" aria-hidden="true"></span>
+      </header>
+
+      <header class="m-dash-topbar m-editbrand-topbar" id="addstore-topbar" hidden>
+        <button type="button" class="m-dash-icon-btn" id="addstore-back-btn" aria-label="Back">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+        <h1 class="m-editbrand-topbar__title">Add Store</h1>
+        <span class="m-editbrand-topbar__spacer" aria-hidden="true"></span>
+      </header>
+
+      <header class="m-dash-topbar m-editbrand-topbar" id="editstore-topbar" hidden>
+        <button type="button" class="m-dash-icon-btn" id="editstore-back-btn" aria-label="Back">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+        <h1 class="m-editbrand-topbar__title">Edit Store</h1>
+        <span class="m-editbrand-topbar__spacer" aria-hidden="true"></span>
+      </header>
+
+      <!-- Full-screen: notifications (shared template — same on every page) -->
+      <div class="m-notif-sheet" id="notif-sheet">
+        <div class="m-notif-sheet__head">
+          <p class="m-notif-sheet__title">Notifications</p>
+          <button type="button" class="m-notif-sheet__close" id="notif-sheet-close" aria-label="Close">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          </button>
+        </div>
+
+        <div class="m-notif-sheet__body">
+          <div class="m-notif-sheet__section-row">
+            <span class="m-notif-sheet__section-label">Today</span>
+            <button type="button" class="m-notif-sheet__readall">
+              <img src="assets/notif-readall.svg" alt="" width="24" height="24" />
+              Read All
+            </button>
+          </div>
+
+          <button type="button" class="m-notif-item m-notif-item--unread">
+            <span class="m-notif-item__icon"><img src="assets/notif-unread.svg" alt="" class="m-notif-item__icon-img" /></span>
+            <span class="m-notif-item__text">Stock In #STK-1009 is pending approval.</span>
+            <span class="m-notif-item__time">09:00</span>
+          </button>
+          <button type="button" class="m-notif-item">
+            <span class="m-notif-item__icon"><img src="assets/notif-read.svg" alt="" class="m-notif-item__icon-img" /></span>
+            <span class="m-notif-item__text">Stock In #STK-1010 is pending approval.</span>
+            <span class="m-notif-item__time">11 Nov</span>
+          </button>
+          <button type="button" class="m-notif-item">
+            <span class="m-notif-item__icon"><img src="assets/notif-read.svg" alt="" class="m-notif-item__icon-img" /></span>
+            <span class="m-notif-item__text m-notif-item__text--truncate">Stock In record #STK-1008 has been successfully...</span>
+            <span class="m-notif-item__time">17 Nov</span>
+          </button>
+          <button type="button" class="m-notif-item">
+            <span class="m-notif-item__icon"><img src="assets/notif-read.svg" alt="" class="m-notif-item__icon-img" /></span>
+            <span class="m-notif-item__text">Stock In #STK-1007 is pending approval.</span>
+            <span class="m-notif-item__time">20 Nov</span>
+          </button>
+
+          <span class="m-notif-sheet__section-label m-notif-sheet__section-label--earlier">Earlier</span>
+
+          <button type="button" class="m-notif-item m-notif-item--unread">
+            <span class="m-notif-item__icon"><img src="assets/notif-unread.svg" alt="" class="m-notif-item__icon-img" /></span>
+            <span class="m-notif-item__text">Stock In #STK-1006 is pending approval.</span>
+            <span class="m-notif-item__time">22 Oct</span>
+          </button>
+          <button type="button" class="m-notif-item m-notif-item--unread">
+            <span class="m-notif-item__icon"><img src="assets/notif-unread.svg" alt="" class="m-notif-item__icon-img" /></span>
+            <span class="m-notif-item__text">Stock In #STK-1005 is pending approval.</span>
+            <span class="m-notif-item__time">21 Oct</span>
+          </button>
+          <button type="button" class="m-notif-item m-notif-item--unread">
+            <span class="m-notif-item__icon"><img src="assets/notif-unread.svg" alt="" class="m-notif-item__icon-img" /></span>
+            <span class="m-notif-item__text">Stock In record #STK-1004 has been successfully added to the system.</span>
+            <span class="m-notif-item__time">19 Oct</span>
+          </button>
+          <button type="button" class="m-notif-item">
+            <span class="m-notif-item__icon"><img src="assets/notif-read.svg" alt="" class="m-notif-item__icon-img" /></span>
+            <span class="m-notif-item__text">Stock In #STK-1003 is pending approval.</span>
+            <span class="m-notif-item__time">13 Oct</span>
+          </button>
+          <button type="button" class="m-notif-item">
+            <span class="m-notif-item__icon"><img src="assets/notif-read.svg" alt="" class="m-notif-item__icon-img" /></span>
+            <span class="m-notif-item__text">Stock In #STK-1002 is pending approval.</span>
+            <span class="m-notif-item__time">9 Oct</span>
+          </button>
+
+          <p class="m-notif-sheet__end">&mdash; End &mdash;</p>
+        </div>
+      </div>
+
+      <!-- Full-screen: account menu (shared template — same on every page) -->
+      <div class="m-notif-sheet" id="account-sheet">
+        <div class="m-notif-sheet__head">
+          <p class="m-notif-sheet__title">Account</p>
+          <button type="button" class="m-notif-sheet__close" id="account-sheet-close" aria-label="Close">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          </button>
+        </div>
+        <div class="m-notif-sheet__body">
+          <div class="m-profile-sheet__pic-wrap">
+            <img src="assets/img_profile.svg" alt="Profile" class="m-profile-sheet__pic" id="profile-sheet-pic" />
+          </div>
+          <p class="m-profile-sheet__name">Hi，Jennie Tan</p>
+          <p class="m-profile-sheet__role">HQ</p>
+
+          <div class="m-avatar-menu__list">
+            <button type="button" class="m-avatar-menu__item" id="avatar-menu-profile">
+              <span class="m-avatar-menu__icon"><img src="assets/user.svg" alt="" /></span>
+              <span class="m-avatar-menu__label">Profile</span>
+              <span class="m-avatar-menu__badge">HQ</span>
+            </button>
+            <button type="button" class="m-avatar-menu__item" id="avatar-menu-password">
+              <span class="m-avatar-menu__icon"><img src="assets/pw.svg" alt="" /></span>
+              <span class="m-avatar-menu__label">Change Password</span>
+            </button>
+            <button type="button" class="m-avatar-menu__item" id="avatar-menu-logout">
+              <span class="m-avatar-menu__icon"><img src="assets/logout.svg" alt="" /></span>
+              <span class="m-avatar-menu__label">Logout</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal: logout confirmation (shared template — same on every page) -->
+      <div class="m-confirm-backdrop" id="logout-confirm-backdrop"></div>
+      <div class="m-confirm" id="logout-confirm" role="dialog" aria-modal="true" aria-labelledby="logout-confirm-title">
+        <p class="m-confirm__title" id="logout-confirm-title">Confirmation</p>
+        <p class="m-confirm__message">Are you sure you want to Logout?</p>
+        <div class="m-confirm__actions">
+          <button type="button" class="m-confirm__btn m-confirm__btn--no" id="logout-confirm-no">No</button>
+          <button type="button" class="m-confirm__btn m-confirm__btn--yes" id="logout-confirm-yes">Yes</button>
+        </div>
+      </div>
+
+      <!-- Modal: edit brand confirmation -->
+      <div class="m-confirm-backdrop" id="editbrand-confirm-backdrop"></div>
+      <div class="m-confirm" id="editbrand-confirm" role="dialog" aria-modal="true" aria-labelledby="editbrand-confirm-title">
+        <p class="m-confirm__title" id="editbrand-confirm-title">Confirmation</p>
+        <p class="m-confirm__message">Are you sure you want to Edit Brand <span id="editbrand-confirm-name"></span> ?</p>
+        <div class="m-confirm__actions">
+          <button type="button" class="m-confirm__btn m-confirm__btn--no" id="editbrand-confirm-no">No</button>
+          <button type="button" class="m-confirm__btn m-confirm__btn--yes" id="editbrand-confirm-yes">Yes</button>
+        </div>
+      </div>
+
+      <!-- Modal: edit brand success -->
+      <div class="m-confirm-backdrop" id="editbrand-success-backdrop"></div>
+      <div class="m-confirm" id="editbrand-success" role="dialog" aria-modal="true" aria-labelledby="editbrand-success-title">
+        <div class="m-confirm__icon">
+          <span class="m-confirm__icon-inner">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          </span>
+        </div>
+        <p class="m-confirm__message" id="editbrand-success-title">Brand Saved Successfully.</p>
+        <div class="m-confirm__actions m-confirm__actions--single">
+          <button type="button" class="m-confirm__btn m-confirm__btn--no" id="editbrand-success-close">Close</button>
+        </div>
+      </div>
+
+      <!-- Modal: edit legal entity confirmation -->
+      <div class="m-confirm-backdrop" id="editlegal-confirm-backdrop"></div>
+      <div class="m-confirm" id="editlegal-confirm" role="dialog" aria-modal="true" aria-labelledby="editlegal-confirm-title">
+        <p class="m-confirm__title" id="editlegal-confirm-title">Confirmation</p>
+        <p class="m-confirm__message">Are you sure you want to Edit <span id="editlegal-confirm-name"></span> ?</p>
+        <div class="m-confirm__actions">
+          <button type="button" class="m-confirm__btn m-confirm__btn--no" id="editlegal-confirm-no">No</button>
+          <button type="button" class="m-confirm__btn m-confirm__btn--yes" id="editlegal-confirm-yes">Yes</button>
+        </div>
+      </div>
+
+      <!-- Modal: edit legal entity success -->
+      <div class="m-confirm-backdrop" id="editlegal-success-backdrop"></div>
+      <div class="m-confirm" id="editlegal-success" role="dialog" aria-modal="true" aria-labelledby="editlegal-success-title">
+        <div class="m-confirm__icon">
+          <span class="m-confirm__icon-inner">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          </span>
+        </div>
+        <p class="m-confirm__message" id="editlegal-success-title">Legal Entities Saved Successfully</p>
+        <div class="m-confirm__actions m-confirm__actions--single">
+          <button type="button" class="m-confirm__btn m-confirm__btn--no" id="editlegal-success-close">Close</button>
+        </div>
+      </div>
+
+      <!-- Bottom sheet: Brand picker (Edit Legal Entity) -->
+      <div class="m-brand-sheet-backdrop" id="editlegal-brand-sheet-backdrop"></div>
+      <div class="m-brand-sheet" id="editlegal-brand-sheet">
+        <div class="m-brand-sheet__handle"></div>
+        <div class="m-sheet-popup__head">
+          <button type="button" class="m-sheet-popup__back" id="editlegal-brand-sheet-close" aria-label="Close">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+          </button>
+          <p class="m-sheet-popup__label">Select Brand</p>
+        </div>
+        <div class="m-chart-period-list" id="editlegal-brand-list"></div>
+      </div>
+
+      <!-- Bottom sheet: State picker (Edit Legal Entity) -->
+      <div class="m-brand-sheet-backdrop" id="editlegal-state-sheet-backdrop"></div>
+      <div class="m-brand-sheet" id="editlegal-state-sheet">
+        <div class="m-brand-sheet__handle"></div>
+        <div class="m-sheet-popup__head">
+          <button type="button" class="m-sheet-popup__back" id="editlegal-state-sheet-close" aria-label="Close">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+          </button>
+          <p class="m-sheet-popup__label">Select State</p>
+        </div>
+        <div class="m-chart-period-list" id="editlegal-state-list"></div>
+      </div>
+
+      <!-- Modal: add store confirmation -->
+      <div class="m-confirm-backdrop" id="addstore-confirm-backdrop"></div>
+      <div class="m-confirm" id="addstore-confirm" role="dialog" aria-modal="true" aria-labelledby="addstore-confirm-title">
+        <p class="m-confirm__title" id="addstore-confirm-title">Confirmation</p>
+        <p class="m-confirm__message">Are you sure you want to Add Store?</p>
+        <div class="m-confirm__actions">
+          <button type="button" class="m-confirm__btn m-confirm__btn--no" id="addstore-confirm-no">No</button>
+          <button type="button" class="m-confirm__btn m-confirm__btn--yes" id="addstore-confirm-yes">Yes</button>
+        </div>
+      </div>
+
+      <!-- Modal: add store success -->
+      <div class="m-confirm-backdrop" id="addstore-success-backdrop"></div>
+      <div class="m-confirm" id="addstore-success" role="dialog" aria-modal="true" aria-labelledby="addstore-success-title">
+        <div class="m-confirm__icon">
+          <span class="m-confirm__icon-inner">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          </span>
+        </div>
+        <p class="m-confirm__message" id="addstore-success-title">Store Added Successfully</p>
+        <div class="m-confirm__actions m-confirm__actions--single">
+          <button type="button" class="m-confirm__btn m-confirm__btn--no" id="addstore-success-close">Close</button>
+        </div>
+      </div>
+
+      <!-- Modal: edit store confirmation -->
+      <div class="m-confirm-backdrop" id="editstore-confirm-backdrop"></div>
+      <div class="m-confirm" id="editstore-confirm" role="dialog" aria-modal="true" aria-labelledby="editstore-confirm-title">
+        <p class="m-confirm__title" id="editstore-confirm-title">Confirmation</p>
+        <p class="m-confirm__message" id="editstore-confirm-message">Are you sure you want to Edit Store?</p>
+        <div class="m-confirm__actions">
+          <button type="button" class="m-confirm__btn m-confirm__btn--no" id="editstore-confirm-no">No</button>
+          <button type="button" class="m-confirm__btn m-confirm__btn--yes" id="editstore-confirm-yes">Yes</button>
+        </div>
+      </div>
+
+      <!-- Modal: edit store success -->
+      <div class="m-confirm-backdrop" id="editstore-success-backdrop"></div>
+      <div class="m-confirm" id="editstore-success" role="dialog" aria-modal="true" aria-labelledby="editstore-success-title">
+        <div class="m-confirm__icon">
+          <span class="m-confirm__icon-inner">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          </span>
+        </div>
+        <p class="m-confirm__message" id="editstore-success-title">Store Updated Successfully</p>
+        <div class="m-confirm__actions m-confirm__actions--single">
+          <button type="button" class="m-confirm__btn m-confirm__btn--no" id="editstore-success-close">Close</button>
+        </div>
+      </div>
+
+      <!-- Bottom sheet: generic field picker (Add Store) -->
+      <div class="m-brand-sheet-backdrop" id="field-picker-backdrop"></div>
+      <div class="m-brand-sheet" id="field-picker-sheet">
+        <div class="m-brand-sheet__handle"></div>
+        <div class="m-sheet-popup__head">
+          <button type="button" class="m-sheet-popup__back" id="field-picker-close" aria-label="Close">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+          </button>
+          <p class="m-sheet-popup__label" id="field-picker-label">Select</p>
+        </div>
+        <div class="m-chart-period-list" id="field-picker-list"></div>
+      </div>
+
+      <div class="m-rpt-page" id="page-company">
+      <div class="m-rpt-body">
+
+      <div id="company-list-view">
+        <div class="m-company-headercard">
+          <div class="m-rpt-header">
+            <div class="m-rpt-header__titleblock">
+              <h1>Company Structure</h1>
+              <div class="m-rpt-breadcrumb">
+                <span>Company</span>
+                <span class="m-rpt-breadcrumb__sep">&rsaquo;</span>
+                <span class="m-rpt-breadcrumb__current">Company Structure</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="m-company-tabs" id="company-tabs">
+            <button type="button" class="m-company-tab is-active" data-tab="brand">
+              <img src="assets/nav-company.svg" alt="" class="m-company-tab__icon" />
+              Brand
+            </button>
+            <button type="button" class="m-company-tab" data-tab="legal">
+              <img src="assets/legal-entities.svg" alt="" class="m-company-tab__icon" />
+              Legal Entities
+            </button>
+            <button type="button" class="m-company-tab" data-tab="store">
+              <img src="assets/nav-store.svg" alt="" class="m-company-tab__icon" />
+              Store
+            </button>
+          </div>
+        </div>
+
+        <div class="m-company-panel" id="company-panel-brand">
+          <p class="m-company-panel__title">Brand</p>
+
+          <div class="m-company-toolbar">
+            <span class="m-company-search">
+              <svg class="m-company-search__icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/></svg>
+              <input type="text" class="m-company-search__input" id="brand-search-input" placeholder="Search" />
+            </span>
+            <button type="button" class="m-rpt-export" id="brand-export-btn">
+              <img src="assets/upload.svg" alt="" class="m-rpt-export__icon" />
+              Export
+            </button>
+          </div>
+
+          <div class="m-rpt-card">
+            <div class="m-rpt-table-wrap">
+              <table class="m-rpt-table m-rpt-table--tax">
+                <thead>
+                  <tr class="m-rpt-headrow">
+                    <th class="m-rpt-th" data-col-index="0"><span class="m-rpt-th-inner">Brand Name<span class="m-rpt-sorticon" aria-hidden="true"></span></span></th>
+                    <th class="m-rpt-th" data-col-index="1"><span class="m-rpt-th-inner">Brand Code<span class="m-rpt-sorticon" aria-hidden="true"></span></span></th>
+                    <th class="m-rpt-th" data-col-index="2"><span class="m-rpt-th-inner">Status<span class="m-rpt-sorticon" aria-hidden="true"></span></span></th>
+                    <th class="m-rpt-th">Action</th>
+                  </tr>
+                  <tr class="m-rpt-filterrow">
+                    <th class="m-rpt-filtercell"><span class="m-rpt-filterwrap"><img src="assets/filter.svg" alt="" class="m-rpt-filtericon" /><input type="text" class="m-rpt-colfilter" data-col-index="0" placeholder="" /></span></th>
+                    <th class="m-rpt-filtercell"><span class="m-rpt-filterwrap"><img src="assets/filter.svg" alt="" class="m-rpt-filtericon" /><input type="text" class="m-rpt-colfilter" data-col-index="1" placeholder="" /></span></th>
+                    <th class="m-rpt-filtercell"><span class="m-rpt-filterwrap"><img src="assets/filter.svg" alt="" class="m-rpt-filtericon" /><input type="text" class="m-rpt-colfilter" data-col-index="2" placeholder="" /></span></th>
+                    <th class="m-rpt-filtercell"></th>
+                  </tr>
+                </thead>
+                <tbody id="brand-tbody">
+                </tbody>
+              </table>
+            </div>
+
+            <div class="m-dash-pagination" id="brand-pagination">
+              <select class="m-dash-pagination__size" id="brand-page-size">
+                <option value="5">5</option>
+                <option value="10">10</option>
+                <option value="15">15</option>
+              </select>
+              <span class="m-dash-pagination__info" id="brand-page-range">1 to 3 of 3</span>
+              <div class="m-dash-pagination__nav">
+                <button type="button" class="m-dash-pagination__btn" id="brand-page-first" aria-label="First page"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="11 17 6 12 11 7"/><polyline points="18 17 13 12 18 7"/></svg></button>
+                <button type="button" class="m-dash-pagination__btn" id="brand-page-prev" aria-label="Previous page"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg></button>
+                <span class="m-dash-pagination__pageof" id="brand-page-of">Page 1 of 1</span>
+                <button type="button" class="m-dash-pagination__btn" id="brand-page-next" aria-label="Next page"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></button>
+                <button type="button" class="m-dash-pagination__btn" id="brand-page-last" aria-label="Last page"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="13 17 18 12 13 7"/><polyline points="6 17 11 12 6 7"/></svg></button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="m-company-panel" id="company-panel-legal" hidden>
+          <p class="m-company-panel__title">Legal Entities</p>
+
+          <div class="m-company-toolbar">
+            <span class="m-company-search">
+              <svg class="m-company-search__icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/></svg>
+              <input type="text" class="m-company-search__input" id="legal-search-input" placeholder="Search" />
+            </span>
+            <button type="button" class="m-rpt-export" id="legal-export-btn">
+              <img src="assets/upload.svg" alt="" class="m-rpt-export__icon" />
+              Export
+            </button>
+          </div>
+
+          <div class="m-rpt-card">
+            <div class="m-rpt-table-wrap">
+              <table class="m-rpt-table m-rpt-table--tax">
+                <thead>
+                  <tr class="m-rpt-headrow">
+                    <th class="m-rpt-th" data-col-index="0"><span class="m-rpt-th-inner">Legal Entities Name<span class="m-rpt-sorticon" aria-hidden="true"></span></span></th>
+                    <th class="m-rpt-th" data-col-index="1"><span class="m-rpt-th-inner">SSM / Registration No.<span class="m-rpt-sorticon" aria-hidden="true"></span></span></th>
+                    <th class="m-rpt-th" data-col-index="2"><span class="m-rpt-th-inner">State<span class="m-rpt-sorticon" aria-hidden="true"></span></span></th>
+                    <th class="m-rpt-th" data-col-index="3"><span class="m-rpt-th-inner">Tax ID (SST/VAT)<span class="m-rpt-sorticon" aria-hidden="true"></span></span></th>
+                    <th class="m-rpt-th" data-col-index="4"><span class="m-rpt-th-inner">Status<span class="m-rpt-sorticon" aria-hidden="true"></span></span></th>
+                    <th class="m-rpt-th">Action</th>
+                  </tr>
+                  <tr class="m-rpt-filterrow">
+                    <th class="m-rpt-filtercell"><span class="m-rpt-filterwrap"><img src="assets/filter.svg" alt="" class="m-rpt-filtericon" /><input type="text" class="m-rpt-colfilter" data-col-index="0" placeholder="" /></span></th>
+                    <th class="m-rpt-filtercell"><span class="m-rpt-filterwrap"><img src="assets/filter.svg" alt="" class="m-rpt-filtericon" /><input type="text" class="m-rpt-colfilter" data-col-index="1" placeholder="" /></span></th>
+                    <th class="m-rpt-filtercell"><span class="m-rpt-filterwrap"><img src="assets/filter.svg" alt="" class="m-rpt-filtericon" /><input type="text" class="m-rpt-colfilter" data-col-index="2" placeholder="" /></span></th>
+                    <th class="m-rpt-filtercell"><span class="m-rpt-filterwrap"><img src="assets/filter.svg" alt="" class="m-rpt-filtericon" /><input type="text" class="m-rpt-colfilter" data-col-index="3" placeholder="" /></span></th>
+                    <th class="m-rpt-filtercell"><span class="m-rpt-filterwrap"><img src="assets/filter.svg" alt="" class="m-rpt-filtericon" /><input type="text" class="m-rpt-colfilter" data-col-index="4" placeholder="" /></span></th>
+                    <th class="m-rpt-filtercell"></th>
+                  </tr>
+                </thead>
+                <tbody id="legal-tbody">
+                </tbody>
+              </table>
+            </div>
+
+            <div class="m-dash-pagination" id="legal-pagination">
+              <select class="m-dash-pagination__size" id="legal-page-size">
+                <option value="5">5</option>
+                <option value="10">10</option>
+                <option value="15">15</option>
+              </select>
+              <span class="m-dash-pagination__info" id="legal-page-range">1 to 3 of 3</span>
+              <div class="m-dash-pagination__nav">
+                <button type="button" class="m-dash-pagination__btn" id="legal-page-first" aria-label="First page"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="11 17 6 12 11 7"/><polyline points="18 17 13 12 18 7"/></svg></button>
+                <button type="button" class="m-dash-pagination__btn" id="legal-page-prev" aria-label="Previous page"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg></button>
+                <span class="m-dash-pagination__pageof" id="legal-page-of">Page 1 of 1</span>
+                <button type="button" class="m-dash-pagination__btn" id="legal-page-next" aria-label="Next page"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></button>
+                <button type="button" class="m-dash-pagination__btn" id="legal-page-last" aria-label="Last page"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="13 17 18 12 13 7"/><polyline points="6 17 11 12 6 7"/></svg></button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="m-company-panel" id="company-panel-store" hidden>
+          <p class="m-company-panel__title">Store</p>
+
+          <div class="m-company-toolbar">
+            <span class="m-company-search">
+              <svg class="m-company-search__icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/></svg>
+              <input type="text" class="m-company-search__input" id="store-search-input" placeholder="Search" />
+            </span>
+            <button type="button" class="m-rpt-export" id="store-export-btn">
+              <img src="assets/upload.svg" alt="" class="m-rpt-export__icon" />
+              Export
+            </button>
+            <button type="button" class="m-company-btn m-company-btn--save m-company-addstore-btn" id="store-add-btn">
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              Add Store
+            </button>
+          </div>
+
+          <div class="m-rpt-card">
+            <div class="m-rpt-table-wrap">
+              <table class="m-rpt-table m-rpt-table--tax">
+                <thead>
+                  <tr class="m-rpt-headrow">
+                    <th class="m-rpt-th" data-col-index="0"><span class="m-rpt-th-inner">Store Code<span class="m-rpt-sorticon" aria-hidden="true"></span></span></th>
+                    <th class="m-rpt-th" data-col-index="1"><span class="m-rpt-th-inner">Store Name<span class="m-rpt-sorticon" aria-hidden="true"></span></span></th>
+                    <th class="m-rpt-th" data-col-index="2"><span class="m-rpt-th-inner">Contact Person<span class="m-rpt-sorticon" aria-hidden="true"></span></span></th>
+                    <th class="m-rpt-th" data-col-index="3"><span class="m-rpt-th-inner">Email<span class="m-rpt-sorticon" aria-hidden="true"></span></span></th>
+                    <th class="m-rpt-th" data-col-index="4"><span class="m-rpt-th-inner">Phone Number<span class="m-rpt-sorticon" aria-hidden="true"></span></span></th>
+                    <th class="m-rpt-th" data-col-index="5"><span class="m-rpt-th-inner">Status<span class="m-rpt-sorticon" aria-hidden="true"></span></span></th>
+                    <th class="m-rpt-th" data-col-index="6"><span class="m-rpt-th-inner">Country<span class="m-rpt-sorticon" aria-hidden="true"></span></span></th>
+                    <th class="m-rpt-th" data-col-index="7"><span class="m-rpt-th-inner">State<span class="m-rpt-sorticon" aria-hidden="true"></span></span></th>
+                    <th class="m-rpt-th" data-col-index="8"><span class="m-rpt-th-inner">City<span class="m-rpt-sorticon" aria-hidden="true"></span></span></th>
+                    <th class="m-rpt-th">Action</th>
+                  </tr>
+                  <tr class="m-rpt-filterrow">
+                    <th class="m-rpt-filtercell"><span class="m-rpt-filterwrap"><img src="assets/filter.svg" alt="" class="m-rpt-filtericon" /><input type="text" class="m-rpt-colfilter" data-col-index="0" placeholder="" /></span></th>
+                    <th class="m-rpt-filtercell"><span class="m-rpt-filterwrap"><img src="assets/filter.svg" alt="" class="m-rpt-filtericon" /><input type="text" class="m-rpt-colfilter" data-col-index="1" placeholder="" /></span></th>
+                    <th class="m-rpt-filtercell"><span class="m-rpt-filterwrap"><img src="assets/filter.svg" alt="" class="m-rpt-filtericon" /><input type="text" class="m-rpt-colfilter" data-col-index="2" placeholder="" /></span></th>
+                    <th class="m-rpt-filtercell"><span class="m-rpt-filterwrap"><img src="assets/filter.svg" alt="" class="m-rpt-filtericon" /><input type="text" class="m-rpt-colfilter" data-col-index="3" placeholder="" /></span></th>
+                    <th class="m-rpt-filtercell"><span class="m-rpt-filterwrap"><img src="assets/filter.svg" alt="" class="m-rpt-filtericon" /><input type="text" class="m-rpt-colfilter" data-col-index="4" placeholder="" /></span></th>
+                    <th class="m-rpt-filtercell"><span class="m-rpt-filterwrap"><img src="assets/filter.svg" alt="" class="m-rpt-filtericon" /><input type="text" class="m-rpt-colfilter" data-col-index="5" placeholder="" /></span></th>
+                    <th class="m-rpt-filtercell"><span class="m-rpt-filterwrap"><img src="assets/filter.svg" alt="" class="m-rpt-filtericon" /><input type="text" class="m-rpt-colfilter" data-col-index="6" placeholder="" /></span></th>
+                    <th class="m-rpt-filtercell"><span class="m-rpt-filterwrap"><img src="assets/filter.svg" alt="" class="m-rpt-filtericon" /><input type="text" class="m-rpt-colfilter" data-col-index="7" placeholder="" /></span></th>
+                    <th class="m-rpt-filtercell"><span class="m-rpt-filterwrap"><img src="assets/filter.svg" alt="" class="m-rpt-filtericon" /><input type="text" class="m-rpt-colfilter" data-col-index="8" placeholder="" /></span></th>
+                    <th class="m-rpt-filtercell"></th>
+                  </tr>
+                </thead>
+                <tbody id="store-tbody">
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="m-company-editview" id="company-editbrand-view" hidden>
+        <div class="m-rpt-card m-company-editform">
+          <div class="m-company-formfield">
+            <label for="editbrand-name">Brand Name <span class="m-required">*</span></label>
+            <input type="text" id="editbrand-name" class="m-company-forminput" />
+          </div>
+
+          <div class="m-company-formfield">
+            <label for="editbrand-code">Brand Code <span class="m-required">*</span></label>
+            <input type="text" id="editbrand-code" class="m-company-forminput" />
+          </div>
+
+          <div class="m-company-formfield">
+            <label>Store Logo <span class="m-required">*</span></label>
+            <div class="m-company-logorow">
+              <span class="m-company-logopreview">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+              </span>
+              <span class="m-company-logobox">
+                <span class="m-company-logobox__name" id="editbrand-logofile">storelogo.png</span>
+                <button type="button" class="m-company-logobox__clear" id="editbrand-logoclear" aria-label="Remove file">
+                  <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18"/><path d="M6 6l12 12"/></svg>
+                </button>
+              </span>
+              <button type="button" class="m-company-btn m-company-btn--choose" id="editbrand-choosefile-btn">Choose File</button>
+            </div>
+            <p class="m-company-formhint">Only JPEG and BMP files are allowed.</p>
+          </div>
+
+          <div class="m-company-formfield m-company-formfield--switch">
+            <label>Active <span class="m-required">*</span></label>
+            <label class="m-company-switch">
+              <input type="checkbox" id="editbrand-active" checked />
+              <span class="m-company-switch__track"><span class="m-company-switch__thumb"></span></span>
+            </label>
+          </div>
+        </div>
+
+        <div class="m-company-editview__footer">
+          <button type="button" class="m-company-btn m-company-btn--cancel m-company-btn--block" id="editbrand-cancel-btn">Cancel</button>
+          <button type="button" class="m-company-btn m-company-btn--save m-company-btn--block" id="editbrand-save-btn">Save</button>
+        </div>
+      </div>
+
+      <div class="m-company-editview" id="company-editlegal-view" hidden>
+        <div class="m-rpt-card m-company-editform">
+          <div class="m-company-formfield">
+            <label for="editlegal-brand-trigger">Brand <span class="m-required">*</span></label>
+            <button type="button" class="m-company-forminput m-company-formselect m-company-formselect--btn" id="editlegal-brand-trigger">
+              <span id="editlegal-brand-value">Oiso</span>
+            </button>
+            <input type="hidden" id="editlegal-brand" value="Oiso" />
+          </div>
+
+          <div class="m-company-formfield">
+            <label for="editlegal-name">Legal Entity Name <span class="m-required">*</span></label>
+            <input type="text" id="editlegal-name" class="m-company-forminput" />
+          </div>
+
+          <div class="m-company-formfield">
+            <label for="editlegal-ssm">SSM / Registration No. <span class="m-required">*</span></label>
+            <input type="text" id="editlegal-ssm" class="m-company-forminput" />
+          </div>
+
+          <div class="m-company-formfield">
+            <label for="editlegal-state-trigger">State <span class="m-required">*</span></label>
+            <button type="button" class="m-company-forminput m-company-formselect m-company-formselect--btn" id="editlegal-state-trigger">
+              <span id="editlegal-state-value">Kuala Lumpur (Federal Territory)</span>
+            </button>
+            <input type="hidden" id="editlegal-state" value="Kuala Lumpur (Federal Territory)" />
+          </div>
+
+          <div class="m-company-formfield">
+            <label for="editlegal-taxid">Tax ID (SST/VAT) <span class="m-required">*</span></label>
+            <input type="text" id="editlegal-taxid" class="m-company-forminput" />
+          </div>
+
+          <div class="m-company-formfield">
+            <label for="editlegal-email">Invoice Email</label>
+            <input type="email" id="editlegal-email" class="m-company-forminput" />
+          </div>
+
+          <div class="m-company-formfield m-company-formfield--switch">
+            <label>Active <span class="m-required">*</span></label>
+            <label class="m-company-switch">
+              <input type="checkbox" id="editlegal-active" checked />
+              <span class="m-company-switch__track"><span class="m-company-switch__thumb"></span></span>
+            </label>
+          </div>
+        </div>
+
+        <div class="m-company-editview__footer">
+          <button type="button" class="m-company-btn m-company-btn--cancel m-company-btn--block" id="editlegal-cancel-btn">Cancel</button>
+          <button type="button" class="m-company-btn m-company-btn--save m-company-btn--block" id="editlegal-save-btn">Save</button>
+        </div>
+      </div>
+
+      <div class="m-company-editview" id="company-addstore-view" hidden>
+        <div class="m-company-editform">
+
+          <div class="m-company-formsection">
+            <button type="button" class="m-company-formsection__head" data-section-toggle="details">
+              Store Details
+              <svg class="m-company-formsection__chevron" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+            </button>
+            <div class="m-company-formsection__body" id="addstore-section-details">
+              <div class="m-company-formfield">
+                <label for="addstore-code">Store Code <span class="m-required">*</span></label>
+                <input type="text" id="addstore-code" class="m-company-forminput" placeholder="Enter Store Code" />
+              </div>
+              <div class="m-company-formfield">
+                <label for="addstore-description">Store Description</label>
+                <input type="text" id="addstore-description" class="m-company-forminput" placeholder="Enter Store Description" />
+              </div>
+              <div class="m-company-formfield">
+                <label for="addstore-name">Store Name <span class="m-required">*</span></label>
+                <input type="text" id="addstore-name" class="m-company-forminput" placeholder="Enter Store Name" />
+              </div>
+              <div class="m-company-formfield">
+                <label for="addstore-legalentity-trigger">Legal Entity <span class="m-required">*</span></label>
+                <button type="button" class="m-company-forminput m-company-formselect m-company-formselect--btn m-company-formselect--placeholder" id="addstore-legalentity-trigger">
+                  <span id="addstore-legalentity-value">Select Legal Entity</span>
+                </button>
+                <input type="hidden" id="addstore-legalentity" value="" />
+              </div>
+              <div class="m-company-formfield m-company-formfield--switch">
+                <label>Active <span class="m-required">*</span></label>
+                <label class="m-company-switch">
+                  <input type="checkbox" id="addstore-active" checked />
+                  <span class="m-company-switch__track"><span class="m-company-switch__thumb"></span></span>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <div class="m-company-formsection">
+            <button type="button" class="m-company-formsection__head" data-section-toggle="personal">
+              Personal Info
+              <svg class="m-company-formsection__chevron" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+            </button>
+            <div class="m-company-formsection__body" id="addstore-section-personal">
+              <div class="m-company-formfield">
+                <label for="addstore-contact">Contact Person</label>
+                <input type="text" id="addstore-contact" class="m-company-forminput" placeholder="Enter Contact Person" />
+              </div>
+              <div class="m-company-formfield">
+                <label for="addstore-email">Email</label>
+                <input type="email" id="addstore-email" class="m-company-forminput" placeholder="Enter Email" />
+              </div>
+              <div class="m-company-formfield">
+                <label for="addstore-phone">Phone Number</label>
+                <input type="tel" id="addstore-phone" class="m-company-forminput" placeholder="Enter Phone Number" />
+              </div>
+              <div class="m-company-formfield">
+                <label for="addstore-merchantid">Eatmol Merchant ID</label>
+                <input type="text" id="addstore-merchantid" class="m-company-forminput" placeholder="Enter Eatmol Merchant ID" />
+              </div>
+              <div class="m-company-formfield">
+                <label for="addstore-address1">Address</label>
+                <input type="text" id="addstore-address1" class="m-company-forminput" placeholder="Enter Address 1" />
+              </div>
+              <div class="m-company-formfield">
+                <input type="text" id="addstore-address2" class="m-company-forminput" placeholder="Enter Address 2" />
+              </div>
+              <div class="m-company-formfield">
+                <input type="text" id="addstore-address3" class="m-company-forminput" placeholder="Enter Address 3" />
+              </div>
+              <div class="m-company-formfield">
+                <label for="addstore-postalcode">Postal Code</label>
+                <input type="text" id="addstore-postalcode" class="m-company-forminput" placeholder="Postal Code" />
+              </div>
+              <div class="m-company-formfield">
+                <label for="addstore-city-trigger">City</label>
+                <button type="button" class="m-company-forminput m-company-formselect m-company-formselect--btn m-company-formselect--placeholder" id="addstore-city-trigger">
+                  <span id="addstore-city-value">Select City</span>
+                </button>
+                <input type="hidden" id="addstore-city" value="" />
+              </div>
+              <div class="m-company-formfield">
+                <label for="addstore-state-trigger">State</label>
+                <button type="button" class="m-company-forminput m-company-formselect m-company-formselect--btn m-company-formselect--placeholder" id="addstore-state-trigger">
+                  <span id="addstore-state-value">Select State</span>
+                </button>
+                <input type="hidden" id="addstore-state" value="" />
+              </div>
+              <div class="m-company-formfield">
+                <label for="addstore-country-trigger">Country</label>
+                <button type="button" class="m-company-forminput m-company-formselect m-company-formselect--btn m-company-formselect--placeholder" id="addstore-country-trigger">
+                  <span id="addstore-country-value">Select Country</span>
+                </button>
+                <input type="hidden" id="addstore-country" value="" />
+              </div>
+            </div>
+          </div>
+
+          <div class="m-company-formsection">
+            <button type="button" class="m-company-formsection__head" data-section-toggle="general">
+              General Info
+              <svg class="m-company-formsection__chevron" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+            </button>
+            <div class="m-company-formsection__body" id="addstore-section-general">
+
+              <div class="m-company-formsubcard">
+                <div class="m-company-formsection__subhead-row">
+                  <p class="m-company-formsection__subhead">Store Location</p>
+                  <button type="button" class="m-formsection-info-btn" data-tooltip="Set the store location, country, state and city" aria-label="Info">
+                    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><line x1="12" y1="11" x2="12" y2="16.5"/><circle cx="12" cy="8" r="0.25" fill="currentColor" stroke-width="1"/></svg>
+                  </button>
+                </div>
+                <div class="m-formsection-tooltip" hidden>Set the store location, country, state and city</div>
+                <div class="m-company-formfield">
+                  <label for="addstore-storecountry-trigger">Store Country</label>
+                  <button type="button" class="m-company-forminput m-company-formselect m-company-formselect--btn m-company-formselect--placeholder" id="addstore-storecountry-trigger">
+                    <span id="addstore-storecountry-value">Select Store Country</span>
+                  </button>
+                  <input type="hidden" id="addstore-storecountry" value="" />
+                </div>
+                <div class="m-company-formfield">
+                  <label for="addstore-storestate-trigger">Store State</label>
+                  <button type="button" class="m-company-forminput m-company-formselect m-company-formselect--btn m-company-formselect--placeholder" id="addstore-storestate-trigger">
+                    <span id="addstore-storestate-value">Select Store State</span>
+                  </button>
+                  <input type="hidden" id="addstore-storestate" value="" />
+                </div>
+                <div class="m-company-formfield">
+                  <label for="addstore-storecity-trigger">Store City</label>
+                  <button type="button" class="m-company-forminput m-company-formselect m-company-formselect--btn m-company-formselect--placeholder" id="addstore-storecity-trigger">
+                    <span id="addstore-storecity-value">Select Store City</span>
+                  </button>
+                  <input type="hidden" id="addstore-storecity" value="" />
+                </div>
+              </div>
+
+              <div class="m-company-formsubcard">
+                <div class="m-company-formsection__subhead-row">
+                  <p class="m-company-formsection__subhead">Price Category</p>
+                  <button type="button" class="m-formsection-info-btn" data-tooltip="Set the store price level, cost level and store group." aria-label="Info">
+                    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><line x1="12" y1="11" x2="12" y2="16.5"/><circle cx="12" cy="8" r="0.25" fill="currentColor" stroke-width="1"/></svg>
+                  </button>
+                </div>
+                <div class="m-formsection-tooltip" hidden>Set the store price level, cost level and store group.</div>
+                <div class="m-company-formfield">
+                  <label for="addstore-pricelevel-trigger">Price Level</label>
+                  <button type="button" class="m-company-forminput m-company-formselect m-company-formselect--btn m-company-formselect--placeholder" id="addstore-pricelevel-trigger">
+                    <span id="addstore-pricelevel-value">Select Price Level</span>
+                  </button>
+                  <input type="hidden" id="addstore-pricelevel" value="" />
+                </div>
+                <div class="m-company-formfield">
+                  <label for="addstore-storegroup-trigger">Store Group</label>
+                  <button type="button" class="m-company-forminput m-company-formselect m-company-formselect--btn m-company-formselect--placeholder" id="addstore-storegroup-trigger">
+                    <span id="addstore-storegroup-value">Select Store Group</span>
+                  </button>
+                  <input type="hidden" id="addstore-storegroup" value="" />
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="m-company-formsection">
+            <button type="button" class="m-company-formsection__head" data-section-toggle="receipt">
+              Receipt Setting
+              <svg class="m-company-formsection__chevron" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+            </button>
+            <div class="m-company-formsection__body" id="addstore-section-receipt">
+
+              <div class="m-company-formsubcard">
+                <p class="m-company-formsection__subhead">E-receipt Setting</p>
+                <div class="m-company-formfield m-company-formfield--switch">
+                  <label for="addstore-enable-ereceipt">Enable E-Receipt</label>
+                  <label class="m-company-switch">
+                    <input type="checkbox" id="addstore-enable-ereceipt" checked />
+                    <span class="m-company-switch__track"><span class="m-company-switch__thumb"></span></span>
+                  </label>
+                </div>
+                <p class="m-company-formsection__label">E-receipt Method</p>
+                <div class="m-company-formfield m-company-formfield--switch m-company-formfield--indent">
+                  <label for="addstore-ereceipt-email">Send Via Email</label>
+                  <label class="m-company-switch">
+                    <input type="checkbox" id="addstore-ereceipt-email" checked />
+                    <span class="m-company-switch__track"><span class="m-company-switch__thumb"></span></span>
+                  </label>
+                </div>
+                <div class="m-company-formfield m-company-formfield--switch m-company-formfield--indent">
+                  <label for="addstore-ereceipt-pdf">Generate PDF</label>
+                  <label class="m-company-switch">
+                    <input type="checkbox" id="addstore-ereceipt-pdf" checked />
+                    <span class="m-company-switch__track"><span class="m-company-switch__thumb"></span></span>
+                  </label>
+                </div>
+              </div>
+
+              <div class="m-company-formsubcard">
+                <p class="m-company-formsection__subhead">Receipt Footer</p>
+                <div class="m-company-formfield">
+                  <label for="addstore-receipt-phone">Phone Number</label>
+                  <input type="tel" id="addstore-receipt-phone" class="m-company-forminput" placeholder="Enter Phone Number" />
+                </div>
+                <div class="m-company-formfield">
+                  <label for="addstore-receipt-email">Email</label>
+                  <input type="email" id="addstore-receipt-email" class="m-company-forminput" placeholder="Enter Email" />
+                </div>
+                <div class="m-company-formfield">
+                  <label for="addstore-receipt-footermsg">Footer Message</label>
+                  <input type="text" id="addstore-receipt-footermsg" class="m-company-forminput" placeholder="Footer Message" />
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+        <div class="m-company-editview__footer">
+          <button type="button" class="m-company-btn m-company-btn--cancel m-company-btn--block" id="addstore-cancel-btn">Cancel</button>
+          <button type="button" class="m-company-btn m-company-btn--save m-company-btn--block" id="addstore-save-btn">Save</button>
+        </div>
+      </div>
+
+      <div class="m-company-editview" id="company-editstore-view" hidden>
+        <div class="m-company-editform">
+
+          <div class="m-company-formsection">
+            <button type="button" class="m-company-formsection__head" data-section-toggle="details">
+              Store Details
+              <svg class="m-company-formsection__chevron" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+            </button>
+            <div class="m-company-formsection__body" id="editstore-section-details">
+              <div class="m-company-formfield">
+                <label for="editstore-code">Store Code <span class="m-required">*</span></label>
+                <input type="text" id="editstore-code" class="m-company-forminput" placeholder="Enter Store Code" />
+              </div>
+              <div class="m-company-formfield">
+                <label for="editstore-description">Store Description</label>
+                <input type="text" id="editstore-description" class="m-company-forminput" placeholder="Enter Store Description" />
+              </div>
+              <div class="m-company-formfield">
+                <label for="editstore-name">Store Name <span class="m-required">*</span></label>
+                <input type="text" id="editstore-name" class="m-company-forminput" placeholder="Enter Store Name" />
+              </div>
+              <div class="m-company-formfield">
+                <label for="editstore-legalentity-trigger">Legal Entity <span class="m-required">*</span></label>
+                <button type="button" class="m-company-forminput m-company-formselect m-company-formselect--btn m-company-formselect--placeholder" id="editstore-legalentity-trigger">
+                  <span id="editstore-legalentity-value">Select Legal Entity</span>
+                </button>
+                <input type="hidden" id="editstore-legalentity" value="" />
+              </div>
+              <div class="m-company-formfield m-company-formfield--switch">
+                <label>Active <span class="m-required">*</span></label>
+                <label class="m-company-switch">
+                  <input type="checkbox" id="editstore-active" checked />
+                  <span class="m-company-switch__track"><span class="m-company-switch__thumb"></span></span>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <div class="m-company-formsection">
+            <button type="button" class="m-company-formsection__head" data-section-toggle="personal">
+              Personal Info
+              <svg class="m-company-formsection__chevron" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+            </button>
+            <div class="m-company-formsection__body" id="editstore-section-personal">
+              <div class="m-company-formfield">
+                <label for="editstore-contact">Contact Person</label>
+                <input type="text" id="editstore-contact" class="m-company-forminput" placeholder="Enter Contact Person" />
+              </div>
+              <div class="m-company-formfield">
+                <label for="editstore-email">Email</label>
+                <input type="email" id="editstore-email" class="m-company-forminput" placeholder="Enter Email" />
+              </div>
+              <div class="m-company-formfield">
+                <label for="editstore-phone">Phone Number</label>
+                <input type="tel" id="editstore-phone" class="m-company-forminput" placeholder="Enter Phone Number" />
+              </div>
+              <div class="m-company-formfield">
+                <label for="editstore-merchantid">Eatmol Merchant ID</label>
+                <input type="text" id="editstore-merchantid" class="m-company-forminput" placeholder="Enter Eatmol Merchant ID" />
+              </div>
+              <div class="m-company-formfield">
+                <label for="editstore-address1">Address</label>
+                <input type="text" id="editstore-address1" class="m-company-forminput" placeholder="Enter Address 1" />
+              </div>
+              <div class="m-company-formfield">
+                <input type="text" id="editstore-address2" class="m-company-forminput" placeholder="Enter Address 2" />
+              </div>
+              <div class="m-company-formfield">
+                <input type="text" id="editstore-address3" class="m-company-forminput" placeholder="Enter Address 3" />
+              </div>
+              <div class="m-company-formfield">
+                <label for="editstore-postalcode">Postal Code</label>
+                <input type="text" id="editstore-postalcode" class="m-company-forminput" placeholder="Postal Code" />
+              </div>
+              <div class="m-company-formfield">
+                <label for="editstore-city-trigger">City</label>
+                <button type="button" class="m-company-forminput m-company-formselect m-company-formselect--btn m-company-formselect--placeholder" id="editstore-city-trigger">
+                  <span id="editstore-city-value">Select City</span>
+                </button>
+                <input type="hidden" id="editstore-city" value="" />
+              </div>
+              <div class="m-company-formfield">
+                <label for="editstore-state-trigger">State</label>
+                <button type="button" class="m-company-forminput m-company-formselect m-company-formselect--btn m-company-formselect--placeholder" id="editstore-state-trigger">
+                  <span id="editstore-state-value">Select State</span>
+                </button>
+                <input type="hidden" id="editstore-state" value="" />
+              </div>
+              <div class="m-company-formfield">
+                <label for="editstore-country-trigger">Country</label>
+                <button type="button" class="m-company-forminput m-company-formselect m-company-formselect--btn m-company-formselect--placeholder" id="editstore-country-trigger">
+                  <span id="editstore-country-value">Select Country</span>
+                </button>
+                <input type="hidden" id="editstore-country" value="" />
+              </div>
+            </div>
+          </div>
+
+          <div class="m-company-formsection">
+            <button type="button" class="m-company-formsection__head" data-section-toggle="general">
+              General Info
+              <svg class="m-company-formsection__chevron" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+            </button>
+            <div class="m-company-formsection__body" id="editstore-section-general">
+
+              <div class="m-company-formsubcard">
+                <div class="m-company-formsection__subhead-row">
+                  <p class="m-company-formsection__subhead">Store Location</p>
+                  <button type="button" class="m-formsection-info-btn" data-tooltip="Set the store location, country, state and city" aria-label="Info">
+                    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><line x1="12" y1="11" x2="12" y2="16.5"/><circle cx="12" cy="8" r="0.25" fill="currentColor" stroke-width="1"/></svg>
+                  </button>
+                </div>
+                <div class="m-formsection-tooltip" hidden>Set the store location, country, state and city</div>
+                <div class="m-company-formfield">
+                  <label for="editstore-storecountry-trigger">Store Country</label>
+                  <button type="button" class="m-company-forminput m-company-formselect m-company-formselect--btn m-company-formselect--placeholder" id="editstore-storecountry-trigger">
+                    <span id="editstore-storecountry-value">Select Store Country</span>
+                  </button>
+                  <input type="hidden" id="editstore-storecountry" value="" />
+                </div>
+                <div class="m-company-formfield">
+                  <label for="editstore-storestate-trigger">Store State</label>
+                  <button type="button" class="m-company-forminput m-company-formselect m-company-formselect--btn m-company-formselect--placeholder" id="editstore-storestate-trigger">
+                    <span id="editstore-storestate-value">Select Store State</span>
+                  </button>
+                  <input type="hidden" id="editstore-storestate" value="" />
+                </div>
+                <div class="m-company-formfield">
+                  <label for="editstore-storecity-trigger">Store City</label>
+                  <button type="button" class="m-company-forminput m-company-formselect m-company-formselect--btn m-company-formselect--placeholder" id="editstore-storecity-trigger">
+                    <span id="editstore-storecity-value">Select Store City</span>
+                  </button>
+                  <input type="hidden" id="editstore-storecity" value="" />
+                </div>
+              </div>
+
+              <div class="m-company-formsubcard">
+                <div class="m-company-formsection__subhead-row">
+                  <p class="m-company-formsection__subhead">Price Category</p>
+                  <button type="button" class="m-formsection-info-btn" data-tooltip="Set the store price level, cost level and store group." aria-label="Info">
+                    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><line x1="12" y1="11" x2="12" y2="16.5"/><circle cx="12" cy="8" r="0.25" fill="currentColor" stroke-width="1"/></svg>
+                  </button>
+                </div>
+                <div class="m-formsection-tooltip" hidden>Set the store price level, cost level and store group.</div>
+                <div class="m-company-formfield">
+                  <label for="editstore-pricelevel-trigger">Price Level</label>
+                  <button type="button" class="m-company-forminput m-company-formselect m-company-formselect--btn m-company-formselect--placeholder" id="editstore-pricelevel-trigger">
+                    <span id="editstore-pricelevel-value">Select Price Level</span>
+                  </button>
+                  <input type="hidden" id="editstore-pricelevel" value="" />
+                </div>
+                <div class="m-company-formfield">
+                  <label for="editstore-storegroup-trigger">Store Group</label>
+                  <button type="button" class="m-company-forminput m-company-formselect m-company-formselect--btn m-company-formselect--placeholder" id="editstore-storegroup-trigger">
+                    <span id="editstore-storegroup-value">Select Store Group</span>
+                  </button>
+                  <input type="hidden" id="editstore-storegroup" value="" />
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="m-company-formsection">
+            <button type="button" class="m-company-formsection__head" data-section-toggle="receipt">
+              Receipt Setting
+              <svg class="m-company-formsection__chevron" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+            </button>
+            <div class="m-company-formsection__body" id="editstore-section-receipt">
+
+              <div class="m-company-formsubcard">
+                <p class="m-company-formsection__subhead">E-receipt Setting</p>
+                <div class="m-company-formfield m-company-formfield--switch">
+                  <label for="editstore-enable-ereceipt">Enable E-Receipt</label>
+                  <label class="m-company-switch">
+                    <input type="checkbox" id="editstore-enable-ereceipt" checked />
+                    <span class="m-company-switch__track"><span class="m-company-switch__thumb"></span></span>
+                  </label>
+                </div>
+                <p class="m-company-formsection__label">E-receipt Method</p>
+                <div class="m-company-formfield m-company-formfield--switch m-company-formfield--indent">
+                  <label for="editstore-ereceipt-email">Send Via Email</label>
+                  <label class="m-company-switch">
+                    <input type="checkbox" id="editstore-ereceipt-email" checked />
+                    <span class="m-company-switch__track"><span class="m-company-switch__thumb"></span></span>
+                  </label>
+                </div>
+                <div class="m-company-formfield m-company-formfield--switch m-company-formfield--indent">
+                  <label for="editstore-ereceipt-pdf">Generate PDF</label>
+                  <label class="m-company-switch">
+                    <input type="checkbox" id="editstore-ereceipt-pdf" checked />
+                    <span class="m-company-switch__track"><span class="m-company-switch__thumb"></span></span>
+                  </label>
+                </div>
+              </div>
+
+              <div class="m-company-formsubcard">
+                <p class="m-company-formsection__subhead">Receipt Footer</p>
+                <div class="m-company-formfield">
+                  <label for="editstore-receipt-phone">Phone Number</label>
+                  <input type="tel" id="editstore-receipt-phone" class="m-company-forminput" placeholder="Enter Phone Number" />
+                </div>
+                <div class="m-company-formfield">
+                  <label for="editstore-receipt-email">Email</label>
+                  <input type="email" id="editstore-receipt-email" class="m-company-forminput" placeholder="Enter Email" />
+                </div>
+                <div class="m-company-formfield">
+                  <label for="editstore-receipt-footermsg">Footer Message</label>
+                  <input type="text" id="editstore-receipt-footermsg" class="m-company-forminput" placeholder="Footer Message" />
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+        <div class="m-company-editview__footer">
+          <button type="button" class="m-company-btn m-company-btn--cancel m-company-btn--block" id="editstore-cancel-btn">Cancel</button>
+          <button type="button" class="m-company-btn m-company-btn--save m-company-btn--block" id="editstore-save-btn">Save</button>
+        </div>
+      </div>
+
+      </div>
+
+    </div>
+  </div>
+
+<script>
+  /* ---------- Nav drawer (copied from the dashboard top navigation bar) ---------- */
+  const dashDrawer = document.getElementById('dash-drawer');
+
+  function openDrawer() {
+    dashDrawer.classList.add('is-open');
+  }
+  function closeDrawer() {
+    dashDrawer.classList.remove('is-open');
+  }
+  function closeDrawerInstant() {
+    dashDrawer.style.transition = 'none';
+    dashDrawer.classList.remove('is-open');
+    dashDrawer.offsetHeight;
+    dashDrawer.style.transition = '';
+  }
+
+  document.querySelector('.m-dash-menu-btn')?.addEventListener('click', openDrawer);
+  document.getElementById('dash-drawer-close')?.addEventListener('click', closeDrawer);
+
+  const drawerGroups = document.querySelectorAll('.m-drawer-group');
+  drawerGroups.forEach((group) => {
+    const trigger = group.querySelector('.m-drawer-nav__item');
+    trigger.addEventListener('click', () => {
+      const willExpand = !group.classList.contains('is-expanded');
+      drawerGroups.forEach((g) => g.classList.remove('is-expanded'));
+      if (willExpand) {
+        group.classList.add('is-expanded');
+      }
+    });
+  });
+
+  /* ---------- Notifications (shared template — same on every page) ---------- */
+  const notifSheet = document.getElementById('notif-sheet');
+
+  function openNotifSheet() {
+    notifSheet.classList.add('is-open');
+  }
+  function closeNotifSheet() {
+    notifSheet.classList.remove('is-open');
+  }
+
+  document.getElementById('notif-btn')?.addEventListener('click', openNotifSheet);
+  document.getElementById('notif-sheet-close')?.addEventListener('click', closeNotifSheet);
+
+  function setNotifItemRead(item, isUnread) {
+    item.classList.toggle('m-notif-item--unread', isUnread);
+    const icon = item.querySelector('.m-notif-item__icon-img');
+    if (icon) icon.src = isUnread ? 'assets/notif-unread.svg' : 'assets/notif-read.svg';
+  }
+
+  notifSheet?.querySelectorAll('.m-notif-item').forEach((item) => {
+    item.addEventListener('click', () => {
+      setNotifItemRead(item, !item.classList.contains('m-notif-item--unread'));
+    });
+  });
+
+  notifSheet?.querySelector('.m-notif-sheet__readall')?.addEventListener('click', () => {
+    notifSheet.querySelectorAll('.m-notif-item').forEach((item) => setNotifItemRead(item, false));
+  });
+
+  /* ---------- Account menu (shared template — same on every page) ---------- */
+  const avatarBtn = document.getElementById('avatar-btn');
+  const accountSheet = document.getElementById('account-sheet');
+
+  function openAccountSheet() {
+    accountSheet.classList.add('is-open');
+  }
+  function closeAccountSheet() {
+    accountSheet.classList.remove('is-open');
+  }
+
+  avatarBtn?.addEventListener('click', openAccountSheet);
+  document.getElementById('account-sheet-close')?.addEventListener('click', closeAccountSheet);
+
+  /* ---------- Logout confirmation (shared template — same on every page) ---------- */
+  const logoutBackdrop = document.getElementById('logout-confirm-backdrop');
+  const logoutModal = document.getElementById('logout-confirm');
+  const logoutBtn = document.getElementById('avatar-menu-logout');
+
+  function openLogoutConfirm() {
+    logoutBackdrop.classList.add('is-open');
+    logoutModal.classList.add('is-open');
+  }
+  function closeLogoutConfirm() {
+    logoutBackdrop.classList.remove('is-open');
+    logoutModal.classList.remove('is-open');
+  }
+
+  logoutBtn?.addEventListener('click', openLogoutConfirm);
+  logoutBackdrop?.addEventListener('click', closeLogoutConfirm);
+  document.getElementById('logout-confirm-no')?.addEventListener('click', closeLogoutConfirm);
+  document.getElementById('logout-confirm-yes')?.addEventListener('click', () => {
+    window.location.href = 'mobile.html';
+  });
+
+  /* ================= AG Grid style: shared column sort + filter helpers ================= */
+  function gridCompare(a, b) {
+    const sa = String(a);
+    const sb = String(b);
+    const na = parseFloat(sa.replace(/[^0-9.\-]/g, ''));
+    const nb = parseFloat(sb.replace(/[^0-9.\-]/g, ''));
+    const numericA = /[0-9]/.test(sa) && !isNaN(na);
+    const numericB = /[0-9]/.test(sb) && !isNaN(nb);
+    if (numericA && numericB) return na - nb;
+    return sa.localeCompare(sb);
+  }
+
+  function getGridRows(rows, sortState, filterState) {
+    let result = rows.filter((r) => Object.keys(filterState).every((idx) => String(r[idx]).toLowerCase().includes(filterState[idx])));
+    if (sortState.index !== null) {
+      result = result.slice().sort((a, b) => gridCompare(a[sortState.index], b[sortState.index]) * sortState.dir);
+    }
+    return result;
+  }
+
+  function wireGridHeader(theadEl, sortState, filterState, onChange) {
+    if (!theadEl) return;
+    theadEl.querySelectorAll('.m-rpt-headrow th[data-col-index]').forEach((th) => {
+      th.addEventListener('click', () => {
+        const idx = parseInt(th.dataset.colIndex, 10);
+        if (sortState.index === idx) {
+          sortState.dir *= -1;
+        } else {
+          sortState.index = idx;
+          sortState.dir = 1;
+        }
+        theadEl.querySelectorAll('.m-rpt-headrow th[data-col-index]').forEach((h) => h.classList.remove('is-sorted-asc', 'is-sorted-desc'));
+        th.classList.add(sortState.dir === 1 ? 'is-sorted-asc' : 'is-sorted-desc');
+        onChange();
+      });
+    });
+    theadEl.querySelectorAll('input.m-rpt-colfilter').forEach((input) => {
+      input.addEventListener('click', (e) => e.stopPropagation());
+      input.addEventListener('input', () => {
+        const idx = parseInt(input.dataset.colIndex, 10);
+        const val = input.value.trim().toLowerCase();
+        if (val) {
+          filterState[idx] = val;
+        } else {
+          delete filterState[idx];
+        }
+        onChange();
+      });
+    });
+  }
+
+  /* ================= Company Structure page (isolated scope) ================= */
+  (function () {
+  /* ---------- Tab switching ---------- */
+  const tabs = document.querySelectorAll('#company-tabs .m-company-tab');
+  const panels = {
+    brand: document.getElementById('company-panel-brand'),
+    legal: document.getElementById('company-panel-legal'),
+    store: document.getElementById('company-panel-store'),
+  };
+
+  tabs.forEach((tab) => {
+    tab.addEventListener('click', () => {
+      tabs.forEach((t) => t.classList.remove('is-active'));
+      tab.classList.add('is-active');
+      Object.keys(panels).forEach((key) => {
+        panels[key].hidden = key !== tab.dataset.tab;
+      });
+    });
+  });
+
+  /* ---------- Brand table ---------- */
+  const BRAND_ROWS = [
+    ['Oiso', 'Oiso', 'Active'],
+    ['Mimi', 'Mimi', 'Active'],
+    ['Neulbom', 'Neulbom', 'Active'],
+  ];
+
+  const brandTbody = document.getElementById('brand-tbody');
+  const brandSizeSelect = document.getElementById('brand-page-size');
+  const brandInfoEl = document.getElementById('brand-page-range');
+  const brandPageOfEl = document.getElementById('brand-page-of');
+  const brandFirstBtn = document.getElementById('brand-page-first');
+  const brandPrevBtn = document.getElementById('brand-page-prev');
+  const brandNextBtn = document.getElementById('brand-page-next');
+  const brandLastBtn = document.getElementById('brand-page-last');
+  const brandSearchInput = document.getElementById('brand-search-input');
+
+  let brandPage = 1;
+  const brandSortState = { index: null, dir: 1 };
+  const brandFilterState = {};
+  let brandSearchQuery = '';
+
+  function statusBadge(status) {
+    const cls = status === 'Active' ? 'm-rpt-badge--green' : 'm-rpt-badge--gray';
+    return `<span class="m-rpt-badge ${cls}">${status}</span>`;
+  }
+
+  function editActionBtn(name, code) {
+    return `<button type="button" class="m-company-editbtn" aria-label="Edit" data-brand-name="${name}" data-brand-code="${code}">
+      <img src="assets/edit.svg" alt="" class="m-company-editbtn__icon" />
+    </button>`;
+  }
+
+  function renderBrandTable() {
+    let rows = BRAND_ROWS;
+    if (brandSearchQuery) {
+      rows = rows.filter((r) => r.some((c) => String(c).toLowerCase().includes(brandSearchQuery)));
+    }
+    const workingRows = getGridRows(rows, brandSortState, brandFilterState);
+    const pageSize = parseInt(brandSizeSelect.value, 10) || workingRows.length || 1;
+    const total = workingRows.length;
+    const totalPages = Math.max(1, Math.ceil(total / pageSize));
+    if (brandPage > totalPages) brandPage = totalPages;
+    if (brandPage < 1) brandPage = 1;
+    const start = total === 0 ? 0 : (brandPage - 1) * pageSize + 1;
+    const end = Math.min(brandPage * pageSize, total);
+
+    const rowsHtml = workingRows.slice(start - 1, end)
+      .map((r) => `<tr><td>${r[0]}</td><td>${r[1]}</td><td>${statusBadge(r[2])}</td><td>${editActionBtn(r[0], r[1])}</td></tr>`)
+      .join('');
+    brandTbody.innerHTML = rowsHtml || '<tr><td colspan="4" class="m-company-empty-row">No brands found.</td></tr>';
+
+    brandInfoEl.textContent = `${start} to ${end} of ${total}`;
+    brandPageOfEl.textContent = `Page ${brandPage} of ${totalPages}`;
+    brandFirstBtn.disabled = brandPage <= 1;
+    brandPrevBtn.disabled = brandPage <= 1;
+    brandNextBtn.disabled = brandPage >= totalPages;
+    brandLastBtn.disabled = brandPage >= totalPages;
+  }
+
+  brandFirstBtn.addEventListener('click', () => { brandPage = 1; renderBrandTable(); });
+  brandPrevBtn.addEventListener('click', () => { brandPage -= 1; renderBrandTable(); });
+  brandNextBtn.addEventListener('click', () => { brandPage += 1; renderBrandTable(); });
+  brandLastBtn.addEventListener('click', () => { brandPage = Infinity; renderBrandTable(); });
+  brandSizeSelect.addEventListener('change', () => { brandPage = 1; renderBrandTable(); });
+  brandSearchInput.addEventListener('input', () => {
+    brandSearchQuery = brandSearchInput.value.trim().toLowerCase();
+    brandPage = 1;
+    renderBrandTable();
+  });
+  wireGridHeader(document.querySelector('#page-company thead'), brandSortState, brandFilterState, () => { brandPage = 1; renderBrandTable(); });
+
+  brandSizeSelect.value = '15';
+  renderBrandTable();
+
+  /* ---------- Export (demo only) ---------- */
+  document.getElementById('brand-export-btn').addEventListener('click', () => {
+    console.log('Export clicked (not wired up in this prototype yet).');
+  });
+
+  /* ---------- Legal Entities table ---------- */
+  const LEGAL_ROWS = [
+    ['Oiso Kepong', '202101012345 (123456-A)', 'Kuala Lumpur (Federal Territory)', 'C0987654321', 'Active', 'Oiso', 'oisokepong@kfood.com'],
+    ['Oiso Damansara Uptown', '202101012346 (123457-A)', 'Selangor', 'C0987654322', 'Active', 'Oiso', 'oisodamansara@kfood.com'],
+    ['Oiso Midvalley', '202101012347 (123458-A)', 'Kuala Lumpur (Federal Territory)', 'C0987654323', 'Active', 'Oiso', 'oisomidvalley@kfood.com'],
+  ];
+
+  function legalEditActionBtn(r) {
+    return `<button type="button" class="m-company-editbtn" aria-label="Edit"
+      data-name="${r[0]}" data-ssm="${r[1]}" data-state="${r[2]}" data-taxid="${r[3]}" data-status="${r[4]}" data-brand="${r[5]}" data-email="${r[6]}">
+      <img src="assets/edit.svg" alt="" class="m-company-editbtn__icon" />
+    </button>`;
+  }
+
+  const legalTbody = document.getElementById('legal-tbody');
+  const legalSizeSelect = document.getElementById('legal-page-size');
+  const legalInfoEl = document.getElementById('legal-page-range');
+  const legalPageOfEl = document.getElementById('legal-page-of');
+  const legalFirstBtn = document.getElementById('legal-page-first');
+  const legalPrevBtn = document.getElementById('legal-page-prev');
+  const legalNextBtn = document.getElementById('legal-page-next');
+  const legalLastBtn = document.getElementById('legal-page-last');
+  const legalSearchInput = document.getElementById('legal-search-input');
+
+  let legalPage = 1;
+  const legalSortState = { index: null, dir: 1 };
+  const legalFilterState = {};
+  let legalSearchQuery = '';
+
+  function renderLegalTable() {
+    let rows = LEGAL_ROWS;
+    if (legalSearchQuery) {
+      rows = rows.filter((r) => r.some((c) => String(c).toLowerCase().includes(legalSearchQuery)));
+    }
+    const workingRows = getGridRows(rows, legalSortState, legalFilterState);
+    const pageSize = parseInt(legalSizeSelect.value, 10) || workingRows.length || 1;
+    const total = workingRows.length;
+    const totalPages = Math.max(1, Math.ceil(total / pageSize));
+    if (legalPage > totalPages) legalPage = totalPages;
+    if (legalPage < 1) legalPage = 1;
+    const start = total === 0 ? 0 : (legalPage - 1) * pageSize + 1;
+    const end = Math.min(legalPage * pageSize, total);
+
+    const rowsHtml = workingRows.slice(start - 1, end)
+      .map((r) => `<tr><td>${r[0]}</td><td>${r[1]}</td><td>${r[2]}</td><td>${r[3]}</td><td>${statusBadge(r[4])}</td><td>${legalEditActionBtn(r)}</td></tr>`)
+      .join('');
+    legalTbody.innerHTML = rowsHtml || '<tr><td colspan="6" class="m-company-empty-row">No legal entities found.</td></tr>';
+
+    legalInfoEl.textContent = `${start} to ${end} of ${total}`;
+    legalPageOfEl.textContent = `Page ${legalPage} of ${totalPages}`;
+    legalFirstBtn.disabled = legalPage <= 1;
+    legalPrevBtn.disabled = legalPage <= 1;
+    legalNextBtn.disabled = legalPage >= totalPages;
+    legalLastBtn.disabled = legalPage >= totalPages;
+  }
+
+  legalFirstBtn.addEventListener('click', () => { legalPage = 1; renderLegalTable(); });
+  legalPrevBtn.addEventListener('click', () => { legalPage -= 1; renderLegalTable(); });
+  legalNextBtn.addEventListener('click', () => { legalPage += 1; renderLegalTable(); });
+  legalLastBtn.addEventListener('click', () => { legalPage = Infinity; renderLegalTable(); });
+  legalSizeSelect.addEventListener('change', () => { legalPage = 1; renderLegalTable(); });
+  legalSearchInput.addEventListener('input', () => {
+    legalSearchQuery = legalSearchInput.value.trim().toLowerCase();
+    legalPage = 1;
+    renderLegalTable();
+  });
+  wireGridHeader(document.querySelector('#company-panel-legal thead'), legalSortState, legalFilterState, () => { legalPage = 1; renderLegalTable(); });
+
+  legalSizeSelect.value = '15';
+  renderLegalTable();
+
+  document.getElementById('legal-export-btn').addEventListener('click', () => {
+    console.log('Export clicked (not wired up in this prototype yet).');
+  });
+
+  legalTbody.addEventListener('click', (e) => {
+    const btn = e.target.closest('.m-company-editbtn');
+    if (!btn) return;
+    openEditLegal(btn.dataset);
+  });
+
+  /* ---------- Store table (grouped, collapsible) ---------- */
+  const STORE_GROUPS = [
+    {
+      group: 'Oiso Kepong',
+      rows: [
+        ['001', 'Oiso Kepong - Menjalara', 'Mr.Lim', 'lim@gmail.com', '012-345 6789', 'Active', 'MY', 'Kuala Lumpur', 'Kuala Lumpur'],
+        ['002', 'Oiso Kepong - Metro Prima', 'Mr.Lim', 'lim@gmail.com', '012-345 6789', 'Active', 'MY', 'Kuala Lumpur', 'Kuala Lumpur'],
+      ],
+    },
+    {
+      group: 'Oiso Damansara Uptown',
+      rows: [
+        ['003', 'Oiso Uptown - SS21', 'Mr.Lim', 'lim@gmail.com', '012-345 6789', 'Active', 'MY', 'Kuala Lumpur', 'Kuala Lumpur'],
+        ['004', 'Oiso Uptown - Nexus Block', 'Mr.Lim', 'lim@gmail.com', '012-345 6789', 'Active', 'MY', 'Kuala Lumpur', 'Kuala Lumpur'],
+      ],
+    },
+  ];
+
+  const storeTbody = document.getElementById('store-tbody');
+  const storeSearchInput = document.getElementById('store-search-input');
+  const storeCollapsedGroups = new Set();
+  const storeFilterState = {};
+  let storeSearchQuery = '';
+
+  function storeEditActionBtn(r) {
+    return `<button type="button" class="m-company-editbtn" aria-label="Edit"
+      data-code="${r[0]}" data-name="${r[1]}" data-contact="${r[2]}" data-email="${r[3]}"
+      data-phone="${r[4]}" data-status="${r[5]}" data-country="${r[6]}" data-state="${r[7]}" data-city="${r[8]}">
+      <img src="assets/edit.svg" alt="" class="m-company-editbtn__icon" />
+    </button>`;
+  }
+
+  function storeRowMatches(r) {
+    const matchesFilters = Object.keys(storeFilterState).every((idx) => String(r[idx]).toLowerCase().includes(storeFilterState[idx]));
+    const matchesSearch = !storeSearchQuery || r.some((c) => String(c).toLowerCase().includes(storeSearchQuery));
+    return matchesFilters && matchesSearch;
+  }
+
+  function renderStoreTable() {
+    let html = '';
+    STORE_GROUPS.forEach((g, gi) => {
+      const visibleRows = g.rows.filter(storeRowMatches);
+      if (!visibleRows.length) return;
+      const collapsed = storeCollapsedGroups.has(gi);
+      html += `<tr class="m-rpt-grouprow m-store-grouprow" data-group-toggle="${gi}">
+        <td colspan="10" class="m-rpt-grouprow__sub">
+          <span class="m-store-grouprow__inner">
+            ${g.group}
+            <svg class="m-store-grouprow__chevron${collapsed ? ' is-collapsed' : ''}" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+          </span>
+        </td>
+      </tr>`;
+      if (!collapsed) {
+        html += visibleRows.map((r) => `<tr><td>${r[0]}</td><td>${r[1]}</td><td>${r[2]}</td><td>${r[3]}</td><td>${r[4]}</td><td>${statusBadge(r[5])}</td><td>${r[6]}</td><td>${r[7]}</td><td>${r[8]}</td><td>${storeEditActionBtn(r)}</td></tr>`).join('');
+      }
+    });
+    storeTbody.innerHTML = html || '<tr><td colspan="10" class="m-company-empty-row">No stores found.</td></tr>';
+  }
+
+  storeTbody.addEventListener('click', (e) => {
+    const groupRow = e.target.closest('.m-store-grouprow');
+    if (groupRow) {
+      const gi = parseInt(groupRow.dataset.groupToggle, 10);
+      if (storeCollapsedGroups.has(gi)) {
+        storeCollapsedGroups.delete(gi);
+      } else {
+        storeCollapsedGroups.add(gi);
+      }
+      renderStoreTable();
+      return;
+    }
+    const btn = e.target.closest('.m-company-editbtn');
+    if (!btn) return;
+    openEditStore(btn.dataset);
+  });
+
+  storeSearchInput.addEventListener('input', () => {
+    storeSearchQuery = storeSearchInput.value.trim().toLowerCase();
+    renderStoreTable();
+  });
+
+  document.querySelectorAll('#company-panel-store thead input.m-rpt-colfilter').forEach((input) => {
+    input.addEventListener('click', (e) => e.stopPropagation());
+    input.addEventListener('input', () => {
+      const idx = parseInt(input.dataset.colIndex, 10);
+      const val = input.value.trim().toLowerCase();
+      if (val) {
+        storeFilterState[idx] = val;
+      } else {
+        delete storeFilterState[idx];
+      }
+      renderStoreTable();
+    });
+  });
+
+  renderStoreTable();
+
+  document.getElementById('store-export-btn').addEventListener('click', () => {
+    console.log('Export clicked (not wired up in this prototype yet).');
+  });
+  document.getElementById('store-add-btn').addEventListener('click', () => {
+    openAddStore();
+  });
+
+  /* ---------- Edit Brand view ---------- */
+  const listView = document.getElementById('company-list-view');
+  const editView = document.getElementById('company-editbrand-view');
+  const mainTopbar = document.getElementById('main-topbar');
+  const editbrandTopbar = document.getElementById('editbrand-topbar');
+  const editNameInput = document.getElementById('editbrand-name');
+  const editCodeInput = document.getElementById('editbrand-code');
+  const editActiveToggle = document.getElementById('editbrand-active');
+
+  function openEditBrand(name, code) {
+    editNameInput.value = name || '';
+    editCodeInput.value = code || '';
+    editActiveToggle.checked = true;
+    listView.hidden = true;
+    editView.hidden = false;
+    mainTopbar.hidden = true;
+    editbrandTopbar.hidden = false;
+  }
+
+  function closeEditBrand() {
+    editView.hidden = true;
+    listView.hidden = false;
+    editbrandTopbar.hidden = true;
+    mainTopbar.hidden = false;
+  }
+
+  brandTbody.addEventListener('click', (e) => {
+    const btn = e.target.closest('.m-company-editbtn');
+    if (!btn) return;
+    openEditBrand(btn.dataset.brandName, btn.dataset.brandCode);
+  });
+
+  document.getElementById('editbrand-back-btn').addEventListener('click', closeEditBrand);
+  document.getElementById('editbrand-cancel-btn').addEventListener('click', closeEditBrand);
+  document.getElementById('editbrand-choosefile-btn').addEventListener('click', () => {
+    console.log('Choose File clicked (not wired up in this prototype yet).');
+  });
+  document.getElementById('editbrand-logoclear').addEventListener('click', () => {
+    document.getElementById('editbrand-logofile').textContent = '';
+  });
+
+  /* ---------- Edit Brand: Save confirmation + success modals ---------- */
+  const editbrandConfirmBackdrop = document.getElementById('editbrand-confirm-backdrop');
+  const editbrandConfirmModal = document.getElementById('editbrand-confirm');
+  const editbrandConfirmName = document.getElementById('editbrand-confirm-name');
+  const editbrandSuccessBackdrop = document.getElementById('editbrand-success-backdrop');
+  const editbrandSuccessModal = document.getElementById('editbrand-success');
+
+  function openEditbrandConfirm() {
+    editbrandConfirmName.textContent = editNameInput.value;
+    editbrandConfirmBackdrop.classList.add('is-open');
+    editbrandConfirmModal.classList.add('is-open');
+  }
+  function closeEditbrandConfirm() {
+    editbrandConfirmBackdrop.classList.remove('is-open');
+    editbrandConfirmModal.classList.remove('is-open');
+  }
+  function openEditbrandSuccess() {
+    editbrandSuccessBackdrop.classList.add('is-open');
+    editbrandSuccessModal.classList.add('is-open');
+  }
+  function closeEditbrandSuccess() {
+    editbrandSuccessBackdrop.classList.remove('is-open');
+    editbrandSuccessModal.classList.remove('is-open');
+  }
+
+  document.getElementById('editbrand-save-btn').addEventListener('click', openEditbrandConfirm);
+  editbrandConfirmBackdrop.addEventListener('click', closeEditbrandConfirm);
+  document.getElementById('editbrand-confirm-no').addEventListener('click', closeEditbrandConfirm);
+  document.getElementById('editbrand-confirm-yes').addEventListener('click', () => {
+    closeEditbrandConfirm();
+    openEditbrandSuccess();
+  });
+  editbrandSuccessBackdrop.addEventListener('click', () => {
+    closeEditbrandSuccess();
+    closeEditBrand();
+  });
+  document.getElementById('editbrand-success-close').addEventListener('click', () => {
+    closeEditbrandSuccess();
+    closeEditBrand();
+  });
+
+  /* ---------- Edit Legal Entity view ---------- */
+  const editLegalView = document.getElementById('company-editlegal-view');
+  const editlegalTopbar = document.getElementById('editlegal-topbar');
+  const editLegalBrandInput = document.getElementById('editlegal-brand');
+  const editLegalBrandValue = document.getElementById('editlegal-brand-value');
+  const editLegalNameInput = document.getElementById('editlegal-name');
+  const editLegalSsmInput = document.getElementById('editlegal-ssm');
+  const editLegalStateInput = document.getElementById('editlegal-state');
+  const editLegalStateValue = document.getElementById('editlegal-state-value');
+  const editLegalTaxidInput = document.getElementById('editlegal-taxid');
+  const editLegalEmailInput = document.getElementById('editlegal-email');
+  const editLegalActiveToggle = document.getElementById('editlegal-active');
+
+  function setEditLegalBrand(value) {
+    editLegalBrandInput.value = value;
+    editLegalBrandValue.textContent = value;
+  }
+
+  function setEditLegalState(value) {
+    editLegalStateInput.value = value;
+    editLegalStateValue.textContent = value;
+  }
+
+  function openEditLegal(data) {
+    setEditLegalBrand(data.brand || 'Oiso');
+    editLegalNameInput.value = data.name || '';
+    editLegalSsmInput.value = data.ssm || '';
+    setEditLegalState(data.state || 'Kuala Lumpur (Federal Territory)');
+    editLegalTaxidInput.value = data.taxid || '';
+    editLegalEmailInput.value = data.email || '';
+    editLegalActiveToggle.checked = (data.status || 'Active') === 'Active';
+    listView.hidden = true;
+    editLegalView.hidden = false;
+    mainTopbar.hidden = true;
+    editlegalTopbar.hidden = false;
+  }
+
+  function closeEditLegal() {
+    editLegalView.hidden = true;
+    listView.hidden = false;
+    editlegalTopbar.hidden = true;
+    mainTopbar.hidden = false;
+  }
+
+  document.getElementById('editlegal-back-btn').addEventListener('click', closeEditLegal);
+  document.getElementById('editlegal-cancel-btn').addEventListener('click', closeEditLegal);
+
+  /* ---------- Edit Legal Entity: Brand / State bottom-sheet pickers ---------- */
+  const BRAND_OPTIONS = ['Oiso', 'Mimi', 'Neulbom'];
+  const STATE_OPTIONS = [
+    'Johor', 'Kedah', 'Kelantan', 'Malacca', 'Negeri Sembilan', 'Pahang',
+    'Penang', 'Perak', 'Perlis', 'Selangor', 'Terengganu', 'Sabah', 'Sarawak',
+    'Kuala Lumpur (Federal Territory)', 'Labuan (Federal Territory)', 'Putrajaya (Federal Territory)',
+  ];
+
+  function makePickerSheet({ backdropId, sheetId, closeId, listId, options, getValue, setValue }) {
+    const backdrop = document.getElementById(backdropId);
+    const sheet = document.getElementById(sheetId);
+    const list = document.getElementById(listId);
+
+    function open() {
+      list.innerHTML = '';
+      options.forEach((opt) => {
+        const item = document.createElement('button');
+        item.type = 'button';
+        item.className = 'm-chart-period-item';
+        if (opt === getValue()) item.classList.add('is-active');
+        item.innerHTML = `
+          <span class="m-dash-kpi__label">${opt}</span>
+          <svg class="m-chart-period-item__check" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        `;
+        item.addEventListener('click', () => {
+          setValue(opt);
+          close();
+        });
+        list.appendChild(item);
+      });
+      sheet.classList.add('is-open');
+      backdrop.classList.add('is-open');
+    }
+
+    function close() {
+      sheet.classList.remove('is-open');
+      backdrop.classList.remove('is-open');
+    }
+
+    backdrop.addEventListener('click', close);
+    document.getElementById(closeId).addEventListener('click', close);
+
+    return { open, close };
+  }
+
+  const editLegalBrandSheet = makePickerSheet({
+    backdropId: 'editlegal-brand-sheet-backdrop',
+    sheetId: 'editlegal-brand-sheet',
+    closeId: 'editlegal-brand-sheet-close',
+    listId: 'editlegal-brand-list',
+    options: BRAND_OPTIONS,
+    getValue: () => editLegalBrandInput.value,
+    setValue: setEditLegalBrand,
+  });
+  document.getElementById('editlegal-brand-trigger').addEventListener('click', editLegalBrandSheet.open);
+
+  const editLegalStateSheet = makePickerSheet({
+    backdropId: 'editlegal-state-sheet-backdrop',
+    sheetId: 'editlegal-state-sheet',
+    closeId: 'editlegal-state-sheet-close',
+    listId: 'editlegal-state-list',
+    options: STATE_OPTIONS,
+    getValue: () => editLegalStateInput.value,
+    setValue: setEditLegalState,
+  });
+  document.getElementById('editlegal-state-trigger').addEventListener('click', editLegalStateSheet.open);
+
+  /* ---------- Edit Legal Entity: Save confirmation + success modals ---------- */
+  const editlegalConfirmBackdrop = document.getElementById('editlegal-confirm-backdrop');
+  const editlegalConfirmModal = document.getElementById('editlegal-confirm');
+  const editlegalConfirmName = document.getElementById('editlegal-confirm-name');
+  const editlegalSuccessBackdrop = document.getElementById('editlegal-success-backdrop');
+  const editlegalSuccessModal = document.getElementById('editlegal-success');
+
+  function openEditlegalConfirm() {
+    editlegalConfirmName.textContent = editLegalNameInput.value;
+    editlegalConfirmBackdrop.classList.add('is-open');
+    editlegalConfirmModal.classList.add('is-open');
+  }
+  function closeEditlegalConfirm() {
+    editlegalConfirmBackdrop.classList.remove('is-open');
+    editlegalConfirmModal.classList.remove('is-open');
+  }
+  function openEditlegalSuccess() {
+    editlegalSuccessBackdrop.classList.add('is-open');
+    editlegalSuccessModal.classList.add('is-open');
+  }
+  function closeEditlegalSuccess() {
+    editlegalSuccessBackdrop.classList.remove('is-open');
+    editlegalSuccessModal.classList.remove('is-open');
+  }
+
+  document.getElementById('editlegal-save-btn').addEventListener('click', openEditlegalConfirm);
+  editlegalConfirmBackdrop.addEventListener('click', closeEditlegalConfirm);
+  document.getElementById('editlegal-confirm-no').addEventListener('click', closeEditlegalConfirm);
+  document.getElementById('editlegal-confirm-yes').addEventListener('click', () => {
+    closeEditlegalConfirm();
+    openEditlegalSuccess();
+  });
+  editlegalSuccessBackdrop.addEventListener('click', () => {
+    closeEditlegalSuccess();
+    closeEditLegal();
+  });
+  document.getElementById('editlegal-success-close').addEventListener('click', () => {
+    closeEditlegalSuccess();
+    closeEditLegal();
+  });
+
+  /* ---------- Add Store view ---------- */
+  const addStoreView = document.getElementById('company-addstore-view');
+  const addstoreTopbar = document.getElementById('addstore-topbar');
+  const addStoreCodeInput = document.getElementById('addstore-code');
+  const addStoreDescriptionInput = document.getElementById('addstore-description');
+  const addStoreNameInput = document.getElementById('addstore-name');
+  const addStoreActiveToggle = document.getElementById('addstore-active');
+
+  function resetAddStoreForm() {
+    document.querySelectorAll('#company-addstore-view input[type="text"], #company-addstore-view input[type="email"], #company-addstore-view input[type="tel"]').forEach((el) => { el.value = ''; });
+    document.querySelectorAll('#company-addstore-view input[type="hidden"]').forEach((el) => { el.value = ''; });
+    document.querySelectorAll('#company-addstore-view .m-company-formselect--placeholder').forEach((btn) => {
+      btn.classList.remove('has-value');
+      const span = btn.querySelector('span');
+      const placeholders = {
+        'addstore-legalentity-trigger': 'Select Legal Entity',
+        'addstore-city-trigger': 'Select City',
+        'addstore-state-trigger': 'Select State',
+        'addstore-country-trigger': 'Select Country',
+        'addstore-storecountry-trigger': 'Select Store Country',
+        'addstore-storestate-trigger': 'Select Store State',
+        'addstore-storecity-trigger': 'Select Store City',
+        'addstore-pricelevel-trigger': 'Select Price Level',
+        'addstore-storegroup-trigger': 'Select Store Group',
+      };
+      if (span && placeholders[btn.id]) span.textContent = placeholders[btn.id];
+    });
+    addStoreActiveToggle.checked = true;
+    document.querySelectorAll('#company-addstore-view input[type="checkbox"]').forEach((el) => { el.checked = true; });
+    document.querySelectorAll('#company-addstore-view .m-formsection-tooltip').forEach((t) => { t.hidden = true; });
+    document.querySelectorAll('#company-addstore-view .m-company-formsection__body').forEach((body) => { body.hidden = false; });
+    document.querySelectorAll('#company-addstore-view .m-company-formsection__chevron').forEach((c) => { c.classList.remove('is-collapsed'); });
+  }
+
+  function openAddStore() {
+    resetAddStoreForm();
+    listView.hidden = true;
+    addStoreView.hidden = false;
+    mainTopbar.hidden = true;
+    addstoreTopbar.hidden = false;
+  }
+
+  function closeAddStore() {
+    addStoreView.hidden = true;
+    listView.hidden = false;
+    addstoreTopbar.hidden = true;
+    mainTopbar.hidden = false;
+  }
+
+  document.getElementById('addstore-back-btn').addEventListener('click', closeAddStore);
+  document.getElementById('addstore-cancel-btn').addEventListener('click', closeAddStore);
+
+  /* ---------- Add Store: collapsible sections ---------- */
+  document.querySelectorAll('#company-addstore-view .m-company-formsection__head').forEach((head) => {
+    const key = head.dataset.sectionToggle;
+    const body = document.getElementById(`addstore-section-${key}`);
+    const chevron = head.querySelector('.m-company-formsection__chevron');
+    head.addEventListener('click', () => {
+      body.hidden = !body.hidden;
+      chevron.classList.toggle('is-collapsed', body.hidden);
+    });
+  });
+
+  /* ---------- Add Store: subhead info tooltips ---------- */
+  const addStoreInfoBtns = document.querySelectorAll('#company-addstore-view .m-formsection-info-btn');
+  addStoreInfoBtns.forEach((btn) => {
+    const tooltip = btn.closest('.m-company-formsection__subhead-row').nextElementSibling;
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const wasOpen = !tooltip.hidden;
+      addStoreInfoBtns.forEach((b) => {
+        const t = b.closest('.m-company-formsection__subhead-row').nextElementSibling;
+        t.hidden = true;
+      });
+      tooltip.hidden = wasOpen;
+    });
+  });
+  document.addEventListener('click', () => {
+    addStoreInfoBtns.forEach((b) => {
+      const t = b.closest('.m-company-formsection__subhead-row').nextElementSibling;
+      t.hidden = true;
+    });
+  });
+
+  /* ---------- Add Store: field pickers (generic bottom sheet) ---------- */
+  const CITY_OPTIONS = ['Kuala Lumpur', 'Petaling Jaya', 'Shah Alam', 'Subang Jaya', 'George Town', 'Johor Bahru', 'Ipoh', 'Kota Kinabalu', 'Kuching'];
+  const COUNTRY_OPTIONS = ['Malaysia', 'Singapore', 'Indonesia', 'Thailand', 'Vietnam'];
+  const PRICE_LEVEL_OPTIONS = ['P1 - West MSIA', 'P2 - East MSIA'];
+  const LEGAL_ENTITY_OPTIONS = LEGAL_ROWS.map((r) => r[0]);
+  const STORE_GROUP_OPTIONS = ['A1 - Shop Lot', 'A2 - Shopping Mall', 'A3 - Restaurant'];
+
+  const fieldPickerBackdrop = document.getElementById('field-picker-backdrop');
+  const fieldPickerSheet = document.getElementById('field-picker-sheet');
+  const fieldPickerLabel = document.getElementById('field-picker-label');
+  const fieldPickerList = document.getElementById('field-picker-list');
+
+  function closeFieldPicker() {
+    fieldPickerSheet.classList.remove('is-open');
+    fieldPickerBackdrop.classList.remove('is-open');
+  }
+
+  function openFieldPicker(label, options, currentValue, onSelect) {
+    fieldPickerLabel.textContent = label;
+    fieldPickerList.innerHTML = '';
+    options.forEach((opt) => {
+      const item = document.createElement('button');
+      item.type = 'button';
+      item.className = 'm-chart-period-item';
+      if (opt === currentValue) item.classList.add('is-active');
+      item.innerHTML = `
+        <span class="m-dash-kpi__label">${opt}</span>
+        <svg class="m-chart-period-item__check" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      `;
+      item.addEventListener('click', () => {
+        onSelect(opt);
+        closeFieldPicker();
+      });
+      fieldPickerList.appendChild(item);
+    });
+    fieldPickerSheet.classList.add('is-open');
+    fieldPickerBackdrop.classList.add('is-open');
+  }
+
+  fieldPickerBackdrop.addEventListener('click', closeFieldPicker);
+  document.getElementById('field-picker-close').addEventListener('click', closeFieldPicker);
+
+  function wireAddStorePicker(fieldKey, label, options) {
+    const trigger = document.getElementById(`addstore-${fieldKey}-trigger`);
+    const valueSpan = document.getElementById(`addstore-${fieldKey}-value`);
+    const hiddenInput = document.getElementById(`addstore-${fieldKey}`);
+    trigger.addEventListener('click', () => {
+      openFieldPicker(label, options, hiddenInput.value, (opt) => {
+        hiddenInput.value = opt;
+        valueSpan.textContent = opt;
+        trigger.classList.add('has-value');
+      });
+    });
+  }
+
+  wireAddStorePicker('legalentity', 'Select Legal Entity', LEGAL_ENTITY_OPTIONS);
+  wireAddStorePicker('city', 'Select City', CITY_OPTIONS);
+  wireAddStorePicker('state', 'Select State', STATE_OPTIONS);
+  wireAddStorePicker('country', 'Select Country', COUNTRY_OPTIONS);
+  wireAddStorePicker('storecountry', 'Select Store Country', COUNTRY_OPTIONS);
+  wireAddStorePicker('storestate', 'Select Store State', STATE_OPTIONS);
+  wireAddStorePicker('storecity', 'Select Store City', CITY_OPTIONS);
+  wireAddStorePicker('pricelevel', 'Select Price Level', PRICE_LEVEL_OPTIONS);
+  wireAddStorePicker('storegroup', 'Select Store Group', STORE_GROUP_OPTIONS);
+
+  /* ---------- Add Store: Save confirmation + success modals ---------- */
+  const addstoreConfirmBackdrop = document.getElementById('addstore-confirm-backdrop');
+  const addstoreConfirmModal = document.getElementById('addstore-confirm');
+  const addstoreSuccessBackdrop = document.getElementById('addstore-success-backdrop');
+  const addstoreSuccessModal = document.getElementById('addstore-success');
+
+  function openAddstoreConfirm() {
+    addstoreConfirmBackdrop.classList.add('is-open');
+    addstoreConfirmModal.classList.add('is-open');
+  }
+  function closeAddstoreConfirm() {
+    addstoreConfirmBackdrop.classList.remove('is-open');
+    addstoreConfirmModal.classList.remove('is-open');
+  }
+  function openAddstoreSuccess() {
+    addstoreSuccessBackdrop.classList.add('is-open');
+    addstoreSuccessModal.classList.add('is-open');
+  }
+  function closeAddstoreSuccess() {
+    addstoreSuccessBackdrop.classList.remove('is-open');
+    addstoreSuccessModal.classList.remove('is-open');
+  }
+
+  document.getElementById('addstore-save-btn').addEventListener('click', openAddstoreConfirm);
+  addstoreConfirmBackdrop.addEventListener('click', closeAddstoreConfirm);
+  document.getElementById('addstore-confirm-no').addEventListener('click', closeAddstoreConfirm);
+  document.getElementById('addstore-confirm-yes').addEventListener('click', () => {
+    closeAddstoreConfirm();
+    openAddstoreSuccess();
+  });
+  addstoreSuccessBackdrop.addEventListener('click', () => {
+    closeAddstoreSuccess();
+    closeAddStore();
+  });
+  document.getElementById('addstore-success-close').addEventListener('click', () => {
+    closeAddstoreSuccess();
+    closeAddStore();
+  });
+
+  /* ---------- Edit Store view ---------- */
+  const editStoreView = document.getElementById('company-editstore-view');
+  const editstoreTopbar = document.getElementById('editstore-topbar');
+  const editStoreActiveToggle = document.getElementById('editstore-active');
+  let editStoreOriginalName = '';
+
+  function setEditStoreField(fieldKey, label, options, value) {
+    const trigger = document.getElementById(`editstore-${fieldKey}-trigger`);
+    const valueSpan = document.getElementById(`editstore-${fieldKey}-value`);
+    const hiddenInput = document.getElementById(`editstore-${fieldKey}`);
+    if (value && options.includes(value)) {
+      hiddenInput.value = value;
+      valueSpan.textContent = value;
+      trigger.classList.add('has-value');
+    } else {
+      hiddenInput.value = '';
+      valueSpan.textContent = trigger.querySelector('span') ? valueSpan.textContent : '';
+      trigger.classList.remove('has-value');
+    }
+  }
+
+  function resetEditStoreForm() {
+    document.querySelectorAll('#company-editstore-view input[type="text"], #company-editstore-view input[type="email"], #company-editstore-view input[type="tel"]').forEach((el) => { el.value = ''; });
+    document.querySelectorAll('#company-editstore-view input[type="hidden"]').forEach((el) => { el.value = ''; });
+    document.querySelectorAll('#company-editstore-view .m-company-formselect--placeholder').forEach((btn) => {
+      btn.classList.remove('has-value');
+      const span = btn.querySelector('span');
+      const placeholders = {
+        'editstore-legalentity-trigger': 'Select Legal Entity',
+        'editstore-city-trigger': 'Select City',
+        'editstore-state-trigger': 'Select State',
+        'editstore-country-trigger': 'Select Country',
+        'editstore-storecountry-trigger': 'Select Store Country',
+        'editstore-storestate-trigger': 'Select Store State',
+        'editstore-storecity-trigger': 'Select Store City',
+        'editstore-pricelevel-trigger': 'Select Price Level',
+        'editstore-storegroup-trigger': 'Select Store Group',
+      };
+      if (span && placeholders[btn.id]) span.textContent = placeholders[btn.id];
+    });
+    editStoreActiveToggle.checked = true;
+    document.querySelectorAll('#company-editstore-view input[type="checkbox"]').forEach((el) => { el.checked = true; });
+    document.querySelectorAll('#company-editstore-view .m-formsection-tooltip').forEach((t) => { t.hidden = true; });
+    document.querySelectorAll('#company-editstore-view .m-company-formsection__body').forEach((body) => { body.hidden = false; });
+    document.querySelectorAll('#company-editstore-view .m-company-formsection__chevron').forEach((c) => { c.classList.remove('is-collapsed'); });
+  }
+
+  function openEditStore(data) {
+    resetEditStoreForm();
+    editStoreOriginalName = data.name || '';
+    document.getElementById('editstore-code').value = data.code || '';
+    document.getElementById('editstore-name').value = data.name || '';
+    document.getElementById('editstore-contact').value = data.contact || '';
+    document.getElementById('editstore-email').value = data.email || '';
+    document.getElementById('editstore-phone').value = data.phone || '';
+    editStoreActiveToggle.checked = data.status === 'Active';
+    const matchedState = STATE_OPTIONS.find((s) => s === data.state || s.startsWith(`${data.state} (`)) || data.state;
+    setEditStoreField('city', 'Select City', CITY_OPTIONS, data.city);
+    setEditStoreField('state', 'Select State', STATE_OPTIONS, matchedState);
+    setEditStoreField('country', 'Select Country', COUNTRY_OPTIONS, data.country === 'MY' ? 'Malaysia' : data.country);
+    document.getElementById('editstore-confirm-message').textContent = `Are you sure you want to Edit ${editStoreOriginalName}?`;
+
+    listView.hidden = true;
+    editStoreView.hidden = false;
+    mainTopbar.hidden = true;
+    editstoreTopbar.hidden = false;
+  }
+
+  function closeEditStore() {
+    editStoreView.hidden = true;
+    listView.hidden = false;
+    editstoreTopbar.hidden = true;
+    mainTopbar.hidden = false;
+  }
+
+  document.getElementById('editstore-back-btn').addEventListener('click', closeEditStore);
+  document.getElementById('editstore-cancel-btn').addEventListener('click', closeEditStore);
+
+  /* ---------- Edit Store: collapsible sections ---------- */
+  document.querySelectorAll('#company-editstore-view .m-company-formsection__head').forEach((head) => {
+    const key = head.dataset.sectionToggle;
+    const body = document.getElementById(`editstore-section-${key}`);
+    const chevron = head.querySelector('.m-company-formsection__chevron');
+    head.addEventListener('click', () => {
+      body.hidden = !body.hidden;
+      chevron.classList.toggle('is-collapsed', body.hidden);
+    });
+  });
+
+  /* ---------- Edit Store: subhead info tooltips ---------- */
+  const editStoreInfoBtns = document.querySelectorAll('#company-editstore-view .m-formsection-info-btn');
+  editStoreInfoBtns.forEach((btn) => {
+    const tooltip = btn.closest('.m-company-formsection__subhead-row').nextElementSibling;
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const wasOpen = !tooltip.hidden;
+      editStoreInfoBtns.forEach((b) => {
+        const t = b.closest('.m-company-formsection__subhead-row').nextElementSibling;
+        t.hidden = true;
+      });
+      tooltip.hidden = wasOpen;
+    });
+  });
+  document.addEventListener('click', () => {
+    editStoreInfoBtns.forEach((b) => {
+      const t = b.closest('.m-company-formsection__subhead-row').nextElementSibling;
+      t.hidden = true;
+    });
+  });
+
+  /* ---------- Edit Store: field pickers (generic bottom sheet) ---------- */
+  function wireEditStorePicker(fieldKey, label, options) {
+    const trigger = document.getElementById(`editstore-${fieldKey}-trigger`);
+    const valueSpan = document.getElementById(`editstore-${fieldKey}-value`);
+    const hiddenInput = document.getElementById(`editstore-${fieldKey}`);
+    trigger.addEventListener('click', () => {
+      openFieldPicker(label, options, hiddenInput.value, (opt) => {
+        hiddenInput.value = opt;
+        valueSpan.textContent = opt;
+        trigger.classList.add('has-value');
+      });
+    });
+  }
+
+  wireEditStorePicker('legalentity', 'Select Legal Entity', LEGAL_ENTITY_OPTIONS);
+  wireEditStorePicker('city', 'Select City', CITY_OPTIONS);
+  wireEditStorePicker('state', 'Select State', STATE_OPTIONS);
+  wireEditStorePicker('country', 'Select Country', COUNTRY_OPTIONS);
+  wireEditStorePicker('storecountry', 'Select Store Country', COUNTRY_OPTIONS);
+  wireEditStorePicker('storestate', 'Select Store State', STATE_OPTIONS);
+  wireEditStorePicker('storecity', 'Select Store City', CITY_OPTIONS);
+  wireEditStorePicker('pricelevel', 'Select Price Level', PRICE_LEVEL_OPTIONS);
+  wireEditStorePicker('storegroup', 'Select Store Group', STORE_GROUP_OPTIONS);
+
+  /* ---------- Edit Store: Save confirmation + success modals ---------- */
+  const editstoreConfirmBackdrop = document.getElementById('editstore-confirm-backdrop');
+  const editstoreConfirmModal = document.getElementById('editstore-confirm');
+  const editstoreSuccessBackdrop = document.getElementById('editstore-success-backdrop');
+  const editstoreSuccessModal = document.getElementById('editstore-success');
+
+  function openEditstoreConfirm() {
+    editstoreConfirmBackdrop.classList.add('is-open');
+    editstoreConfirmModal.classList.add('is-open');
+  }
+  function closeEditstoreConfirm() {
+    editstoreConfirmBackdrop.classList.remove('is-open');
+    editstoreConfirmModal.classList.remove('is-open');
+  }
+  function openEditstoreSuccess() {
+    editstoreSuccessBackdrop.classList.add('is-open');
+    editstoreSuccessModal.classList.add('is-open');
+  }
+  function closeEditstoreSuccess() {
+    editstoreSuccessBackdrop.classList.remove('is-open');
+    editstoreSuccessModal.classList.remove('is-open');
+  }
+
+  document.getElementById('editstore-save-btn').addEventListener('click', openEditstoreConfirm);
+  editstoreConfirmBackdrop.addEventListener('click', closeEditstoreConfirm);
+  document.getElementById('editstore-confirm-no').addEventListener('click', closeEditstoreConfirm);
+  document.getElementById('editstore-confirm-yes').addEventListener('click', () => {
+    closeEditstoreConfirm();
+    openEditstoreSuccess();
+  });
+  editstoreSuccessBackdrop.addEventListener('click', () => {
+    closeEditstoreSuccess();
+    closeEditStore();
+  });
+  document.getElementById('editstore-success-close').addEventListener('click', () => {
+    closeEditstoreSuccess();
+    closeEditStore();
+  });
+
+  })();
+</script>
+</body>
+</html>
