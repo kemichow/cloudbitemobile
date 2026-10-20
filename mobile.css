@@ -50,7 +50,7 @@ html, body {
   width: 100%;
   height: 300px;
   flex-shrink: 0;
-  background-image: url('https://www.figma.com/api/mcp/asset/f670997f-cc8a-4b61-a597-0016d14a44e0.png');
+  background-image: url('assets/banner.svg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -2181,7 +2181,7 @@ html, body {
   background: transparent;
   color: var(--color-primary);
   font-family: var(--font-family);
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 600;
   cursor: pointer;
 }
@@ -3576,21 +3576,30 @@ html, body {
   white-space: nowrap;
 }
 
-.m-company-tab__icon,
-.m-company-tab__icon-img {
-  width: 24px;
-  height: 24px;
+.m-company-tab__icon {
+  width: 16px;
+  height: 16px;
   flex-shrink: 0;
   filter: grayscale(1) brightness(0.45);
+}
+
+.m-company-tab__icon-img {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  fill: #646464;
 }
 
 .m-company-tab.is-active {
   color: var(--color-primary);
 }
 
-.m-company-tab.is-active .m-company-tab__icon,
+.m-company-tab.is-active .m-company-tab__icon {
+  filter: brightness(0) saturate(100%) invert(18%) sepia(94%) saturate(2865%) hue-rotate(348deg) brightness(87%) contrast(91%);
+}
+
 .m-company-tab.is-active .m-company-tab__icon-img {
-  filter: invert(13%) sepia(84%) saturate(5716%) hue-rotate(357deg) brightness(90%) contrast(93%);
+  fill: #BE2026;
 }
 
 .m-company-panel__title {
