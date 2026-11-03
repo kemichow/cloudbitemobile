@@ -4114,3 +4114,32 @@ html, body {
 .m-company-formselect--placeholder.has-value span {
   color: var(--text-primary);
 }
+
+/* Company pages: let long classification lists scroll vertically below the topbar.
+   Keep horizontal table scrolling inside each card and the form footer fixed. */
+.m-view--reports #page-company .m-rpt-body {
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+
+#page-company #company-list-view {
+  flex: none;
+  min-width: 0;
+}
+
+.m-view--reports #page-company .m-company-panel {
+  flex: none;
+  overflow: visible;
+}
+
+.m-view--reports #page-company .m-company-panel .m-rpt-card,
+.m-view--reports #page-company .m-company-panel .m-rpt-table-wrap {
+  flex: none;
+  max-height: none;
+}
+
+#page-company .m-company-panel .m-rpt-table-wrap {
+  width: 100%;
+  min-width: 0;
+}
