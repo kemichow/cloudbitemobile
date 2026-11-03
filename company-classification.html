@@ -488,9 +488,48 @@
         </div>
 
         <div class="m-company-panel" id="company-panel-country" hidden>
-          <p class="m-company-panel__title">Country</p>
+          <p class="m-company-panel__title">Store Country</p>
+
+          <div class="m-company-toolbar">
+            <span class="m-company-search">
+              <svg class="m-company-search__icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/></svg>
+              <input type="text" class="m-company-search__input" id="country-search-input" placeholder="Search" />
+            </span>
+            <button type="button" class="m-rpt-export" id="country-export-btn">
+              <img src="assets/upload.svg" alt="" class="m-rpt-export__icon" />
+              Export
+            </button>
+            <button type="button" class="m-company-btn m-company-btn--save m-company-addstore-btn" id="country-add-btn">
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              Add Store Country
+            </button>
+          </div>
+
           <div class="m-rpt-card">
-            <p class="m-company-empty">Coming soon.</p>
+            <div class="m-rpt-table-wrap">
+              <table class="m-rpt-table m-rpt-table--tax">
+                <thead>
+                  <tr class="m-rpt-headrow">
+                    <th class="m-rpt-th" data-col-index="0"><span class="m-rpt-th-inner">Code<span class="m-rpt-sorticon" aria-hidden="true"></span></span></th>
+                    <th class="m-rpt-th" data-col-index="1"><span class="m-rpt-th-inner">Country Name<span class="m-rpt-sorticon" aria-hidden="true"></span></span></th>
+                    <th class="m-rpt-th" data-col-index="2"><span class="m-rpt-th-inner">Status<span class="m-rpt-sorticon" aria-hidden="true"></span></span></th>
+                    <th class="m-rpt-th" data-col-index="3"><span class="m-rpt-th-inner">State<span class="m-rpt-sorticon" aria-hidden="true"></span></span></th>
+                    <th class="m-rpt-th" data-col-index="4"><span class="m-rpt-th-inner">City<span class="m-rpt-sorticon" aria-hidden="true"></span></span></th>
+                    <th class="m-rpt-th">Action</th>
+                  </tr>
+                  <tr class="m-rpt-filterrow">
+                    <th class="m-rpt-filtercell"><span class="m-rpt-filterwrap"><img src="assets/filter.svg" alt="" class="m-rpt-filtericon" /><input type="text" class="m-rpt-colfilter" data-col-index="0" placeholder="" /></span></th>
+                    <th class="m-rpt-filtercell"><span class="m-rpt-filterwrap"><img src="assets/filter.svg" alt="" class="m-rpt-filtericon" /><input type="text" class="m-rpt-colfilter" data-col-index="1" placeholder="" /></span></th>
+                    <th class="m-rpt-filtercell"><span class="m-rpt-filterwrap"><img src="assets/filter.svg" alt="" class="m-rpt-filtericon" /><input type="text" class="m-rpt-colfilter" data-col-index="2" placeholder="" /></span></th>
+                    <th class="m-rpt-filtercell"><span class="m-rpt-filterwrap"><img src="assets/filter.svg" alt="" class="m-rpt-filtericon" /><input type="text" class="m-rpt-colfilter" data-col-index="3" aria-label="Filter State" /></span></th>
+                    <th class="m-rpt-filtercell"><span class="m-rpt-filterwrap"><img src="assets/filter.svg" alt="" class="m-rpt-filtericon" /><input type="text" class="m-rpt-colfilter" data-col-index="4" aria-label="Filter City" /></span></th>
+                    <th class="m-rpt-filtercell"></th>
+                  </tr>
+                </thead>
+                <tbody id="country-tbody">
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
 
@@ -544,6 +583,20 @@
 
     </div>
   </div>
+
+
+<dialog id="country-dialog" aria-labelledby="country-dialog-title" style="border:0;border-radius:12px;padding:24px;width:min(420px,calc(100% - 32px));box-sizing:border-box">
+  <form id="country-form" class="m-company-editform">
+    <h2 id="country-dialog-title">Add Store Country</h2>
+    <div class="m-company-formfield"><label for="country-code">Code *</label><input id="country-code" class="m-company-forminput" required maxlength="2" pattern="[A-Za-z]{2}" placeholder="MY" /></div>
+    <div class="m-company-formfield"><label for="country-name">Country Name *</label><input id="country-name" class="m-company-forminput" required maxlength="100" /></div>
+    <div class="m-company-formfield"><label for="country-states">State</label><input id="country-states" class="m-company-forminput" type="number" min="0" step="1" required value="0" /></div>
+    <div class="m-company-formfield"><label for="country-cities">City</label><input id="country-cities" class="m-company-forminput" type="number" min="0" step="1" required value="0" /></div>
+    <div class="m-company-formfield m-company-formfield--switch"><label for="country-active">Active</label><label class="m-company-switch"><input type="checkbox" id="country-active" checked /><span class="m-company-switch__track"><span class="m-company-switch__thumb"></span></span></label></div>
+    <p id="country-error" role="alert" style="color:#bf1e2e"></p>
+    <div style="display:flex;gap:12px"><button type="button" id="country-cancel" class="m-company-btn m-company-btn--cancel">Cancel</button><button type="submit" class="m-company-btn m-company-btn--save">Save</button></div>
+  </form>
+</dialog>
 
 <script>
   /* ---------- Nav drawer (copied from the dashboard top navigation bar) ---------- */
@@ -717,6 +770,85 @@
     const cls = status === 'Active' ? 'm-rpt-badge--green' : 'm-rpt-badge--gray';
     return `<span class="m-rpt-badge ${cls}">${status}</span>`;
   }
+
+
+  /* ---------- Store Country: screenshot data and local prototype editing ---------- */
+  const countryKey = 'cloudbite-store-countries-v1';
+  let countries = [['MY', 'Malaysia', 'Active', 16, 4], ['ID', 'Indonesia', 'Active', 1, 1]];
+  try {
+    const saved = JSON.parse(localStorage.getItem(countryKey));
+    if (Array.isArray(saved) && saved.every(r => Array.isArray(r) && r.length === 5 &&
+      typeof r[0] === 'string' && typeof r[1] === 'string' && ['Active', 'Inactive'].includes(r[2]) &&
+      Number.isInteger(r[3]) && r[3] >= 0 && Number.isInteger(r[4]) && r[4] >= 0)) countries = saved;
+  } catch (_) { /* Storage can be unavailable in private browsing. */ }
+  const countryFilters = {};
+  const countrySort = { index: null, dir: 1 };
+  const countryBody = document.getElementById('country-tbody');
+  const countrySearch = document.getElementById('country-search-input');
+  const countryDialog = document.getElementById('country-dialog');
+  const countryForm = document.getElementById('country-form');
+  let countryEditCode = null;
+  const escapeCountry = value => String(value).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  function visibleCountries() {
+    const query = countrySearch.value.trim().toLowerCase();
+    return getGridRows(countries, countrySort, countryFilters).filter(r => !query || r.some(v => String(v).toLowerCase().includes(query)));
+  }
+  function renderCountries() {
+    countryBody.innerHTML = visibleCountries().map(r => `<tr><td>${escapeCountry(r[0])}</td><td>${escapeCountry(r[1])}</td><td>${statusBadge(r[2])}</td><td>${r[3]}</td><td>${r[4]}</td><td><div class="m-company-actionrow"><button type="button" class="m-company-editbtn" data-country-edit="${escapeCountry(r[0])}" aria-label="Edit ${escapeCountry(r[1])}"><img src="assets/edit.svg" alt="" class="m-company-editbtn__icon" /></button><button type="button" class="m-company-deletebtn" data-country-delete="${escapeCountry(r[0])}" aria-label="Delete ${escapeCountry(r[1])}"><img src="assets/delete.svg" alt="" class="m-company-editbtn__icon" /></button></div></td></tr>`).join('') || '<tr><td colspan="6" class="m-company-empty-row">No countries found.</td></tr>';
+  }
+  function persistCountries() {
+    try { localStorage.setItem(countryKey, JSON.stringify(countries)); } catch (_) {}
+    renderCountries();
+  }
+  function openCountry(row) {
+    countryForm.reset();
+    countryEditCode = row ? row[0] : null;
+    document.getElementById('country-dialog-title').textContent = row ? 'Edit Store Country' : 'Add Store Country';
+    document.getElementById('country-code').value = row ? row[0] : '';
+    document.getElementById('country-name').value = row ? row[1] : '';
+    document.getElementById('country-active').checked = !row || row[2] === 'Active';
+    document.getElementById('country-states').value = row ? row[3] : 0;
+    document.getElementById('country-cities').value = row ? row[4] : 0;
+    document.getElementById('country-error').textContent = '';
+    countryDialog.showModal();
+  }
+  wireGridHeader(document.querySelector('#company-panel-country thead'), countrySort, countryFilters, renderCountries);
+  document.querySelectorAll('#company-panel-country .m-rpt-colfilter').forEach((input, i) => input.setAttribute('aria-label', 'Filter ' + ['Code','Country Name','Status','State','City'][i]));
+  countrySearch.addEventListener('input', renderCountries);
+  document.getElementById('country-add-btn').addEventListener('click', () => openCountry());
+  document.getElementById('country-cancel').addEventListener('click', () => countryDialog.close());
+  countryForm.addEventListener('submit', e => {
+    e.preventDefault();
+    const code = document.getElementById('country-code').value.trim().toUpperCase();
+    const name = document.getElementById('country-name').value.trim();
+    if (!name || countries.some(r => r[0] === code && r[0] !== countryEditCode)) {
+      document.getElementById('country-error').textContent = !name ? 'Enter a country name.' : 'This country code already exists.';
+      return;
+    }
+    const row = [code, name, document.getElementById('country-active').checked ? 'Active' : 'Inactive', Number(document.getElementById('country-states').value), Number(document.getElementById('country-cities').value)];
+    const index = countries.findIndex(r => r[0] === countryEditCode);
+    if (index < 0) countries.push(row); else countries[index] = row;
+    persistCountries();
+    countryDialog.close();
+  });
+  countryBody.addEventListener('click', e => {
+    const edit = e.target.closest('[data-country-edit]');
+    const remove = e.target.closest('[data-country-delete]');
+    if (edit) openCountry(countries.find(r => r[0] === edit.dataset.countryEdit));
+    if (remove && window.confirm('Delete store country ' + remove.dataset.countryDelete + '?')) {
+      countries = countries.filter(r => r[0] !== remove.dataset.countryDelete);
+      persistCountries();
+    }
+  });
+  document.getElementById('country-export-btn').addEventListener('click', () => {
+    const csvCell = v => '"' + String(v).replace(/^[=+@\-]/, "'$&").replace(/"/g, '""') + '"';
+    const csv = [['Code','Country Name','Status','State','City'], ...visibleCountries()].map(r => r.map(csvCell).join(',')).join('\r\n');
+    const url = URL.createObjectURL(new Blob(['\uFEFF' + csv], { type: 'text/csv;charset=utf-8;' }));
+    const link = document.createElement('a');
+    link.href = url; link.download = 'store-countries.csv'; link.click();
+    setTimeout(() => URL.revokeObjectURL(url), 1000);
+  });
+  renderCountries();
 
   /* ---------- Store Group table ---------- */
   const STORE_GROUP_ROWS = [
@@ -939,3 +1071,4 @@
 </script>
 </body>
 </html>
+
