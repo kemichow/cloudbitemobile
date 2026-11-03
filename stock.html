@@ -581,7 +581,7 @@ $('stock-form').addEventListener('input',()=>{formChanged=true;});$('stock-form'
 $('stock-form').addEventListener('click',e=>{const remove=e.target.closest('[data-remove]'),action=e.target.closest('[data-action]');if(!remove&&!action)return;captureDraft();formChanged=true;
  if(remove){const key=remove.dataset.remove,i=Number(remove.dataset.index);if(key==='prices'&&i===0)return;draft[key].splice(i,1);refreshLines(key);return;}
  const name=action.dataset.action;if(name==='clear-image'){draft.image='';$('item-image').value='';$('item-image-preview').innerHTML='';return;}if(name==='clear-materials'){confirmAction('Delete all materials from this bill of materials?',()=>{draft.lines=[];refreshLines('lines');});return;}
- if(name==='projected-all'){const price=draft.costs[0].projected;if(draft.costs.some(r=>r.unit<=0&&price>0)){formError('Enter a unit cost above zero for every store before applying the projected price.');return;}draft.costs.forEach((r,i)=>{r.projected=price;r.markup=r.unit?(price/r.unit-1)*100:0;r.margin=price?(price-r.unit)/price*100:0;document.querySelector('[data-cost="'+i+'"][data-key="markup"]').value=String(r.markup);document.querySelector('[data-projected="'+i+'"]').textContent=money(price);document.querySelector('[data-margin="'+i+'"]').textContent=money(r.margin);});return;}
+ if(name==='projected-all'){openProjectedPriceDialog();return;}
  if(name==='cost-all'){openUnitCostDialog();return;}
  const configs={'add-price':['prices',()=>{let i=2;while(draft.prices.some(p=>p.code==='P'+i))i++;return {code:'P'+i,description:'',min:0,normal:0,member:0,dealer:0};}], 'add-condiment':['condiments',()=>({group:'',description:'',order:draft.condiments.length+1,min:0,max:1,required:false})], 'add-queue':['queues',()=>({queue:'',description:'',spooler:'',printer:'',printerDescription:'',active:true})], 'add-set':['setItems',()=>({code:'',qty:1,breakdown:0})], 'add-pulldown':['pulldown',()=>({name:'',type:'All',max:0,required:false})], 'add-material':['lines',()=>({code:'',uom:'pcs',qty:1})]};const pair=configs[name];if(pair){draft[pair[0]].push(pair[1]());refreshLines(pair[0]);}});
 
@@ -602,6 +602,28 @@ function openUnitCostDialog(){
  dialog.innerHTML='<div class="stock-cost-result warning" aria-hidden="true">!</div><p>Are you sure you want to apply a <strong>unit cost of RM '+format(unit)+'</strong> to all stores?</p><p>This will replace their existing unit costs.</p><div class="stock-cost-dialog-actions"><button type="button" data-no>No</button><button type="button" class="primary" data-yes>Yes</button></div>';
  dialog.querySelector('[data-no]').onclick=()=>entry(format(unit));
  dialog.querySelector('[data-yes]').onclick=()=>{if(draft!==currentDraft){close();return;}draft.costs.forEach((r,i)=>{r.unit=unit;r.projected=unit*(1+r.markup/100);r.margin=r.projected?(r.projected-unit)/r.projected*100:0;document.querySelector('[data-cost="'+i+'"][data-key="unit"]').value=money(unit);document.querySelector('[data-projected="'+i+'"]').textContent=money(r.projected);document.querySelector('[data-margin="'+i+'"]').textContent=money(r.margin);});formChanged=true;dialog.innerHTML='<div class="stock-cost-result success" aria-hidden="true">✓</div><p>Unit Cost Updated Successfully.</p><div class="stock-cost-dialog-actions"><button type="button">Close</button></div>';dialog.querySelector('button').onclick=close;dialog.querySelector('button').focus();};
+ dialog.querySelector('[data-no]').focus();
+ }
+ dialog.showModal();entry();
+}
+
+function openProjectedPriceDialog(){
+ const origin=document.activeElement,currentDraft=draft;
+ const dialog=document.createElement('dialog');dialog.className='stock-cost-dialog';
+ document.body.appendChild(dialog);
+ const format=value=>new Intl.NumberFormat('en-MY',{minimumFractionDigits:2,maximumFractionDigits:2}).format(value);
+ function close(){dialog.close();dialog.remove();origin?.focus();}
+ dialog.addEventListener('cancel',e=>{e.preventDefault();close();});
+ function entry(value=''){
+ dialog.innerHTML='<h2>Apply Projected Price to All Store</h2><p class="stock-cost-dialog-note">Enter the projected price to apply to every store.</p><form><label for="all-projected-price">Projected Price</label><div class="stock-cost-amount"><span>RM</span><input id="all-projected-price" inputmode="decimal" autocomplete="off" required aria-label="Projected Price" value="'+esc(value)+'"/></div><p class="stock-cost-dialog-error" role="alert"></p><div class="stock-cost-dialog-actions"><button type="button" data-no>No</button><button type="submit" class="primary">Review &amp; Apply</button></div></form>';
+ dialog.querySelector('[data-no]').onclick=close;
+ dialog.querySelector('form').onsubmit=e=>{e.preventDefault();const raw=dialog.querySelector('input').value.replace(/,/g,'').trim(),unit=Number(raw);if(!raw||!/^\d+(\.\d{1,2})?$/.test(raw)||!Number.isFinite(unit)||unit<0){dialog.querySelector('[role="alert"]').textContent='Enter a valid non-negative amount with up to two decimal places.';return;}if(unit>0&&draft.costs.some(r=>r.unit<=0)){dialog.querySelector('[role="alert"]').textContent='Enter a unit cost above zero for every store before applying the projected price.';return;}review(unit);};
+ dialog.querySelector('input').focus();
+ }
+ function review(unit){
+ dialog.innerHTML='<div class="stock-cost-result warning" aria-hidden="true">!</div><p>Are you sure you want to apply a <strong>projected price of RM '+format(unit)+'</strong> to all stores?</p><p>This will replace their existing projected prices.</p><div class="stock-cost-dialog-actions"><button type="button" data-no>No</button><button type="button" class="primary" data-yes>Yes</button></div>';
+ dialog.querySelector('[data-no]').onclick=()=>entry(format(unit));
+ dialog.querySelector('[data-yes]').onclick=()=>{if(draft!==currentDraft){close();return;}draft.costs.forEach((r,i)=>{r.projected=unit;r.markup=r.unit?(unit/r.unit-1)*100:0;r.margin=unit?(unit-r.unit)/unit*100:0;document.querySelector('[data-cost="'+i+'"][data-key="markup"]').value=String(r.markup);document.querySelector('[data-projected="'+i+'"]').textContent=money(r.projected);document.querySelector('[data-margin="'+i+'"]').textContent=money(r.margin);});formChanged=true;dialog.innerHTML='<div class="stock-cost-result success" aria-hidden="true">✓</div><p>Projected Price Updated Successfully.</p><div class="stock-cost-dialog-actions"><button type="button">Close</button></div>';dialog.querySelector('button').onclick=close;dialog.querySelector('button').focus();};
  dialog.querySelector('[data-no]').focus();
  }
  dialog.showModal();entry();
