@@ -244,6 +244,14 @@
         <span class="m-editbrand-topbar__spacer" aria-hidden="true"></span>
       </header>
 
+      <header class="m-dash-topbar m-editbrand-topbar" id="country-topbar" hidden>
+        <button type="button" class="m-dash-icon-btn" id="country-back-btn" aria-label="Back">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+        <h1 class="m-editbrand-topbar__title" id="country-topbar-title">Add Store Country</h1>
+        <span class="m-editbrand-topbar__spacer" aria-hidden="true"></span>
+      </header>
+
       <!-- Full-screen: notifications (shared template — same on every page) -->
       <div class="m-notif-sheet" id="notif-sheet">
         <div class="m-notif-sheet__head">
@@ -381,6 +389,31 @@
         <p class="m-confirm__message" id="storegroup-success-title">Store Group Added Successfully</p>
         <div class="m-confirm__actions m-confirm__actions--single">
           <button type="button" class="m-confirm__btn m-confirm__btn--no" id="storegroup-success-close">Close</button>
+        </div>
+      </div>
+
+      <!-- Modal: store country save confirmation -->
+      <div class="m-confirm-backdrop" id="country-confirm-backdrop"></div>
+      <div class="m-confirm" id="country-confirm" role="dialog" aria-modal="true" aria-labelledby="country-confirm-title">
+        <p class="m-confirm__title" id="country-confirm-title">Confirmation</p>
+        <p class="m-confirm__message" id="country-confirm-message">Are you sure you want to Add Store Country?</p>
+        <div class="m-confirm__actions">
+          <button type="button" class="m-confirm__btn m-confirm__btn--no" id="country-confirm-no">No</button>
+          <button type="button" class="m-confirm__btn m-confirm__btn--yes" id="country-confirm-yes">Yes</button>
+        </div>
+      </div>
+
+      <!-- Modal: store country save success -->
+      <div class="m-confirm-backdrop" id="country-success-backdrop"></div>
+      <div class="m-confirm" id="country-success" role="dialog" aria-modal="true" aria-labelledby="country-success-title">
+        <div class="m-confirm__icon">
+          <span class="m-confirm__icon-inner">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          </span>
+        </div>
+        <p class="m-confirm__message" id="country-success-title">Store Country Added Successfully</p>
+        <div class="m-confirm__actions m-confirm__actions--single">
+          <button type="button" class="m-confirm__btn m-confirm__btn--no" id="country-success-close">Close</button>
         </div>
       </div>
 
@@ -573,6 +606,32 @@
         </div>
       </div>
 
+      <div class="m-company-editview" id="company-country-view" hidden>
+        <form id="country-form" class="m-company-editform">
+          <div class="m-company-formfield">
+            <label for="country-code">Country Code <span class="m-required">*</span></label>
+            <input type="text" id="country-code" required maxlength="2" pattern="[A-Za-z]{2}" class="m-company-forminput" placeholder="Country Code" />
+          </div>
+          <div class="m-company-formfield">
+            <label for="country-name">Country Name <span class="m-required">*</span></label>
+            <input type="text" id="country-name" required maxlength="100" class="m-company-forminput" placeholder="Country Name" />
+          </div>
+          <div class="m-company-formfield m-company-formfield--switch">
+            <label>Active <span class="m-required">*</span></label>
+            <label class="m-company-switch">
+              <input type="checkbox" id="country-active" checked />
+              <span class="m-company-switch__track"><span class="m-company-switch__thumb"></span></span>
+            </label>
+          </div>
+          <p id="country-error" role="alert" style="color:#bf1e2e"></p>
+        </form>
+
+        <div class="m-company-editview__footer">
+          <button type="button" class="m-company-btn m-company-btn--cancel m-company-btn--block" id="country-cancel-btn">Cancel</button>
+          <button type="button" class="m-company-btn m-company-btn--save m-company-btn--block" id="country-save-btn">Save</button>
+        </div>
+      </div>
+
       </div>
 
     </div>
@@ -585,18 +644,7 @@
   </div>
 
 
-<dialog id="country-dialog" aria-labelledby="country-dialog-title" style="border:0;border-radius:12px;padding:24px;width:min(420px,calc(100% - 32px));box-sizing:border-box">
-  <form id="country-form" class="m-company-editform">
-    <h2 id="country-dialog-title">Add Store Country</h2>
-    <div class="m-company-formfield"><label for="country-code">Code *</label><input id="country-code" class="m-company-forminput" required maxlength="2" pattern="[A-Za-z]{2}" placeholder="MY" /></div>
-    <div class="m-company-formfield"><label for="country-name">Country Name *</label><input id="country-name" class="m-company-forminput" required maxlength="100" /></div>
-    <div class="m-company-formfield"><label for="country-states">State</label><input id="country-states" class="m-company-forminput" type="number" min="0" step="1" required value="0" /></div>
-    <div class="m-company-formfield"><label for="country-cities">City</label><input id="country-cities" class="m-company-forminput" type="number" min="0" step="1" required value="0" /></div>
-    <div class="m-company-formfield m-company-formfield--switch"><label for="country-active">Active</label><label class="m-company-switch"><input type="checkbox" id="country-active" checked /><span class="m-company-switch__track"><span class="m-company-switch__thumb"></span></span></label></div>
-    <p id="country-error" role="alert" style="color:#bf1e2e"></p>
-    <div style="display:flex;gap:12px"><button type="button" id="country-cancel" class="m-company-btn m-company-btn--cancel">Cancel</button><button type="submit" class="m-company-btn m-company-btn--save">Save</button></div>
-  </form>
-</dialog>
+
 
 <script>
   /* ---------- Nav drawer (copied from the dashboard top navigation bar) ---------- */
@@ -785,7 +833,8 @@
   const countrySort = { index: null, dir: 1 };
   const countryBody = document.getElementById('country-tbody');
   const countrySearch = document.getElementById('country-search-input');
-  const countryDialog = document.getElementById('country-dialog');
+  const countryView = document.getElementById('company-country-view');
+  const countryTopbar = document.getElementById('country-topbar');
   const countryForm = document.getElementById('country-form');
   let countryEditCode = null;
   const escapeCountry = value => String(value).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -803,20 +852,34 @@
   function openCountry(row) {
     countryForm.reset();
     countryEditCode = row ? row[0] : null;
-    document.getElementById('country-dialog-title').textContent = row ? 'Edit Store Country' : 'Add Store Country';
+    document.getElementById('country-topbar-title').textContent = row ? 'Edit Store Country' : 'Add Store Country';
     document.getElementById('country-code').value = row ? row[0] : '';
     document.getElementById('country-name').value = row ? row[1] : '';
     document.getElementById('country-active').checked = !row || row[2] === 'Active';
-    document.getElementById('country-states').value = row ? row[3] : 0;
-    document.getElementById('country-cities').value = row ? row[4] : 0;
     document.getElementById('country-error').textContent = '';
-    countryDialog.showModal();
+    document.getElementById('company-list-view').hidden = true;
+    document.getElementById('main-topbar').hidden = true;
+    countryView.hidden = false;
+    countryTopbar.hidden = false;
+    document.getElementById('country-code').focus();
   }
   wireGridHeader(document.querySelector('#company-panel-country thead'), countrySort, countryFilters, renderCountries);
   document.querySelectorAll('#company-panel-country .m-rpt-colfilter').forEach((input, i) => input.setAttribute('aria-label', 'Filter ' + ['Code','Country Name','Status','State','City'][i]));
   countrySearch.addEventListener('input', renderCountries);
   document.getElementById('country-add-btn').addEventListener('click', () => openCountry());
-  document.getElementById('country-cancel').addEventListener('click', () => countryDialog.close());
+  function closeCountryView() {
+    countryView.hidden = true;
+    countryTopbar.hidden = true;
+    document.getElementById('company-list-view').hidden = false;
+    document.getElementById('main-topbar').hidden = false;
+  }
+  document.getElementById('country-cancel-btn').addEventListener('click', closeCountryView);
+  document.getElementById('country-back-btn').addEventListener('click', closeCountryView);
+  function toggleCountryModal(id, open) {
+    document.getElementById(id).classList.toggle('is-open', open);
+    document.getElementById(id + '-backdrop').classList.toggle('is-open', open);
+  }
+  document.getElementById('country-save-btn').addEventListener('click', () => countryForm.requestSubmit());
   countryForm.addEventListener('submit', e => {
     e.preventDefault();
     const code = document.getElementById('country-code').value.trim().toUpperCase();
@@ -825,12 +888,24 @@
       document.getElementById('country-error').textContent = !name ? 'Enter a country name.' : 'This country code already exists.';
       return;
     }
-    const row = [code, name, document.getElementById('country-active').checked ? 'Active' : 'Inactive', Number(document.getElementById('country-states').value), Number(document.getElementById('country-cities').value)];
+    document.getElementById('country-confirm-message').textContent = 'Are you sure you want to ' + (countryEditCode === null ? 'Add' : 'Edit') + ' Store Country?';
+    toggleCountryModal('country-confirm', true);
+  });
+  ['country-confirm-no', 'country-confirm-backdrop'].forEach(id => document.getElementById(id).addEventListener('click', () => toggleCountryModal('country-confirm', false)));
+  document.getElementById('country-confirm-yes').addEventListener('click', () => {
     const index = countries.findIndex(r => r[0] === countryEditCode);
+    const previous = index < 0 ? null : countries[index];
+    const row = [document.getElementById('country-code').value.trim().toUpperCase(), document.getElementById('country-name').value.trim(), document.getElementById('country-active').checked ? 'Active' : 'Inactive', previous ? previous[3] : 0, previous ? previous[4] : 0];
     if (index < 0) countries.push(row); else countries[index] = row;
     persistCountries();
-    countryDialog.close();
+    toggleCountryModal('country-confirm', false);
+    document.getElementById('country-success-title').textContent = index < 0 ? 'Store Country Added Successfully' : 'Store Country Updated Successfully';
+    toggleCountryModal('country-success', true);
   });
+  ['country-success-close', 'country-success-backdrop'].forEach(id => document.getElementById(id).addEventListener('click', () => {
+    toggleCountryModal('country-success', false);
+    closeCountryView();
+  }));
   countryBody.addEventListener('click', e => {
     const edit = e.target.closest('[data-country-edit]');
     const remove = e.target.closest('[data-country-delete]');
@@ -1071,4 +1146,5 @@
 </script>
 </body>
 </html>
+
 
