@@ -4174,3 +4174,6 @@ button[aria-label="Back"]::after,a[aria-label="Back"]::after{content:"";display:
 }
 .m-company-formsection:has(>.m-company-formsection__body[hidden])>.m-company-formsection__head::after,
 .m-company-formsection__head:has(.is-collapsed)::after{transform:rotate(45deg)}
+
+/* Back chevron sized to the reference: approximately 7 by 14 pixels. */
+button[aria-label="Back"]::after,a[aria-label="Back"]::after{width:9px;height:9px;border-left-width:1.25px;border-bottom-width:1.25px}
