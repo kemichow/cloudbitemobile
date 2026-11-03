@@ -5,6 +5,20 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 <title>CloudBite | Company Classification</title>
 <link rel="stylesheet" href="mobile.css" />
+
+<style>
+/* Match the reference's white, anchored selection popup. */
+.m-location-select { position: relative; width: 100%; }
+.m-location-select__native { position: absolute; width: 1px; height: 1px; opacity: 0; pointer-events: none; }
+.m-location-select__trigger { text-align: left; font-weight: 400; color: var(--text-primary); cursor: pointer; padding-right: 36px; }
+.m-location-select__trigger:disabled { opacity: .55; cursor: not-allowed; }
+.m-location-select__popup { position: absolute; z-index: 30; top: 100%; left: 0; right: 0; background: var(--color-white); border: 1px solid var(--color-border); border-radius: 8px; box-shadow: 0 1px 4px rgba(0,0,0,.12); padding: 6px 0; max-height: 220px; overflow-y: auto; -webkit-overflow-scrolling: touch; }
+.m-location-select__popup[hidden] { display: none; }
+.m-location-select__popup [role="option"] { display: block; width: 100%; min-height: 38px; padding: 9px 15px; border: 0; background: white; color: var(--text-second); font: inherit; font-size: 14px; text-align: left; cursor: pointer; }
+.m-location-select__popup [role="option"]:hover,
+.m-location-select__popup [role="option"].is-highlighted { background: #f5f5f5; }
+.m-location-select__empty { margin: 0; padding: 10px 15px; color: var(--text-second); font-size: 13px; }
+</style>
 </head>
 <body>
   <div class="m-login">
@@ -1135,16 +1149,98 @@
     const row = states.find(r => r[0] === code && r[4] === country);
     if (row) row[3] = Math.max(0, row[3] + change);
   }
+  /* Custom anchored select popup; native select retains form validation and values. */
+  const locationDropdowns = new Map();
+  function syncLocationDropdown(select) {
+    const widget = locationDropdowns.get(select.id);
+    if (!widget) return;
+    const options = Array.from(select.options).filter(option => option.value);
+    const selected = options.find(option => option.value === select.value);
+    widget.button.textContent = selected ? selected.textContent : select.options[0].textContent;
+    widget.button.disabled = select.disabled;
+    widget.button.setAttribute('aria-disabled', String(select.disabled));
+    widget.list.innerHTML = options.map(option => `<button type="button" role="option" tabindex="-1" aria-selected="${option.value === select.value}" data-value="${escapeCountry(option.value)}">${escapeCountry(option.textContent)}</button>`).join('') || '<p class="m-location-select__empty">No options available</p>';
+    widget.close();
+  }
+  function initializeLocationDropdown(select) {
+    const wrapper = document.createElement('div');
+    wrapper.className = 'm-location-select';
+    select.parentNode.insertBefore(wrapper, select);
+    wrapper.appendChild(select);
+    select.classList.add('m-location-select__native');
+    select.tabIndex = -1;
+    const button = document.createElement('button');
+    button.type = 'button'; button.id = select.id + '-trigger';
+    button.className = 'm-company-forminput m-company-formselect m-location-select__trigger';
+    button.setAttribute('role', 'combobox'); button.setAttribute('aria-haspopup', 'listbox');
+    button.setAttribute('aria-expanded', 'false'); button.setAttribute('aria-required', 'true');
+    const label = document.querySelector(`label[for="${select.id}"]`);
+    if (label) { label.id = select.id + '-label'; button.setAttribute('aria-labelledby', label.id + ' ' + button.id); label.htmlFor = button.id; }
+    const list = document.createElement('div');
+    list.id = select.id + '-options'; list.className = 'm-location-select__popup';
+    list.setAttribute('role', 'listbox'); list.setAttribute('aria-label', select.id === 'city-state' ? 'State' : 'Country');
+    list.hidden = true; button.setAttribute('aria-controls', list.id);
+    wrapper.append(button, list);
+    let active = -1;
+    const options = () => Array.from(list.querySelectorAll('[role="option"]'));
+    function close() { list.hidden = true; button.setAttribute('aria-expanded','false'); button.removeAttribute('aria-activedescendant'); active = -1; }
+    function highlight(index) {
+      const items = options(); if (!items.length) return;
+      active = Math.max(0, Math.min(index, items.length - 1));
+      items.forEach((item,i) => { item.id = list.id + '-' + i; item.classList.toggle('is-highlighted',i === active); });
+      button.setAttribute('aria-activedescendant', items[active].id);
+      items[active].scrollIntoView({block:'nearest'});
+    }
+    function open() {
+      if (select.disabled) return;
+      locationDropdowns.forEach(widget => widget.close());
+      list.hidden = false; button.setAttribute('aria-expanded','true');
+      const index = options().findIndex(option => option.dataset.value === select.value);
+      highlight(Math.max(0,index));
+    }
+    function choose(value) {
+      select.value = value;
+      select.dispatchEvent(new Event('change',{bubbles:true}));
+      syncLocationDropdown(select); button.focus();
+    }
+    button.addEventListener('click', () => list.hidden ? open() : close());
+    button.addEventListener('keydown', e => {
+      if (['ArrowDown','ArrowUp','Home','End'].includes(e.key)) {
+        e.preventDefault(); const wasClosed = list.hidden;
+        if (wasClosed) open();
+        if (e.key === 'Home') highlight(0);
+        else if (e.key === 'End') highlight(options().length - 1);
+        else if (!wasClosed) highlight(active + (e.key === 'ArrowDown' ? 1 : -1));
+      } else if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        if (list.hidden) open(); else if (options()[active]) choose(options()[active].dataset.value);
+      } else if (e.key === 'Escape') { e.preventDefault(); close(); }
+      else if (e.key === 'Tab') close();
+    });
+    list.addEventListener('click', e => {
+      const option = e.target.closest('[data-value]'); if (option) choose(option.dataset.value);
+    });
+    select.addEventListener('change', () => syncLocationDropdown(select));
+    select.addEventListener('invalid', e => { e.preventDefault(); button.focus(); open(); });
+    document.addEventListener('pointerdown', e => { if (!wrapper.contains(e.target)) close(); });
+    wrapper.addEventListener('focusout', e => { if (!wrapper.contains(e.relatedTarget)) close(); });
+    locationDropdowns.set(select.id,{button,list,close});
+    syncLocationDropdown(select);
+  }
+  ['state-country','city-country','city-state'].forEach(id => initializeLocationDropdown(document.getElementById(id)));
+
   function countryOptions(select, selected) {
-    select.innerHTML = '<option value="">Select Country</option>' + countries.map(r => `<option value="${escapeCountry(r[0])}">${escapeCountry(r[0])} — ${escapeCountry(r[1])}</option>`).join('');
+    select.innerHTML = '<option value="">Select Country</option>' + countries.map(r => `<option value="${escapeCountry(r[0])}">${escapeCountry(r[1])}</option>`).join('');
     select.value = selected || '';
+    syncLocationDropdown(select);
   }
   function cityStateOptions(selected) {
     const country = document.getElementById('city-country').value;
     const select = document.getElementById('city-state');
-    select.innerHTML = '<option value="">Select State</option>' + states.filter(r => r[4] === country).map(r => `<option value="${escapeCountry(r[0])}">${escapeCountry(r[0])} — ${escapeCountry(r[1])}</option>`).join('');
+    select.innerHTML = '<option value="">Select State</option>' + states.filter(r => r[4] === country).map(r => `<option value="${escapeCountry(r[0])}">${escapeCountry(r[1])}</option>`).join('');
     select.disabled = !country;
     select.value = selected || '';
+    syncLocationDropdown(select);
   }
   document.getElementById('city-country').addEventListener('change', () => cityStateOptions());
   for (const kind of ['state', 'city']) {
@@ -1190,7 +1286,7 @@
       document.getElementById('main-topbar').hidden = true;
       document.getElementById('company-' + kind + '-view').hidden = false;
       document.getElementById(kind + '-topbar').hidden = false;
-      countryInput.focus();
+      locationDropdowns.get(countryInput.id).button.focus();
     }
     const modal = (suffix, open) => toggleCountryModal(kind + '-' + suffix, open);
     function success(message, closeForm) {
@@ -1503,6 +1599,7 @@
 </script>
 </body>
 </html>
+
 
 
 
