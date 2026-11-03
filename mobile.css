@@ -4143,3 +4143,8 @@ html, body {
   width: 100%;
   min-width: 0;
 }
+
+/* Shared minimal chevron for back navigation. */
+button[aria-label="Back"],a[aria-label="Back"]{display:inline-flex;align-items:center;justify-content:center;background:transparent;border:0;box-shadow:none;color:#606060;min-width:40px;min-height:40px;font-size:0;text-decoration:none}
+button[aria-label="Back"]>*,a[aria-label="Back"]>*{display:none}
+button[aria-label="Back"]::after,a[aria-label="Back"]::after{content:"";display:block;width:8px;height:8px;border-left:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:rotate(45deg);margin-left:4px}
