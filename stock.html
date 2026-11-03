@@ -595,7 +595,7 @@ function openUnitCostDialog(){
  function entry(value=''){
  dialog.innerHTML='<h2>Apply Unit Cost to All Store</h2><p class="stock-cost-dialog-note">Enter the unit cost to apply to every store.</p><form><label for="all-unit-cost">Unit Cost</label><div class="stock-cost-amount"><span>RM</span><input id="all-unit-cost" inputmode="decimal" autocomplete="off" required aria-label="Unit Cost" value="'+esc(value)+'"/></div><p class="stock-cost-dialog-error" role="alert"></p><div class="stock-cost-dialog-actions"><button type="button" data-no>No</button><button type="submit" class="primary">Review &amp; Apply</button></div></form>';
  dialog.querySelector('[data-no]').onclick=close;
- dialog.querySelector('form').onsubmit=e=>{e.preventDefault();const raw=dialog.querySelector('input').value.replace(/,/g,'').trim(),unit=Number(raw);if(!raw||!/^\\d+(\\.\\d{1,2})?$/.test(raw)||!Number.isFinite(unit)||unit<0){dialog.querySelector('[role="alert"]').textContent='Enter a valid non-negative amount with up to two decimal places.';return;}review(unit);};
+ dialog.querySelector('form').onsubmit=e=>{e.preventDefault();const raw=dialog.querySelector('input').value.replace(/,/g,'').trim(),unit=Number(raw);if(!raw||!/^\d+(\.\d{1,2})?$/.test(raw)||!Number.isFinite(unit)||unit<0){dialog.querySelector('[role="alert"]').textContent='Enter a valid non-negative amount with up to two decimal places.';return;}review(unit);};
  dialog.querySelector('input').focus();
  }
  function review(unit){
