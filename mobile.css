@@ -4177,3 +4177,38 @@ button[aria-label="Back"]::after,a[aria-label="Back"]::after{content:"";display:
 
 /* Back chevron sized to the reference: approximately 7 by 14 pixels. */
 button[aria-label="Back"]::after,a[aria-label="Back"]::after{width:9px;height:9px;border-left-width:1.25px;border-bottom-width:1.25px}
+
+/* Animate collapsible form panels in browsers supporting intrinsic-size transitions. */
+@supports (interpolate-size: allow-keywords) {
+ .m-company-formsection,.stock-section{interpolate-size:allow-keywords}
+ .m-company-formsection__body{
+  height:auto;opacity:1;overflow:clip;
+  transition:height .24s ease,opacity .2s ease,padding .24s ease,display .24s allow-discrete;
+ }
+ .m-company-formsection__body[hidden]{height:0;opacity:0;padding-top:0;padding-bottom:0}
+ @starting-style {
+  .m-company-formsection__body{height:0;opacity:0;padding-top:0;padding-bottom:0}
+ }
+ .stock-section::details-content{
+  height:0;opacity:0;overflow:clip;
+  transition:height .24s ease,opacity .2s ease,content-visibility .24s allow-discrete;
+ }
+ .stock-section[open]::details-content{height:auto;opacity:1}
+ /* Keep dropdown popups visible once the opening transition finishes. */
+ .m-company-formsection__body,.stock-section::details-content{
+  animation:accordion-unclip .24s step-end forwards;
+ }
+ .m-company-formsection__body[hidden],.stock-section:not([open])::details-content{animation:none}
+ @keyframes accordion-unclip{from{overflow:clip}to{overflow:visible}}
+}
+.m-company-formsection__head,.stock-editor .stock-section>summary{
+ transition:background-color .2s ease;
+}
+@media(prefers-reduced-motion:reduce){
+ .m-company-formsection__body,.stock-section::details-content,
+ .m-company-formsection__head,.stock-editor .stock-section>summary,
+ .m-company-formsection__head::after,.stock-section>summary::after{
+  transition:none!important;animation:none!important;
+ }
+ .m-company-formsection__body,.stock-section[open]::details-content{overflow:visible}
+}
