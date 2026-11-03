@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/><title>CloudBite | Stock</title><link rel="stylesheet" href="mobile.css"/><style>#stock-list[hidden],.stock-tabs[hidden]{display:none!important}.stock-storecards{max-width:calc(100vw - 76px)}#page-stock .m-rpt-body{overflow-y:auto;overflow-x:hidden;padding-bottom:30px}#page-stock .m-rpt-card{flex:none;margin-bottom:14px}#page-stock .m-rpt-table-wrap{flex:none;max-width:100%;overflow:auto}.stock-content{min-width:0}.stock-tabs{display:flex;gap:4px;overflow-x:auto;padding:8px}.stock-tabs a{flex:0 0 auto;padding:11px 12px;text-decoration:none;border-radius:8px;color:var(--text-second);font-size:13px;font-weight:600}.stock-tabs a.is-active{background:#fceced;color:var(--color-primary)}.stock-tabs img{width:17px;height:17px;vertical-align:middle;margin-right:5px}.stock-toolbar{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:12px 0}.stock-toolbar .m-company-search{flex:1 1 150px;min-width:0}.stock-toolbar button{min-height:38px}.stock-toolbar select{width:auto;max-width:100%;flex:1 1 120px}.stock-table{min-width:660px}.stock-table td{white-space:normal;overflow-wrap:anywhere}.stock-table td:last-child{min-width:100px}.stock-detail td{padding:12px!important;background:#fafafa}.stock-storecards{display:grid;gap:8px;grid-template-columns:repeat(auto-fit,minmax(min(240px,100%),1fr))}.stock-storecard{border:1px solid var(--color-border);border-radius:8px;padding:12px;background:white}.stock-storecard h3{font-size:13px;margin:0 0 10px}.stock-storecard dl{display:grid;grid-template-columns:1fr 1fr;font-size:12px;gap:8px;margin:0}.stock-storecard dt{color:var(--text-second)}.stock-storecard dd{margin:0;text-align:right}.stock-rowtoggle{border:0;background:none;color:var(--color-primary);padding:8px;cursor:pointer}.stock-count{font-size:12px;color:var(--text-second);margin:12px 0}.stock-message{padding:10px 12px;border-radius:8px;background:#fff4de;color:#735314;font-size:13px;overflow-wrap:anywhere}.stock-editor{flex:1;display:flex;flex-direction:column;min-height:0;overflow:hidden}.stock-editor[hidden],.stock-content[hidden]{display:none}.stock-form{flex:1;overflow-y:auto;min-height:0;padding:12px 12px 30px;display:flex;flex-direction:column;gap:14px}.stock-section{background:white;border:1px solid var(--color-border);border-radius:8px;flex:none}.stock-section>summary{cursor:pointer;background:#f5f5f5;border-radius:8px;padding:12px;font-weight:600;font-size:13px;list-style-position:inside}.stock-section-body{padding:14px;display:flex;flex-direction:column;gap:16px}.stock-fields{display:grid;grid-template-columns:minmax(0,1fr);gap:16px}.stock-fields>*{min-width:0}.stock-checks{display:flex;gap:10px 16px;flex-wrap:wrap}.stock-checks label{font-size:13px;display:flex;align-items:center;gap:6px}.stock-checks input{accent-color:var(--color-primary);width:17px;height:17px}.stock-note{margin:0;color:var(--text-second);font-size:12px;line-height:1.5}.stock-editfooter{display:flex;gap:12px;flex-shrink:0;padding:12px max(12px,env(safe-area-inset-right)) max(12px,env(safe-area-inset-bottom));background:white;border-top:1px solid var(--color-border)}.stock-editfooter button{flex:1}.stock-form .m-company-forminput{min-width:0}.stock-form input[type=number]{text-align:right}.stock-form .m-rpt-table-wrap{overflow:auto;max-width:100%;min-width:0}.stock-form table{min-width:600px}.stock-form td input,.stock-form td select{min-width:90px}.stock-image-preview{width:100px;height:100px;object-fit:cover;border:1px solid var(--color-border);border-radius:8px}.stock-line{display:grid;grid-template-columns:minmax(0,1fr) 88px 36px;gap:8px;align-items:end}.stock-line label{font-size:12px}.stock-line .m-company-deletebtn{margin-bottom:6px}.stock-component{display:flex;flex-direction:column;gap:8px;border:1px solid var(--color-border);border-radius:8px;padding:12px}.stock-inline-actions{display:flex;gap:8px;flex-wrap:wrap;align-items:center;justify-content:space-between}.stock-empty{padding:32px 12px;text-align:center;color:var(--text-second);font-size:13px}.stock-status{padding:4px 10px;border-radius:20px;font-size:11px;background:#edfdf0;color:#26823c}.stock-status--low{background:#fff3d6;color:#846108}.stock-status--out{background:#fce6e6;color:#b12727}.stock-filter-row input{width:100%;min-width:75px;height:32px;border:1px solid var(--color-border);border-radius:4px;padding:6px;font:inherit}.stock-grid-sort{cursor:pointer}.stock-top-title{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.stock-form-error{margin:0;color:#be2026;font-size:13px}.stock-listheading{font-size:16px;margin:0}.stock-add-inline{min-height:38px}.stock-tag{font-size:12px;color:#646464}.stock-day{display:flex;gap:8px;align-items:center}.stock-day input{accent-color:var(--color-primary)}.stock-entry-image{display:flex;gap:12px;align-items:center}.stock-entry-image input{width:100%}@media(min-width:680px){.stock-fields{grid-template-columns:repeat(2,minmax(0,1fr))}.stock-form{max-width:1100px;width:100%;margin:0 auto}.stock-toolbar{flex-wrap:nowrap}}@media(max-width:380px){.stock-tabs a{padding:10px 8px;font-size:12px}.stock-toolbar .m-company-btn{font-size:12px;padding:8px 10px}}
+</style></head><body>
+  <div class="m-login">
+    <div class="m-view m-view--dashboard m-view--reports">
+
+      <!-- Nav drawer (full-screen) -->
+      <aside class="m-drawer" id="dash-drawer">
+        <div class="m-drawer__header">
+          <div class="m-dash-storebar">
+            <button type="button" class="m-dash-store-select" id="store-select-oiso">
+              <svg class="m-dash-store-select__icon" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13.7273 12.5556H15V14H1V12.5556H2.27273V1.72222C2.27273 1.53068 2.33977 1.34698 2.45911 1.21153C2.57846 1.07609 2.74032 1 2.90909 1H9.27273C9.4415 1 9.60336 1.07609 9.7227 1.21153C9.84205 1.34698 9.90909 1.53068 9.90909 1.72222V12.5556H11.1818V5.33333H13.0909C13.2597 5.33333 13.4215 5.40942 13.5409 5.54487C13.6602 5.68031 13.7273 5.86401 13.7273 6.05556V12.5556ZM4.81818 6.77778V8.22222H7.36364V6.77778H4.81818ZM4.81818 3.88889V5.33333H7.36364V3.88889H4.81818Z" fill="currentColor"/></svg>
+              Oiso
+              <svg class="m-dash-chevron" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <button type="button" class="m-dash-store-select" id="drawer-store-select">
+              <img src="assets/nav-store.svg" alt="" class="m-dash-store-select__icon" />
+              <span id="drawer-store-label">All Store</span>
+              <svg class="m-dash-chevron" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+          </div>
+
+          <button type="button" class="m-drawer__close" id="dash-drawer-close" aria-label="Close menu">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          </button>
+        </div>
+
+        <nav class="m-drawer-nav">
+
+          <div class="m-drawer-group">
+            <button type="button" class="m-drawer-nav__item">
+              <span class="m-drawer-nav__icon"><img src="assets/nav-dashboard.svg" alt="" /></span>
+              <span class="m-drawer-nav__label">Dashboard</span>
+              <span class="m-drawer-nav__chevron"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
+            </button>
+            <div class="m-drawer-nav__panel">
+              <a href="dashboard.html" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Sales Dashboard</a>
+            </div>
+          </div>
+
+          <div class="m-drawer-group">
+            <button type="button" class="m-drawer-nav__item">
+              <span class="m-drawer-nav__icon"><img src="assets/nav-report.svg" alt="" /></span>
+              <span class="m-drawer-nav__label">Reports</span>
+              <span class="m-drawer-nav__chevron"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
+            </button>
+            <div class="m-drawer-nav__panel">
+              <a href="reports.html" id="sub-operation" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Operation</a>
+              <a href="reports.html?view=txd" id="sub-transaction" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Transaction</a>
+            </div>
+          </div>
+
+          <div class="m-drawer-group">
+            <button type="button" class="m-drawer-nav__item">
+              <span class="m-drawer-nav__icon"><img src="assets/nav-company.svg" alt="" /></span>
+              <span class="m-drawer-nav__label">Company</span>
+              <span class="m-drawer-nav__chevron"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
+            </button>
+            <div class="m-drawer-nav__panel">
+              <a href="company.html" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Company Structure</a>
+              <a href="company-classification.html" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Classification</a>
+            </div>
+          </div>
+
+          <div class="m-drawer-group is-expanded">
+            <button type="button" class="m-drawer-nav__item">
+              <span class="m-drawer-nav__icon"><img src="assets/nav-stock.svg" alt="" /></span>
+              <span class="m-drawer-nav__label">Stock</span>
+              <span class="m-drawer-nav__chevron"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
+            </button>
+            <div class="m-drawer-nav__panel">
+              <a href="stock.html?view=items" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Item</a>
+              <a href="stock.html?view=bom" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Bill of Materials</a>
+              <a href="stock.html?view=groups" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Classification</a>
+            </div>
+          </div>
+
+          <div class="m-drawer-group">
+            <button type="button" class="m-drawer-nav__item">
+              <span class="m-drawer-nav__icon"><img src="assets/nav-condiment.svg" alt="" /></span>
+              <span class="m-drawer-nav__label">Condiment</span>
+              <span class="m-drawer-nav__chevron"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
+            </button>
+            <div class="m-drawer-nav__panel">
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Group</a>
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Item</a>
+            </div>
+          </div>
+
+          <div class="m-drawer-group">
+            <button type="button" class="m-drawer-nav__item">
+              <span class="m-drawer-nav__icon"><img src="assets/nav-pos.svg" alt="" /></span>
+              <span class="m-drawer-nav__label">POS</span>
+              <span class="m-drawer-nav__chevron"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
+            </button>
+            <div class="m-drawer-nav__panel">
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Shift</a>
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Payment</a>
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Tax</a>
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Money Note</a>
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Discount</a>
+            </div>
+          </div>
+
+          <div class="m-drawer-group">
+            <button type="button" class="m-drawer-nav__item">
+              <span class="m-drawer-nav__icon"><img src="assets/nav-usermanagement.svg" alt="" /></span>
+              <span class="m-drawer-nav__label">User Management</span>
+              <span class="m-drawer-nav__chevron"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
+            </button>
+            <div class="m-drawer-nav__panel">
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>User Profile</a>
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Role Management</a>
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Classification</a>
+            </div>
+          </div>
+
+          <div class="m-drawer-group">
+            <button type="button" class="m-drawer-nav__item">
+              <span class="m-drawer-nav__icon"><img src="assets/nav-customer.svg" alt="" /></span>
+              <span class="m-drawer-nav__label">Customer</span>
+              <span class="m-drawer-nav__chevron"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
+            </button>
+            <div class="m-drawer-nav__panel">
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Details</a>
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Discount Type</a>
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Closing</a>
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Classification</a>
+            </div>
+          </div>
+
+          <div class="m-drawer-group">
+            <button type="button" class="m-drawer-nav__item">
+              <span class="m-drawer-nav__icon"><img src="assets/nav-inventory.svg" alt="" /></span>
+              <span class="m-drawer-nav__label">Inventory</span>
+              <span class="m-drawer-nav__chevron"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
+            </button>
+            <div class="m-drawer-nav__panel">
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Transaction</a>
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Production</a>
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Stock Take</a>
+            </div>
+          </div>
+
+          <div class="m-drawer-group">
+            <button type="button" class="m-drawer-nav__item">
+              <span class="m-drawer-nav__icon"><img src="assets/nav-supplier.svg" alt="" /></span>
+              <span class="m-drawer-nav__label">Supplier</span>
+              <span class="m-drawer-nav__chevron"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
+            </button>
+            <div class="m-drawer-nav__panel">
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Transaction</a>
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Details</a>
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Classification</a>
+            </div>
+          </div>
+
+          <div class="m-drawer-group">
+            <button type="button" class="m-drawer-nav__item">
+              <span class="m-drawer-nav__icon"><img src="assets/nav-emenu.svg" alt="" /></span>
+              <span class="m-drawer-nav__label">E-Menu</span>
+              <span class="m-drawer-nav__chevron"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
+            </button>
+            <div class="m-drawer-nav__panel">
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Menu</a>
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Promotion</a>
+            </div>
+          </div>
+
+          <div class="m-drawer-group">
+            <button type="button" class="m-drawer-nav__item">
+              <span class="m-drawer-nav__icon"><img src="assets/nav-crm.svg" alt="" /></span>
+              <span class="m-drawer-nav__label">CRM &amp; Promotion</span>
+              <span class="m-drawer-nav__chevron"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
+            </button>
+            <div class="m-drawer-nav__panel">
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>CRM</a>
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Promotion</a>
+            </div>
+          </div>
+
+          <div class="m-drawer-group">
+            <button type="button" class="m-drawer-nav__item">
+              <span class="m-drawer-nav__icon"><img src="assets/nav-settings.svg" alt="" /></span>
+              <span class="m-drawer-nav__label">Settings</span>
+              <span class="m-drawer-nav__chevron"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
+            </button>
+            <div class="m-drawer-nav__panel">
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Stock</a>
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>E-Menu</a>
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Preferences</a>
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Inventory</a>
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Supplier</a>
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Kitchen Printing</a>
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Miscellaneous</a>
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>POS</a>
+            </div>
+          </div>
+
+          <div class="m-drawer-group">
+            <button type="button" class="m-drawer-nav__item">
+              <span class="m-drawer-nav__icon"><img src="assets/nav-housekeeping.svg" alt="" /></span>
+              <span class="m-drawer-nav__label">Housekeeping</span>
+              <span class="m-drawer-nav__chevron"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
+            </button>
+            <div class="m-drawer-nav__panel">
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Housekeeping</a>
+            </div>
+          </div>
+
+        </nav>
+      </aside>
+
+      <header class="m-dash-topbar" id="main-topbar">
+        <button type="button" class="m-dash-icon-btn m-dash-menu-btn" aria-label="Menu">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+
+        <div class="m-dash-brand">
+          <img src="assets/oiso-logo.svg" alt="OiSO" class="m-dash-brand__logo" />
+        </div>
+
+        <div class="m-dash-topbar__right">
+          <button type="button" class="m-dash-icon-btn m-dash-icon-btn--alert" id="notif-btn" aria-label="Notifications">
+            <img src="assets/btn-alert.svg" alt="" class="m-dash-icon-btn__img" />
+          </button>
+          <button type="button" class="m-avatar-btn" id="avatar-btn" aria-label="Account menu">
+            <img src="assets/img_profile.svg" alt="Profile" class="m-dash-avatar" />
+          </button>
+        </div>
+      </header>
+
+
+
+
+
+
+
+      <!-- Full-screen: notifications (shared template — same on every page) -->
+      <div class="m-notif-sheet" id="notif-sheet">
+        <div class="m-notif-sheet__head">
+          <p class="m-notif-sheet__title">Notifications</p>
+          <button type="button" class="m-notif-sheet__close" id="notif-sheet-close" aria-label="Close">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          </button>
+        </div>
+
+        <div class="m-notif-sheet__body">
+          <div class="m-notif-sheet__section-row">
+            <span class="m-notif-sheet__section-label">Today</span>
+            <button type="button" class="m-notif-sheet__readall">
+              <img src="assets/notif-readall.svg" alt="" width="24" height="24" />
+              Read All
+            </button>
+          </div>
+
+          <button type="button" class="m-notif-item m-notif-item--unread">
+            <span class="m-notif-item__icon"><img src="assets/notif-unread.svg" alt="" class="m-notif-item__icon-img" /></span>
+            <span class="m-notif-item__text">Stock In #STK-1009 is pending approval.</span>
+            <span class="m-notif-item__time">09:00</span>
+          </button>
+          <button type="button" class="m-notif-item">
+            <span class="m-notif-item__icon"><img src="assets/notif-read.svg" alt="" class="m-notif-item__icon-img" /></span>
+            <span class="m-notif-item__text">Stock In #STK-1010 is pending approval.</span>
+            <span class="m-notif-item__time">11 Nov</span>
+          </button>
+          <button type="button" class="m-notif-item">
+            <span class="m-notif-item__icon"><img src="assets/notif-read.svg" alt="" class="m-notif-item__icon-img" /></span>
+            <span class="m-notif-item__text m-notif-item__text--truncate">Stock In record #STK-1008 has been successfully...</span>
+            <span class="m-notif-item__time">17 Nov</span>
+          </button>
+          <button type="button" class="m-notif-item">
+            <span class="m-notif-item__icon"><img src="assets/notif-read.svg" alt="" class="m-notif-item__icon-img" /></span>
+            <span class="m-notif-item__text">Stock In #STK-1007 is pending approval.</span>
+            <span class="m-notif-item__time">20 Nov</span>
+          </button>
+
+          <span class="m-notif-sheet__section-label m-notif-sheet__section-label--earlier">Earlier</span>
+
+          <button type="button" class="m-notif-item m-notif-item--unread">
+            <span class="m-notif-item__icon"><img src="assets/notif-unread.svg" alt="" class="m-notif-item__icon-img" /></span>
+            <span class="m-notif-item__text">Stock In #STK-1006 is pending approval.</span>
+            <span class="m-notif-item__time">22 Oct</span>
+          </button>
+          <button type="button" class="m-notif-item m-notif-item--unread">
+            <span class="m-notif-item__icon"><img src="assets/notif-unread.svg" alt="" class="m-notif-item__icon-img" /></span>
+            <span class="m-notif-item__text">Stock In #STK-1005 is pending approval.</span>
+            <span class="m-notif-item__time">21 Oct</span>
+          </button>
+          <button type="button" class="m-notif-item m-notif-item--unread">
+            <span class="m-notif-item__icon"><img src="assets/notif-unread.svg" alt="" class="m-notif-item__icon-img" /></span>
+            <span class="m-notif-item__text">Stock In record #STK-1004 has been successfully added to the system.</span>
+            <span class="m-notif-item__time">19 Oct</span>
+          </button>
+          <button type="button" class="m-notif-item">
+            <span class="m-notif-item__icon"><img src="assets/notif-read.svg" alt="" class="m-notif-item__icon-img" /></span>
+            <span class="m-notif-item__text">Stock In #STK-1003 is pending approval.</span>
+            <span class="m-notif-item__time">13 Oct</span>
+          </button>
+          <button type="button" class="m-notif-item">
+            <span class="m-notif-item__icon"><img src="assets/notif-read.svg" alt="" class="m-notif-item__icon-img" /></span>
+            <span class="m-notif-item__text">Stock In #STK-1002 is pending approval.</span>
+            <span class="m-notif-item__time">9 Oct</span>
+          </button>
+
+          <p class="m-notif-sheet__end">&mdash; End &mdash;</p>
+        </div>
+      </div>
+
+      <!-- Full-screen: account menu (shared template — same on every page) -->
+      <div class="m-notif-sheet" id="account-sheet">
+        <div class="m-notif-sheet__head">
+          <p class="m-notif-sheet__title">Account</p>
+          <button type="button" class="m-notif-sheet__close" id="account-sheet-close" aria-label="Close">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          </button>
+        </div>
+        <div class="m-notif-sheet__body">
+          <div class="m-profile-sheet__pic-wrap">
+            <img src="assets/img_profile.svg" alt="Profile" class="m-profile-sheet__pic" id="profile-sheet-pic" />
+          </div>
+          <p class="m-profile-sheet__name">Hi，Jennie Tan</p>
+          <p class="m-profile-sheet__role">HQ</p>
+
+          <div class="m-avatar-menu__list">
+            <button type="button" class="m-avatar-menu__item" id="avatar-menu-profile">
+              <span class="m-avatar-menu__icon"><img src="assets/user.svg" alt="" /></span>
+              <span class="m-avatar-menu__label">Profile</span>
+              <span class="m-avatar-menu__badge">HQ</span>
+            </button>
+            <button type="button" class="m-avatar-menu__item" id="avatar-menu-password">
+              <span class="m-avatar-menu__icon"><img src="assets/pw.svg" alt="" /></span>
+              <span class="m-avatar-menu__label">Change Password</span>
+            </button>
+            <button type="button" class="m-avatar-menu__item" id="avatar-menu-logout">
+              <span class="m-avatar-menu__icon"><img src="assets/logout.svg" alt="" /></span>
+              <span class="m-avatar-menu__label">Logout</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal: logout confirmation (shared template — same on every page) -->
+      <div class="m-confirm-backdrop" id="logout-confirm-backdrop"></div>
+      <div class="m-confirm" id="logout-confirm" role="dialog" aria-modal="true" aria-labelledby="logout-confirm-title">
+        <p class="m-confirm__title" id="logout-confirm-title">Confirmation</p>
+        <p class="m-confirm__message">Are you sure you want to Logout?</p>
+        <div class="m-confirm__actions">
+          <button type="button" class="m-confirm__btn m-confirm__btn--no" id="logout-confirm-no">No</button>
+          <button type="button" class="m-confirm__btn m-confirm__btn--yes" id="logout-confirm-yes">Yes</button>
+        </div>
+      </div>
+
+      <header class="m-dash-topbar m-editbrand-topbar" id="stock-edit-topbar" hidden>
+        <button type="button" class="m-dash-icon-btn" id="stock-back" aria-label="Back"><span aria-hidden="true">‹</span></button>
+        <h1 class="m-editbrand-topbar__title stock-top-title" id="stock-editor-title">Add Stock Item</h1>
+        <span class="m-editbrand-topbar__spacer" aria-hidden="true"></span>
+      </header>
+      <main class="m-rpt-page" id="page-stock">
+        <div class="m-rpt-body" id="stock-list">
+          <div class="m-company-headercard">
+            <div class="m-rpt-header"><div class="m-rpt-header__titleblock"><h1 id="stock-page-title">Stock Item</h1><div class="m-rpt-breadcrumb"><span>Stock</span><span class="m-rpt-breadcrumb__sep">›</span><span id="stock-breadcrumb">Item</span></div></div></div>
+            <nav class="stock-tabs" aria-label="Stock module"><a href="stock.html?view=items" data-stock-tab="items"><img src="assets/nav-stock.svg" alt=""/>Item</a><a href="stock.html?view=bom" data-stock-tab="bom">Bill of Materials</a><a href="stock.html?view=groups" data-stock-tab="groups">Classification</a></nav>
+          </div>
+          <div id="stock-class-tabs" class="stock-tabs" hidden><a href="stock.html?view=groups" data-stock-tab="groups">Stock Group</a><a href="stock.html?view=departments" data-stock-tab="departments">Stock Department</a></div>
+          <h2 class="stock-listheading" id="stock-list-title">Stock Item</h2>
+          <div class="stock-toolbar">
+            <label class="m-company-search"><input type="search" id="stock-search" class="m-company-search__input" placeholder="Search" aria-label="Search records"/></label>
+            <select id="stock-layout" class="m-company-forminput m-company-formselect" aria-label="Item display"><option value="grouped">Grouped by item</option><option value="stores">List by store</option></select>
+            <button type="button" class="m-rpt-export" id="stock-import">Import</button><input type="file" id="stock-import-file" accept=".csv,text/csv" hidden/>
+            <button type="button" class="m-rpt-export" id="stock-export"><img src="assets/upload.svg" class="m-rpt-export__icon" alt=""/>Export</button>
+            <button type="button" class="m-company-btn m-company-btn--save" id="stock-add">+ Add Item</button>
+          </div>
+          <p id="stock-message" class="stock-message" role="status" hidden></p>
+          <div class="m-rpt-card"><div class="m-rpt-table-wrap"><table class="m-rpt-table stock-table"><thead id="stock-head"></thead><tbody id="stock-rows"></tbody></table></div><p class="stock-count" id="stock-count"></p></div>
+        </div>
+        <section class="stock-editor" id="stock-editor" hidden aria-labelledby="stock-editor-title">
+          <form id="stock-form" class="stock-form"></form>
+          <footer class="stock-editfooter"><button type="button" id="stock-cancel" class="m-company-btn m-company-btn--cancel">Cancel</button><button type="submit" form="stock-form" id="stock-save" class="m-company-btn m-company-btn--save">Save</button></footer>
+        </section>
+      </main>
+      <div class="m-confirm-backdrop" id="stock-confirm-backdrop"></div>
+      <section class="m-confirm" id="stock-confirm" role="dialog" aria-modal="true" aria-labelledby="stock-confirm-title" tabindex="-1"><p class="m-confirm__title" id="stock-confirm-title">Confirmation</p><p class="m-confirm__message" id="stock-confirm-message"></p><div class="m-confirm__actions"><button type="button" id="stock-confirm-no" class="m-confirm__btn m-confirm__btn--no">No</button><button type="button" id="stock-confirm-yes" class="m-confirm__btn m-confirm__btn--yes">Yes</button></div></section>
+
+    </div>
+  </div>
+<script>
+  /* ---------- Nav drawer (copied from the dashboard top navigation bar) ---------- */
+  const dashDrawer = document.getElementById('dash-drawer');
+
+  function openDrawer() {
+    dashDrawer.classList.add('is-open');
+  }
+  function closeDrawer() {
+    dashDrawer.classList.remove('is-open');
+  }
+  function closeDrawerInstant() {
+    dashDrawer.style.transition = 'none';
+    dashDrawer.classList.remove('is-open');
+    dashDrawer.offsetHeight;
+    dashDrawer.style.transition = '';
+  }
+
+  document.querySelector('.m-dash-menu-btn')?.addEventListener('click', openDrawer);
+  document.getElementById('dash-drawer-close')?.addEventListener('click', closeDrawer);
+
+  const drawerGroups = document.querySelectorAll('.m-drawer-group');
+  drawerGroups.forEach((group) => {
+    const trigger = group.querySelector('.m-drawer-nav__item');
+    trigger.addEventListener('click', () => {
+      const willExpand = !group.classList.contains('is-expanded');
+      drawerGroups.forEach((g) => g.classList.remove('is-expanded'));
+      if (willExpand) {
+        group.classList.add('is-expanded');
+      }
+    });
+  });
+
+  /* ---------- Notifications (shared template — same on every page) ---------- */
+  const notifSheet = document.getElementById('notif-sheet');
+
+  function openNotifSheet() {
+    notifSheet.classList.add('is-open');
+  }
+  function closeNotifSheet() {
+    notifSheet.classList.remove('is-open');
+  }
+
+  document.getElementById('notif-btn')?.addEventListener('click', openNotifSheet);
+  document.getElementById('notif-sheet-close')?.addEventListener('click', closeNotifSheet);
+
+  function setNotifItemRead(item, isUnread) {
+    item.classList.toggle('m-notif-item--unread', isUnread);
+    const icon = item.querySelector('.m-notif-item__icon-img');
+    if (icon) icon.src = isUnread ? 'assets/notif-unread.svg' : 'assets/notif-read.svg';
+  }
+
+  notifSheet?.querySelectorAll('.m-notif-item').forEach((item) => {
+    item.addEventListener('click', () => {
+      setNotifItemRead(item, !item.classList.contains('m-notif-item--unread'));
+    });
+  });
+
+  notifSheet?.querySelector('.m-notif-sheet__readall')?.addEventListener('click', () => {
+    notifSheet.querySelectorAll('.m-notif-item').forEach((item) => setNotifItemRead(item, false));
+  });
+
+  /* ---------- Account menu (shared template — same on every page) ---------- */
+  const avatarBtn = document.getElementById('avatar-btn');
+  const accountSheet = document.getElementById('account-sheet');
+
+  function openAccountSheet() {
+    accountSheet.classList.add('is-open');
+  }
+  function closeAccountSheet() {
+    accountSheet.classList.remove('is-open');
+  }
+
+  avatarBtn?.addEventListener('click', openAccountSheet);
+  document.getElementById('account-sheet-close')?.addEventListener('click', closeAccountSheet);
+
+  /* ---------- Logout confirmation (shared template — same on every page) ---------- */
+  const logoutBackdrop = document.getElementById('logout-confirm-backdrop');
+  const logoutModal = document.getElementById('logout-confirm');
+  const logoutBtn = document.getElementById('avatar-menu-logout');
+
+  function openLogoutConfirm() {
+    logoutBackdrop.classList.add('is-open');
+    logoutModal.classList.add('is-open');
+  }
+  function closeLogoutConfirm() {
+    logoutBackdrop.classList.remove('is-open');
+    logoutModal.classList.remove('is-open');
+  }
+
+  logoutBtn?.addEventListener('click', openLogoutConfirm);
+  logoutBackdrop?.addEventListener('click', closeLogoutConfirm);
+  document.getElementById('logout-confirm-no')?.addEventListener('click', closeLogoutConfirm);
+  document.getElementById('logout-confirm-yes')?.addEventListener('click', () => {
+    window.location.href = 'mobile.html';
+  });
+
+/* Stock mobile prototype: all edits remain in this browser. */
+(() => {
+'use strict';
+const $ = id => document.getElementById(id);
+const esc = value => String(value ?? '').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const copy = value => JSON.parse(JSON.stringify(value));
+const money = n => Number(n || 0).toFixed(2);
+const STORE_OPTIONS = [['S1','Oiso Kepong - Menjalara'],['S2','Oiso Kepong - Metro Prima'],['S3','Oiso Damansara Uptown - SS21'],['S4','Oiso Damansara Uptown - Nexus Block']];
+const RAW = [['Raw001','Burger Bun','pcs'],['Raw002','Chicken Patty','pcs'],['Raw003','Lettuce','pcs'],['Raw004','Tomato','slice'],['Raw005','Chili Sauce','ml']];
+const STORAGE_KEY = 'cloudbite-stock-v1';
+function freshItem() { return {code:'',name:'',description2:'',barcode:'',active:true,type:'Food',stores:[],group:'G001',department:'D001',baseUom:'Pcs',stockUom:'Pcs',salesUom:'Pcs',attributes:[],image:'',prices:[{code:'P1',description:'West Msia',min:0,normal:13,member:11.5,dealer:11.5}],costs:STORE_OPTIONS.map(([code])=>({store:code,average:0,unit:10,markup:0,projected:10,margin:0})),balances:STORE_OPTIONS.map(([code],i)=>({store:code,balance:[100,42,142,0][i],min:[10,20,10,10][i],max:[100,200,150,200][i],updated:'21/05/2026'})),days:[0,1,2,3,4,5,6],times:[['09:00','12:00'],['09:00','12:00']],fpos:[],condiments:[],queues:[],setItems:[],pulldown:[]}; }
+const seeds = [ ['AC001','Chicken Burger','98765111',['S1','S2','S3','S4']], ['AC002','Fish Burger','98765112',['S1','S2']], ['AC003','Chicken Chop','98765113',['S1','S2']] ].map(([code,name,barcode,stores])=>Object.assign(freshItem(),{code,name,barcode,stores}));
+let db = {items:seeds,boms:[{code:'BOM001',name:'Standard Chicken Burger',stock:'AC001',lines:RAW.slice(0,4).map(([code,,uom],i)=>({code,uom,qty:i===3?3:1}))}],groups:[{code:'G001',name:'Food',active:true},{code:'G002',name:'Beverages',active:true}],departments:[{code:'D001',name:'Kitchen',active:true},{code:'D002',name:'Bar',active:true}]};
+try {
+ const saved = JSON.parse(localStorage.getItem(STORAGE_KEY));
+ if (saved && ['items','boms','groups','departments'].every(k=>Array.isArray(saved[k])) && saved.items.every(x=>x && typeof x.code==='string' && typeof x.name==='string' && Array.isArray(x.stores)) && saved.boms.every(x=>x && typeof x.code==='string' && Array.isArray(x.lines)) && ['groups','departments'].every(k=>saved[k].every(x=>x && typeof x.code==='string' && typeof x.name==='string'))) db=saved;
+} catch (_) {}
+let view = 'items', search = '', filters = {}, sort = {index:null,dir:1}, editing = null, draft = null, formChanged=false, expanded=new Set(), onConfirm=null, previousFocus=null;
+const config={items:{title:'Stock Item',add:'Add Stock Item',singular:'Stock Item',columns:['Code','Description','Barcode','Base UOM','Store','Status']},bom:{title:'Bill of Materials',add:'Add Bill of Materials',singular:'Bill of Materials',columns:['BOM Code','BOM Name','Stock Code','Stock Description','Materials']},groups:{title:'Stock Group',add:'Add Stock Group',singular:'Stock Group',columns:['Code','Description','Status']},departments:{title:'Stock Department',add:'Add Stock Department',singular:'Stock Department',columns:['Code','Description','Status']}};
+function dataset(){return db[view==='bom'?'boms':view];}
+function message(text){$('stock-message').textContent=text;$('stock-message').hidden=!text;}
+function persist(){try{localStorage.setItem(STORAGE_KEY,JSON.stringify(db));message('');return true;}catch(_){message('Changes are visible for this session, but browser storage is unavailable or full.');return false;}}
+function confirmAction(text,action){previousFocus=document.activeElement;onConfirm=action;$('stock-confirm-message').textContent=text;$('stock-confirm').classList.add('is-open');$('stock-confirm-backdrop').classList.add('is-open');$('stock-confirm-no').focus();}
+function closeConfirm(){onConfirm=null;$('stock-confirm').classList.remove('is-open');$('stock-confirm-backdrop').classList.remove('is-open');previousFocus?.focus();}
+$('stock-confirm-no').addEventListener('click',closeConfirm);$('stock-confirm-backdrop').addEventListener('click',closeConfirm);$('stock-confirm-yes').addEventListener('click',()=>{const action=onConfirm;closeConfirm();action?.();});
+$('stock-confirm').addEventListener('keydown',e=>{if(e.key==='Escape')closeConfirm();if(e.key==='Tab'){e.preventDefault();(document.activeElement===$('stock-confirm-no')?$('stock-confirm-yes'):$('stock-confirm-no')).focus();}});
+function switchView(next,push=true){view=config[next]?next:'items';search='';filters={};sort={index:null,dir:1};expanded.clear();$('stock-search').value='';closeEditor();const c=config[view];$('stock-page-title').textContent=c.title;$('stock-list-title').textContent=c.title;$('stock-breadcrumb').textContent=c.title;$('stock-add').textContent='+ '+c.add.replace(/^Add /,'Add ');$('stock-layout').hidden=view!=='items';$('stock-import').hidden=view!=='items';$('stock-class-tabs').hidden=!['groups','departments'].includes(view);document.querySelectorAll('[data-stock-tab]').forEach(a=>{const active=a.dataset.stockTab===view || (a.dataset.stockTab==='groups'&&view==='departments'&&!a.closest('#stock-class-tabs'));a.classList.toggle('is-active',active);if(active)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current');});if(push)history.pushState({},'',`stock.html?view=${view}`);message('');renderHeader();renderRows();}
+function requestView(next){if(formChanged)confirmAction('Discard unsaved changes?',()=>switchView(next));else switchView(next);}
+document.querySelectorAll('[data-stock-tab]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();requestView(a.dataset.stockTab);}));
+window.addEventListener('popstate',()=>switchView(new URLSearchParams(location.search).get('view'),false));
+function rows(){
+ if(view==='items')return db.items.flatMap(item=>($('stock-layout').value==='stores'?item.stores:[null]).map(store=>({id:item.code,store,cells:[item.code,item.name,item.barcode,item.baseUom,store?(STORE_OPTIONS.find(r=>r[0]===store)?.[1]||store):item.stores.length,item.active?'Active':'Inactive']})));
+ if(view==='bom')return db.boms.map(b=>({id:b.code,cells:[b.code,b.name,b.stock,db.items.find(i=>i.code===b.stock)?.name||b.stock,b.lines.length]}));
+ return dataset().map(r=>({id:r.code,cells:[r.code,r.name,r.active?'Active':'Inactive']}));
+}
+function filteredRows(){let result=rows().filter(r=>(!search||r.cells.some(v=>String(v).toLowerCase().includes(search)))&&Object.entries(filters).every(([i,q])=>String(r.cells[i]).toLowerCase().includes(q)));if(sort.index!==null)result.sort((a,b)=>String(a.cells[sort.index]).localeCompare(String(b.cells[sort.index]),undefined,{numeric:true})*sort.dir);return result;}
+function renderHeader(){const cols=config[view].columns;$('stock-head').innerHTML='<tr>'+cols.map((c,i)=>`<th class="stock-grid-sort" scope="col" aria-sort="none" data-sort="${i}" tabindex="0">${esc(c)} <span aria-hidden="true">↕</span></th>`).join('')+'<th scope="col">Action</th></tr><tr class="stock-filter-row">'+cols.map((c,i)=>`<th><input type="search" data-filter="${i}" aria-label="Filter ${esc(c)}"/></th>`).join('')+'<th></th></tr>';}
+function badge(status){return `<span class="m-rpt-badge ${status==='Active'?'m-rpt-badge--green':'m-rpt-badge--gray'}">${esc(status)}</span>`;}
+function stockStatus(row){return row.balance<=0?'Out of Stock':row.balance<=row.min?'Low Stock':'In Stock';}
+function storeDetails(item){return `<div class="stock-storecards">${item.stores.map(code=>{const b=item.balances.find(r=>r.store===code)||{balance:0,min:0,max:0,updated:'—'};const status=stockStatus(b);return `<article class="stock-storecard"><h3>${esc(STORE_OPTIONS.find(r=>r[0]===code)?.[1]||code)}</h3><dl><dt>Balance</dt><dd>${esc(b.balance)}</dd><dt>Minimum Quantity</dt><dd>${esc(b.min)}</dd><dt>Maximum Quantity</dt><dd>${esc(b.max)}</dd><dt>Normal Price (RM)</dt><dd>${money(item.prices[0]?.normal)}</dd><dt>UOM</dt><dd>${esc(item.baseUom)}</dd><dt>Stock Status</dt><dd><span class="stock-status ${status==='Low Stock'?'stock-status--low':status==='Out of Stock'?'stock-status--out':''}">${status}</span></dd><dt>Last Update</dt><dd>${esc(b.updated)}</dd></dl></article>`;}).join('')}</div>`;}
+function renderRows(){const filtered=filteredRows(),cols=config[view].columns;const grouped=view==='items'&&$('stock-layout').value==='grouped';$('stock-rows').innerHTML=filtered.map(row=>`<tr>${row.cells.map((value,i)=>`<td>${i===0&&grouped?`<button type="button" class="stock-rowtoggle" data-expand="${esc(row.id)}" aria-label="Show store details for ${esc(row.id)}" aria-expanded="${expanded.has(row.id)}">${expanded.has(row.id)?'▾':'▸'}</button>`:''}${cols[i]==='Status'?badge(value):esc(value)}</td>`).join('')}<td><div class="m-company-actionrow"><button type="button" class="m-company-editbtn" data-edit="${esc(row.id)}" aria-label="Edit ${esc(row.id)}"><img src="assets/edit.svg" class="m-company-editbtn__icon" alt=""/></button><button type="button" class="m-company-deletebtn" data-delete="${esc(row.id)}" aria-label="Delete ${esc(row.id)}"><img src="assets/delete.svg" class="m-company-editbtn__icon" alt=""/></button></div></td></tr>${grouped&&expanded.has(row.id)?`<tr class="stock-detail"><td colspan="${cols.length+1}">${storeDetails(db.items.find(i=>i.code===row.id))}</td></tr>`:''}`).join('')||`<tr><td colspan="${cols.length+1}" class="stock-empty">No records found.</td></tr>`;$('stock-count').textContent=`${filtered.length} ${filtered.length===1?'entry':'entries'}`;}
+$('stock-search').addEventListener('input',e=>{search=e.target.value.trim().toLowerCase();renderRows();});$('stock-layout').addEventListener('change',renderRows);
+$('stock-head').addEventListener('input',e=>{if(e.target.dataset.filter!==undefined){filters[e.target.dataset.filter]=e.target.value.trim().toLowerCase();renderRows();}});
+function sortColumn(target){const th=target.closest('[data-sort]');if(!th)return;const i=Number(th.dataset.sort);sort={index:i,dir:sort.index===i?-sort.dir:1};document.querySelectorAll('#stock-head [data-sort]').forEach(h=>h.setAttribute('aria-sort',h===th?(sort.dir===1?'ascending':'descending'):'none'));renderRows();}
+$('stock-head').addEventListener('click',e=>sortColumn(e.target));$('stock-head').addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();sortColumn(e.target);}});
+$('stock-rows').addEventListener('click',e=>{const expand=e.target.closest('[data-expand]'),edit=e.target.closest('[data-edit]'),remove=e.target.closest('[data-delete]');if(expand){const id=expand.dataset.expand;expanded.has(id)?expanded.delete(id):expanded.add(id);renderRows();}if(edit)openEditor(edit.dataset.edit);if(remove)removeRecord(remove.dataset.delete);});
+function field(label,id,value='',type='text',required=false,extra=''){return `<div class="m-company-formfield"><label for="${id}">${esc(label)}${required?' <span class="m-required">*</span>':''}</label><input class="m-company-forminput" id="${id}" name="${id}" type="${type}" value="${esc(value)}" ${required?'required':''} ${type==='number'?'min="0" step="0.01"':'maxlength="120"'} ${extra}/></div>`;}
+function selectField(label,id,value,options,required=false){return `<div class="m-company-formfield"><label for="${id}">${esc(label)}${required?' <span class="m-required">*</span>':''}</label><select class="m-company-forminput m-company-formselect" id="${id}" ${required?'required':''}><option value="">Select ${esc(label)}</option>${options.map(option=>{const [v,t]=Array.isArray(option)?option:[option,option];return `<option value="${esc(v)}" ${v===value?'selected':''}>${esc(t)}</option>`;}).join('')}</select></div>`;}
+function check(label,id,on){return `<label><input type="checkbox" id="${id}" ${on?'checked':''}/>${esc(label)}</label>`;}
+function section(title,body,open=false){return `<details class="stock-section" ${open?'open':''}><summary>${esc(title)}</summary><div class="stock-section-body">${body}</div></details>`;}
+function closeEditor(){$('stock-editor').hidden=true;$('stock-list').hidden=false;$('stock-edit-topbar').hidden=true;$('main-topbar').hidden=false;draft=null;editing=null;formChanged=false;}
+function cancelEditor(){if(formChanged)confirmAction('Discard unsaved changes?',closeEditor);else closeEditor();}
+$('stock-cancel').addEventListener('click',cancelEditor);$('stock-back').addEventListener('click',cancelEditor);$('stock-add').addEventListener('click',()=>openEditor());
+function openEditor(code){editing=code||null;const record=code?dataset().find(r=>r.code===code):null;draft=record?copy(record):view==='items'?freshItem():view==='bom'?{code:'',name:'',stock:'',lines:[]}:{code:'',name:'',active:true};$('stock-editor-title').textContent=(code?'Edit ':'Add ')+config[view].singular;$('stock-form').innerHTML=(view==='items'?itemForm():view==='bom'?bomForm():classificationForm())+'<p id="stock-form-error" class="stock-form-error" role="alert" tabindex="-1"></p>';$('stock-list').hidden=true;$('stock-editor').hidden=false;$('main-topbar').hidden=true;$('stock-edit-topbar').hidden=false;formChanged=false;document.querySelector('#stock-form input,#stock-form select')?.focus();}
+function classificationForm(){return section(config[view].singular,field('Code','record-code',draft.code,'text',true,'pattern="[A-Za-z0-9_-]+"')+field('Description','record-name',draft.name,'text',true)+`<div class="stock-checks">${check('Active','record-active',draft.active)}</div>`,true);}
+function itemForm(){const d=draft;
+ const details=`<div class="stock-fields">${field('Stock Code','record-code',d.code,'text',true,'pattern="[A-Za-z0-9_-]+"')}${field('Stock Description 1','record-name',d.name,'text',true)}${field('Stock Description 2','item-description2',d.description2)}${field('Barcode','item-barcode',d.barcode)}${selectField('Stock Type','item-type',d.type,['Food','Beverage','Raw Material'])}</div><div class="m-company-formfield"><label>Stock Attribute</label><div class="stock-checks">${['Main Set','Stock Control','Raw Material'].map((x,i)=>check(x,'item-attribute-'+i,d.attributes.includes(x))).join('')}</div></div><div class="m-company-formfield"><label>Store <span class="m-required">*</span></label><div class="stock-checks">${STORE_OPTIONS.map(([code,name])=>check(name,'item-store-'+code,d.stores.includes(code))).join('')}</div></div><div class="stock-checks">${check('Active','record-active',d.active)}</div>`;
+ const account=`<div class="stock-fields">${selectField('Stock Group','item-group',d.group,db.groups.map(r=>[r.code,r.name]))}${selectField('Department','item-department',d.department,db.departments.map(r=>[r.code,r.name]))}${['Base','Stock','Sales'].map(name=>selectField(name+' UOM','item-'+name.toLowerCase()+'uom',d[name.toLowerCase()+'Uom'],['Pcs','Kg','Gram','Litre','ml','slice'])).join('')}</div><label class="m-company-formfield">Upload image<input type="file" id="item-image" accept="image/jpeg,image/bmp"/><span class="stock-note">JPEG or BMP, up to 2 MB.</span></label><div id="item-image-preview">${safeImage(d.image)?`<img src="${esc(d.image)}" class="stock-image-preview" alt="Stock item preview"/>`:''}</div><button type="button" class="m-company-btn m-company-btn--cancel" data-action="clear-image">Remove image</button>`;
+ const costs=`<p class="stock-note">For calculation and review only. These values do not change selling prices.</p><div class="m-rpt-table-wrap"><table class="m-rpt-table"><thead><tr>${['Store','Average Unit Cost','Unit Cost (RM)','Mark Up %','Projected Price (RM)','Margin %'].map(x=>`<th>${x}</th>`).join('')}</tr></thead><tbody>${d.costs.map((r,i)=>`<tr><td>${esc(STORE_OPTIONS.find(s=>s[0]===r.store)?.[1]||r.store)}</td><td>${money(r.average)}</td><td><input type="number" class="m-company-forminput" min="0" step="0.01" data-cost="${i}" data-key="unit" aria-label="Unit cost ${esc(r.store)}" value="${money(r.unit)}"/></td><td><input type="number" class="m-company-forminput" min="0" step="0.01" data-cost="${i}" data-key="markup" aria-label="Mark up ${esc(r.store)}" value="${r.markup}"/></td><td data-projected="${i}">${money(r.projected)}</td><td data-margin="${i}">${money(r.margin)}</td></tr>`).join('')}</tbody></table></div><button type="button" class="m-company-btn m-company-btn--cancel" data-action="cost-all">Apply first store’s cost to all</button>`;
+ const prices=`<p class="stock-note">Actual selling prices. P1 is the default price and cannot be deleted.</p><div id="price-lines">${priceLines()}</div><button type="button" class="m-company-btn m-company-btn--cancel" data-action="add-price">Add Price Level</button>`;
+ const available=`<div class="stock-checks">${['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'].map((day,i)=>check(day,'item-day-'+i,d.days.includes(i))).join('')}</div><div class="stock-fields">${d.times.map(([from,to],i)=>`<div class="stock-fields">${field('Available Time '+(i+1),'item-time-from-'+i,from,'time')}${field('To','item-time-to-'+i,to,'time')}</div>`).join('')}</div>`;
+ const flags=['Block Discount','Block If Below Min Price','FPOS - View On Menu','Block Refund','Allow Open Price/Qty','FPOS - Suspend'];
+ const balances=`<div class="m-rpt-table-wrap"><table class="m-rpt-table"><thead><tr><th>Store</th><th>Balance</th><th>Stock Status</th><th>Minimum Quantity</th><th>Maximum Quantity</th><th>UOM</th><th>Last Update</th></tr></thead><tbody>${d.balances.map((r,i)=>`<tr><td>${esc(STORE_OPTIONS.find(s=>s[0]===r.store)?.[1]||r.store)}</td><td>${r.balance}</td><td>${stockStatus(r)}</td><td><input aria-label="Minimum quantity ${esc(r.store)}" class="m-company-forminput" type="number" min="0" step="0.01" data-balance="${i}" data-key="min" value="${r.min}"/></td><td><input aria-label="Maximum quantity ${esc(r.store)}" class="m-company-forminput" type="number" min="0" step="0.01" data-balance="${i}" data-key="max" value="${r.max}"/></td><td>${esc(d.baseUom)}</td><td>${esc(r.updated)}</td></tr>`).join('')}</tbody></table></div>`;
+ return section('Stock Details',details,true)+section('Account Settings',account)+section('Cost Analysis',costs)+section('Selling Price',prices)+section('Available Time',available)+section('Condiment',`<div id="condiment-lines">${condimentLines()}</div><button type="button" class="m-company-btn m-company-btn--cancel" data-action="add-condiment">Add Condiment Group</button>`)+section('FPOS Settings',`<div class="stock-checks">${flags.map((x,i)=>check(x,'item-fpos-'+i,d.fpos.includes(x))).join('')}</div>`)+section('Queue',`<div id="queue-lines">${queueLines()}</div><button type="button" class="m-company-btn m-company-btn--cancel" data-action="add-queue">Add Queue</button>`)+section('Stock Balance',balances)+section('Set Menu',`<p class="stock-note">Use Main Set in Stock Attribute for set-menu items.</p><div id="set-lines">${setLines()}</div><button type="button" class="m-company-btn m-company-btn--cancel" data-action="add-set">Add Stock Item</button>`)+section('Pulldown Group',`<div id="pulldown-lines">${pulldownLines()}</div><button type="button" class="m-company-btn m-company-btn--cancel" data-action="add-pulldown">Add Pulldown Group</button>`);
+}
+function safeImage(image){return typeof image==='string'&&/^data:image\/(jpeg|bmp|x-ms-bmp);base64,/.test(image);}
+function deleteButton(collection,i){return `<button type="button" class="m-company-deletebtn" data-remove="${collection}" data-index="${i}" aria-label="Remove row ${i+1}"><img src="assets/delete.svg" class="m-company-editbtn__icon" alt=""/></button>`;}
+function priceLines(){return draft.prices.map((r,i)=>`<div class="stock-component"><div class="stock-inline-actions"><strong>${esc(r.code)}</strong>${i?deleteButton('prices',i):'<span class="stock-tag">Default</span>'}</div><div class="stock-fields">${field('Price Level','price-code-'+i,r.code,'text',true,i===0?'readonly':'')}${field('Price Level Description','price-description-'+i,r.description)}${['min','normal','member','dealer'].map(k=>field(({min:'Min Price',normal:'Normal',member:'Member',dealer:'Dealer'})[k]+' (RM)','price-'+k+'-'+i,money(r[k]),'number',true)).join('')}</div></div>`).join('');}
+function condimentLines(){return draft.condiments.map((r,i)=>`<div class="stock-component"><div class="stock-inline-actions"><strong>Condiment Group ${i+1}</strong>${deleteButton('condiments',i)}</div><div class="stock-fields">${field('Condiment Group','condiment-group-'+i,r.group,'text',true)}${field('Description','condiment-description-'+i,r.description)}${field('Display Order','condiment-order-'+i,r.order,'number',true)}${field('Min Selection','condiment-min-'+i,r.min,'number',true)}${field('Max Selection','condiment-max-'+i,r.max,'number',true)}</div><div class="stock-checks">${check('Required','condiment-required-'+i,r.required)}</div></div>`).join('');}
+function queueLines(){return draft.queues.map((r,i)=>`<div class="stock-component"><div class="stock-inline-actions"><strong>Queue ${i+1}</strong>${deleteButton('queues',i)}</div><div class="stock-fields">${['queue','description','spooler','printer','printerDescription'].map(k=>field(({queue:'Queue',description:'Queue Description',spooler:'Spooler',printer:'Printer',printerDescription:'Printer Description'})[k],'queue-'+k+'-'+i,r[k],'text',k==='queue')).join('')}</div><div class="stock-checks">${check('Active','queue-active-'+i,r.active)}</div></div>`).join('');}
+function stockOptions(){return db.items.filter(r=>r.code!==draft.code).map(r=>[r.code,r.code+' — '+r.name]);}
+function setLines(){return draft.setItems.map((r,i)=>`<div class="stock-component"><div class="stock-inline-actions"><strong>Set Item ${i+1}</strong>${deleteButton('setItems',i)}</div><div class="stock-fields">${selectField('Stock Item','set-code-'+i,r.code,stockOptions(),true)}${field('Quantity','set-qty-'+i,r.qty,'number',true)}${field('Sales Breakdown %','set-breakdown-'+i,r.breakdown,'number',true)}</div></div>`).join('');}
+function pulldownLines(){return draft.pulldown.map((r,i)=>`<div class="stock-component"><div class="stock-inline-actions"><strong>Pulldown Group ${i+1}</strong>${deleteButton('pulldown',i)}</div><div class="stock-fields">${field('Group Name','pulldown-name-'+i,r.name,'text',true)}${selectField('Type','pulldown-type-'+i,r.type,['All','Single','Multiple'],true)}${field('Max Quantity','pulldown-max-'+i,r.max,'number',true)}</div><div class="stock-checks">${check('Required','pulldown-required-'+i,r.required)}</div></div>`).join('');}
+function materialOptions(){return [...RAW.map(([code,name])=>[code,code+' — '+name]),...db.items.filter(r=>r.code!==draft.stock).map(r=>[r.code,r.code+' — '+r.name])];}
+function materialLines(){return draft.lines.map((r,i)=>`<div class="stock-component"><div class="stock-inline-actions"><strong>Material ${i+1}</strong>${deleteButton('lines',i)}</div><div class="stock-fields">${selectField('Stock Item','bom-material-'+i,r.code,materialOptions(),true)}${field('UOM','bom-uom-'+i,r.uom,'text',true)}${field('Quantity per product','bom-qty-'+i,r.qty,'number',true,'data-positive="true"')}</div></div>`).join('')||'<p class="stock-empty">No materials added.</p>';}
+function bomForm(){return section('Bill of Materials',`<div class="stock-fields">${field('BOM Code','record-code',draft.code,'text',true,'pattern="[A-Za-z0-9_-]+"')}${field('BOM Name','record-name',draft.name,'text',true)}${selectField('Stock Code','bom-stock',draft.stock,db.items.map(r=>[r.code,r.code+' — '+r.name]),true)}</div>`,true)+section('Raw Material',`<div class="stock-inline-actions"><button type="button" class="m-company-btn m-company-btn--cancel" data-action="clear-materials">Delete All</button><button type="button" class="m-company-btn m-company-btn--save" data-action="add-material">Add Stock Item</button></div><div id="material-lines">${materialLines()}</div>`,true);}
+const val=id=>$(id)?.value??'';
+const num=id=>Number(val(id));
+function captureDraft(){draft.code=val('record-code').trim().toUpperCase();draft.name=val('record-name').trim();
+ if(view==='bom'){draft.stock=val('bom-stock');draft.lines.forEach((r,i)=>{r.code=val('bom-material-'+i);r.uom=val('bom-uom-'+i).trim();r.qty=num('bom-qty-'+i);});return;}
+ draft.active=$('record-active').checked;if(view!=='items')return;
+ draft.description2=val('item-description2').trim();draft.barcode=val('item-barcode').trim();draft.type=val('item-type');draft.group=val('item-group');draft.department=val('item-department');['base','stock','sales'].forEach(k=>draft[k+'Uom']=val('item-'+k+'uom'));draft.stores=STORE_OPTIONS.filter(([code])=>$('item-store-'+code).checked).map(([code])=>code);draft.attributes=['Main Set','Stock Control','Raw Material'].filter((_,i)=>$('item-attribute-'+i).checked);draft.days=[0,1,2,3,4,5,6].filter(i=>$('item-day-'+i).checked);draft.times=[0,1].map(i=>[val('item-time-from-'+i),val('item-time-to-'+i)]);draft.fpos=['Block Discount','Block If Below Min Price','FPOS - View On Menu','Block Refund','Allow Open Price/Qty','FPOS - Suspend'].filter((_,i)=>$('item-fpos-'+i).checked);
+ draft.prices.forEach((r,i)=>{r.code=val('price-code-'+i).trim().toUpperCase();r.description=val('price-description-'+i).trim();['min','normal','member','dealer'].forEach(k=>r[k]=num('price-'+k+'-'+i));});draft.condiments.forEach((r,i)=>{r.group=val('condiment-group-'+i).trim();r.description=val('condiment-description-'+i).trim();['order','min','max'].forEach(k=>r[k]=num('condiment-'+k+'-'+i));r.required=$('condiment-required-'+i).checked;});draft.queues.forEach((r,i)=>{['queue','description','spooler','printer','printerDescription'].forEach(k=>r[k]=val('queue-'+k+'-'+i).trim());r.active=$('queue-active-'+i).checked;});draft.setItems.forEach((r,i)=>{r.code=val('set-code-'+i);r.qty=num('set-qty-'+i);r.breakdown=num('set-breakdown-'+i);});draft.pulldown.forEach((r,i)=>{r.name=val('pulldown-name-'+i).trim();r.type=val('pulldown-type-'+i);r.max=num('pulldown-max-'+i);r.required=$('pulldown-required-'+i).checked;});
+ document.querySelectorAll('[data-cost]').forEach(input=>{const r=draft.costs[Number(input.dataset.cost)];r[input.dataset.key]=Number(input.value);r.projected=r.unit*(1+r.markup/100);r.margin=r.projected?(r.projected-r.unit)/r.projected*100:0;});document.querySelectorAll('[data-balance]').forEach(input=>draft.balances[Number(input.dataset.balance)][input.dataset.key]=Number(input.value));
+}
+function refreshLines(collection){const map={prices:['price-lines',priceLines],condiments:['condiment-lines',condimentLines],queues:['queue-lines',queueLines],setItems:['set-lines',setLines],pulldown:['pulldown-lines',pulldownLines],lines:['material-lines',materialLines]};const [id,render]=map[collection];$(id).innerHTML=render();}
+$('stock-form').addEventListener('invalid', e => { let parent=e.target.parentElement; while(parent && parent!==$('stock-form')) { if(parent.tagName==='DETAILS') parent.open=true; parent=parent.parentElement; } }, true);
+$('stock-form').addEventListener('input',()=>{formChanged=true;});$('stock-form').addEventListener('change',async e=>{formChanged=true;if(e.target.id==='item-image'){const file=e.target.files[0];if(!file)return;if(!['image/jpeg','image/bmp','image/x-ms-bmp'].includes(file.type)||file.size>2*1024*1024){formError('Choose a JPEG or BMP image smaller than 2 MB.');e.target.value='';return;}const reader=new FileReader();const current=draft;reader.onload=()=>{if(draft!==current)return;draft.image=reader.result;$('item-image-preview').innerHTML=`<img class="stock-image-preview" src="${esc(reader.result)}" alt="Stock item preview"/>`;};reader.readAsDataURL(file);}if(e.target.dataset.cost!==undefined){captureDraft();const i=Number(e.target.dataset.cost),r=draft.costs[i];document.querySelector(`[data-projected="${i}"]`).textContent=money(r.projected);document.querySelector(`[data-margin="${i}"]`).textContent=money(r.margin);}if(e.target.id==='bom-stock'){captureDraft();draft.lines=draft.lines.filter(r=>r.code!==draft.stock);refreshLines('lines');}});
+$('stock-form').addEventListener('click',e=>{const remove=e.target.closest('[data-remove]'),action=e.target.closest('[data-action]');if(!remove&&!action)return;captureDraft();formChanged=true;
+ if(remove){const key=remove.dataset.remove,i=Number(remove.dataset.index);if(key==='prices'&&i===0)return;draft[key].splice(i,1);refreshLines(key);return;}
+ const name=action.dataset.action;if(name==='clear-image'){draft.image='';$('item-image').value='';$('item-image-preview').innerHTML='';return;}if(name==='clear-materials'){confirmAction('Delete all materials from this bill of materials?',()=>{draft.lines=[];refreshLines('lines');});return;}
+ if(name==='cost-all'){const unit=draft.costs[0].unit;draft.costs.forEach(r=>{r.unit=unit;r.projected=unit*(1+r.markup/100);r.margin=r.projected?(r.projected-unit)/r.projected*100:0;});document.querySelectorAll('[data-cost][data-key="unit"]').forEach(input=>input.value=money(unit));draft.costs.forEach((r,i)=>{document.querySelector(`[data-projected="${i}"]`).textContent=money(r.projected);document.querySelector(`[data-margin="${i}"]`).textContent=money(r.margin);});return;}
+ const configs={'add-price':['prices',()=>{let i=2;while(draft.prices.some(p=>p.code==='P'+i))i++;return {code:'P'+i,description:'',min:0,normal:0,member:0,dealer:0};}], 'add-condiment':['condiments',()=>({group:'',description:'',order:draft.condiments.length+1,min:0,max:1,required:false})], 'add-queue':['queues',()=>({queue:'',description:'',spooler:'',printer:'',printerDescription:'',active:true})], 'add-set':['setItems',()=>({code:'',qty:1,breakdown:0})], 'add-pulldown':['pulldown',()=>({name:'',type:'All',max:0,required:false})], 'add-material':['lines',()=>({code:'',uom:'pcs',qty:1})]};const pair=configs[name];if(pair){draft[pair[0]].push(pair[1]());refreshLines(pair[0]);}});
+function formError(text){$('stock-form-error').textContent=text;$('stock-form-error').focus();}
+function validate(){if(!/^[A-Z0-9_-]+$/.test(draft.code)||!draft.name)return 'Enter a valid code and description.';if(dataset().some(r=>r.code===draft.code&&r.code!==editing))return 'This code already exists.';
+ if(view==='items'){if(!draft.stores.length)return 'Select at least one store.';if(!draft.baseUom||!draft.stockUom||!draft.salesUom)return 'Select Base, Stock and Sales UOM.';if(new Set(draft.prices.map(p=>p.code)).size!==draft.prices.length)return 'Price level codes must be unique.';if(draft.prices.some(p=>!p.code||['min','normal','member','dealer'].some(k=>!Number.isFinite(p[k])||p[k]<0)))return 'Enter valid, non-negative selling prices.';if(draft.balances.some(r=>r.max<r.min))return 'Maximum quantity must be at least the minimum quantity.';if(draft.condiments.some(r=>r.max<r.min))return 'Maximum condiment selection must be at least the minimum.';if(draft.setItems.some(r=>!r.code||r.qty<=0||r.code===draft.code))return 'Select valid set items with positive quantities.';if(draft.setItems.reduce((s,r)=>s+r.breakdown,0)>100)return 'Set sales breakdown cannot exceed 100%.';}
+ if(view==='bom'){if(!db.items.some(r=>r.code===draft.stock))return 'Select a stock item.';if(!draft.lines.length)return 'Add at least one material.';if(draft.lines.some(r=>!materialOptions().some(o=>o[0]===r.code)||r.qty<=0||!r.uom||r.code===draft.stock))return 'Each material needs a valid stock item, UOM and positive quantity.';if(new Set(draft.lines.map(r=>r.code)).size!==draft.lines.length)return 'Add each material only once.';}
+ return '';}
+$('stock-form').addEventListener('submit',e=>{e.preventDefault();captureDraft();const error=validate();if(error){formError(error);return;}const saved=copy(draft),mode=editing?'Update':'Add';confirmAction(`${mode} this ${config[view].singular.toLowerCase()}?`,()=>{const list=dataset(),index=list.findIndex(r=>r.code===editing);if(view==='items'&&editing&&editing!==saved.code){db.boms.forEach(b=>{if(b.stock===editing)b.stock=saved.code;b.lines.forEach(r=>{if(r.code===editing)r.code=saved.code;});});db.items.forEach(item=>item.setItems.forEach(r=>{if(r.code===editing)r.code=saved.code;}));}if(['groups','departments'].includes(view)&&editing&&editing!==saved.code){const prop=view==='groups'?'group':'department';db.items.forEach(item=>{if(item[prop]===editing)item[prop]=saved.code;});}if(index<0)list.push(saved);else list[index]=saved;const stored=persist();closeEditor();renderRows();if(stored)message(config[view].singular+' saved successfully.');});});
+function removeRecord(code){if(view==='items'&&(db.boms.some(b=>b.stock===code||b.lines.some(r=>r.code===code))||db.items.some(i=>i.setItems.some(r=>r.code===code)))){message('This stock item is used in a bill of materials or set menu. Remove those links first.');return;}if(['groups','departments'].includes(view)){const property=view==='groups'?'group':'department';if(db.items.some(i=>i[property]===code)){message('This classification is assigned to stock items. Reassign them first.');return;}}confirmAction(`Delete ${code}?`,()=>{const list=dataset(),index=list.findIndex(r=>r.code===code);if(index>=0)list.splice(index,1);const stored=persist();renderRows();if(stored)message('Record deleted successfully.');});}
+function csvCell(value){let s=String(value??'');if(/^[=+@\-]/.test(s))s="'"+s;return '"'+s.replace(/"/g,'""')+'"';}
+function downloadCSV(headers,records,name){const csv=[headers,...records].map(r=>r.map(csvCell).join(',')).join('\r\n');const url=URL.createObjectURL(new Blob(['\uFEFF'+csv],{type:'text/csv;charset=utf-8;'}));const a=document.createElement('a');a.href=url;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);}
+$('stock-export').addEventListener('click',()=>{const visible=filteredRows();if(view==='items'){const codes=new Set(visible.map(r=>r.id));downloadCSV(['Code','Description','Barcode','Base UOM','Stores','Status','Normal Price'],db.items.filter(i=>codes.has(i.code)).map(i=>[i.code,i.name,i.barcode,i.baseUom,i.stores.join('|'),i.active?'Active':'Inactive',money(i.prices[0]?.normal)]),'stock-items.csv');}else downloadCSV(config[view].columns,visible.map(r=>r.cells),'stock-'+view+'.csv');});
+function parseCSV(text){const rows=[];let row=[],cell='',quoted=false;for(let i=0;i<text.length;i++){const c=text[i];if(c==='"'){if(quoted&&text[i+1]==='"'){cell+='"';i++;}else quoted=!quoted;}else if(c===','&&!quoted){row.push(cell);cell='';}else if((c==='\n'||c==='\r')&&!quoted){if(c==='\r'&&text[i+1]==='\n')i++;row.push(cell);if(row.some(v=>v.trim()))rows.push(row);row=[];cell='';}else cell+=c;}if(quoted)throw Error('The CSV contains an unclosed quote.');row.push(cell);if(row.some(v=>v.trim()))rows.push(row);return rows;}
+function importItems(text){const rows=parseCSV(text.replace(/^\uFEFF/,''));if(rows.length<2)throw Error('CSV needs a header and at least one stock item.');const headers=rows.shift().map(x=>x.trim().toLowerCase());const get=(row,name)=>row[headers.indexOf(name)]?.trim()||'';if(!headers.includes('code')||!headers.includes('description'))throw Error('CSV requires Code and Description columns. Export stock items for the full template.');const added=[],seen=new Set(db.items.map(i=>i.code));for(const row of rows){const code=get(row,'code').toUpperCase(),name=get(row,'description');if(!/^[A-Z0-9_-]+$/.test(code)||!name||seen.has(code))throw Error('Invalid or duplicate stock code: '+(code||'(blank)'));const stores=(get(row,'stores')||'S1').split('|');if(stores.some(s=>!STORE_OPTIONS.some(o=>o[0]===s)))throw Error('Use store codes S1, S2, S3 or S4 separated by |.');const price=get(row,'normal price')||'0';if(!Number.isFinite(Number(price))||Number(price)<0)throw Error('Normal Price must be a non-negative number.');const item=Object.assign(freshItem(),{code,name,stores,barcode:get(row,'barcode'),baseUom:get(row,'base uom')||'Pcs',active:get(row,'status').toLowerCase()!=='inactive'});item.prices[0].normal=Number(price);added.push(item);seen.add(code);}return added;}
+$('stock-import').addEventListener('click',()=>$('stock-import-file').click());$('stock-import-file').addEventListener('change',async e=>{const file=e.target.files[0];if(!file)return;try{if(file.size>2*1024*1024)throw Error('Choose a CSV smaller than 2 MB.');const items=importItems(await file.text());confirmAction(`Import ${items.length} stock items?`,()=>{db.items.push(...items);const stored=persist();renderRows();if(stored)message(items.length+' stock items imported.');});}catch(error){message(error.message);}finally{e.target.value='';}});
+window.addEventListener('beforeunload',e=>{if(formChanged){e.preventDefault();e.returnValue='';}});
+switchView(new URLSearchParams(location.search).get('view'),false);
+})();
+</script>
+</body></html>
