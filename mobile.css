@@ -4212,3 +4212,11 @@ button[aria-label="Back"]::after,a[aria-label="Back"]::after{width:9px;height:9p
  }
  .m-company-formsection__body,.stock-section[open]::details-content{overflow:visible}
 }
+
+/* Active status fields: title above, switch below. */
+.m-company-formfield--switch{
+ flex-direction:column;align-items:flex-start;justify-content:flex-start;gap:10px;
+}
+#page-stock .stock-active-row{
+ flex-direction:column;align-items:flex-start;justify-content:flex-start;gap:10px;
+}
