@@ -4164,3 +4164,13 @@ button[aria-label="Back"]::after,a[aria-label="Back"]::after{content:"";display:
 }
 .m-company-formsection__body{padding:20px 7px 8px;background:#fff;border-radius:0 0 7px 7px}
 .m-company-formsection__chevron{width:12px;height:12px;color:#606060;stroke-width:1.5}
+
+/* Consistent chevrons on collapsible form headers. */
+.m-company-formsection__head .m-company-formsection__chevron{display:none}
+.m-company-formsection__head::after{
+ content:"";display:block;width:7px;height:7px;
+ border-right:1.5px solid #606060;border-bottom:1.5px solid #606060;
+ transform:rotate(225deg);flex-shrink:0;margin-right:3px;transition:transform .15s;
+}
+.m-company-formsection:has(>.m-company-formsection__body[hidden])>.m-company-formsection__head::after,
+.m-company-formsection__head:has(.is-collapsed)::after{transform:rotate(45deg)}
