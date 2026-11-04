@@ -4289,3 +4289,12 @@ table th{font-family:var(--font-family)!important;font-size:var(--heading-table-
 :root{--bottom-action-height:40px;--bottom-action-gap:12px}
 :is(.m-company-editview__footer,.stock-editfooter,.stock-condiment-selection>footer,.m-rpt-filter-modal__footer,.m-datesheet__footer){display:flex!important;align-items:center;gap:var(--bottom-action-gap)!important;box-sizing:border-box;min-height:65px;padding:12px 13px max(12px,env(safe-area-inset-bottom))!important;background:var(--color-white);border-top:1px solid var(--color-border);flex-shrink:0}
 :is(.m-company-editview__footer,.stock-editfooter,.stock-condiment-selection>footer,.m-rpt-filter-modal__footer,.m-datesheet__footer)>button{flex:1 1 0!important;width:0!important;min-width:0!important;height:var(--bottom-action-height)!important;min-height:var(--bottom-action-height)!important;max-height:var(--bottom-action-height)!important;box-sizing:border-box;padding:0 16px!important;margin:0!important;display:inline-flex;align-items:center;justify-content:center;border-radius:8px!important;font-family:var(--font-family)!important;font-size:14px!important;font-weight:500!important;line-height:20px!important}
+
+/* Shared success symbol: mint ring, green disc, white rounded check. */
+.stock-cost-result.success{position:relative;display:block!important;box-sizing:border-box!important;width:80px!important;height:80px!important;min-width:80px;min-height:80px;border:10px solid #bcffd8!important;border-radius:50%!important;background:#2fed92!important;font-size:0!important;color:transparent!important}
+.stock-cost-result.success>svg{display:none!important}
+.stock-cost-result.success::after,.m-confirm[id$="-success"]::after{content:"";position:absolute;box-sizing:content-box;width:15px;height:29px;border:solid #fff;border-width:0 4px 4px 0;border-radius:2px;transform:rotate(45deg)}
+.stock-cost-result.success::after{left:21px;top:10px}
+.m-confirm[id$="-success"]{position:fixed;padding-top:124px}
+.m-confirm[id$="-success"]::before{content:"";position:absolute;box-sizing:border-box;top:20px;left:calc(50% - 40px);width:80px;height:80px;border:10px solid #bcffd8;border-radius:50%;background:#2fed92}
+.m-confirm[id$="-success"]::after{top:40px;left:calc(50% - 9px)}
