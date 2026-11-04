@@ -4229,3 +4229,8 @@ button[aria-label="Back"]::after,a[aria-label="Back"]::after{width:9px;height:9p
 .m-drawer-theme:focus-visible,.m-drawer-language:focus-within{outline:2px solid var(--color-primary);outline-offset:2px}
 :root.m-dark-theme{color-scheme:dark;--color-white:#202124;--text-primary:#eee;--text-second:#c4c4c4;--text-placeholder:#aaa;--text-caption:#aaa;--color-border:#454545}
 .m-dark-theme .m-drawer-theme{background:#3a3b3e;color:#eee}
+
+.m-drawer-preferences{display:flex;flex-direction:column;align-items:stretch;gap:0;padding:0;border:0;margin-top:28px;background:transparent}
+.m-drawer-preferences .m-drawer-language,.m-drawer-preferences .m-drawer-theme{display:flex;align-items:center;gap:16px;width:100%;height:auto;min-height:54px;margin:0;padding:14px 12px;border:0;border-top:1px solid var(--color-border);border-radius:0;box-shadow:none;background:transparent;color:var(--text-primary);font:500 16px var(--font-family);text-align:left}
+.m-account-preference-icon{display:flex;align-items:center;justify-content:center;width:20px;flex-shrink:0;color:var(--text-second)}
+.m-account-preference-label{flex:1}.m-drawer-language select{width:85px;font-size:14px;font-weight:400;color:var(--text-second)}.m-account-mode-value{font-size:14px;font-weight:400;color:var(--text-second)}
