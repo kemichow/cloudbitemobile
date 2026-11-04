@@ -4242,3 +4242,5 @@ button[aria-label="Back"]::after,a[aria-label="Back"]::after{width:9px;height:9p
 .m-avatar-menu__list .m-drawer-preferences .m-drawer-language,.m-avatar-menu__list .m-drawer-preferences .m-drawer-theme{padding:14px 8px;gap:12px;border-top:0;border-bottom:1px solid var(--color-border);min-height:54px}
 .m-avatar-menu__list .m-account-preference-icon,.m-avatar-menu__list .m-avatar-menu__icon{width:22px;height:22px;flex:0 0 22px}
 .m-avatar-menu__list .m-account-preference-icon svg{display:block;width:22px;height:22px}
+
+.m-avatar-menu__list .m-account-language-value,.m-avatar-menu__list .m-account-mode-value{font-family:var(--font-family);font-size:16px;font-weight:400;line-height:24px;color:var(--text-second)}
