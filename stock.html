@@ -501,11 +501,17 @@ const RAW = [['Raw001','Burger Bun','pcs'],['Raw002','Chicken Patty','pcs'],['Ra
 const STORAGE_KEY = 'cloudbite-stock-v1';
 function freshItem() { return {code:'',name:'',description2:'',barcode:'',active:true,type:'Food',stores:[],group:'G001',department:'D001',baseUom:'Pcs',stockUom:'Pcs',salesUom:'Pcs',attributes:[],image:'',prices:[{code:'P1',description:'West Msia',min:0,normal:13,member:11.5,dealer:11.5}],costs:STORE_OPTIONS.map(([code])=>({store:code,average:0,unit:10,markup:0,projected:10,margin:0})),balances:STORE_OPTIONS.map(([code],i)=>({store:code,balance:[100,42,142,0][i],min:[10,20,10,10][i],max:[100,200,150,200][i],updated:'21/05/2026'})),days:[0,1,2,3,4,5,6],times:[['09:00','12:00'],['09:00','12:00']],fpos:[],taxDefault:false,serviceTax:6,serviceCharge:10,condiments:[],queues:[],setItems:[],pulldown:[]}; }
 const seeds = [ ['AC001','Chicken Burger','98765111',['S1','S2','S3','S4']], ['AC002','Fish Burger','98765112',['S1','S2']], ['AC003','Chicken Chop','98765113',['S1','S2']] ].map(([code,name,barcode,stores])=>Object.assign(freshItem(),{code,name,barcode,stores}));
-let db = {items:seeds,boms:[{code:'BOM001',name:'Standard Chicken Burger',stock:'AC001',lines:RAW.slice(0,4).map(([code,,uom],i)=>({code,uom,qty:i===3?3:1}))}],groups:[{code:'G001',name:'Food',active:true},{code:'G002',name:'Beverages',active:true}],departments:[{code:'D001',name:'Kitchen',active:true},{code:'D002',name:'Bar',active:true}]};
+let db = {items:seeds,boms:[{code:'BOM001',name:'Standard Chicken Burger',stock:'AC001',lines:RAW.map(([code,,uom],i)=>({code,uom,qty:i===4?15:i===3?3:1}))}],groups:[{code:'G001',name:'Food',active:true},{code:'G002',name:'Beverages',active:true}],departments:[{code:'D001',name:'Kitchen',active:true},{code:'D002',name:'Bar',active:true}]};
 try {
  const saved = JSON.parse(localStorage.getItem(STORAGE_KEY));
  if (saved && ['items','boms','groups','departments'].every(k=>Array.isArray(saved[k])) && saved.items.every(x=>x && typeof x.code==='string' && typeof x.name==='string' && Array.isArray(x.stores)) && saved.boms.every(x=>x && typeof x.code==='string' && Array.isArray(x.lines)) && ['groups','departments'].every(k=>saved[k].every(x=>x && typeof x.code==='string' && typeof x.name==='string'))) db=saved;
 } catch (_) {}
+// Upgrade the original Chicken Burger recipe without replacing edited recipes.
+const burgerRecipe=db.boms.find(b=>b.stock==='AC001'&&b.code==='BOM001');
+if(burgerRecipe&&burgerRecipe.lines.length===4&&RAW.slice(0,4).every(([code,,uom],i)=>burgerRecipe.lines[i].code===code&&burgerRecipe.lines[i].uom===uom&&burgerRecipe.lines[i].qty===(i===3?3:1))){
+ burgerRecipe.lines.push({code:'Raw005',uom:'ml',qty:15});
+ try{localStorage.setItem(STORAGE_KEY,JSON.stringify(db));}catch(_){}
+}
 let view = 'items', search = '', filters = {}, sort = {index:null,dir:1}, editing = null, draft = null, formChanged=false, expanded=new Set(), onConfirm=null, previousFocus=null;
 const config={items:{title:'Stock Item',add:'Add Stock Item',singular:'Stock Item',columns:['Code','Description','Barcode','Base UOM','Store','Status']},bom:{title:'Bill of Materials',add:'Add Bill of Materials',singular:'Bill of Materials',columns:['BOM Code','BOM Name','Stock Code','Stock Description','Materials']},groups:{title:'Stock Group',add:'Add Stock Group',singular:'Stock Group',columns:['Code','Description','Status']},departments:{title:'Stock Department',add:'Add Stock Department',singular:'Stock Department',columns:['Code','Description','Status']}};
 function dataset(){return db[view==='bom'?'boms':view];}
