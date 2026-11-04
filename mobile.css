@@ -4261,3 +4261,10 @@ button[aria-label="Back"]::after,a[aria-label="Back"]::after{width:9px;height:9p
 table th{font-family:var(--font-family)!important;font-size:var(--heading-table-size)!important;font-weight:var(--heading-weight)!important;line-height:1.4!important;color:var(--text-primary)!important}
 
 :is(.m-rpt-header__titleblock h1,.m-dash-titlebar h1,.m-editbrand-topbar__title,.m-notif-sheet__title,.m-datesheet__title,.m-rpt-filter-modal__title,.m-confirm__title,.m-language-page h2,.stock-condiment-selection header h2,.stock-cost-dialog h2){font-weight:700!important}
+
+/* Consistent page header height; section and table headers retain their own spacing. */
+:root{--page-header-height:72px}
+.m-editbrand-topbar,.m-notif-sheet__head,.m-language-page>header,.stock-condiment-selection>header{box-sizing:border-box;height:var(--page-header-height);min-height:var(--page-header-height);max-height:var(--page-header-height);padding-top:0;padding-bottom:0;display:flex;align-items:center;flex-shrink:0}
+.m-company-headercard .m-rpt-header,.m-dash-titlebar{box-sizing:border-box;min-height:var(--page-header-height);height:var(--page-header-height);padding-top:0;padding-bottom:0;margin-bottom:0;align-items:center}
+.m-rpt-header__titleblock{padding-top:0}
+.stock-condiment-selection>header{display:grid}
