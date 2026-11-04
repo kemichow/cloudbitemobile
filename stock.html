@@ -41,7 +41,8 @@
           </button>
         </div>
 
-        <nav class="m-drawer-nav">
+        <div class="m-drawer-preferences"><label class="m-drawer-language"><span aria-hidden="true">🇬🇧</span><select aria-label="Language"><option value="en">English</option></select><svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="m3 6 5 5 5-5"/></svg></label><button type="button" class="m-drawer-theme" aria-label="Switch to dark theme" aria-pressed="false"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.5 14.2A8.7 8.7 0 0 1 9.8 3.5 9 9 0 1 0 20.5 14.2Z"/></svg></button></div>
+<nav class="m-drawer-nav">
 
           <div class="m-drawer-group">
             <button type="button" class="m-drawer-nav__item">
@@ -828,4 +829,4 @@ document.addEventListener("scroll",e=>{locationDropdowns.forEach(w=>{if(w.list.c
  window.addEventListener('resize',close);
  document.addEventListener('scroll',e=>{if(popup&&!popup.contains(e.target))close();},true);
 })();
-</script></body></html>
+</script><script>(()=>{const button=document.querySelector('.m-drawer-theme');if(!button)return;function apply(dark){document.documentElement.classList.toggle('m-dark-theme',dark);button.setAttribute('aria-pressed',String(dark));button.setAttribute('aria-label',dark?'Switch to light theme':'Switch to dark theme');}let dark=false;try{dark=localStorage.getItem('cloudbite-theme')==='dark';}catch(_){}apply(dark);button.addEventListener('click',()=>{dark=!document.documentElement.classList.contains('m-dark-theme');apply(dark);try{localStorage.setItem('cloudbite-theme',dark?'dark':'light');}catch(_){}});})();</script></body></html>
