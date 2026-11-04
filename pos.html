@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/><title>CloudBite | POS</title><link rel="stylesheet" href="mobile.css"/><style>#stock-list[hidden],.stock-tabs[hidden]{display:none!important}.stock-storecards{max-width:calc(100vw - 76px)}#page-stock .m-rpt-body{overflow-y:auto;overflow-x:hidden;padding-bottom:30px}#page-stock .m-rpt-card{flex:none;margin-bottom:14px}#page-stock .m-rpt-table-wrap{flex:none;max-width:100%;overflow:auto}.stock-content{min-width:0}.stock-tabs{display:flex;gap:4px;overflow-x:auto;padding:8px}.stock-tabs a{flex:0 0 auto;padding:11px 12px;text-decoration:none;border-radius:8px;color:var(--text-second);font-size:13px;font-weight:600}.stock-tabs a.is-active{background:#fceced;color:var(--color-primary)}.stock-tabs img{width:17px;height:17px;vertical-align:middle;margin-right:5px}.stock-toolbar{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:12px 0}.stock-toolbar .m-company-search{flex:1 1 150px;min-width:0}.stock-toolbar button{min-height:38px}.stock-toolbar select{width:auto;max-width:100%;flex:1 1 120px}.stock-table{min-width:660px}.stock-table td{white-space:normal;overflow-wrap:anywhere}.stock-table td:last-child{min-width:100px}.stock-detail td{padding:12px!important;background:#fafafa}.stock-storecards{display:grid;gap:8px;grid-template-columns:repeat(auto-fit,minmax(min(240px,100%),1fr))}.stock-storecard{border:1px solid var(--color-border);border-radius:8px;padding:12px;background:white}.stock-storecard h3{font-size:13px;margin:0 0 10px}.stock-storecard dl{display:grid;grid-template-columns:1fr 1fr;font-size:12px;gap:8px;margin:0}.stock-storecard dt{color:var(--text-second)}.stock-storecard dd{margin:0;text-align:right}.stock-rowtoggle{border:0;background:none;color:var(--color-primary);padding:8px;cursor:pointer}.stock-count{font-size:12px;color:var(--text-second);margin:12px 0}.stock-message{padding:10px 12px;border-radius:8px;background:#fff4de;color:#735314;font-size:13px;overflow-wrap:anywhere}.stock-editor{flex:1;display:flex;flex-direction:column;min-height:0;overflow:hidden}.stock-editor[hidden],.stock-content[hidden]{display:none}.stock-form{flex:1;overflow-y:auto;min-height:0;padding:12px 12px 30px;display:flex;flex-direction:column;gap:14px}.stock-section{background:white;border:1px solid var(--color-border);border-radius:8px;flex:none}.stock-section>summary{cursor:pointer;background:#f5f5f5;border-radius:8px;padding:12px;font-weight:600;font-size:13px;list-style-position:inside}.stock-section-body{padding:14px;display:flex;flex-direction:column;gap:16px}.stock-fields{display:grid;grid-template-columns:minmax(0,1fr);gap:16px}.stock-fields>*{min-width:0}.stock-checks{display:flex;gap:10px 16px;flex-wrap:wrap}.stock-checks label{font-size:13px;display:flex;align-items:center;gap:6px}.stock-checks input{accent-color:var(--color-primary);width:17px;height:17px}.stock-note{margin:0;color:var(--text-second);font-size:12px;line-height:1.5}.stock-editfooter{display:flex;gap:12px;flex-shrink:0;padding:12px max(12px,env(safe-area-inset-right)) max(12px,env(safe-area-inset-bottom));background:white;border-top:1px solid var(--color-border)}.stock-editfooter button{flex:1}.stock-form .m-company-forminput{min-width:0}.stock-form input[type=number]{text-align:right}.stock-form .m-rpt-table-wrap{overflow:auto;max-width:100%;min-width:0}.stock-form table{min-width:600px}.stock-form td input,.stock-form td select{min-width:90px}.stock-image-preview{width:100px;height:100px;object-fit:cover;border:1px solid var(--color-border);border-radius:8px}.stock-line{display:grid;grid-template-columns:minmax(0,1fr) 88px 36px;gap:8px;align-items:end}.stock-line label{font-size:12px}.stock-line .m-company-deletebtn{margin-bottom:6px}.stock-component{display:flex;flex-direction:column;gap:8px;border:1px solid var(--color-border);border-radius:8px;padding:12px}.stock-inline-actions{display:flex;gap:8px;flex-wrap:wrap;align-items:center;justify-content:space-between}.stock-empty{padding:32px 12px;text-align:center;color:var(--text-second);font-size:13px}.stock-status{padding:4px 10px;border-radius:20px;font-size:11px;background:#edfdf0;color:#26823c}.stock-status--low{background:#fff3d6;color:#846108}.stock-status--out{background:#fce6e6;color:#b12727}.stock-filter-row input{width:100%;min-width:75px;height:32px;border:1px solid var(--color-border);border-radius:4px;padding:6px;font:inherit}.stock-grid-sort{cursor:pointer}.stock-top-title{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.stock-form-error{margin:0;color:#be2026;font-size:13px}.stock-listheading{font-size:16px;margin:0}.stock-add-inline{min-height:38px}.stock-tag{font-size:12px;color:#646464}.stock-day{display:flex;gap:8px;align-items:center}.stock-day input{accent-color:var(--color-primary)}.stock-entry-image{display:flex;gap:12px;align-items:center}.stock-entry-image input{width:100%}@media(min-width:680px){.stock-fields{grid-template-columns:repeat(2,minmax(0,1fr))}.stock-form{max-width:1100px;width:100%;margin:0 auto}.stock-toolbar{flex-wrap:nowrap}}@media(max-width:380px){.stock-tabs a{padding:10px 8px;font-size:12px}.stock-toolbar .m-company-btn{font-size:12px;padding:8px 10px}}
+.stock-layout-toggle{display:inline-flex;align-items:center;gap:12px;font-size:13px;cursor:pointer;position:relative;min-height:38px}.stock-layout-toggle[hidden]{display:none}.stock-layout-toggle input{position:absolute;right:0;width:42px;height:24px;opacity:0;cursor:pointer}.stock-layout-track{width:42px;height:24px;border-radius:20px;background:#999;position:relative;pointer-events:none}.stock-layout-track:after{content:"";position:absolute;left:3px;top:3px;width:18px;height:18px;background:white;border-radius:50%;transition:transform .15s}.stock-layout-toggle input:checked+.stock-layout-track{background:#c91c28}.stock-layout-toggle input:checked+.stock-layout-track:after{transform:translateX(18px)}.stock-layout-toggle input:focus-visible+.stock-layout-track{outline:2px solid #222;outline-offset:3px}.stock-rowtoggle{color:#606060}.stock-rowtoggle svg{vertical-align:middle;transition:transform .15s}.stock-rowtoggle[aria-expanded="true"] svg{transform:rotate(180deg)}.stock-layout-row{display:flex;align-items:center;margin:0 0 12px}.stock-layout-row:has([hidden]){display:none}.stock-toolbar{justify-content:flex-end}.stock-title-row{display:flex;align-items:center;justify-content:space-between;gap:12px;min-width:0}.stock-title-row .stock-listheading{min-width:0}.stock-title-row .stock-layout-toggle{flex-shrink:0}.stock-toolbar>#stock-import,.stock-toolbar>#stock-export,.stock-toolbar>#stock-add{flex:1 1 0;min-width:0;justify-content:center;padding-left:8px;padding-right:8px;white-space:nowrap}.stock-toolbar{flex-wrap:nowrap}@media(max-width:600px){.stock-toolbar{gap:8px}.stock-toolbar>#stock-import,.stock-toolbar>#stock-export,.stock-toolbar>#stock-add{display:inline-flex;align-items:center;justify-content:center;gap:6px;height:40px;min-height:40px;font-size:12px;padding:0 8px;box-sizing:border-box}.stock-toolbar .m-rpt-export__icon{width:14px;height:14px;flex-shrink:0;margin:0}}@media(max-width:600px){.stock-title-row{margin:4px 0 14px;gap:16px;min-height:28px}.stock-title-row .stock-listheading{font-size:16px;font-weight:600;line-height:24px}.stock-title-row .stock-layout-toggle{gap:8px;font-size:12px;min-height:28px;color:#666}.stock-toolbar{margin:0 0 16px;gap:8px}.stock-toolbar>#stock-import,.stock-toolbar>#stock-export,.stock-toolbar>#stock-add{border-radius:8px;font-weight:500;box-shadow:none;height:40px;min-height:40px}.stock-toolbar>#stock-import,.stock-toolbar>#stock-export{background:#fff;border:1px solid #e6e7e9;color:#555}.stock-toolbar>#stock-add{font-weight:600;border:1px solid var(--color-primary)}.stock-toolbar .m-rpt-export__icon{opacity:.7}.stock-title-row .stock-layout-track{width:36px;height:22px}.stock-title-row .stock-layout-track:after{width:16px;height:16px}.stock-title-row .stock-layout-toggle input{width:36px;height:22px}.stock-title-row .stock-layout-toggle input:checked+.stock-layout-track:after{transform:translateX(14px)}}.stock-section>summary{display:flex;align-items:center;justify-content:space-between;gap:12px;list-style:none}.stock-section>summary::-webkit-details-marker{display:none}.stock-section>summary::marker{content:""}.stock-section>summary::after{content:"";width:7px;height:7px;border-right:1.8px solid #606060;border-bottom:1.8px solid #606060;transform:rotate(45deg);flex-shrink:0;margin-right:3px;transition:transform .15s}.stock-section[open]>summary::after{transform:rotate(225deg)}.m-location-select { position: relative; width: 100%; }
+.m-location-select__native { position: absolute; width: 1px; height: 1px; opacity: 0; pointer-events: none; }
+.m-location-select__trigger { text-align: left; font-weight: 400; color: var(--text-primary); cursor: pointer; padding-right: 36px; }
+.m-location-select__trigger:disabled { opacity: .55; cursor: not-allowed; }
+.m-location-select__popup { position: absolute; z-index: 30; top: 100%; left: 0; right: 0; background: var(--color-white); border: 1px solid var(--color-border); border-radius: 8px; box-shadow: 0 1px 4px rgba(0,0,0,.12); padding: 6px 0; max-height: 220px; overflow-y: auto; -webkit-overflow-scrolling: touch; }
+.m-location-select__popup[hidden] { display: none; }
+.m-location-select__popup [role="option"] { display: block; width: 100%; min-height: 38px; padding: 9px 15px; border: 0; background: white; color: var(--text-second); font: inherit; font-size: 14px; text-align: left; cursor: pointer; }
+.m-location-select__popup [role="option"]:hover,
+.m-location-select__popup [role="option"].is-highlighted { background: #f5f5f5; }
+.m-location-select__empty { margin: 0; padding: 10px 15px; color: var(--text-second); font-size: 13px; }
+#page-stock input[type="checkbox"]:not([role="switch"]){appearance:none;-webkit-appearance:none;display:inline-grid;place-content:center;width:18px;height:18px;min-width:18px;flex-shrink:0;border:1.5px solid #b9bec5;border-radius:5px;background:#fff;vertical-align:middle;cursor:pointer}#page-stock input[type="checkbox"]:not([role="switch"]):checked{background:var(--color-primary);border-color:var(--color-primary)}#page-stock input[type="checkbox"]:not([role="switch"]):checked::after{content:"";width:5px;height:9px;border:solid white;border-width:0 2px 2px 0;transform:translateY(-1px) rotate(45deg)}#page-stock input[type="checkbox"]:not([role="switch"]):focus-visible{outline:2px solid var(--color-primary);outline-offset:3px}#page-stock input[type="checkbox"]:not([role="switch"]):disabled{opacity:.5;cursor:not-allowed}.stock-attribute-checks{flex-direction:column;align-items:flex-start;gap:12px}.stock-attribute-checks label{min-height:24px}.stock-active-row{display:flex;align-items:center;justify-content:space-between;gap:16px;font-size:14px;cursor:pointer}.stock-active-switch{position:relative;width:42px;height:24px;flex-shrink:0}.stock-active-switch input{position:absolute;inset:0;width:100%;height:100%;margin:0;opacity:0;cursor:pointer}.stock-active-switch>span{display:block;width:42px;height:24px;border-radius:20px;background:#aaa;pointer-events:none}.stock-active-switch>span:after{content:"";display:block;position:absolute;left:3px;top:3px;width:18px;height:18px;border-radius:50%;background:white;transition:transform .15s}.stock-active-switch input:checked+span{background:#c91c28}.stock-active-switch input:checked+span:after{transform:translateX(18px)}.stock-active-switch input:focus-visible+span{outline:2px solid #222;outline-offset:3px}.stock-editor .stock-section{background:#fff;border:1px solid #e8e8e8;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,.06);overflow:visible}.stock-editor .stock-section>summary{background:#f5f5f5;border-radius:10px;padding:13px 15px}.stock-editor .stock-section[open]>summary{border-radius:10px 10px 0 0}.stock-editor .stock-section-body{background:#fff;border-radius:0 0 10px 10px;padding:16px 15px;gap:20px}.stock-editor .stock-section{padding:8px;background:#fff;border:1px solid #f0f0f0;border-radius:10px;box-shadow:0 1px 8px rgba(0,0,0,.05)}.stock-editor .stock-section>summary{background:#fff;border-radius:7px;padding:10px 9px;color:#626262;font-size:14px;font-weight:600}.stock-editor .stock-section[open]>summary{background:#f5f5f5;border-radius:7px}.stock-editor .stock-section-body{padding:20px 7px 8px}.stock-upload{display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center}.stock-upload>strong{font-size:14px;color:#62666c}.stock-upload-box{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;width:min(190px,100%);min-height:190px;border:2px dashed #e3e3e3;border-radius:6px;color:#dedede;padding:16px;box-sizing:border-box;cursor:pointer}.stock-upload-box>span{color:#999;font-size:12px;line-height:1.5}.stock-upload-box em{font-style:normal;color:var(--color-primary)}.stock-upload-box input{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:pointer}.stock-upload-box:focus-within{outline:2px solid var(--color-primary);outline-offset:3px}.stock-active-row>span:first-child{display:flex;align-items:center;gap:4px;font-size:13px;font-weight:600;color:var(--text-primary)}.stock-upload{gap:6px}.stock-upload>.stock-note{font-size:11px;color:#aaa}.stock-upload-box{margin-top:12px;border-radius:0;width:190px;height:190px;gap:16px}.stock-upload-box>span{font-size:12px}.stock-upload:has(.stock-upload-preview) .stock-upload-box{display:none}.stock-upload-preview{position:relative;width:190px;height:190px;margin-top:12px}.stock-upload-preview img{display:block;width:100%;height:100%;object-fit:cover;border-radius:6px;box-shadow:0 2px 6px #0002}.stock-upload-preview button{position:absolute;right:-11px;top:-11px;width:24px;height:24px;border:0;border-radius:50%;background:#666;color:white;font-size:22px;line-height:22px;padding:0;cursor:pointer;box-shadow:0 1px 4px #0003}.stock-upload-box.is-dragging{border-color:var(--color-primary);background:#fff8f8}.stock-upload-box,.stock-upload-preview img{border-radius:12px}.stock-uom-label{display:flex;align-items:center;gap:8px}.stock-uom-help{position:relative;display:inline-flex}.stock-uom-info{display:inline-flex;align-items:center;justify-content:center;border:0;background:none;color:#a0a0a0;padding:2px;cursor:pointer}.stock-uom-help [role="tooltip"]{display:none;position:absolute;z-index:40;left:24px;top:50%;transform:translateY(-50%);width:240px;max-width:calc(100vw - 140px);padding:10px 12px;background:#dedede;border-radius:8px;color:#444;font-size:12px;font-weight:400;line-height:1.4;box-shadow:0 1px 4px #0001}.stock-uom-help:hover [role="tooltip"],.stock-uom-help:focus-within [role="tooltip"],.stock-uom-info[aria-expanded="true"]+[role="tooltip"]{display:block}.stock-cost-wrap{border:1px solid #ddd;border-radius:8px}.stock-form .stock-cost-table{min-width:1050px;width:100%;border-collapse:collapse}.stock-cost-table th,.stock-cost-table td{border-right:1px solid #e3e3e3;border-bottom:1px solid #e3e3e3;padding:10px 8px;font-size:12px}.stock-cost-table th{background:#fff}.stock-cost-table td:not(:first-child){text-align:right}.stock-cost-table td:nth-child(2),.stock-cost-table td:nth-child(4),.stock-cost-table td:nth-child(6){background:#f5f5f5}.stock-cost-table td input{background:transparent;border:0;box-shadow:none;padding:0;min-height:22px;height:22px;width:100%}.stock-cost-table td input:focus{outline:1px solid var(--color-primary)}.stock-cost-head{display:flex;align-items:center;justify-content:space-between;gap:12px;white-space:nowrap}.stock-cost-head button{border:0;border-radius:8px;background:#ffeaec;color:#c71925;padding:7px 12px;font-size:12px;white-space:nowrap;cursor:pointer}.stock-cost-head span[title]{color:#999;margin-left:4px}.stock-cost-table th:first-child{min-width:210px}.stock-cost-help{position:relative;display:inline-flex;vertical-align:middle;margin-left:4px}.stock-cost-info{display:inline-flex;align-items:center;justify-content:center;border:0;background:transparent;color:#999;padding:0;cursor:pointer}.stock-cost-help [role="tooltip"]{display:none;position:absolute;z-index:50;left:22px;top:50%;transform:translateY(-50%);width:320px;padding:9px 10px;border-radius:8px;background:#dedede;box-shadow:0 1px 5px #0002;color:#444;font-size:12px;font-weight:400;line-height:1.35;white-space:normal;text-align:left}.stock-cost-help:hover [role="tooltip"],.stock-cost-help:focus-within [role="tooltip"]{display:block}.stock-cost-table th{overflow:visible}.stock-cost-dialog{box-sizing:border-box;width:min(440px,calc(100vw - 32px));max-height:calc(100dvh - 32px);overflow:auto;border:1px solid #e5e5e5;border-radius:8px;background:white;padding:32px 28px 24px;color:#333;box-shadow:0 8px 36px #0003;font:14px var(--font-family,sans-serif);text-align:center}.stock-cost-dialog::backdrop{background:#0005}.stock-cost-dialog h2{font-size:15px;margin:8px 0 10px}.stock-cost-dialog p{margin:18px 0;line-height:1.4}.stock-cost-dialog .stock-cost-dialog-note{font-size:12px;color:#777;margin:0 0 12px}.stock-cost-dialog form{max-width:300px;margin:auto;text-align:left}.stock-cost-dialog form>label{display:block;font-weight:600;font-size:13px;margin-bottom:10px}.stock-cost-amount{display:flex;border:1px solid #ddd;border-radius:8px;overflow:hidden;height:36px}.stock-cost-amount>span{padding:8px;background:#f5f5f5;border-right:1px solid #ddd}.stock-cost-amount input{min-width:0;width:100%;border:0;padding:8px 12px;text-align:right;font:inherit}.stock-cost-dialog-actions{display:flex;justify-content:center;gap:16px;margin-top:30px}.stock-cost-dialog-actions button{min-width:100px;min-height:36px;border:1px solid #ddd;border-radius:8px;background:#fff;color:#333;padding:8px 16px;font:inherit;cursor:pointer}.stock-cost-dialog-actions .primary{background:var(--color-primary,#be2026);color:white;border-color:transparent}.stock-cost-result{width:80px;height:80px;box-sizing:border-box;border:10px solid;border-radius:50%;margin:0 auto 30px;display:flex;align-items:center;justify-content:center;font-size:44px;color:#fff}.stock-cost-result.warning{background:#ffbf3e;border-color:#ffedc5}.stock-cost-result.success{background:#2fed92;border-color:#bcffd8}.stock-cost-dialog .stock-cost-dialog-error{color:#be2026;font-size:12px;margin:8px 0}.stock-cost-table th:nth-child(3){min-width:270px;box-sizing:border-box;padding:6px 8px;height:42px}.stock-cost-table th:nth-child(3) .stock-cost-head{width:100%;gap:12px;align-items:center}.stock-cost-table th:nth-child(3) .stock-cost-head>span{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:600;color:#444b54}.stock-cost-table th:nth-child(3) .stock-cost-help{margin-left:0}.stock-cost-table th:nth-child(3) .stock-cost-head>button{height:28px;min-height:28px;padding:0 16px;border:0;border-radius:9px;background:#ffeaec;color:#d60000;font-size:12px;font-weight:600;line-height:28px;box-shadow:none}.stock-cost-table th:nth-child(3) .stock-cost-head>span{font-weight:700}.stock-cost-table .stock-cost-head .stock-cost-help .stock-cost-info{background:transparent;border:0;border-radius:0;box-shadow:none;color:#999;padding:0;width:14px;height:14px;min-width:14px;min-height:14px;line-height:1}.stock-cost-table .stock-cost-head .stock-cost-help .stock-cost-info:hover,.stock-cost-table .stock-cost-head .stock-cost-help .stock-cost-info:active{background:transparent;color:#777}.stock-cost-info svg{display:block;flex-shrink:0}.stock-form .stock-cost-table{min-width:1260px;table-layout:auto}.stock-cost-table th:nth-child(3),.stock-cost-table td:nth-child(3){min-width:285px;width:285px;box-sizing:border-box}.stock-cost-table th:nth-child(5),.stock-cost-table td:nth-child(5){min-width:325px;width:325px;box-sizing:border-box}.stock-cost-table th:nth-child(3) .stock-cost-head,.stock-cost-table th:nth-child(5) .stock-cost-head{display:flex;align-items:center;justify-content:space-between;gap:16px;width:100%}.stock-cost-head>span,.stock-cost-head>button{flex-shrink:0}.stock-form .stock-cost-table{min-width:1050px}.stock-cost-table th:nth-child(3),.stock-cost-table td:nth-child(3){width:240px;min-width:240px}.stock-cost-table th:nth-child(5),.stock-cost-table td:nth-child(5){width:275px;min-width:275px}.stock-cost-table th:nth-child(3) .stock-cost-head,.stock-cost-table th:nth-child(5) .stock-cost-head{gap:10px}.stock-cost-table th:nth-child(3) .stock-cost-head>button,.stock-cost-table th:nth-child(5) .stock-cost-head>button{font-weight:700;padding:0 12px;height:28px;min-height:28px;line-height:28px}.stock-uom-help [role="tooltip"],.stock-cost-help [role="tooltip"]{display:none!important}.stock-screen-tooltip{position:fixed;z-index:10000;box-sizing:border-box;max-width:calc(100vw - 24px);max-height:calc(100dvh - 24px);overflow:auto;padding:10px 12px;background:#dedede;border-radius:8px;box-shadow:0 1px 5px #0002;color:#444;font:400 12px/1.4 var(--font-family,sans-serif);white-space:normal;overflow-wrap:anywhere;pointer-events:none}.stock-selling-heading{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}.stock-selling-heading button{flex-shrink:0}.stock-price-wrap{border:1px solid #e0e0e0;border-radius:8px}.stock-form .stock-price-table{min-width:1100px;width:100%;border-collapse:collapse}.stock-price-table th,.stock-price-table td{padding:10px 8px;border-right:1px solid #e3e3e3;border-bottom:1px solid #e3e3e3;font-size:12px}.stock-price-table th{background:#fff}.stock-price-table td:nth-child(2){background:#f5f5f5}.stock-price-table td input{width:100%;border:0;background:transparent;box-shadow:none;padding:0;height:24px;min-height:24px}.stock-price-table td .m-company-formfield>label{display:none}.stock-price-table td .m-company-formfield{gap:0}.stock-price-table td .m-location-select__trigger{border:0;background-color:transparent;padding-left:0;font-size:12px}.stock-price-table td{min-width:145px}.stock-price-table td:last-child{min-width:50px}.stock-price-table .m-location-select__popup{min-width:200px}.stock-day-picker{display:flex;justify-content:space-between;gap:8px;max-width:370px}.stock-day-circle{position:relative;display:inline-flex;cursor:pointer}.stock-day-circle input[type="checkbox"]{position:absolute!important;opacity:0;width:100%!important;height:100%!important;margin:0}.stock-day-circle>span{display:flex;align-items:center;justify-content:center;width:36px;height:36px;box-sizing:border-box;border:1px solid #e0e0e0;border-radius:50%;background:#f5f5f5;color:#666;font-size:15px;font-weight:600;pointer-events:none}.stock-day-circle input:checked+span{background:var(--color-primary);border-color:var(--color-primary);color:white}.stock-day-circle input:focus-visible+span{outline:2px solid var(--color-primary);outline-offset:3px}.stock-time-rows{display:flex;flex-direction:column;gap:14px}.stock-time-row{display:flex;align-items:center;gap:14px}.stock-time-row>span{font-size:12px;font-weight:500;flex:0 0 110px}.stock-time-range{display:flex;align-items:center;gap:8px;border:1px solid #e1e1e1;border-radius:8px;background:white;padding:10px 12px;min-width:0;max-width:300px}.stock-time-range>svg{color:#777;flex-shrink:0}.stock-time-range>span{color:#777;font-size:13px}.stock-time-range input{border:0;background:transparent;min-width:0;width:100%;font:inherit;font-size:13px;color:#333;padding:0;color-scheme:light}.stock-time-range input::-webkit-calendar-picker-indicator{width:12px;margin:0;cursor:pointer}@media(max-width:380px){.stock-day-picker{gap:5px}.stock-day-circle>span{width:32px;height:32px}.stock-time-row{gap:8px}.stock-time-row>span{flex-basis:92px}.stock-time-range{gap:5px;padding:10px 6px}}.m-location-select__popup.stock-price-popup{position:fixed;z-index:9999;right:auto;bottom:auto;box-sizing:border-box;background:#fff;border:1px solid #ddd;border-radius:8px;box-shadow:0 2px 8px #0002;overflow-y:auto}.stock-price-popup [role="option"]{padding:10px 15px;font-size:14px}.stock-price-table th:last-child,.stock-price-table td:last-child{text-align:left}.stock-price-table td:last-child .m-company-deletebtn{float:none;margin-left:0;margin-right:auto;display:inline-flex;justify-content:center;align-items:center}.stock-time-range input[type="time"]::-webkit-calendar-picker-indicator{display:none;-webkit-appearance:none}.stock-time-range input[type="time"]{appearance:none;-moz-appearance:textfield}.stock-time-rows,.stock-time-row{width:100%;box-sizing:border-box}.stock-time-row .stock-time-range{flex:1;max-width:none;width:auto;box-sizing:border-box}.stock-time-range input[type="time"]{flex:1;min-width:0;width:0}.stock-time-trigger{flex:1;min-width:0;padding:0;border:0;background:transparent;color:#333;font:400 13px var(--font-family,sans-serif);white-space:nowrap;cursor:pointer}.stock-time-trigger:focus-visible{outline:2px solid var(--color-primary);outline-offset:3px}.stock-clock-popup{position:fixed;z-index:9999;display:flex;gap:8px;box-sizing:border-box;padding:16px 16px 12px;background:white;border:1px solid #e3e3e3;border-radius:10px;box-shadow:0 3px 12px #0002}.stock-clock-col{flex:1;min-width:0;text-align:center}.stock-clock-wheel{position:relative;height:132px;overflow-y:auto;scroll-snap-type:y mandatory;scrollbar-width:none;padding:44px 0;box-sizing:border-box;overscroll-behavior:contain}.stock-clock-wheel::-webkit-scrollbar{display:none}.stock-clock-wheel button{display:block;width:100%;height:44px;min-height:44px;border:0;border-radius:5px;background:white;color:#999;font:400 14px var(--font-family,sans-serif);scroll-snap-align:center;cursor:pointer}.stock-clock-wheel button[aria-selected="true"]{background:#f5f5f5;color:#333;font-weight:600}.stock-clock-col>span{display:block;margin-top:12px;font-size:11px;color:#777}.stock-condiment-toolbar{display:flex;justify-content:flex-end}.stock-condiment-wrap{border:1px solid #e0e0e0;border-radius:8px}.stock-form .stock-condiment-table{min-width:1050px;width:100%;border-collapse:collapse}.stock-condiment-table th,.stock-condiment-table td{padding:10px 8px;border-right:1px solid #e3e3e3;border-bottom:1px solid #e3e3e3;font-size:12px;text-align:left}.stock-condiment-table th{background:#fff}.stock-condiment-table td:nth-child(3){background:#f5f5f5}.stock-condiment-table td>input{border:0;background:transparent;box-shadow:none;width:100%;min-width:80px;height:24px;font:inherit}.stock-condiment-table .m-company-formfield>label{display:none}.stock-condiment-table .m-company-formfield{gap:0}.stock-condiment-table .m-location-select__trigger{border:0;background-color:transparent;padding-left:0;font-size:12px;min-width:165px}.stock-condiment-table .stock-active-switch{display:block}.stock-condiment-table td:last-child{min-width:50px}.stock-fpos-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:28px}.stock-fpos-grid h3{font-size:14px;font-weight:600;margin:0 0 24px}.stock-fpos-tax{min-width:0}.stock-fpos-default{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:22px;font-size:14px}.stock-fpos-default .stock-active-switch{display:block}.stock-fpos-tax #item-tax-fields{display:flex;flex-direction:column;gap:16px}.stock-fpos-tax #item-tax-fields[hidden]{display:none}.stock-fpos-checks{display:grid;grid-template-columns:minmax(0,1fr);gap:20px}.stock-fpos-checks label{font-weight:400;color:#666}@media(min-width:680px){.stock-fpos-grid{grid-template-columns:1fr 1fr;gap:40px}.stock-fpos-checks{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(min-width:1100px){.stock-fpos-checks{grid-template-columns:repeat(3,minmax(0,1fr))}}.stock-condiment-table{table-layout:fixed}.stock-condiment-table th:last-child{width:9%}.stock-condiment-table th:not(:last-child){width:15.166%}.stock-condiment-table .m-location-select__trigger{min-width:0;width:100%}.stock-condiment-table td:first-child input{text-align:right}.stock-condiment-table td:nth-child(5) input,.stock-condiment-table td:nth-child(6) input{text-align:left}.stock-condiment-table th:last-child,.stock-condiment-table td:last-child{text-align:left}.stock-condiment-table td:last-child .m-company-deletebtn{margin:0}.stock-condiment-table tr:last-child td{border-bottom:0}.stock-condiment-table th:last-child,.stock-condiment-table td:last-child{border-right:0}.stock-queue-wrap,.stock-balance-wrap{border:1px solid #e0e0e0;border-radius:8px}.stock-form .stock-queue-table,.stock-form .stock-balance-table{min-width:1050px;width:100%;border-collapse:collapse;table-layout:fixed}.stock-queue-table th,.stock-queue-table td,.stock-balance-table th,.stock-balance-table td{padding:10px 8px;font-size:12px;text-align:left;border-right:1px solid #e3e3e3;border-bottom:1px solid #e3e3e3}.stock-queue-table th,.stock-balance-table th{background:white;font-weight:600}.stock-queue-table th:last-child{width:9%}.stock-queue-table td input,.stock-balance-table td input{border:0;background:transparent;box-shadow:none;width:100%;min-width:0;height:22px;min-height:22px;padding:0;font:inherit;text-align:left!important}.stock-queue-table .m-company-formfield>label{display:none}.stock-queue-table .m-company-formfield{gap:0}.stock-queue-table .m-location-select__trigger{border:0;background-color:transparent;min-width:0;width:100%;font-size:12px;padding-left:6px}.stock-queue-table td:last-child .m-company-deletebtn{margin:0}.stock-queue-status{display:inline-flex;border-radius:20px;padding:4px 16px;color:#2acb51;background:#ecfdf0;font-size:12px}.stock-queue-status.is-inactive{color:#888;background:#f2f2f2}.stock-balance-meter{display:flex;align-items:center;gap:10px;color:#35c855}.stock-balance-track{display:block;width:64px;height:4px;border-radius:4px;background:#e3e3e3;overflow:hidden}.stock-balance-track>span{display:block;height:100%;border-radius:inherit;background:currentColor}.stock-balance-meter.is-low{color:#ff9d00}.stock-balance-meter.is-empty{color:#ff414b}.stock-balance-table .stock-status{color:#2acb51;background:#ecfdf0;padding:5px 16px;font-size:12px;white-space:nowrap}.stock-balance-table .stock-status--low{color:#ff9d00;background:#fff3dc}.stock-balance-table .stock-status--out{color:#ff414b;background:#ffedef}.stock-queue-table tr:last-child td,.stock-balance-table tr:last-child td{border-bottom:0}.stock-queue-table th:last-child,.stock-queue-table td:last-child,.stock-balance-table th:last-child,.stock-balance-table td:last-child{border-right:0}.stock-set-card{padding:16px;border-radius:10px;background:white;box-shadow:0 1px 8px #0000000d;display:flex;flex-direction:column;gap:16px;font-size:14px}.stock-set-wrap{border:1px solid #e0e0e0;border-radius:8px}.stock-form .stock-set-table{min-width:1050px;width:100%;table-layout:fixed;border-collapse:collapse}.stock-set-table th,.stock-set-table td,.stock-pulldown-table th,.stock-pulldown-table td{border-right:1px solid #e3e3e3;border-bottom:1px solid #e3e3e3;padding:10px 8px;text-align:left;font-size:12px}.stock-set-table th,.stock-pulldown-table th{background:white;font-weight:600}.stock-set-table td:nth-child(2),.stock-set-table td:nth-child(5),.stock-set-table td:nth-child(6),.stock-pulldown-table td:nth-child(2){background:#f5f5f5}.stock-set-table td:nth-child(n+3):not(:last-child){text-align:right}.stock-set-table td input{border:0;background:transparent;padding:0;width:100%;min-width:0;font:inherit}.stock-set-table .m-company-formfield>label,.stock-pulldown-table .m-company-formfield>label{display:none}.stock-set-table .m-company-formfield,.stock-pulldown-table .m-company-formfield{gap:0}.stock-set-table .m-location-select__trigger,.stock-pulldown-table .m-location-select__trigger{border:0;background-color:transparent;min-width:0;width:100%;font-size:12px;padding-left:6px}.stock-pulldown-enabled,.stock-pulldown-required{display:flex;align-items:center;gap:26px;font-size:14px}.stock-set-card [hidden]{display:none!important}.stock-pulldown-card{background:#f8f8f8;border-radius:16px;padding:16px;max-width:790px;display:flex;flex-direction:column;gap:16px;margin-bottom:16px}.stock-pulldown-delete,.stock-pulldown-add{display:flex;justify-content:flex-end}.stock-pulldown-fields{display:flex;flex-direction:column;gap:10px}.stock-pulldown-card .m-company-formfield{display:grid;grid-template-columns:175px minmax(0,1fr);align-items:center;gap:12px}.stock-pulldown-required>span:first-child{width:161px;flex-shrink:0}.stock-pulldown-add button{min-height:26px;padding:0 5px;font-size:20px}.stock-form .stock-pulldown-table{min-width:560px;width:100%;border-collapse:collapse}.stock-pulldown-table .m-company-deletebtn img{width:18px;height:18px}.stock-set-table tr:last-child td,.stock-pulldown-table tr:last-child td{border-bottom:0}.stock-set-table th:last-child,.stock-set-table td:last-child,.stock-pulldown-table th:last-child,.stock-pulldown-table td:last-child{border-right:0}@media(max-width:600px){.stock-pulldown-card .m-company-formfield{display:flex;flex-direction:column;align-items:stretch}.stock-pulldown-required>span:first-child{width:auto}.stock-set-card{padding:12px}}.stock-form .stock-raw-table{min-width:700px;width:100%;table-layout:fixed;border-collapse:collapse}.stock-raw-table th,.stock-raw-table td{font-size:12px;text-align:left;padding:12px 8px;border-right:1px solid #e3e3e3;border-bottom:1px solid #e3e3e3}.stock-raw-table th{background:white;font-weight:600}.stock-raw-table tr:last-child td{border-bottom:0}.stock-raw-table td:last-child,.stock-raw-table th:last-child{border-right:0}.stock-raw-edit{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1fr) minmax(0,1fr) 30px;gap:8px;margin-bottom:12px}.stock-raw-edit input,.stock-raw-edit select{min-width:0;width:100%;padding:8px;border:1px solid #ddd;border-radius:6px}.stock-form .stock-balance-table{table-layout:auto;min-width:max-content;width:100%}.stock-balance-table th,.stock-balance-table td{white-space:nowrap;width:auto}.stock-form .stock-balance-table td input{width:90px;min-width:70px}.stock-balance-table th:first-child,.stock-balance-table td:first-child{width:1%;white-space:nowrap}.stock-form table thead th{background:#fff!important}.stock-form .stock-balance-table th:first-child,.stock-form .stock-balance-table td:first-child{width:auto;min-width:240px;max-width:none;white-space:nowrap;overflow-wrap:normal;word-break:normal}.stock-form .stock-balance-table{min-width:1100px;table-layout:auto}.stock-balance-table th,.stock-balance-table td{box-sizing:border-box}.stock-form .stock-balance-table{min-width:max-content;width:100%;table-layout:auto}.stock-form .stock-balance-table th:first-child,.stock-form .stock-balance-table td:first-child{width:1%;min-width:0;max-width:none;white-space:nowrap}.stock-form .stock-balance-table th,.stock-form .stock-balance-table td{padding-left:8px;padding-right:8px;overflow:hidden;text-overflow:clip}.stock-form .stock-balance-table td input{width:70px;min-width:0}.stock-form .stock-balance-table{width:max-content;min-width:0;max-width:none;table-layout:auto}.stock-form .stock-balance-table th,.stock-form .stock-balance-table td{width:auto;min-width:0;max-width:none;white-space:nowrap;padding:10px 12px}.stock-form .stock-balance-table th:first-child,.stock-form .stock-balance-table td:first-child{width:auto;min-width:0}.stock-form .stock-balance-table td input{width:65px;min-width:0}.stock-balance-wrap{align-self:flex-start;width:fit-content;max-width:100%}#stock-rows td.stock-item-description{text-align:left!important}
+/* Table labels and quantities read left; monetary amounts read right. */
+#page-stock table th,#page-stock table td,#page-stock table td input,#page-stock table td select,#page-stock table td .m-location-select__trigger{text-align:left!important}
+#page-stock .stock-price-table td:nth-child(n+3):nth-child(-n+6),#page-stock .stock-price-table td:nth-child(n+3):nth-child(-n+6) input,
+#page-stock .stock-cost-table td:nth-child(2),#page-stock .stock-cost-table td:nth-child(3),#page-stock .stock-cost-table td:nth-child(3) input,#page-stock .stock-cost-table td:nth-child(5),#page-stock .stock-cost-table td:nth-child(5) input,
+#page-stock .stock-set-table td:nth-child(5),#page-stock .stock-set-table td:nth-child(6){text-align:right!important}
+#page-stock button[data-action="edit-raw-materials"]{display:inline-flex;align-items:center;justify-content:center;gap:14px;width:100px;height:36px;min-height:36px;padding:0 16px;border:1px solid #dedede;border-radius:8px;background:#fff;color:#333;box-shadow:none;font-size:14px;font-weight:500;line-height:1}#page-stock button[data-action="edit-raw-materials"] svg{flex-shrink:0}#page-stock #add-pulldown-group{margin-left:auto;flex:0 0 auto}#page-stock .stock-set-card>.stock-inline-actions:has(#add-pulldown-group){width:100%}#stock-confirm.stock-save-confirm{width:min(440px,calc(100vw - 32px));box-sizing:border-box;border:1px solid #e2e2e2;border-radius:8px;background:white;padding:24px 28px;box-shadow:0 8px 36px #0003;text-align:center}#stock-confirm.stock-save-confirm .m-confirm__title{font-size:20px;font-weight:600;margin:0 0 46px}#stock-confirm.stock-save-confirm .m-confirm__message{font-size:14px;margin:0 0 46px;color:#333}#stock-confirm.stock-save-confirm .m-confirm__actions{display:flex;justify-content:center;gap:16px}#stock-confirm.stock-save-confirm .m-confirm__btn{width:100px;min-height:36px;border-radius:8px;font-size:14px}#stock-confirm.stock-save-confirm .m-confirm__btn--yes{background:#bd0000;color:white}.stock-saved-dialog{padding:14px 28px 22px}.stock-saved-dialog .stock-cost-result{margin:0 auto 30px}.stock-saved-dialog p{margin:0 0 30px}.stock-saved-dialog .stock-cost-dialog-actions{margin-top:0}.stock-view-bom .stock-toolbar>#stock-add{flex:0 0 auto;width:auto;padding:0 16px}.stock-view-bom .stock-table{min-width:820px;width:100%}.stock-view-bom .stock-table>thead>tr>th,.stock-view-bom .stock-table>tbody>tr>td{border-right:1px solid #e3e3e3;text-align:left}.stock-view-bom .stock-table>thead>tr>th:last-child{width:100px}.stock-view-bom .stock-detail>td{background:#fff!important}.stock-bom-detail{padding:6px 24px 4px;font-size:12px}.stock-bom-detail>strong{display:block;margin-bottom:8px;font-weight:600}.stock-bom-material-wrap{border:1px solid #e3e3e3;border-radius:8px;box-shadow:0 1px 7px #0001}.stock-bom-material-table{border-collapse:collapse;width:100%;min-width:650px;table-layout:fixed}.stock-bom-material-table th,.stock-bom-material-table td{font-size:12px;padding:14px 8px!important;border-right:1px solid #e3e3e3;border-bottom:1px solid #e3e3e3;background:#fff!important;text-align:left!important}.stock-bom-material-table th{background:#f5f5f5!important;font-weight:600}.stock-bom-material-table tr:last-child td{border-bottom:0}.stock-bom-material-table th:last-child,.stock-bom-material-table td:last-child{border-right:0}.stock-bom-toolbar{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}.stock-bom-toolbar>input{width:min(360px,100%)}.stock-bom-toolbar>div{display:flex;gap:16px;margin-left:auto}.stock-form .stock-bom-edit-table{width:100%;min-width:800px;table-layout:fixed;border-collapse:collapse}.stock-bom-edit-table th,.stock-bom-edit-table td{font-size:12px;padding:10px 8px;border-right:1px solid #e3e3e3;border-bottom:1px solid #e3e3e3}.stock-bom-edit-table th{background:#fff}.stock-bom-edit-table td:nth-child(2){background:#f5f5f5}.stock-bom-edit-table .m-company-formfield>label{display:none}.stock-bom-edit-table .m-company-formfield{gap:0}.stock-bom-edit-table .m-company-forminput{border:0;background-color:transparent;min-width:0;width:100%;padding-left:0;font-size:12px}.stock-bom-edit-table tfoot td{text-align:right!important}.stock-bom-fields input[readonly]{background:#f5f5f5}.stock-bom-edit-table tr[hidden]{display:none}@media(min-width:680px){.stock-bom-fields .m-company-formfield{display:grid;grid-template-columns:150px minmax(0,1fr);align-items:center}}#stock-class-tabs a.is-active{background:transparent;color:var(--color-primary)}.stock-group-fields{gap:16px}.stock-group-fields .m-company-formfield{max-width:830px}.stock-group-fields input[readonly]{background:#f5f5f5}@media(min-width:680px){.stock-group-fields .m-company-formfield{display:grid;grid-template-columns:175px minmax(0,1fr);align-items:center}}.m-company-headercard:has(#stock-class-tabs:not([hidden])){padding-bottom:0;overflow:hidden}#stock-class-tabs{padding:16px 0 0;gap:40px;overflow-x:auto;margin:0;background:#fff}#stock-class-tabs a{display:inline-flex;align-items:center;gap:10px;padding:10px 4px 12px;color:#666;font-size:14px;font-weight:600;white-space:nowrap;border-radius:0;background:transparent}#stock-class-tabs a svg{flex-shrink:0}#stock-class-tabs a.is-active{color:#c91c28;background:transparent}#stock-class-tabs a:focus-visible{outline:2px solid #c91c28;outline-offset:-2px}#stock-import[hidden]{display:none!important}#stock-class-tabs{padding-left:12px;padding-right:12px}#stock-class-tabs a{padding-left:0;padding-right:0}.stock-cg-fields{display:grid;grid-template-columns:minmax(0,1fr);gap:16px}.stock-cg-table{width:100%;min-width:650px;border-collapse:collapse}.stock-cg-table th,.stock-cg-table td{padding:10px 8px;border:1px solid #e3e3e3;text-align:left;font-size:12px}.stock-cg-table td input{border:0;width:100%;min-width:0;background:transparent}.stock-cg-table th:last-child{width:90px}@media(min-width:900px){.stock-cg-fields{grid-template-columns:1fr 1fr}.stock-cg-fields .m-company-formfield{display:grid;grid-template-columns:210px minmax(0,1fr);align-items:center}.stock-cg-fields .m-company-formfield:first-child{grid-row:1 / 3;align-self:start}.stock-cg-fields .m-company-formfield:last-child{grid-column:2}}.stock-condiment-selection{position:fixed;inset:0;z-index:1000;background:var(--color-white);color:var(--text-primary);padding:20px 16px;overflow:auto}.stock-condiment-selection header{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}.stock-condiment-selection h2{font-size:16px;margin:0}.stock-condiment-selection header button{border:0;background:none;font-size:26px;color:#666;cursor:pointer}.stock-condiment-selection table{border-collapse:collapse;width:100%;min-width:620px;table-layout:fixed}.stock-condiment-selection th,.stock-condiment-selection td{padding:12px 15px;border-right:1px solid #e3e3e3;border-bottom:1px solid #e3e3e3;font-size:13px;text-align:left}.stock-condiment-selection label{display:flex;align-items:center;gap:12px}.stock-condiment-selection input{accent-color:#be2026;width:17px;height:17px}.stock-condiment-selection footer{display:flex;justify-content:center;gap:16px;margin-top:20px}.stock-condiment-selection footer button{min-width:100px;padding:9px 16px;border:1px solid #ddd;border-radius:8px;background:#fff;color:#333;font:inherit;cursor:pointer}.stock-condiment-selection footer [data-save]{background:#be2026;color:#fff;border-color:#be2026}.stock-condiment-selection{padding-top:0}.stock-condiment-selection header{display:grid;grid-template-columns:40px minmax(0,1fr) 40px;align-items:center;min-height:72px;margin:0 -16px 20px;padding:0 16px;border-bottom:1px solid #eee;background:var(--color-white)}.stock-condiment-selection header h2{text-align:center;font-size:18px;font-weight:600;margin:0}.stock-condiment-selection header button{display:flex;align-items:center;justify-content:center;width:40px;height:40px;padding:0;color:#999;border:0;background:transparent}.stock-condiment-selection{display:flex;flex-direction:column;height:100dvh;padding:0;background:#f5f6f8;overflow:hidden}.stock-condiment-selection header{flex-shrink:0;min-height:72px;margin:0;padding:0 16px;border-bottom:1px solid #eee;background:#fff}.stock-condiment-selection>.stock-set-wrap{flex:0 1 auto;min-height:0;margin:14px 12px;padding:12px;background:#fff;border:0;border-radius:12px;box-shadow:0 2px 9px #00000008;max-width:calc(100% - 24px);overflow:auto}.stock-condiment-selection table{background:#fff;border:1px solid #e3e3e3}.stock-condiment-selection footer{flex-shrink:0;display:flex;gap:12px;justify-content:stretch;margin: auto 0 0;padding:12px 13px max(12px,env(safe-area-inset-bottom));border-top:1px solid #e6e6e6;background:#fff}.stock-condiment-selection footer button{flex:1;min-width:0;min-height:38px;margin:0;padding:9px 16px;border:1px solid #e3e3e3;border-radius:8px;background:#fff;color:#333;font-size:14px}.stock-condiment-selection footer [data-save]{background:#be2026;border-color:#be2026;color:#fff}.stock-condiment-selection input[type="checkbox"]{appearance:none;-webkit-appearance:none;display:inline-grid;place-content:center;width:18px;height:18px;min-width:18px;flex-shrink:0;margin:0;border:1.5px solid #b9bec5;border-radius:5px;background:#fff;vertical-align:middle;cursor:pointer}.stock-condiment-selection input[type="checkbox"]:checked,.stock-condiment-selection input[type="checkbox"]:indeterminate{background:var(--color-primary);border-color:var(--color-primary)}.stock-condiment-selection input[type="checkbox"]:checked::after{content:"";width:5px;height:9px;border:solid #fff;border-width:0 2px 2px 0;transform:translateY(-1px) rotate(45deg)}.stock-condiment-selection input[type="checkbox"]:indeterminate::after{content:"";width:8px;height:2px;background:#fff}.stock-condiment-selection input[type="checkbox"]:focus-visible{outline:2px solid var(--color-primary);outline-offset:3px}
+/* POS uses the shared mobile navigation, typography and action sizes. */
+.pos-tabs{display:flex;overflow-x:auto;gap:8px;padding:0 16px 12px;scrollbar-width:thin}
+.pos-tabs button{white-space:nowrap;border:0;background:transparent;color:var(--m-text-secondary,#646464);font:inherit;font-size:14px;padding:10px 12px;border-bottom:2px solid transparent}
+.pos-tabs button.is-active{color:#c51b29;border-color:#c51b29;font-weight:600}
+.pos-section{background:var(--m-card-bg,#fff);border-radius:12px;padding:12px;margin-bottom:14px;box-shadow:0 2px 8px #00000008}
+.pos-section summary{font-size:14px;font-weight:600;cursor:pointer;background:var(--m-input-bg,#f5f5f5);padding:10px 12px;border-radius:6px;list-style:none;display:flex;align-items:center;justify-content:space-between}
+.pos-section summary::after{content:'⌃';color:#646464;font-size:18px;font-weight:400}.pos-section:not([open]) summary::after{content:'⌄'}
+.pos-fields{display:grid;gap:18px;padding:18px 2px 4px}.pos-fields .m-company-formfield{display:flex;flex-direction:column;gap:8px}
+.pos-fields label{font-size:14px;font-weight:400}.pos-fields .m-company-forminput{width:100%;min-width:0;height:44px;font-family:inherit;font-size:14px}
+.pos-fields input[readonly]{background:#f5f5f5;color:#646464}.pos-fields small{font-size:12px;color:#888}
+.pos-check{display:flex;align-items:center;gap:12px;min-height:38px}.pos-check span:first-child{flex:1}.pos-check input{width:18px;height:18px;accent-color:#c51b29}
+.pos-toggle input{position:absolute;opacity:0;width:1px;height:1px}.pos-switch{display:none}.pos-toggle .pos-switch{display:block;position:relative;flex:none;width:40px;height:22px;border-radius:20px;background:#bbb;transition:background .15s}
+.pos-toggle .pos-switch::after{content:'';position:absolute;width:18px;height:18px;top:2px;left:2px;background:white;border-radius:50%;transition:transform .15s}.pos-toggle input:checked+.pos-switch{background:#c51b29}.pos-toggle input:checked+.pos-switch::after{transform:translateX(18px)}.pos-toggle input:focus-visible+.pos-switch{outline:2px solid #c51b29;outline-offset:3px}
+.pos-status{display:inline-block;padding:4px 9px;border-radius:20px;background:#f4f4f4;color:#777;font-size:12px}.pos-status.is-active{color:#138553;background:#e7f8ee}
+.pos-error{color:#c51b29;padding:10px 2px;font-size:13px}.pos-note{color:#777;font-size:12px;margin:0 0 12px}.pos-tax-system{display:flex;align-items:center;gap:16px;background:white;border-radius:8px;padding:12px 16px;font-size:14px;margin-bottom:14px}.pos-tax-system[hidden]{display:none}
+.pos-payment-preview{width:80px;height:64px;object-fit:contain}.pos-empty{text-align:center!important;padding:30px!important;color:#888}
+#stock-add[hidden]{display:none!important}#stock-form{padding-bottom:0}#stock-editor{padding-bottom:84px}#page-stock .stock-table{min-width:650px}
+@media(min-width:768px){.pos-fields{grid-template-columns:1fr 1fr;gap:20px 32px}.pos-section{padding:16px}.pos-tabs{gap:20px}}
+</style></head><body>
+  <div class="m-login">
+    <div class="m-view m-view--dashboard m-view--reports">
+
+      <!-- Nav drawer (full-screen) -->
+      <aside class="m-drawer" id="dash-drawer">
+        <div class="m-drawer__header">
+          <div class="m-dash-storebar">
+            <button type="button" class="m-dash-store-select" id="store-select-oiso">
+              <svg class="m-dash-store-select__icon" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13.7273 12.5556H15V14H1V12.5556H2.27273V1.72222C2.27273 1.53068 2.33977 1.34698 2.45911 1.21153C2.57846 1.07609 2.74032 1 2.90909 1H9.27273C9.4415 1 9.60336 1.07609 9.7227 1.21153C9.84205 1.34698 9.90909 1.53068 9.90909 1.72222V12.5556H11.1818V5.33333H13.0909C13.2597 5.33333 13.4215 5.40942 13.5409 5.54487C13.6602 5.68031 13.7273 5.86401 13.7273 6.05556V12.5556ZM4.81818 6.77778V8.22222H7.36364V6.77778H4.81818ZM4.81818 3.88889V5.33333H7.36364V3.88889H4.81818Z" fill="currentColor"/></svg>
+              Oiso
+              <svg class="m-dash-chevron" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <button type="button" class="m-dash-store-select" id="drawer-store-select">
+              <img src="assets/nav-store.svg" alt="" class="m-dash-store-select__icon" />
+              <span id="drawer-store-label">All Store</span>
+              <svg class="m-dash-chevron" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+          </div>
+
+          <button type="button" class="m-drawer__close" id="dash-drawer-close" aria-label="Close menu">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          </button>
+        </div>
+
+        
+<nav class="m-drawer-nav">
+
+          <div class="m-drawer-group">
+            <button type="button" class="m-drawer-nav__item">
+              <span class="m-drawer-nav__icon"><img src="assets/nav-dashboard.svg" alt="" /></span>
+              <span class="m-drawer-nav__label">Dashboard</span>
+              <span class="m-drawer-nav__chevron"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
+            </button>
+            <div class="m-drawer-nav__panel">
+              <a href="dashboard.html" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Sales Dashboard</a>
+            </div>
+          </div>
+
+          <div class="m-drawer-group">
+            <button type="button" class="m-drawer-nav__item">
+              <span class="m-drawer-nav__icon"><img src="assets/nav-report.svg" alt="" /></span>
+              <span class="m-drawer-nav__label">Reports</span>
+              <span class="m-drawer-nav__chevron"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
+            </button>
+            <div class="m-drawer-nav__panel">
+              <a href="reports.html" id="sub-operation" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Operation</a>
+              <a href="reports.html?view=txd" id="sub-transaction" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Transaction</a>
+            </div>
+          </div>
+
+          <div class="m-drawer-group">
+            <button type="button" class="m-drawer-nav__item">
+              <span class="m-drawer-nav__icon"><img src="assets/nav-company.svg" alt="" /></span>
+              <span class="m-drawer-nav__label">Company</span>
+              <span class="m-drawer-nav__chevron"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
+            </button>
+            <div class="m-drawer-nav__panel">
+              <a href="company.html" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Company Structure</a>
+              <a href="company-classification.html" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Classification</a>
+            </div>
+          </div>
+
+          <div class="m-drawer-group is-expanded">
+            <button type="button" class="m-drawer-nav__item">
+              <span class="m-drawer-nav__icon"><img src="assets/nav-stock.svg" alt="" /></span>
+              <span class="m-drawer-nav__label">Stock</span>
+              <span class="m-drawer-nav__chevron"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
+            </button>
+            <div class="m-drawer-nav__panel">
+              <a href="stock.html?view=items" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Item</a>
+              <a href="stock.html?view=bom" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Bill of Materials</a>
+              <a href="stock.html?view=groups" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Classification</a>
+            </div>
+          </div>
+
+          <div class="m-drawer-group">
+            <button type="button" class="m-drawer-nav__item">
+              <span class="m-drawer-nav__icon"><img src="assets/nav-condiment.svg" alt="" /></span>
+              <span class="m-drawer-nav__label">Condiment</span>
+              <span class="m-drawer-nav__chevron"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
+            </button>
+            <div class="m-drawer-nav__panel">
+              <a href="condiment.html" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Group</a>
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Item</a>
+            </div>
+          </div>
+
+          <div class="m-drawer-group">
+            <button type="button" class="m-drawer-nav__item">
+              <span class="m-drawer-nav__icon"><img src="assets/nav-pos.svg" alt="" /></span>
+              <span class="m-drawer-nav__label">POS</span>
+              <span class="m-drawer-nav__chevron"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
+            </button>
+            <div class="m-drawer-nav__panel">
+              <a href="pos.html?view=shift" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Shift</a>
+              <a href="pos.html?view=payment" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Payment</a>
+              <a href="pos.html?view=tax" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Tax</a>
+              <a href="pos.html?view=money" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Money Note</a>
+              <a href="pos.html?view=discount" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Discount</a>
+            </div>
+          </div>
+
+          <div class="m-drawer-group">
+            <button type="button" class="m-drawer-nav__item">
+              <span class="m-drawer-nav__icon"><img src="assets/nav-usermanagement.svg" alt="" /></span>
+              <span class="m-drawer-nav__label">User Management</span>
+              <span class="m-drawer-nav__chevron"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
+            </button>
+            <div class="m-drawer-nav__panel">
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>User Profile</a>
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Role Management</a>
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Classification</a>
+            </div>
+          </div>
+
+          <div class="m-drawer-group">
+            <button type="button" class="m-drawer-nav__item">
+              <span class="m-drawer-nav__icon"><img src="assets/nav-customer.svg" alt="" /></span>
+              <span class="m-drawer-nav__label">Customer</span>
+              <span class="m-drawer-nav__chevron"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
+            </button>
+            <div class="m-drawer-nav__panel">
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Details</a>
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Discount Type</a>
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Closing</a>
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Classification</a>
+            </div>
+          </div>
+
+          <div class="m-drawer-group">
+            <button type="button" class="m-drawer-nav__item">
+              <span class="m-drawer-nav__icon"><img src="assets/nav-inventory.svg" alt="" /></span>
+              <span class="m-drawer-nav__label">Inventory</span>
+              <span class="m-drawer-nav__chevron"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
+            </button>
+            <div class="m-drawer-nav__panel">
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Transaction</a>
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Production</a>
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Stock Take</a>
+            </div>
+          </div>
+
+          <div class="m-drawer-group">
+            <button type="button" class="m-drawer-nav__item">
+              <span class="m-drawer-nav__icon"><img src="assets/nav-supplier.svg" alt="" /></span>
+              <span class="m-drawer-nav__label">Supplier</span>
+              <span class="m-drawer-nav__chevron"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
+            </button>
+            <div class="m-drawer-nav__panel">
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Transaction</a>
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Details</a>
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Classification</a>
+            </div>
+          </div>
+
+          <div class="m-drawer-group">
+            <button type="button" class="m-drawer-nav__item">
+              <span class="m-drawer-nav__icon"><img src="assets/nav-emenu.svg" alt="" /></span>
+              <span class="m-drawer-nav__label">E-Menu</span>
+              <span class="m-drawer-nav__chevron"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
+            </button>
+            <div class="m-drawer-nav__panel">
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Menu</a>
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Promotion</a>
+            </div>
+          </div>
+
+          <div class="m-drawer-group">
+            <button type="button" class="m-drawer-nav__item">
+              <span class="m-drawer-nav__icon"><img src="assets/nav-crm.svg" alt="" /></span>
+              <span class="m-drawer-nav__label">CRM &amp; Promotion</span>
+              <span class="m-drawer-nav__chevron"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
+            </button>
+            <div class="m-drawer-nav__panel">
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>CRM</a>
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Promotion</a>
+            </div>
+          </div>
+
+          <div class="m-drawer-group">
+            <button type="button" class="m-drawer-nav__item">
+              <span class="m-drawer-nav__icon"><img src="assets/nav-settings.svg" alt="" /></span>
+              <span class="m-drawer-nav__label">Settings</span>
+              <span class="m-drawer-nav__chevron"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
+            </button>
+            <div class="m-drawer-nav__panel">
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Stock</a>
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>E-Menu</a>
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Preferences</a>
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Inventory</a>
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Supplier</a>
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Kitchen Printing</a>
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Miscellaneous</a>
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>POS</a>
+            </div>
+          </div>
+
+          <div class="m-drawer-group">
+            <button type="button" class="m-drawer-nav__item">
+              <span class="m-drawer-nav__icon"><img src="assets/nav-housekeeping.svg" alt="" /></span>
+              <span class="m-drawer-nav__label">Housekeeping</span>
+              <span class="m-drawer-nav__chevron"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
+            </button>
+            <div class="m-drawer-nav__panel">
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Housekeeping</a>
+            </div>
+          </div>
+
+        </nav>
+      </aside>
+
+      <header class="m-dash-topbar" id="main-topbar">
+        <button type="button" class="m-dash-icon-btn m-dash-menu-btn" aria-label="Menu">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+
+        <div class="m-dash-brand">
+          <img src="assets/oiso-logo.svg" alt="OiSO" class="m-dash-brand__logo" />
+        </div>
+
+        <div class="m-dash-topbar__right">
+          <button type="button" class="m-dash-icon-btn m-dash-icon-btn--alert" id="notif-btn" aria-label="Notifications">
+            <img src="assets/btn-alert.svg" alt="" class="m-dash-icon-btn__img" />
+          </button>
+          <button type="button" class="m-avatar-btn" id="avatar-btn" aria-label="Account menu">
+            <img src="assets/img_profile.svg" alt="Profile" class="m-dash-avatar" />
+          </button>
+        </div>
+      </header>
+
+
+
+
+
+
+
+      <!-- Full-screen: notifications (shared template — same on every page) -->
+      <div class="m-notif-sheet" id="notif-sheet">
+        <div class="m-notif-sheet__head">
+          <p class="m-notif-sheet__title">Notifications</p>
+          <button type="button" class="m-notif-sheet__close" id="notif-sheet-close" aria-label="Close">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          </button>
+        </div>
+
+        <div class="m-notif-sheet__body">
+          <div class="m-notif-sheet__section-row">
+            <span class="m-notif-sheet__section-label">Today</span>
+            <button type="button" class="m-notif-sheet__readall">
+              <img src="assets/notif-readall.svg" alt="" width="24" height="24" />
+              Read All
+            </button>
+          </div>
+
+          <button type="button" class="m-notif-item m-notif-item--unread">
+            <span class="m-notif-item__icon"><img src="assets/notif-unread.svg" alt="" class="m-notif-item__icon-img" /></span>
+            <span class="m-notif-item__text">Stock In #STK-1009 is pending approval.</span>
+            <span class="m-notif-item__time">09:00</span>
+          </button>
+          <button type="button" class="m-notif-item">
+            <span class="m-notif-item__icon"><img src="assets/notif-read.svg" alt="" class="m-notif-item__icon-img" /></span>
+            <span class="m-notif-item__text">Stock In #STK-1010 is pending approval.</span>
+            <span class="m-notif-item__time">11 Nov</span>
+          </button>
+          <button type="button" class="m-notif-item">
+            <span class="m-notif-item__icon"><img src="assets/notif-read.svg" alt="" class="m-notif-item__icon-img" /></span>
+            <span class="m-notif-item__text m-notif-item__text--truncate">Stock In record #STK-1008 has been successfully...</span>
+            <span class="m-notif-item__time">17 Nov</span>
+          </button>
+          <button type="button" class="m-notif-item">
+            <span class="m-notif-item__icon"><img src="assets/notif-read.svg" alt="" class="m-notif-item__icon-img" /></span>
+            <span class="m-notif-item__text">Stock In #STK-1007 is pending approval.</span>
+            <span class="m-notif-item__time">20 Nov</span>
+          </button>
+
+          <span class="m-notif-sheet__section-label m-notif-sheet__section-label--earlier">Earlier</span>
+
+          <button type="button" class="m-notif-item m-notif-item--unread">
+            <span class="m-notif-item__icon"><img src="assets/notif-unread.svg" alt="" class="m-notif-item__icon-img" /></span>
+            <span class="m-notif-item__text">Stock In #STK-1006 is pending approval.</span>
+            <span class="m-notif-item__time">22 Oct</span>
+          </button>
+          <button type="button" class="m-notif-item m-notif-item--unread">
+            <span class="m-notif-item__icon"><img src="assets/notif-unread.svg" alt="" class="m-notif-item__icon-img" /></span>
+            <span class="m-notif-item__text">Stock In #STK-1005 is pending approval.</span>
+            <span class="m-notif-item__time">21 Oct</span>
+          </button>
+          <button type="button" class="m-notif-item m-notif-item--unread">
+            <span class="m-notif-item__icon"><img src="assets/notif-unread.svg" alt="" class="m-notif-item__icon-img" /></span>
+            <span class="m-notif-item__text">Stock In record #STK-1004 has been successfully added to the system.</span>
+            <span class="m-notif-item__time">19 Oct</span>
+          </button>
+          <button type="button" class="m-notif-item">
+            <span class="m-notif-item__icon"><img src="assets/notif-read.svg" alt="" class="m-notif-item__icon-img" /></span>
+            <span class="m-notif-item__text">Stock In #STK-1003 is pending approval.</span>
+            <span class="m-notif-item__time">13 Oct</span>
+          </button>
+          <button type="button" class="m-notif-item">
+            <span class="m-notif-item__icon"><img src="assets/notif-read.svg" alt="" class="m-notif-item__icon-img" /></span>
+            <span class="m-notif-item__text">Stock In #STK-1002 is pending approval.</span>
+            <span class="m-notif-item__time">9 Oct</span>
+          </button>
+
+          <p class="m-notif-sheet__end">&mdash; End &mdash;</p>
+        </div>
+      </div>
+
+      <!-- Full-screen: account menu (shared template — same on every page) -->
+      <div class="m-notif-sheet" id="account-sheet">
+        <div class="m-notif-sheet__head">
+          <p class="m-notif-sheet__title">Account</p>
+          <button type="button" class="m-notif-sheet__close" id="account-sheet-close" aria-label="Close">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          </button>
+        </div>
+        <div class="m-notif-sheet__body">
+          <div class="m-profile-sheet__pic-wrap">
+            <img src="assets/img_profile.svg" alt="Profile" class="m-profile-sheet__pic" id="profile-sheet-pic" />
+          </div>
+          <p class="m-profile-sheet__name">Hi，Jennie Tan</p>
+          <p class="m-profile-sheet__role">HQ</p>
+
+          <div class="m-avatar-menu__list">
+            <button type="button" class="m-avatar-menu__item" id="avatar-menu-profile">
+              <span class="m-avatar-menu__icon"><img src="assets/user.svg" alt="" /></span>
+              <span class="m-avatar-menu__label">Profile</span>
+              <span class="m-avatar-menu__badge">HQ</span>
+            </button>
+            <button type="button" class="m-avatar-menu__item" id="avatar-menu-password">
+              <span class="m-avatar-menu__icon"><img src="assets/pw.svg" alt="" /></span>
+              <span class="m-avatar-menu__label">Change Password</span>
+            </button>
+            <div class="m-drawer-preferences"><button type="button" class="m-drawer-language" aria-label="Choose language"><span class="m-account-preference-icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><ellipse cx="12" cy="12" rx="3.5" ry="8"/><path d="M4 12h16"/></svg></span><span class="m-account-preference-label">Language</span><span class="m-account-language-value">English</span></button><button type="button" class="m-drawer-theme" aria-label="Switch to dark theme" aria-pressed="false"><span class="m-account-preference-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.4A8.5 8.5 0 0 1 9.6 4 8.5 8.5 0 1 0 20 14.4Z"/></svg></span><span class="m-account-preference-label">Mode</span><span class="m-account-mode-value">Light</span></button></div><button type="button" class="m-avatar-menu__item" id="avatar-menu-logout">
+              <span class="m-avatar-menu__icon"><img src="assets/logout.svg" alt="" /></span>
+              <span class="m-avatar-menu__label">Logout</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal: logout confirmation (shared template — same on every page) -->
+      <div class="m-confirm-backdrop" id="logout-confirm-backdrop"></div>
+      <div class="m-confirm" id="logout-confirm" role="dialog" aria-modal="true" aria-labelledby="logout-confirm-title">
+        <p class="m-confirm__title" id="logout-confirm-title">Confirmation</p>
+        <p class="m-confirm__message">Are you sure you want to Logout?</p>
+        <div class="m-confirm__actions">
+          <button type="button" class="m-confirm__btn m-confirm__btn--no" id="logout-confirm-no">No</button>
+          <button type="button" class="m-confirm__btn m-confirm__btn--yes" id="logout-confirm-yes">Yes</button>
+        </div>
+      </div>
+
+      <header class="m-dash-topbar m-editbrand-topbar" id="stock-edit-topbar" hidden>
+        <button type="button" class="m-dash-icon-btn" id="stock-back" aria-label="Back"><span aria-hidden="true">‹</span></button>
+        <h1 class="m-editbrand-topbar__title stock-top-title" id="stock-editor-title">Add Stock Item</h1>
+        <span class="m-editbrand-topbar__spacer" aria-hidden="true"></span>
+      </header>
+      <main class="m-rpt-page" id="page-stock">
+        <div class="m-rpt-body" id="stock-list">
+          <div class="m-company-headercard">
+            <div class="m-rpt-header"><div class="m-rpt-header__titleblock"><h1 id="stock-page-title">Stock Item</h1><div class="m-rpt-breadcrumb"><span>Stock</span><span class="m-rpt-breadcrumb__sep">›</span><span id="stock-breadcrumb">Item</span></div></div></div>
+            <nav class="pos-tabs" aria-label="POS modules"><button type="button" data-pos-tab="shift">Shift</button><button type="button" data-pos-tab="payment">Payment</button><button type="button" data-pos-tab="tax">Tax</button><button type="button" data-pos-tab="money">Money Note</button><button type="button" data-pos-tab="discount">Discount</button></nav>
+          </div>
+          
+          
+          <div class="stock-title-row"><h2 class="stock-listheading" id="stock-list-title">Stock Item</h2><label id="stock-layout-control" class="stock-layout-toggle"><span id="stock-layout-label">Grouped</span><input type="checkbox" role="switch" id="stock-layout" aria-label="Group stock items" checked/><span class="stock-layout-track" aria-hidden="true"></span></label></div>
+          <div id="pos-tax-system" class="pos-tax-system" hidden><span>Active Tax System</span><strong>Malaysia</strong></div><div class="stock-toolbar">
+            <button type="button" class="m-rpt-export" id="stock-import"><svg class="m-rpt-export__icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m-4-4 4 4 4-4M4 16v4a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-4"/></svg>Import</button><input type="file" id="stock-import-file" accept=".csv,text/csv" hidden/>
+            <button type="button" class="m-rpt-export" id="stock-export"><img src="assets/upload.svg" class="m-rpt-export__icon" alt=""/>Export</button>
+            <button type="button" class="m-company-btn m-company-btn--save" id="stock-add">+ Add Item</button>
+          </div>
+          <p id="pos-note" class="pos-note" hidden>Maximum of 15 money note can be added.</p><p id="stock-message" class="stock-message" role="status" hidden></p>
+          
+          <div class="m-rpt-card"><div class="m-rpt-table-wrap"><table class="m-rpt-table stock-table"><thead id="stock-head"></thead><tbody id="stock-rows"></tbody></table></div><p class="stock-count" id="stock-count"></p></div>
+        </div>
+        <section class="stock-editor" id="stock-editor" hidden aria-labelledby="stock-editor-title">
+          <form id="stock-form" class="stock-form"></form>
+          <footer class="stock-editfooter"><button type="button" id="stock-cancel" class="m-company-btn m-company-btn--cancel">Cancel</button><button type="submit" form="stock-form" id="stock-save" class="m-company-btn m-company-btn--save">Save</button></footer>
+        </section>
+      </main>
+      <div class="m-confirm-backdrop" id="stock-confirm-backdrop"></div>
+      <section class="m-confirm" id="stock-confirm" role="dialog" aria-modal="true" aria-labelledby="stock-confirm-title" tabindex="-1"><p class="m-confirm__title" id="stock-confirm-title">Confirmation</p><p class="m-confirm__message" id="stock-confirm-message"></p><div class="m-confirm__actions"><button type="button" id="stock-confirm-no" class="m-confirm__btn m-confirm__btn--no">No</button><button type="button" id="stock-confirm-yes" class="m-confirm__btn m-confirm__btn--yes">Yes</button></div></section>
+
+    </div>
+  </div>
+<script>
+  /* ---------- Nav drawer (copied from the dashboard top navigation bar) ---------- */
+  const dashDrawer = document.getElementById('dash-drawer');
+
+  function openDrawer() {
+    dashDrawer.classList.add('is-open');
+  }
+  function closeDrawer() {
+    dashDrawer.classList.remove('is-open');
+  }
+  function closeDrawerInstant() {
+    dashDrawer.style.transition = 'none';
+    dashDrawer.classList.remove('is-open');
+    dashDrawer.offsetHeight;
+    dashDrawer.style.transition = '';
+  }
+
+  document.querySelector('.m-dash-menu-btn')?.addEventListener('click', openDrawer);
+  document.getElementById('dash-drawer-close')?.addEventListener('click', closeDrawer);
+
+  const drawerGroups = document.querySelectorAll('.m-drawer-group');
+  drawerGroups.forEach((group) => {
+    const trigger = group.querySelector('.m-drawer-nav__item');
+    trigger.addEventListener('click', () => {
+      const willExpand = !group.classList.contains('is-expanded');
+      drawerGroups.forEach((g) => g.classList.remove('is-expanded'));
+      if (willExpand) {
+        group.classList.add('is-expanded');
+      }
+    });
+  });
+
+  /* ---------- Notifications (shared template — same on every page) ---------- */
+  const notifSheet = document.getElementById('notif-sheet');
+
+  function openNotifSheet() {
+    notifSheet.classList.add('is-open');
+  }
+  function closeNotifSheet() {
+    notifSheet.classList.remove('is-open');
+  }
+
+  document.getElementById('notif-btn')?.addEventListener('click', openNotifSheet);
+  document.getElementById('notif-sheet-close')?.addEventListener('click', closeNotifSheet);
+
+  function setNotifItemRead(item, isUnread) {
+    item.classList.toggle('m-notif-item--unread', isUnread);
+    const icon = item.querySelector('.m-notif-item__icon-img');
+    if (icon) icon.src = isUnread ? 'assets/notif-unread.svg' : 'assets/notif-read.svg';
+  }
+
+  notifSheet?.querySelectorAll('.m-notif-item').forEach((item) => {
+    item.addEventListener('click', () => {
+      setNotifItemRead(item, !item.classList.contains('m-notif-item--unread'));
+    });
+  });
+
+  notifSheet?.querySelector('.m-notif-sheet__readall')?.addEventListener('click', () => {
+    notifSheet.querySelectorAll('.m-notif-item').forEach((item) => setNotifItemRead(item, false));
+  });
+
+  /* ---------- Account menu (shared template — same on every page) ---------- */
+  const avatarBtn = document.getElementById('avatar-btn');
+  const accountSheet = document.getElementById('account-sheet');
+
+  function openAccountSheet() {
+    accountSheet.classList.add('is-open');
+  }
+  function closeAccountSheet() {
+    accountSheet.classList.remove('is-open');
+  }
+
+  avatarBtn?.addEventListener('click', openAccountSheet);
+  document.getElementById('account-sheet-close')?.addEventListener('click', closeAccountSheet);
+
+  /* ---------- Logout confirmation (shared template — same on every page) ---------- */
+  const logoutBackdrop = document.getElementById('logout-confirm-backdrop');
+  const logoutModal = document.getElementById('logout-confirm');
+  const logoutBtn = document.getElementById('avatar-menu-logout');
+
+  function openLogoutConfirm() {
+    logoutBackdrop.classList.add('is-open');
+    logoutModal.classList.add('is-open');
+  }
+  function closeLogoutConfirm() {
+    logoutBackdrop.classList.remove('is-open');
+    logoutModal.classList.remove('is-open');
+  }
+
+  logoutBtn?.addEventListener('click', openLogoutConfirm);
+  logoutBackdrop?.addEventListener('click', closeLogoutConfirm);
+  document.getElementById('logout-confirm-no')?.addEventListener('click', closeLogoutConfirm);
+  document.getElementById('logout-confirm-yes')?.addEventListener('click', () => {
+    window.location.href = 'mobile.html';
+  });
+
+
+/* Mobile POS administration: browser-local prototype. */
+(()=>{
+const $=id=>document.getElementById(id),esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const key='cloudbite-pos-v1',types=['shift','payment','tax','money','discount'];
+const config={
+shift:{name:'Shift',fields:[['code','Shift Code','text',1],['name','Shift Description 1'],['description2','Shift Description 2'],['start','Time Start','time'],['end','Time End','time']],cols:[['code','Code'],['name','Description 1'],['description2','Description 2']]},
+payment:{name:'Payment',fields:[['code','Payment Code','text',1],['name','Payment Description 1'],['description2','Payment Description 2'],['default','Default Payment','toggle'],['active','Active','toggle'],['type','Payment Type','select','Cash|Credit Card|Debit Card|E-Wallet|Gift Voucher|Coupon|Other'],['codeType','Code Type','number'],['low','Low Limit ($)','number'],['high','High Limit ($)','number'],['fixed','Fixed Value ($)','number'],['charge','Charge Rate (%)','number'],['over','Over Tender Limit ($)','number'],['kick','Kick Drawer','select','No|Yes'],['drawer','Cash Drawer','select','Defined by User|Drawer 1|Drawer 2'],['image','Upload Image','file'],['compulsory','Compulsory Amount Tendered','check'],['points','Point Collection','check'],['change','Allow Change','check'],['partial','Partial Amount Tendered','check'],['fraction','Fraction Processing','check'],['refund','Allow Refund','check'],['account','Account Number (E-Wallet/Gift Voucher/Coupon)','check'],['remark1','Remark 1','number'],['remark2','Remark 2','number'],['remark3','Remark 3','number'],['remark4','Remark 4','number']],cols:[['code','Code'],['name','Description 1'],['description2','Description 2'],['default','Default'],['active','Active']]},
+tax:{name:'Tax',fields:[['code','Tax Code','text',1],['name','Tax Description'],['rate','Rate (%)','number'],['symbol','Tax Symbol'],['type','Tax Type','select','Service Tax|Service Charge'],['round','Round Method','select','Round Off|Round Up|Round Down'],['calculation','Calculation','select','Add On Tax|Inclusive Tax'],['discount','Discount','select','After|Before'],['active','Active','toggle']],cols:[['code','Tax Code'],['name','Description'],['rate','Rate (%)'],['type','Tax Type'],['active','Status']]},
+money:{name:'Money Note',fields:[['code','Money Note Code','text',1],['name','Money Note Description 1'],['description2','Money Note Description 2'],['value','Money Note Value','number']],cols:[['code','Code'],['name','Description 1'],['description2','Description 2']]},
+discount:{name:'Discount',fields:[['code','Discount Code','text',1],['name','Discount Description 1'],['description2','Discount Description 2'],['from','Activation Date From','date'],['to','Activation Date To','date'],['active','Active','toggle'],['rateType','Rate Type','select','Percentage|Amount'],['rate','Percentage','number'],['fraction','Fraction Method','select','Round Nearest|Round Up|Round Down'],['round','Round To (Cents)','number'],['type','Discount Type','select','Discount|Surcharge'],['item','Item Discount','select','Yes|No'],['subtotal','Subtotal Discount (RM)','select','No|Yes']],cols:[['code','Code'],['name','Description 1'],['description2','Description 2'],['active','Active']]}
+};
+const defaults={
+shift:[{code:'MS',name:'Morning Shift',description2:'Morning Shift',start:'09:00',end:'18:00'},{code:'NS',name:'Night Shift',description2:'Night Shift',start:'18:00',end:'23:59'},{code:'24SH',name:'24 Hour Shift',description2:'24 Hour Shift',start:'00:00',end:'23:59'}],
+payment:[{code:'Cash',name:'Cash',description2:'Cash',default:true,active:true,type:'Cash'},{code:'Visa',name:'Visa',description2:'Visa',active:true,type:'Credit Card'},{code:'Tng',name:'TNG E-Wallet',description2:'TNG E-Wallet',active:false,type:'E-Wallet'}],
+tax:[{code:'T1',name:'SST 6%',rate:6,type:'Service Tax',symbol:'12',round:'Round Off',calculation:'Add On Tax',discount:'After',active:true},{code:'T2',name:'8%',rate:8,type:'Service Tax',active:true},{code:'T3',name:'Service Charge 10%',rate:10,type:'Service Charge',active:true},{code:'T4',name:'0%',rate:0,type:'Service Charge',active:false}],
+money:[{code:'0.50',name:'50 Cents',description2:'50 Cents',value:0.5},{code:'1.00',name:'RM1.00',description2:'RM1.00',value:1},{code:'5.00',name:'RM5.00',description2:'RM5.00',value:5},{code:'10.00',name:'RM10.00',description2:'RM10.00',value:10}],
+discount:[{code:'10% D',name:'10% Discount',description2:'10% Discount',rate:10,active:true},{code:'20% D',name:'20% Discount',description2:'20% Discount',rate:20,active:true},{code:'RM10 D',name:'Discount RM10',description2:'Discount RM10',rate:10,rateType:'Amount',active:false},{code:'RM20 D',name:'Discount RM20',description2:'Discount RM20',rate:20,rateType:'Amount',active:true}]
+};
+let data;try{data=JSON.parse(localStorage.getItem(key));}catch{}data=Object.fromEntries(types.map(t=>[t,Array.isArray(data?.[t])?data[t]:defaults[t]]));
+let view=types.includes(new URLSearchParams(location.search).get('view'))?new URLSearchParams(location.search).get('view'):'shift',editing=null,draft=null,returnFocus=null,initialForm='';
+const persist=()=>{try{localStorage.setItem(key,JSON.stringify(data));return true;}catch{error('Unable to save. Browser storage is full.');return false;}};
+function error(msg){const el=$('pos-error')||$('stock-message');el.textContent=msg;el.hidden=false;}
+function popup(message,success,action){const d=document.createElement('dialog');d.className='stock-cost-dialog';d.innerHTML=(success?'<div class="stock-cost-result success" aria-hidden="true">✓</div>':'<h2>Confirmation</h2>')+'<p>'+esc(message)+'</p><div class="stock-cost-dialog-actions">'+(success?'<button data-close>Close</button>':'<button data-close>No</button><button class="primary" data-yes>Yes</button>')+'</div>';document.body.append(d);const done=()=>{d.close();d.remove();};d.querySelector('[data-close]').onclick=done;d.querySelector('[data-yes]')?.addEventListener('click',()=>{done();action();});d.addEventListener('close',()=>d.remove(),{once:true});d.showModal();}
+function visibleRows(){const filters=[...document.querySelectorAll('[data-filter]')].map(x=>x.value.toLowerCase());return data[view].filter(r=>config[view].cols.every(([k],i)=>display(r,k).toLowerCase().includes(filters[i]||'')));}
+function display(r,k){return typeof r[k]==='boolean'?(k==='active'?(r[k]?'Active':'Inactive'):(r[k]?'Yes':'No')):String(r[k]??'');}
+function renderRows(){const rows=visibleRows();$('stock-rows').innerHTML=rows.length?rows.map(r=>'<tr>'+config[view].cols.map(([k])=>'<td>'+(k==='active'?'<span class="pos-status '+(r[k]?'is-active':'')+'">'+esc(display(r,k))+'</span>':esc(display(r,k)))+'</td>').join('')+'<td><div class="m-company-actionrow"><button class="m-company-editbtn" data-edit="'+esc(r.code)+'" aria-label="Edit '+esc(r.code)+'"><img src="assets/edit.svg" class="m-company-editbtn__icon" alt=""/></button>'+(view==='tax'?'':'<button class="m-company-deletebtn" data-delete="'+esc(r.code)+'" aria-label="Delete '+esc(r.code)+'"><img src="assets/delete.svg" class="m-company-editbtn__icon" alt=""/></button>')+'</div></td></tr>').join(''):'<tr><td colspan="'+(config[view].cols.length+1)+'" class="pos-empty">No records found</td></tr>';$('stock-count').textContent=rows.length+' entries';}
+function render(){$('stock-message').hidden=true;const c=config[view];$('stock-page-title').textContent=$('stock-list-title').textContent='POS '+c.name;$('stock-breadcrumb').textContent='POS '+c.name;$('stock-add').textContent='+ Add '+c.name;$('stock-add').hidden=view==='tax';$('pos-tax-system').hidden=view!=='tax';$('pos-note').hidden=view!=='money';$('stock-head').innerHTML='<tr>'+[...c.cols.map(x=>x[1]),'Action'].map(x=>'<th>'+esc(x)+'</th>').join('')+'</tr><tr class="stock-filter-row">'+c.cols.map(([k,label])=>'<th><input data-filter="'+k+'" aria-label="Filter '+esc(label)+'"/></th>').join('')+'<th></th></tr>';document.querySelectorAll('[data-pos-tab]').forEach(b=>{const selected=b.dataset.posTab===view;b.classList.toggle('is-active',selected);b.setAttribute('aria-current',selected?'page':'false');});renderRows();}
+function field([id,label,type='text',opts]){let v=draft[id]??(type==='toggle'?id==='active':type==='number'?0:'');const attrs='id="pos-'+id+'" name="'+id+'"';if(type==='check'||type==='toggle')return '<label class="pos-check '+(type==='toggle'?'pos-toggle':'')+'"><span>'+esc(label)+'</span><input '+attrs+' type="checkbox" '+(v?'checked':'')+'/><span class="pos-switch" aria-hidden="true"></span></label>';if(type==='select')return '<div class="m-company-formfield"><label for="pos-'+id+'">'+esc(label)+'</label><select class="m-company-forminput" '+attrs+'>'+opts.split('|').map(o=>'<option '+(o===v?'selected':'')+'>'+esc(o)+'</option>').join('')+'</select></div>';return '<div class="m-company-formfield"><label for="pos-'+id+'">'+esc(label)+(opts===1?' <span class="m-required">*</span>':'')+'</label><input class="m-company-forminput" '+attrs+' type="'+type+'" '+(type==='file'?'accept="image/jpeg,image/bmp"':('value="'+esc(v)+'"'))+' '+(opts===1?'required maxlength="40"':'')+' '+(id==='code'&&editing?'readonly':'')+' '+(type==='number'?'step="any"':'')+'/>'+(type==='file'?'<small>Only JPEG and BMP files are allowed. Maximum 2 MB.</small>'+(draft.image?'<img class="pos-payment-preview" src="'+esc(draft.image)+'" alt="Payment image"/>':'')+'':'')+'</div>';}
+function section(title,fields){return '<details class="pos-section" open><summary>'+title+'</summary><div class="pos-fields">'+fields.map(field).join('')+'</div></details>';}
+function open(code){if(!code&&view==='money'&&data.money.length>=15){error('Maximum of 15 money note can be added.');return;}returnFocus=document.activeElement;editing=code||null;draft=code?structuredClone(data[view].find(r=>r.code===code)):{code:'',name:'',description2:'',active:true,start:'09:00',end:'18:00',low:-999999,high:999999,over:100};const f=config[view].fields;let html=view==='payment'?section('Payment Details',f.slice(0,5))+section('General Info',f.slice(5,15))+section('POS Settings',f.slice(15,22))+section('Remark',f.slice(22)):view==='discount'?section('Discount',f.slice(0,6))+section('Discount Detail',f.slice(6)):section(config[view].name+' Details',f);$('stock-form').innerHTML=html+'<p id="pos-error" class="pos-error" role="alert" hidden></p>';$('stock-editor-title').textContent=(code?'Edit':'Add')+' POS '+config[view].name;$('stock-list').hidden=true;$('stock-editor').hidden=false;$('stock-edit-topbar').hidden=false;$('main-topbar').hidden=true;if(view==='discount'&&draft.rateType==='Amount')document.querySelector('[for="pos-rate"]').textContent='Amount (RM)';initialForm=formState();$('pos-code').focus();$('page-stock').scrollTop=0;}
+function close(){draft=null;$('stock-list').hidden=false;$('stock-editor').hidden=true;$('stock-edit-topbar').hidden=true;$('main-topbar').hidden=false;returnFocus?.focus();}
+function formState(){return JSON.stringify([...$('stock-form').elements].map(x=>[x.name,x.type==='checkbox'?x.checked:x.value]));}
+function cancel(){if(formState()!==initialForm){popup('Discard your changes?',false,close);}else close();}
+document.querySelectorAll('[data-pos-tab]').forEach(b=>b.onclick=()=>{view=b.dataset.posTab;history.replaceState(null,'','?view='+view);render();});
+$('stock-head').oninput=renderRows;$('stock-add').onclick=()=>open();$('stock-cancel').onclick=$('stock-back').onclick=cancel;
+$('stock-rows').onclick=e=>{const edit=e.target.closest('[data-edit]'),del=e.target.closest('[data-delete]');if(edit)open(edit.dataset.edit);if(del)popup('Are you sure you want to Delete '+config[view].name+' '+del.dataset.delete+'?',false,()=>{const before=data[view];data[view]=before.filter(r=>r.code!==del.dataset.delete);if(!persist()){data[view]=before;return;}renderRows();popup(config[view].name+' Deleted Successfully.',true);});};
+$('stock-form').onchange=e=>{if(e.target.name==='rateType')document.querySelector('[for="pos-rate"]').textContent=e.target.value==='Amount'?'Amount (RM)':'Percentage';if(e.target.type==='file'){const f=e.target.files[0];if(f&&!/\.(jpe?g|bmp)$/i.test(f.name)){e.target.value='';error('Only JPEG and BMP files are allowed.');}else if(f){if(f.size>2*1024*1024){e.target.value='';error('Please choose an image smaller than 2 MB.');return;}const reader=new FileReader();reader.onload=()=>{draft.imageName=f.name;draft.image=reader.result;};reader.readAsDataURL(f);}}};
+$('stock-form').onsubmit=e=>{e.preventDefault();$('pos-error').hidden=true;const r={...draft};config[view].fields.forEach(([k,l,t])=>{const input=$('pos-'+k);if(t==='file')return;r[k]=t==='check'||t==='toggle'?input.checked:t==='number'?Number(input.value):input.value.trim();});if(!r.code){error('Please enter a code.');return;}if(data[view].some(x=>x.code.toLowerCase()===r.code.toLowerCase()&&x.code!==editing)){error('This code already exists.');return;}if(view==='payment'&&r.low>r.high){error('Low limit must not exceed high limit.');return;}if(view==='discount'&&r.from&&r.to&&r.from>r.to){error('Activation end date must be after the start date.');return;}if((view==='tax'||view==='discount')&&(r.rate<0||(view==='discount'&&r.rateType==='Percentage'&&r.rate>100))){error('Enter a valid rate.');return;}const adding=!editing;popup('Are you sure you want to '+(adding?'Add':'Edit')+' POS '+config[view].name+'?',false,()=>{const before=structuredClone(data[view]);if(view==='payment'&&r.default)data.payment.forEach(x=>x.default=false);const i=data[view].findIndex(x=>x.code===editing);if(i<0)data[view].push(r);else data[view][i]=r;if(!persist()){data[view]=before;return;}close();renderRows();popup('POS '+config[view].name+' '+(adding?'Added':'Saved')+' Successfully.',true);});};
+$('stock-export').onclick=()=>{const cols=config[view].cols,cell=v=>'"'+String(v).replace(/"/g,'""')+'"',csv=[cols.map(x=>x[1]),...visibleRows().map(r=>cols.map(([k])=>display(r,k)))].map(r=>r.map(cell).join(',')).join('\r\n'),url=URL.createObjectURL(new Blob(['\uFEFF'+csv],{type:'text/csv;charset=utf-8;'})),a=document.createElement('a');a.href=url;a.download='pos-'+view+'.csv';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);};
+$('stock-import').hidden=true;$('stock-layout-control').hidden=true;$('stock-breadcrumb').parentNode.firstElementChild.textContent='POS';close();render();
+})();
+</script>
+
+
+<script>(()=>{const button=document.querySelector('.m-drawer-theme');if(!button)return;function apply(dark){document.documentElement.classList.toggle('m-dark-theme',dark);button.setAttribute('aria-pressed',String(dark));const value=button.querySelector('.m-account-mode-value');if(value)value.textContent=dark?'Dark':'Light';button.setAttribute('aria-label',dark?'Switch to light theme':'Switch to dark theme');}let dark=false;try{dark=localStorage.getItem('cloudbite-theme')==='dark';}catch(_){}apply(dark);button.addEventListener('click',()=>{dark=!document.documentElement.classList.contains('m-dark-theme');apply(dark);try{localStorage.setItem('cloudbite-theme',dark?'dark':'light');}catch(_){}});})();</script><script>(()=>{const trigger=document.querySelector('.m-drawer-language');if(!trigger)return;const options=[['en','🇬🇧','English','English'],['ms','🇲🇾','Malay','Bahasa Melayu'],['zh','🇨🇳','Chinese Simplified','简体中文'],['id','🇮🇩','Indonesian','Bahasa Indonesia']];let selected='en';try{selected=localStorage.getItem('cloudbite-language')||'en';}catch(_){}function sync(){trigger.querySelector('.m-account-language-value').textContent=(options.find(o=>o[0]===selected)||options[0])[2];}sync();trigger.onclick=()=>{const page=document.createElement('section');page.className='m-language-page';page.setAttribute('role','dialog');page.setAttribute('aria-modal','true');page.setAttribute('aria-label','Language');page.innerHTML='<header><button type="button" class="m-language-back" aria-label="Back">‹</button><h2>Language</h2></header><div class="m-language-options">'+options.map(([code,flag,label,native])=>'<button type="button" data-language="'+code+'" aria-pressed="'+(selected===code)+'"><span class="m-language-flag" aria-hidden="true">'+flag+'</span><span><strong>'+label+'</strong><small>'+native+'</small></span><span class="m-language-check" aria-hidden="true">'+(selected===code?'✓':'')+'</span></button>').join('')+'</div>';document.body.appendChild(page);const close=()=>{page.remove();trigger.focus();};page.querySelector('.m-language-back').onclick=close;page.onkeydown=e=>{if(e.key==='Escape')close();};page.querySelectorAll('[data-language]').forEach(button=>button.onclick=()=>{selected=button.dataset.language;try{localStorage.setItem('cloudbite-language',selected);}catch(_){}sync();close();});page.querySelector('.m-language-back').focus();};})();</script></body></html>
