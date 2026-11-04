@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/><title>CloudBite | Condiment Group</title><link rel="stylesheet" href="mobile.css"/><style>#stock-list[hidden],.stock-tabs[hidden]{display:none!important}.stock-storecards{max-width:calc(100vw - 76px)}#page-stock .m-rpt-body{overflow-y:auto;overflow-x:hidden;padding-bottom:30px}#page-stock .m-rpt-card{flex:none;margin-bottom:14px}#page-stock .m-rpt-table-wrap{flex:none;max-width:100%;overflow:auto}.stock-content{min-width:0}.stock-tabs{display:flex;gap:4px;overflow-x:auto;padding:8px}.stock-tabs a{flex:0 0 auto;padding:11px 12px;text-decoration:none;border-radius:8px;color:var(--text-second);font-size:13px;font-weight:600}.stock-tabs a.is-active{background:#fceced;color:var(--color-primary)}.stock-tabs img{width:17px;height:17px;vertical-align:middle;margin-right:5px}.stock-toolbar{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:12px 0}.stock-toolbar .m-company-search{flex:1 1 150px;min-width:0}.stock-toolbar button{min-height:38px}.stock-toolbar select{width:auto;max-width:100%;flex:1 1 120px}.stock-table{min-width:660px}.stock-table td{white-space:normal;overflow-wrap:anywhere}.stock-table td:last-child{min-width:100px}.stock-detail td{padding:12px!important;background:#fafafa}.stock-storecards{display:grid;gap:8px;grid-template-columns:repeat(auto-fit,minmax(min(240px,100%),1fr))}.stock-storecard{border:1px solid var(--color-border);border-radius:8px;padding:12px;background:white}.stock-storecard h3{font-size:13px;margin:0 0 10px}.stock-storecard dl{display:grid;grid-template-columns:1fr 1fr;font-size:12px;gap:8px;margin:0}.stock-storecard dt{color:var(--text-second)}.stock-storecard dd{margin:0;text-align:right}.stock-rowtoggle{border:0;background:none;color:var(--color-primary);padding:8px;cursor:pointer}.stock-count{font-size:12px;color:var(--text-second);margin:12px 0}.stock-message{padding:10px 12px;border-radius:8px;background:#fff4de;color:#735314;font-size:13px;overflow-wrap:anywhere}.stock-editor{flex:1;display:flex;flex-direction:column;min-height:0;overflow:hidden}.stock-editor[hidden],.stock-content[hidden]{display:none}.stock-form{flex:1;overflow-y:auto;min-height:0;padding:12px 12px 30px;display:flex;flex-direction:column;gap:14px}.stock-section{background:white;border:1px solid var(--color-border);border-radius:8px;flex:none}.stock-section>summary{cursor:pointer;background:#f5f5f5;border-radius:8px;padding:12px;font-weight:600;font-size:13px;list-style-position:inside}.stock-section-body{padding:14px;display:flex;flex-direction:column;gap:16px}.stock-fields{display:grid;grid-template-columns:minmax(0,1fr);gap:16px}.stock-fields>*{min-width:0}.stock-checks{display:flex;gap:10px 16px;flex-wrap:wrap}.stock-checks label{font-size:13px;display:flex;align-items:center;gap:6px}.stock-checks input{accent-color:var(--color-primary);width:17px;height:17px}.stock-note{margin:0;color:var(--text-second);font-size:12px;line-height:1.5}.stock-editfooter{display:flex;gap:12px;flex-shrink:0;padding:12px max(12px,env(safe-area-inset-right)) max(12px,env(safe-area-inset-bottom));background:white;border-top:1px solid var(--color-border)}.stock-editfooter button{flex:1}.stock-form .m-company-forminput{min-width:0}.stock-form input[type=number]{text-align:right}.stock-form .m-rpt-table-wrap{overflow:auto;max-width:100%;min-width:0}.stock-form table{min-width:600px}.stock-form td input,.stock-form td select{min-width:90px}.stock-image-preview{width:100px;height:100px;object-fit:cover;border:1px solid var(--color-border);border-radius:8px}.stock-line{display:grid;grid-template-columns:minmax(0,1fr) 88px 36px;gap:8px;align-items:end}.stock-line label{font-size:12px}.stock-line .m-company-deletebtn{margin-bottom:6px}.stock-component{display:flex;flex-direction:column;gap:8px;border:1px solid var(--color-border);border-radius:8px;padding:12px}.stock-inline-actions{display:flex;gap:8px;flex-wrap:wrap;align-items:center;justify-content:space-between}.stock-empty{padding:32px 12px;text-align:center;color:var(--text-second);font-size:13px}.stock-status{padding:4px 10px;border-radius:20px;font-size:11px;background:#edfdf0;color:#26823c}.stock-status--low{background:#fff3d6;color:#846108}.stock-status--out{background:#fce6e6;color:#b12727}.stock-filter-row input{width:100%;min-width:75px;height:32px;border:1px solid var(--color-border);border-radius:4px;padding:6px;font:inherit}.stock-grid-sort{cursor:pointer}.stock-top-title{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.stock-form-error{margin:0;color:#be2026;font-size:13px}.stock-listheading{font-size:16px;margin:0}.stock-add-inline{min-height:38px}.stock-tag{font-size:12px;color:#646464}.stock-day{display:flex;gap:8px;align-items:center}.stock-day input{accent-color:var(--color-primary)}.stock-entry-image{display:flex;gap:12px;align-items:center}.stock-entry-image input{width:100%}@media(min-width:680px){.stock-fields{grid-template-columns:repeat(2,minmax(0,1fr))}.stock-form{max-width:1100px;width:100%;margin:0 auto}.stock-toolbar{flex-wrap:nowrap}}@media(max-width:380px){.stock-tabs a{padding:10px 8px;font-size:12px}.stock-toolbar .m-company-btn{font-size:12px;padding:8px 10px}}
+.stock-layout-toggle{display:inline-flex;align-items:center;gap:12px;font-size:13px;cursor:pointer;position:relative;min-height:38px}.stock-layout-toggle[hidden]{display:none}.stock-layout-toggle input{position:absolute;right:0;width:42px;height:24px;opacity:0;cursor:pointer}.stock-layout-track{width:42px;height:24px;border-radius:20px;background:#999;position:relative;pointer-events:none}.stock-layout-track:after{content:"";position:absolute;left:3px;top:3px;width:18px;height:18px;background:white;border-radius:50%;transition:transform .15s}.stock-layout-toggle input:checked+.stock-layout-track{background:#c91c28}.stock-layout-toggle input:checked+.stock-layout-track:after{transform:translateX(18px)}.stock-layout-toggle input:focus-visible+.stock-layout-track{outline:2px solid #222;outline-offset:3px}.stock-rowtoggle{color:#606060}.stock-rowtoggle svg{vertical-align:middle;transition:transform .15s}.stock-rowtoggle[aria-expanded="true"] svg{transform:rotate(180deg)}.stock-layout-row{display:flex;align-items:center;margin:0 0 12px}.stock-layout-row:has([hidden]){display:none}.stock-toolbar{justify-content:flex-end}.stock-title-row{display:flex;align-items:center;justify-content:space-between;gap:12px;min-width:0}.stock-title-row .stock-listheading{min-width:0}.stock-title-row .stock-layout-toggle{flex-shrink:0}.stock-toolbar>#stock-import,.stock-toolbar>#stock-export,.stock-toolbar>#stock-add{flex:1 1 0;min-width:0;justify-content:center;padding-left:8px;padding-right:8px;white-space:nowrap}.stock-toolbar{flex-wrap:nowrap}@media(max-width:600px){.stock-toolbar{gap:8px}.stock-toolbar>#stock-import,.stock-toolbar>#stock-export,.stock-toolbar>#stock-add{display:inline-flex;align-items:center;justify-content:center;gap:6px;height:40px;min-height:40px;font-size:12px;padding:0 8px;box-sizing:border-box}.stock-toolbar .m-rpt-export__icon{width:14px;height:14px;flex-shrink:0;margin:0}}@media(max-width:600px){.stock-title-row{margin:4px 0 14px;gap:16px;min-height:28px}.stock-title-row .stock-listheading{font-size:16px;font-weight:600;line-height:24px}.stock-title-row .stock-layout-toggle{gap:8px;font-size:12px;min-height:28px;color:#666}.stock-toolbar{margin:0 0 16px;gap:8px}.stock-toolbar>#stock-import,.stock-toolbar>#stock-export,.stock-toolbar>#stock-add{border-radius:8px;font-weight:500;box-shadow:none;height:40px;min-height:40px}.stock-toolbar>#stock-import,.stock-toolbar>#stock-export{background:#fff;border:1px solid #e6e7e9;color:#555}.stock-toolbar>#stock-add{font-weight:600;border:1px solid var(--color-primary)}.stock-toolbar .m-rpt-export__icon{opacity:.7}.stock-title-row .stock-layout-track{width:36px;height:22px}.stock-title-row .stock-layout-track:after{width:16px;height:16px}.stock-title-row .stock-layout-toggle input{width:36px;height:22px}.stock-title-row .stock-layout-toggle input:checked+.stock-layout-track:after{transform:translateX(14px)}}.stock-section>summary{display:flex;align-items:center;justify-content:space-between;gap:12px;list-style:none}.stock-section>summary::-webkit-details-marker{display:none}.stock-section>summary::marker{content:""}.stock-section>summary::after{content:"";width:7px;height:7px;border-right:1.8px solid #606060;border-bottom:1.8px solid #606060;transform:rotate(45deg);flex-shrink:0;margin-right:3px;transition:transform .15s}.stock-section[open]>summary::after{transform:rotate(225deg)}.m-location-select { position: relative; width: 100%; }
+.m-location-select__native { position: absolute; width: 1px; height: 1px; opacity: 0; pointer-events: none; }
+.m-location-select__trigger { text-align: left; font-weight: 400; color: var(--text-primary); cursor: pointer; padding-right: 36px; }
+.m-location-select__trigger:disabled { opacity: .55; cursor: not-allowed; }
+.m-location-select__popup { position: absolute; z-index: 30; top: 100%; left: 0; right: 0; background: var(--color-white); border: 1px solid var(--color-border); border-radius: 8px; box-shadow: 0 1px 4px rgba(0,0,0,.12); padding: 6px 0; max-height: 220px; overflow-y: auto; -webkit-overflow-scrolling: touch; }
+.m-location-select__popup[hidden] { display: none; }
+.m-location-select__popup [role="option"] { display: block; width: 100%; min-height: 38px; padding: 9px 15px; border: 0; background: white; color: var(--text-second); font: inherit; font-size: 14px; text-align: left; cursor: pointer; }
+.m-location-select__popup [role="option"]:hover,
+.m-location-select__popup [role="option"].is-highlighted { background: #f5f5f5; }
+.m-location-select__empty { margin: 0; padding: 10px 15px; color: var(--text-second); font-size: 13px; }
+#page-stock input[type="checkbox"]:not([role="switch"]){appearance:none;-webkit-appearance:none;display:inline-grid;place-content:center;width:18px;height:18px;min-width:18px;flex-shrink:0;border:1.5px solid #b9bec5;border-radius:5px;background:#fff;vertical-align:middle;cursor:pointer}#page-stock input[type="checkbox"]:not([role="switch"]):checked{background:var(--color-primary);border-color:var(--color-primary)}#page-stock input[type="checkbox"]:not([role="switch"]):checked::after{content:"";width:5px;height:9px;border:solid white;border-width:0 2px 2px 0;transform:translateY(-1px) rotate(45deg)}#page-stock input[type="checkbox"]:not([role="switch"]):focus-visible{outline:2px solid var(--color-primary);outline-offset:3px}#page-stock input[type="checkbox"]:not([role="switch"]):disabled{opacity:.5;cursor:not-allowed}.stock-attribute-checks{flex-direction:column;align-items:flex-start;gap:12px}.stock-attribute-checks label{min-height:24px}.stock-active-row{display:flex;align-items:center;justify-content:space-between;gap:16px;font-size:14px;cursor:pointer}.stock-active-switch{position:relative;width:42px;height:24px;flex-shrink:0}.stock-active-switch input{position:absolute;inset:0;width:100%;height:100%;margin:0;opacity:0;cursor:pointer}.stock-active-switch>span{display:block;width:42px;height:24px;border-radius:20px;background:#aaa;pointer-events:none}.stock-active-switch>span:after{content:"";display:block;position:absolute;left:3px;top:3px;width:18px;height:18px;border-radius:50%;background:white;transition:transform .15s}.stock-active-switch input:checked+span{background:#c91c28}.stock-active-switch input:checked+span:after{transform:translateX(18px)}.stock-active-switch input:focus-visible+span{outline:2px solid #222;outline-offset:3px}.stock-editor .stock-section{background:#fff;border:1px solid #e8e8e8;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,.06);overflow:visible}.stock-editor .stock-section>summary{background:#f5f5f5;border-radius:10px;padding:13px 15px}.stock-editor .stock-section[open]>summary{border-radius:10px 10px 0 0}.stock-editor .stock-section-body{background:#fff;border-radius:0 0 10px 10px;padding:16px 15px;gap:20px}.stock-editor .stock-section{padding:8px;background:#fff;border:1px solid #f0f0f0;border-radius:10px;box-shadow:0 1px 8px rgba(0,0,0,.05)}.stock-editor .stock-section>summary{background:#fff;border-radius:7px;padding:10px 9px;color:#626262;font-size:14px;font-weight:600}.stock-editor .stock-section[open]>summary{background:#f5f5f5;border-radius:7px}.stock-editor .stock-section-body{padding:20px 7px 8px}.stock-upload{display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center}.stock-upload>strong{font-size:14px;color:#62666c}.stock-upload-box{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;width:min(190px,100%);min-height:190px;border:2px dashed #e3e3e3;border-radius:6px;color:#dedede;padding:16px;box-sizing:border-box;cursor:pointer}.stock-upload-box>span{color:#999;font-size:12px;line-height:1.5}.stock-upload-box em{font-style:normal;color:var(--color-primary)}.stock-upload-box input{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:pointer}.stock-upload-box:focus-within{outline:2px solid var(--color-primary);outline-offset:3px}.stock-active-row>span:first-child{display:flex;align-items:center;gap:4px;font-size:13px;font-weight:600;color:var(--text-primary)}.stock-upload{gap:6px}.stock-upload>.stock-note{font-size:11px;color:#aaa}.stock-upload-box{margin-top:12px;border-radius:0;width:190px;height:190px;gap:16px}.stock-upload-box>span{font-size:12px}.stock-upload:has(.stock-upload-preview) .stock-upload-box{display:none}.stock-upload-preview{position:relative;width:190px;height:190px;margin-top:12px}.stock-upload-preview img{display:block;width:100%;height:100%;object-fit:cover;border-radius:6px;box-shadow:0 2px 6px #0002}.stock-upload-preview button{position:absolute;right:-11px;top:-11px;width:24px;height:24px;border:0;border-radius:50%;background:#666;color:white;font-size:22px;line-height:22px;padding:0;cursor:pointer;box-shadow:0 1px 4px #0003}.stock-upload-box.is-dragging{border-color:var(--color-primary);background:#fff8f8}.stock-upload-box,.stock-upload-preview img{border-radius:12px}.stock-uom-label{display:flex;align-items:center;gap:8px}.stock-uom-help{position:relative;display:inline-flex}.stock-uom-info{display:inline-flex;align-items:center;justify-content:center;border:0;background:none;color:#a0a0a0;padding:2px;cursor:pointer}.stock-uom-help [role="tooltip"]{display:none;position:absolute;z-index:40;left:24px;top:50%;transform:translateY(-50%);width:240px;max-width:calc(100vw - 140px);padding:10px 12px;background:#dedede;border-radius:8px;color:#444;font-size:12px;font-weight:400;line-height:1.4;box-shadow:0 1px 4px #0001}.stock-uom-help:hover [role="tooltip"],.stock-uom-help:focus-within [role="tooltip"],.stock-uom-info[aria-expanded="true"]+[role="tooltip"]{display:block}.stock-cost-wrap{border:1px solid #ddd;border-radius:8px}.stock-form .stock-cost-table{min-width:1050px;width:100%;border-collapse:collapse}.stock-cost-table th,.stock-cost-table td{border-right:1px solid #e3e3e3;border-bottom:1px solid #e3e3e3;padding:10px 8px;font-size:12px}.stock-cost-table th{background:#fff}.stock-cost-table td:not(:first-child){text-align:right}.stock-cost-table td:nth-child(2),.stock-cost-table td:nth-child(4),.stock-cost-table td:nth-child(6){background:#f5f5f5}.stock-cost-table td input{background:transparent;border:0;box-shadow:none;padding:0;min-height:22px;height:22px;width:100%}.stock-cost-table td input:focus{outline:1px solid var(--color-primary)}.stock-cost-head{display:flex;align-items:center;justify-content:space-between;gap:12px;white-space:nowrap}.stock-cost-head button{border:0;border-radius:8px;background:#ffeaec;color:#c71925;padding:7px 12px;font-size:12px;white-space:nowrap;cursor:pointer}.stock-cost-head span[title]{color:#999;margin-left:4px}.stock-cost-table th:first-child{min-width:210px}.stock-cost-help{position:relative;display:inline-flex;vertical-align:middle;margin-left:4px}.stock-cost-info{display:inline-flex;align-items:center;justify-content:center;border:0;background:transparent;color:#999;padding:0;cursor:pointer}.stock-cost-help [role="tooltip"]{display:none;position:absolute;z-index:50;left:22px;top:50%;transform:translateY(-50%);width:320px;padding:9px 10px;border-radius:8px;background:#dedede;box-shadow:0 1px 5px #0002;color:#444;font-size:12px;font-weight:400;line-height:1.35;white-space:normal;text-align:left}.stock-cost-help:hover [role="tooltip"],.stock-cost-help:focus-within [role="tooltip"]{display:block}.stock-cost-table th{overflow:visible}.stock-cost-dialog{box-sizing:border-box;width:min(440px,calc(100vw - 32px));max-height:calc(100dvh - 32px);overflow:auto;border:1px solid #e5e5e5;border-radius:8px;background:white;padding:32px 28px 24px;color:#333;box-shadow:0 8px 36px #0003;font:14px var(--font-family,sans-serif);text-align:center}.stock-cost-dialog::backdrop{background:#0005}.stock-cost-dialog h2{font-size:15px;margin:8px 0 10px}.stock-cost-dialog p{margin:18px 0;line-height:1.4}.stock-cost-dialog .stock-cost-dialog-note{font-size:12px;color:#777;margin:0 0 12px}.stock-cost-dialog form{max-width:300px;margin:auto;text-align:left}.stock-cost-dialog form>label{display:block;font-weight:600;font-size:13px;margin-bottom:10px}.stock-cost-amount{display:flex;border:1px solid #ddd;border-radius:8px;overflow:hidden;height:36px}.stock-cost-amount>span{padding:8px;background:#f5f5f5;border-right:1px solid #ddd}.stock-cost-amount input{min-width:0;width:100%;border:0;padding:8px 12px;text-align:right;font:inherit}.stock-cost-dialog-actions{display:flex;justify-content:center;gap:16px;margin-top:30px}.stock-cost-dialog-actions button{min-width:100px;min-height:36px;border:1px solid #ddd;border-radius:8px;background:#fff;color:#333;padding:8px 16px;font:inherit;cursor:pointer}.stock-cost-dialog-actions .primary{background:var(--color-primary,#be2026);color:white;border-color:transparent}.stock-cost-result{width:80px;height:80px;box-sizing:border-box;border:10px solid;border-radius:50%;margin:0 auto 30px;display:flex;align-items:center;justify-content:center;font-size:44px;color:#fff}.stock-cost-result.warning{background:#ffbf3e;border-color:#ffedc5}.stock-cost-result.success{background:#2fed92;border-color:#bcffd8}.stock-cost-dialog .stock-cost-dialog-error{color:#be2026;font-size:12px;margin:8px 0}.stock-cost-table th:nth-child(3){min-width:270px;box-sizing:border-box;padding:6px 8px;height:42px}.stock-cost-table th:nth-child(3) .stock-cost-head{width:100%;gap:12px;align-items:center}.stock-cost-table th:nth-child(3) .stock-cost-head>span{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:600;color:#444b54}.stock-cost-table th:nth-child(3) .stock-cost-help{margin-left:0}.stock-cost-table th:nth-child(3) .stock-cost-head>button{height:28px;min-height:28px;padding:0 16px;border:0;border-radius:9px;background:#ffeaec;color:#d60000;font-size:12px;font-weight:600;line-height:28px;box-shadow:none}.stock-cost-table th:nth-child(3) .stock-cost-head>span{font-weight:700}.stock-cost-table .stock-cost-head .stock-cost-help .stock-cost-info{background:transparent;border:0;border-radius:0;box-shadow:none;color:#999;padding:0;width:14px;height:14px;min-width:14px;min-height:14px;line-height:1}.stock-cost-table .stock-cost-head .stock-cost-help .stock-cost-info:hover,.stock-cost-table .stock-cost-head .stock-cost-help .stock-cost-info:active{background:transparent;color:#777}.stock-cost-info svg{display:block;flex-shrink:0}.stock-form .stock-cost-table{min-width:1260px;table-layout:auto}.stock-cost-table th:nth-child(3),.stock-cost-table td:nth-child(3){min-width:285px;width:285px;box-sizing:border-box}.stock-cost-table th:nth-child(5),.stock-cost-table td:nth-child(5){min-width:325px;width:325px;box-sizing:border-box}.stock-cost-table th:nth-child(3) .stock-cost-head,.stock-cost-table th:nth-child(5) .stock-cost-head{display:flex;align-items:center;justify-content:space-between;gap:16px;width:100%}.stock-cost-head>span,.stock-cost-head>button{flex-shrink:0}.stock-form .stock-cost-table{min-width:1050px}.stock-cost-table th:nth-child(3),.stock-cost-table td:nth-child(3){width:240px;min-width:240px}.stock-cost-table th:nth-child(5),.stock-cost-table td:nth-child(5){width:275px;min-width:275px}.stock-cost-table th:nth-child(3) .stock-cost-head,.stock-cost-table th:nth-child(5) .stock-cost-head{gap:10px}.stock-cost-table th:nth-child(3) .stock-cost-head>button,.stock-cost-table th:nth-child(5) .stock-cost-head>button{font-weight:700;padding:0 12px;height:28px;min-height:28px;line-height:28px}.stock-uom-help [role="tooltip"],.stock-cost-help [role="tooltip"]{display:none!important}.stock-screen-tooltip{position:fixed;z-index:10000;box-sizing:border-box;max-width:calc(100vw - 24px);max-height:calc(100dvh - 24px);overflow:auto;padding:10px 12px;background:#dedede;border-radius:8px;box-shadow:0 1px 5px #0002;color:#444;font:400 12px/1.4 var(--font-family,sans-serif);white-space:normal;overflow-wrap:anywhere;pointer-events:none}.stock-selling-heading{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}.stock-selling-heading button{flex-shrink:0}.stock-price-wrap{border:1px solid #e0e0e0;border-radius:8px}.stock-form .stock-price-table{min-width:1100px;width:100%;border-collapse:collapse}.stock-price-table th,.stock-price-table td{padding:10px 8px;border-right:1px solid #e3e3e3;border-bottom:1px solid #e3e3e3;font-size:12px}.stock-price-table th{background:#fff}.stock-price-table td:nth-child(2){background:#f5f5f5}.stock-price-table td input{width:100%;border:0;background:transparent;box-shadow:none;padding:0;height:24px;min-height:24px}.stock-price-table td .m-company-formfield>label{display:none}.stock-price-table td .m-company-formfield{gap:0}.stock-price-table td .m-location-select__trigger{border:0;background-color:transparent;padding-left:0;font-size:12px}.stock-price-table td{min-width:145px}.stock-price-table td:last-child{min-width:50px}.stock-price-table .m-location-select__popup{min-width:200px}.stock-day-picker{display:flex;justify-content:space-between;gap:8px;max-width:370px}.stock-day-circle{position:relative;display:inline-flex;cursor:pointer}.stock-day-circle input[type="checkbox"]{position:absolute!important;opacity:0;width:100%!important;height:100%!important;margin:0}.stock-day-circle>span{display:flex;align-items:center;justify-content:center;width:36px;height:36px;box-sizing:border-box;border:1px solid #e0e0e0;border-radius:50%;background:#f5f5f5;color:#666;font-size:15px;font-weight:600;pointer-events:none}.stock-day-circle input:checked+span{background:var(--color-primary);border-color:var(--color-primary);color:white}.stock-day-circle input:focus-visible+span{outline:2px solid var(--color-primary);outline-offset:3px}.stock-time-rows{display:flex;flex-direction:column;gap:14px}.stock-time-row{display:flex;align-items:center;gap:14px}.stock-time-row>span{font-size:12px;font-weight:500;flex:0 0 110px}.stock-time-range{display:flex;align-items:center;gap:8px;border:1px solid #e1e1e1;border-radius:8px;background:white;padding:10px 12px;min-width:0;max-width:300px}.stock-time-range>svg{color:#777;flex-shrink:0}.stock-time-range>span{color:#777;font-size:13px}.stock-time-range input{border:0;background:transparent;min-width:0;width:100%;font:inherit;font-size:13px;color:#333;padding:0;color-scheme:light}.stock-time-range input::-webkit-calendar-picker-indicator{width:12px;margin:0;cursor:pointer}@media(max-width:380px){.stock-day-picker{gap:5px}.stock-day-circle>span{width:32px;height:32px}.stock-time-row{gap:8px}.stock-time-row>span{flex-basis:92px}.stock-time-range{gap:5px;padding:10px 6px}}.m-location-select__popup.stock-price-popup{position:fixed;z-index:9999;right:auto;bottom:auto;box-sizing:border-box;background:#fff;border:1px solid #ddd;border-radius:8px;box-shadow:0 2px 8px #0002;overflow-y:auto}.stock-price-popup [role="option"]{padding:10px 15px;font-size:14px}.stock-price-table th:last-child,.stock-price-table td:last-child{text-align:left}.stock-price-table td:last-child .m-company-deletebtn{float:none;margin-left:0;margin-right:auto;display:inline-flex;justify-content:center;align-items:center}.stock-time-range input[type="time"]::-webkit-calendar-picker-indicator{display:none;-webkit-appearance:none}.stock-time-range input[type="time"]{appearance:none;-moz-appearance:textfield}.stock-time-rows,.stock-time-row{width:100%;box-sizing:border-box}.stock-time-row .stock-time-range{flex:1;max-width:none;width:auto;box-sizing:border-box}.stock-time-range input[type="time"]{flex:1;min-width:0;width:0}.stock-time-trigger{flex:1;min-width:0;padding:0;border:0;background:transparent;color:#333;font:400 13px var(--font-family,sans-serif);white-space:nowrap;cursor:pointer}.stock-time-trigger:focus-visible{outline:2px solid var(--color-primary);outline-offset:3px}.stock-clock-popup{position:fixed;z-index:9999;display:flex;gap:8px;box-sizing:border-box;padding:16px 16px 12px;background:white;border:1px solid #e3e3e3;border-radius:10px;box-shadow:0 3px 12px #0002}.stock-clock-col{flex:1;min-width:0;text-align:center}.stock-clock-wheel{position:relative;height:132px;overflow-y:auto;scroll-snap-type:y mandatory;scrollbar-width:none;padding:44px 0;box-sizing:border-box;overscroll-behavior:contain}.stock-clock-wheel::-webkit-scrollbar{display:none}.stock-clock-wheel button{display:block;width:100%;height:44px;min-height:44px;border:0;border-radius:5px;background:white;color:#999;font:400 14px var(--font-family,sans-serif);scroll-snap-align:center;cursor:pointer}.stock-clock-wheel button[aria-selected="true"]{background:#f5f5f5;color:#333;font-weight:600}.stock-clock-col>span{display:block;margin-top:12px;font-size:11px;color:#777}.stock-condiment-toolbar{display:flex;justify-content:flex-end}.stock-condiment-wrap{border:1px solid #e0e0e0;border-radius:8px}.stock-form .stock-condiment-table{min-width:1050px;width:100%;border-collapse:collapse}.stock-condiment-table th,.stock-condiment-table td{padding:10px 8px;border-right:1px solid #e3e3e3;border-bottom:1px solid #e3e3e3;font-size:12px;text-align:left}.stock-condiment-table th{background:#fff}.stock-condiment-table td:nth-child(3){background:#f5f5f5}.stock-condiment-table td>input{border:0;background:transparent;box-shadow:none;width:100%;min-width:80px;height:24px;font:inherit}.stock-condiment-table .m-company-formfield>label{display:none}.stock-condiment-table .m-company-formfield{gap:0}.stock-condiment-table .m-location-select__trigger{border:0;background-color:transparent;padding-left:0;font-size:12px;min-width:165px}.stock-condiment-table .stock-active-switch{display:block}.stock-condiment-table td:last-child{min-width:50px}.stock-fpos-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:28px}.stock-fpos-grid h3{font-size:14px;font-weight:600;margin:0 0 24px}.stock-fpos-tax{min-width:0}.stock-fpos-default{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:22px;font-size:14px}.stock-fpos-default .stock-active-switch{display:block}.stock-fpos-tax #item-tax-fields{display:flex;flex-direction:column;gap:16px}.stock-fpos-tax #item-tax-fields[hidden]{display:none}.stock-fpos-checks{display:grid;grid-template-columns:minmax(0,1fr);gap:20px}.stock-fpos-checks label{font-weight:400;color:#666}@media(min-width:680px){.stock-fpos-grid{grid-template-columns:1fr 1fr;gap:40px}.stock-fpos-checks{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(min-width:1100px){.stock-fpos-checks{grid-template-columns:repeat(3,minmax(0,1fr))}}.stock-condiment-table{table-layout:fixed}.stock-condiment-table th:last-child{width:9%}.stock-condiment-table th:not(:last-child){width:15.166%}.stock-condiment-table .m-location-select__trigger{min-width:0;width:100%}.stock-condiment-table td:first-child input{text-align:right}.stock-condiment-table td:nth-child(5) input,.stock-condiment-table td:nth-child(6) input{text-align:left}.stock-condiment-table th:last-child,.stock-condiment-table td:last-child{text-align:left}.stock-condiment-table td:last-child .m-company-deletebtn{margin:0}.stock-condiment-table tr:last-child td{border-bottom:0}.stock-condiment-table th:last-child,.stock-condiment-table td:last-child{border-right:0}.stock-queue-wrap,.stock-balance-wrap{border:1px solid #e0e0e0;border-radius:8px}.stock-form .stock-queue-table,.stock-form .stock-balance-table{min-width:1050px;width:100%;border-collapse:collapse;table-layout:fixed}.stock-queue-table th,.stock-queue-table td,.stock-balance-table th,.stock-balance-table td{padding:10px 8px;font-size:12px;text-align:left;border-right:1px solid #e3e3e3;border-bottom:1px solid #e3e3e3}.stock-queue-table th,.stock-balance-table th{background:white;font-weight:600}.stock-queue-table th:last-child{width:9%}.stock-queue-table td input,.stock-balance-table td input{border:0;background:transparent;box-shadow:none;width:100%;min-width:0;height:22px;min-height:22px;padding:0;font:inherit;text-align:left!important}.stock-queue-table .m-company-formfield>label{display:none}.stock-queue-table .m-company-formfield{gap:0}.stock-queue-table .m-location-select__trigger{border:0;background-color:transparent;min-width:0;width:100%;font-size:12px;padding-left:6px}.stock-queue-table td:last-child .m-company-deletebtn{margin:0}.stock-queue-status{display:inline-flex;border-radius:20px;padding:4px 16px;color:#2acb51;background:#ecfdf0;font-size:12px}.stock-queue-status.is-inactive{color:#888;background:#f2f2f2}.stock-balance-meter{display:flex;align-items:center;gap:10px;color:#35c855}.stock-balance-track{display:block;width:64px;height:4px;border-radius:4px;background:#e3e3e3;overflow:hidden}.stock-balance-track>span{display:block;height:100%;border-radius:inherit;background:currentColor}.stock-balance-meter.is-low{color:#ff9d00}.stock-balance-meter.is-empty{color:#ff414b}.stock-balance-table .stock-status{color:#2acb51;background:#ecfdf0;padding:5px 16px;font-size:12px;white-space:nowrap}.stock-balance-table .stock-status--low{color:#ff9d00;background:#fff3dc}.stock-balance-table .stock-status--out{color:#ff414b;background:#ffedef}.stock-queue-table tr:last-child td,.stock-balance-table tr:last-child td{border-bottom:0}.stock-queue-table th:last-child,.stock-queue-table td:last-child,.stock-balance-table th:last-child,.stock-balance-table td:last-child{border-right:0}.stock-set-card{padding:16px;border-radius:10px;background:white;box-shadow:0 1px 8px #0000000d;display:flex;flex-direction:column;gap:16px;font-size:14px}.stock-set-wrap{border:1px solid #e0e0e0;border-radius:8px}.stock-form .stock-set-table{min-width:1050px;width:100%;table-layout:fixed;border-collapse:collapse}.stock-set-table th,.stock-set-table td,.stock-pulldown-table th,.stock-pulldown-table td{border-right:1px solid #e3e3e3;border-bottom:1px solid #e3e3e3;padding:10px 8px;text-align:left;font-size:12px}.stock-set-table th,.stock-pulldown-table th{background:white;font-weight:600}.stock-set-table td:nth-child(2),.stock-set-table td:nth-child(5),.stock-set-table td:nth-child(6),.stock-pulldown-table td:nth-child(2){background:#f5f5f5}.stock-set-table td:nth-child(n+3):not(:last-child){text-align:right}.stock-set-table td input{border:0;background:transparent;padding:0;width:100%;min-width:0;font:inherit}.stock-set-table .m-company-formfield>label,.stock-pulldown-table .m-company-formfield>label{display:none}.stock-set-table .m-company-formfield,.stock-pulldown-table .m-company-formfield{gap:0}.stock-set-table .m-location-select__trigger,.stock-pulldown-table .m-location-select__trigger{border:0;background-color:transparent;min-width:0;width:100%;font-size:12px;padding-left:6px}.stock-pulldown-enabled,.stock-pulldown-required{display:flex;align-items:center;gap:26px;font-size:14px}.stock-set-card [hidden]{display:none!important}.stock-pulldown-card{background:#f8f8f8;border-radius:16px;padding:16px;max-width:790px;display:flex;flex-direction:column;gap:16px;margin-bottom:16px}.stock-pulldown-delete,.stock-pulldown-add{display:flex;justify-content:flex-end}.stock-pulldown-fields{display:flex;flex-direction:column;gap:10px}.stock-pulldown-card .m-company-formfield{display:grid;grid-template-columns:175px minmax(0,1fr);align-items:center;gap:12px}.stock-pulldown-required>span:first-child{width:161px;flex-shrink:0}.stock-pulldown-add button{min-height:26px;padding:0 5px;font-size:20px}.stock-form .stock-pulldown-table{min-width:560px;width:100%;border-collapse:collapse}.stock-pulldown-table .m-company-deletebtn img{width:18px;height:18px}.stock-set-table tr:last-child td,.stock-pulldown-table tr:last-child td{border-bottom:0}.stock-set-table th:last-child,.stock-set-table td:last-child,.stock-pulldown-table th:last-child,.stock-pulldown-table td:last-child{border-right:0}@media(max-width:600px){.stock-pulldown-card .m-company-formfield{display:flex;flex-direction:column;align-items:stretch}.stock-pulldown-required>span:first-child{width:auto}.stock-set-card{padding:12px}}.stock-form .stock-raw-table{min-width:700px;width:100%;table-layout:fixed;border-collapse:collapse}.stock-raw-table th,.stock-raw-table td{font-size:12px;text-align:left;padding:12px 8px;border-right:1px solid #e3e3e3;border-bottom:1px solid #e3e3e3}.stock-raw-table th{background:white;font-weight:600}.stock-raw-table tr:last-child td{border-bottom:0}.stock-raw-table td:last-child,.stock-raw-table th:last-child{border-right:0}.stock-raw-edit{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1fr) minmax(0,1fr) 30px;gap:8px;margin-bottom:12px}.stock-raw-edit input,.stock-raw-edit select{min-width:0;width:100%;padding:8px;border:1px solid #ddd;border-radius:6px}.stock-form .stock-balance-table{table-layout:auto;min-width:max-content;width:100%}.stock-balance-table th,.stock-balance-table td{white-space:nowrap;width:auto}.stock-form .stock-balance-table td input{width:90px;min-width:70px}.stock-balance-table th:first-child,.stock-balance-table td:first-child{width:1%;white-space:nowrap}.stock-form table thead th{background:#fff!important}.stock-form .stock-balance-table th:first-child,.stock-form .stock-balance-table td:first-child{width:auto;min-width:240px;max-width:none;white-space:nowrap;overflow-wrap:normal;word-break:normal}.stock-form .stock-balance-table{min-width:1100px;table-layout:auto}.stock-balance-table th,.stock-balance-table td{box-sizing:border-box}.stock-form .stock-balance-table{min-width:max-content;width:100%;table-layout:auto}.stock-form .stock-balance-table th:first-child,.stock-form .stock-balance-table td:first-child{width:1%;min-width:0;max-width:none;white-space:nowrap}.stock-form .stock-balance-table th,.stock-form .stock-balance-table td{padding-left:8px;padding-right:8px;overflow:hidden;text-overflow:clip}.stock-form .stock-balance-table td input{width:70px;min-width:0}.stock-form .stock-balance-table{width:max-content;min-width:0;max-width:none;table-layout:auto}.stock-form .stock-balance-table th,.stock-form .stock-balance-table td{width:auto;min-width:0;max-width:none;white-space:nowrap;padding:10px 12px}.stock-form .stock-balance-table th:first-child,.stock-form .stock-balance-table td:first-child{width:auto;min-width:0}.stock-form .stock-balance-table td input{width:65px;min-width:0}.stock-balance-wrap{align-self:flex-start;width:fit-content;max-width:100%}#stock-rows td.stock-item-description{text-align:left!important}
+/* Table labels and quantities read left; monetary amounts read right. */
+#page-stock table th,#page-stock table td,#page-stock table td input,#page-stock table td select,#page-stock table td .m-location-select__trigger{text-align:left!important}
+#page-stock .stock-price-table td:nth-child(n+3):nth-child(-n+6),#page-stock .stock-price-table td:nth-child(n+3):nth-child(-n+6) input,
+#page-stock .stock-cost-table td:nth-child(2),#page-stock .stock-cost-table td:nth-child(3),#page-stock .stock-cost-table td:nth-child(3) input,#page-stock .stock-cost-table td:nth-child(5),#page-stock .stock-cost-table td:nth-child(5) input,
+#page-stock .stock-set-table td:nth-child(5),#page-stock .stock-set-table td:nth-child(6){text-align:right!important}
+#page-stock button[data-action="edit-raw-materials"]{display:inline-flex;align-items:center;justify-content:center;gap:14px;width:100px;height:36px;min-height:36px;padding:0 16px;border:1px solid #dedede;border-radius:8px;background:#fff;color:#333;box-shadow:none;font-size:14px;font-weight:500;line-height:1}#page-stock button[data-action="edit-raw-materials"] svg{flex-shrink:0}#page-stock #add-pulldown-group{margin-left:auto;flex:0 0 auto}#page-stock .stock-set-card>.stock-inline-actions:has(#add-pulldown-group){width:100%}#stock-confirm.stock-save-confirm{width:min(440px,calc(100vw - 32px));box-sizing:border-box;border:1px solid #e2e2e2;border-radius:8px;background:white;padding:24px 28px;box-shadow:0 8px 36px #0003;text-align:center}#stock-confirm.stock-save-confirm .m-confirm__title{font-size:20px;font-weight:600;margin:0 0 46px}#stock-confirm.stock-save-confirm .m-confirm__message{font-size:14px;margin:0 0 46px;color:#333}#stock-confirm.stock-save-confirm .m-confirm__actions{display:flex;justify-content:center;gap:16px}#stock-confirm.stock-save-confirm .m-confirm__btn{width:100px;min-height:36px;border-radius:8px;font-size:14px}#stock-confirm.stock-save-confirm .m-confirm__btn--yes{background:#bd0000;color:white}.stock-saved-dialog{padding:14px 28px 22px}.stock-saved-dialog .stock-cost-result{margin:0 auto 30px}.stock-saved-dialog p{margin:0 0 30px}.stock-saved-dialog .stock-cost-dialog-actions{margin-top:0}.stock-view-bom .stock-toolbar>#stock-add{flex:0 0 auto;width:auto;padding:0 16px}.stock-view-bom .stock-table{min-width:820px;width:100%}.stock-view-bom .stock-table>thead>tr>th,.stock-view-bom .stock-table>tbody>tr>td{border-right:1px solid #e3e3e3;text-align:left}.stock-view-bom .stock-table>thead>tr>th:last-child{width:100px}.stock-view-bom .stock-detail>td{background:#fff!important}.stock-bom-detail{padding:6px 24px 4px;font-size:12px}.stock-bom-detail>strong{display:block;margin-bottom:8px;font-weight:600}.stock-bom-material-wrap{border:1px solid #e3e3e3;border-radius:8px;box-shadow:0 1px 7px #0001}.stock-bom-material-table{border-collapse:collapse;width:100%;min-width:650px;table-layout:fixed}.stock-bom-material-table th,.stock-bom-material-table td{font-size:12px;padding:14px 8px!important;border-right:1px solid #e3e3e3;border-bottom:1px solid #e3e3e3;background:#fff!important;text-align:left!important}.stock-bom-material-table th{background:#f5f5f5!important;font-weight:600}.stock-bom-material-table tr:last-child td{border-bottom:0}.stock-bom-material-table th:last-child,.stock-bom-material-table td:last-child{border-right:0}.stock-bom-toolbar{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}.stock-bom-toolbar>input{width:min(360px,100%)}.stock-bom-toolbar>div{display:flex;gap:16px;margin-left:auto}.stock-form .stock-bom-edit-table{width:100%;min-width:800px;table-layout:fixed;border-collapse:collapse}.stock-bom-edit-table th,.stock-bom-edit-table td{font-size:12px;padding:10px 8px;border-right:1px solid #e3e3e3;border-bottom:1px solid #e3e3e3}.stock-bom-edit-table th{background:#fff}.stock-bom-edit-table td:nth-child(2){background:#f5f5f5}.stock-bom-edit-table .m-company-formfield>label{display:none}.stock-bom-edit-table .m-company-formfield{gap:0}.stock-bom-edit-table .m-company-forminput{border:0;background-color:transparent;min-width:0;width:100%;padding-left:0;font-size:12px}.stock-bom-edit-table tfoot td{text-align:right!important}.stock-bom-fields input[readonly]{background:#f5f5f5}.stock-bom-edit-table tr[hidden]{display:none}@media(min-width:680px){.stock-bom-fields .m-company-formfield{display:grid;grid-template-columns:150px minmax(0,1fr);align-items:center}}#stock-class-tabs a.is-active{background:transparent;color:var(--color-primary)}.stock-group-fields{gap:16px}.stock-group-fields .m-company-formfield{max-width:830px}.stock-group-fields input[readonly]{background:#f5f5f5}@media(min-width:680px){.stock-group-fields .m-company-formfield{display:grid;grid-template-columns:175px minmax(0,1fr);align-items:center}}.m-company-headercard:has(#stock-class-tabs:not([hidden])){padding-bottom:0;overflow:hidden}#stock-class-tabs{padding:16px 0 0;gap:40px;overflow-x:auto;margin:0;background:#fff}#stock-class-tabs a{display:inline-flex;align-items:center;gap:10px;padding:10px 4px 12px;color:#666;font-size:14px;font-weight:600;white-space:nowrap;border-radius:0;background:transparent}#stock-class-tabs a svg{flex-shrink:0}#stock-class-tabs a.is-active{color:#c91c28;background:transparent}#stock-class-tabs a:focus-visible{outline:2px solid #c91c28;outline-offset:-2px}#stock-import[hidden]{display:none!important}#stock-class-tabs{padding-left:12px;padding-right:12px}#stock-class-tabs a{padding-left:0;padding-right:0}.stock-cg-fields{display:grid;grid-template-columns:minmax(0,1fr);gap:16px}.stock-cg-table{width:100%;min-width:650px;border-collapse:collapse}.stock-cg-table th,.stock-cg-table td{padding:10px 8px;border:1px solid #e3e3e3;text-align:left;font-size:12px}.stock-cg-table td input{border:0;width:100%;min-width:0;background:transparent}.stock-cg-table th:last-child{width:90px}@media(min-width:900px){.stock-cg-fields{grid-template-columns:1fr 1fr}.stock-cg-fields .m-company-formfield{display:grid;grid-template-columns:210px minmax(0,1fr);align-items:center}.stock-cg-fields .m-company-formfield:first-child{grid-row:1 / 3;align-self:start}.stock-cg-fields .m-company-formfield:last-child{grid-column:2}}.stock-condiment-selection{position:fixed;inset:0;z-index:1000;background:var(--color-white);color:var(--text-primary);padding:20px 16px;overflow:auto}.stock-condiment-selection header{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}.stock-condiment-selection h2{font-size:16px;margin:0}.stock-condiment-selection header button{border:0;background:none;font-size:26px;color:#666;cursor:pointer}.stock-condiment-selection table{border-collapse:collapse;width:100%;min-width:620px;table-layout:fixed}.stock-condiment-selection th,.stock-condiment-selection td{padding:12px 15px;border-right:1px solid #e3e3e3;border-bottom:1px solid #e3e3e3;font-size:13px;text-align:left}.stock-condiment-selection label{display:flex;align-items:center;gap:12px}.stock-condiment-selection input{accent-color:#be2026;width:17px;height:17px}.stock-condiment-selection footer{display:flex;justify-content:center;gap:16px;margin-top:20px}.stock-condiment-selection footer button{min-width:100px;padding:9px 16px;border:1px solid #ddd;border-radius:8px;background:#fff;color:#333;font:inherit;cursor:pointer}.stock-condiment-selection footer [data-save]{background:#be2026;color:#fff;border-color:#be2026}</style></head><body>
+  <div class="m-login">
+    <div class="m-view m-view--dashboard m-view--reports">
+
+      <!-- Nav drawer (full-screen) -->
+      <aside class="m-drawer" id="dash-drawer">
+        <div class="m-drawer__header">
+          <div class="m-dash-storebar">
+            <button type="button" class="m-dash-store-select" id="store-select-oiso">
+              <svg class="m-dash-store-select__icon" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13.7273 12.5556H15V14H1V12.5556H2.27273V1.72222C2.27273 1.53068 2.33977 1.34698 2.45911 1.21153C2.57846 1.07609 2.74032 1 2.90909 1H9.27273C9.4415 1 9.60336 1.07609 9.7227 1.21153C9.84205 1.34698 9.90909 1.53068 9.90909 1.72222V12.5556H11.1818V5.33333H13.0909C13.2597 5.33333 13.4215 5.40942 13.5409 5.54487C13.6602 5.68031 13.7273 5.86401 13.7273 6.05556V12.5556ZM4.81818 6.77778V8.22222H7.36364V6.77778H4.81818ZM4.81818 3.88889V5.33333H7.36364V3.88889H4.81818Z" fill="currentColor"/></svg>
+              Oiso
+              <svg class="m-dash-chevron" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <button type="button" class="m-dash-store-select" id="drawer-store-select">
+              <img src="assets/nav-store.svg" alt="" class="m-dash-store-select__icon" />
+              <span id="drawer-store-label">All Store</span>
+              <svg class="m-dash-chevron" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+          </div>
+
+          <button type="button" class="m-drawer__close" id="dash-drawer-close" aria-label="Close menu">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          </button>
+        </div>
+
+        
+<nav class="m-drawer-nav">
+
+          <div class="m-drawer-group">
+            <button type="button" class="m-drawer-nav__item">
+              <span class="m-drawer-nav__icon"><img src="assets/nav-dashboard.svg" alt="" /></span>
+              <span class="m-drawer-nav__label">Dashboard</span>
+              <span class="m-drawer-nav__chevron"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
+            </button>
+            <div class="m-drawer-nav__panel">
+              <a href="dashboard.html" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Sales Dashboard</a>
+            </div>
+          </div>
+
+          <div class="m-drawer-group">
+            <button type="button" class="m-drawer-nav__item">
+              <span class="m-drawer-nav__icon"><img src="assets/nav-report.svg" alt="" /></span>
+              <span class="m-drawer-nav__label">Reports</span>
+              <span class="m-drawer-nav__chevron"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
+            </button>
+            <div class="m-drawer-nav__panel">
+              <a href="reports.html" id="sub-operation" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Operation</a>
+              <a href="reports.html?view=txd" id="sub-transaction" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Transaction</a>
+            </div>
+          </div>
+
+          <div class="m-drawer-group">
+            <button type="button" class="m-drawer-nav__item">
+              <span class="m-drawer-nav__icon"><img src="assets/nav-company.svg" alt="" /></span>
+              <span class="m-drawer-nav__label">Company</span>
+              <span class="m-drawer-nav__chevron"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
+            </button>
+            <div class="m-drawer-nav__panel">
+              <a href="company.html" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Company Structure</a>
+              <a href="company-classification.html" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Classification</a>
+            </div>
+          </div>
+
+          <div class="m-drawer-group is-expanded">
+            <button type="button" class="m-drawer-nav__item">
+              <span class="m-drawer-nav__icon"><img src="assets/nav-stock.svg" alt="" /></span>
+              <span class="m-drawer-nav__label">Stock</span>
+              <span class="m-drawer-nav__chevron"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
+            </button>
+            <div class="m-drawer-nav__panel">
+              <a href="stock.html?view=items" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Item</a>
+              <a href="stock.html?view=bom" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Bill of Materials</a>
+              <a href="stock.html?view=groups" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Classification</a>
+            </div>
+          </div>
+
+          <div class="m-drawer-group">
+            <button type="button" class="m-drawer-nav__item">
+              <span class="m-drawer-nav__icon"><img src="assets/nav-condiment.svg" alt="" /></span>
+              <span class="m-drawer-nav__label">Condiment</span>
+              <span class="m-drawer-nav__chevron"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
+            </button>
+            <div class="m-drawer-nav__panel">
+              <a href="condiment.html" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Group</a>
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Item</a>
+            </div>
+          </div>
+
+          <div class="m-drawer-group">
+            <button type="button" class="m-drawer-nav__item">
+              <span class="m-drawer-nav__icon"><img src="assets/nav-pos.svg" alt="" /></span>
+              <span class="m-drawer-nav__label">POS</span>
+              <span class="m-drawer-nav__chevron"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
+            </button>
+            <div class="m-drawer-nav__panel">
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Shift</a>
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Payment</a>
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Tax</a>
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Money Note</a>
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Discount</a>
+            </div>
+          </div>
+
+          <div class="m-drawer-group">
+            <button type="button" class="m-drawer-nav__item">
+              <span class="m-drawer-nav__icon"><img src="assets/nav-usermanagement.svg" alt="" /></span>
+              <span class="m-drawer-nav__label">User Management</span>
+              <span class="m-drawer-nav__chevron"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
+            </button>
+            <div class="m-drawer-nav__panel">
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>User Profile</a>
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Role Management</a>
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Classification</a>
+            </div>
+          </div>
+
+          <div class="m-drawer-group">
+            <button type="button" class="m-drawer-nav__item">
+              <span class="m-drawer-nav__icon"><img src="assets/nav-customer.svg" alt="" /></span>
+              <span class="m-drawer-nav__label">Customer</span>
+              <span class="m-drawer-nav__chevron"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
+            </button>
+            <div class="m-drawer-nav__panel">
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Details</a>
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Discount Type</a>
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Closing</a>
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Classification</a>
+            </div>
+          </div>
+
+          <div class="m-drawer-group">
+            <button type="button" class="m-drawer-nav__item">
+              <span class="m-drawer-nav__icon"><img src="assets/nav-inventory.svg" alt="" /></span>
+              <span class="m-drawer-nav__label">Inventory</span>
+              <span class="m-drawer-nav__chevron"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
+            </button>
+            <div class="m-drawer-nav__panel">
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Transaction</a>
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Production</a>
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Stock Take</a>
+            </div>
+          </div>
+
+          <div class="m-drawer-group">
+            <button type="button" class="m-drawer-nav__item">
+              <span class="m-drawer-nav__icon"><img src="assets/nav-supplier.svg" alt="" /></span>
+              <span class="m-drawer-nav__label">Supplier</span>
+              <span class="m-drawer-nav__chevron"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
+            </button>
+            <div class="m-drawer-nav__panel">
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Transaction</a>
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Details</a>
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Classification</a>
+            </div>
+          </div>
+
+          <div class="m-drawer-group">
+            <button type="button" class="m-drawer-nav__item">
+              <span class="m-drawer-nav__icon"><img src="assets/nav-emenu.svg" alt="" /></span>
+              <span class="m-drawer-nav__label">E-Menu</span>
+              <span class="m-drawer-nav__chevron"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
+            </button>
+            <div class="m-drawer-nav__panel">
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Menu</a>
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Promotion</a>
+            </div>
+          </div>
+
+          <div class="m-drawer-group">
+            <button type="button" class="m-drawer-nav__item">
+              <span class="m-drawer-nav__icon"><img src="assets/nav-crm.svg" alt="" /></span>
+              <span class="m-drawer-nav__label">CRM &amp; Promotion</span>
+              <span class="m-drawer-nav__chevron"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
+            </button>
+            <div class="m-drawer-nav__panel">
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>CRM</a>
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Promotion</a>
+            </div>
+          </div>
+
+          <div class="m-drawer-group">
+            <button type="button" class="m-drawer-nav__item">
+              <span class="m-drawer-nav__icon"><img src="assets/nav-settings.svg" alt="" /></span>
+              <span class="m-drawer-nav__label">Settings</span>
+              <span class="m-drawer-nav__chevron"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
+            </button>
+            <div class="m-drawer-nav__panel">
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Stock</a>
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>E-Menu</a>
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Preferences</a>
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Inventory</a>
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Supplier</a>
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Kitchen Printing</a>
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Miscellaneous</a>
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>POS</a>
+            </div>
+          </div>
+
+          <div class="m-drawer-group">
+            <button type="button" class="m-drawer-nav__item">
+              <span class="m-drawer-nav__icon"><img src="assets/nav-housekeeping.svg" alt="" /></span>
+              <span class="m-drawer-nav__label">Housekeeping</span>
+              <span class="m-drawer-nav__chevron"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
+            </button>
+            <div class="m-drawer-nav__panel">
+              <a href="#" class="m-drawer-nav__sub"><span class="m-drawer-nav__dot"></span>Housekeeping</a>
+            </div>
+          </div>
+
+        </nav>
+      </aside>
+
+      <header class="m-dash-topbar" id="main-topbar">
+        <button type="button" class="m-dash-icon-btn m-dash-menu-btn" aria-label="Menu">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+
+        <div class="m-dash-brand">
+          <img src="assets/oiso-logo.svg" alt="OiSO" class="m-dash-brand__logo" />
+        </div>
+
+        <div class="m-dash-topbar__right">
+          <button type="button" class="m-dash-icon-btn m-dash-icon-btn--alert" id="notif-btn" aria-label="Notifications">
+            <img src="assets/btn-alert.svg" alt="" class="m-dash-icon-btn__img" />
+          </button>
+          <button type="button" class="m-avatar-btn" id="avatar-btn" aria-label="Account menu">
+            <img src="assets/img_profile.svg" alt="Profile" class="m-dash-avatar" />
+          </button>
+        </div>
+      </header>
+
+
+
+
+
+
+
+      <!-- Full-screen: notifications (shared template — same on every page) -->
+      <div class="m-notif-sheet" id="notif-sheet">
+        <div class="m-notif-sheet__head">
+          <p class="m-notif-sheet__title">Notifications</p>
+          <button type="button" class="m-notif-sheet__close" id="notif-sheet-close" aria-label="Close">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          </button>
+        </div>
+
+        <div class="m-notif-sheet__body">
+          <div class="m-notif-sheet__section-row">
+            <span class="m-notif-sheet__section-label">Today</span>
+            <button type="button" class="m-notif-sheet__readall">
+              <img src="assets/notif-readall.svg" alt="" width="24" height="24" />
+              Read All
+            </button>
+          </div>
+
+          <button type="button" class="m-notif-item m-notif-item--unread">
+            <span class="m-notif-item__icon"><img src="assets/notif-unread.svg" alt="" class="m-notif-item__icon-img" /></span>
+            <span class="m-notif-item__text">Stock In #STK-1009 is pending approval.</span>
+            <span class="m-notif-item__time">09:00</span>
+          </button>
+          <button type="button" class="m-notif-item">
+            <span class="m-notif-item__icon"><img src="assets/notif-read.svg" alt="" class="m-notif-item__icon-img" /></span>
+            <span class="m-notif-item__text">Stock In #STK-1010 is pending approval.</span>
+            <span class="m-notif-item__time">11 Nov</span>
+          </button>
+          <button type="button" class="m-notif-item">
+            <span class="m-notif-item__icon"><img src="assets/notif-read.svg" alt="" class="m-notif-item__icon-img" /></span>
+            <span class="m-notif-item__text m-notif-item__text--truncate">Stock In record #STK-1008 has been successfully...</span>
+            <span class="m-notif-item__time">17 Nov</span>
+          </button>
+          <button type="button" class="m-notif-item">
+            <span class="m-notif-item__icon"><img src="assets/notif-read.svg" alt="" class="m-notif-item__icon-img" /></span>
+            <span class="m-notif-item__text">Stock In #STK-1007 is pending approval.</span>
+            <span class="m-notif-item__time">20 Nov</span>
+          </button>
+
+          <span class="m-notif-sheet__section-label m-notif-sheet__section-label--earlier">Earlier</span>
+
+          <button type="button" class="m-notif-item m-notif-item--unread">
+            <span class="m-notif-item__icon"><img src="assets/notif-unread.svg" alt="" class="m-notif-item__icon-img" /></span>
+            <span class="m-notif-item__text">Stock In #STK-1006 is pending approval.</span>
+            <span class="m-notif-item__time">22 Oct</span>
+          </button>
+          <button type="button" class="m-notif-item m-notif-item--unread">
+            <span class="m-notif-item__icon"><img src="assets/notif-unread.svg" alt="" class="m-notif-item__icon-img" /></span>
+            <span class="m-notif-item__text">Stock In #STK-1005 is pending approval.</span>
+            <span class="m-notif-item__time">21 Oct</span>
+          </button>
+          <button type="button" class="m-notif-item m-notif-item--unread">
+            <span class="m-notif-item__icon"><img src="assets/notif-unread.svg" alt="" class="m-notif-item__icon-img" /></span>
+            <span class="m-notif-item__text">Stock In record #STK-1004 has been successfully added to the system.</span>
+            <span class="m-notif-item__time">19 Oct</span>
+          </button>
+          <button type="button" class="m-notif-item">
+            <span class="m-notif-item__icon"><img src="assets/notif-read.svg" alt="" class="m-notif-item__icon-img" /></span>
+            <span class="m-notif-item__text">Stock In #STK-1003 is pending approval.</span>
+            <span class="m-notif-item__time">13 Oct</span>
+          </button>
+          <button type="button" class="m-notif-item">
+            <span class="m-notif-item__icon"><img src="assets/notif-read.svg" alt="" class="m-notif-item__icon-img" /></span>
+            <span class="m-notif-item__text">Stock In #STK-1002 is pending approval.</span>
+            <span class="m-notif-item__time">9 Oct</span>
+          </button>
+
+          <p class="m-notif-sheet__end">&mdash; End &mdash;</p>
+        </div>
+      </div>
+
+      <!-- Full-screen: account menu (shared template — same on every page) -->
+      <div class="m-notif-sheet" id="account-sheet">
+        <div class="m-notif-sheet__head">
+          <p class="m-notif-sheet__title">Account</p>
+          <button type="button" class="m-notif-sheet__close" id="account-sheet-close" aria-label="Close">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          </button>
+        </div>
+        <div class="m-notif-sheet__body">
+          <div class="m-profile-sheet__pic-wrap">
+            <img src="assets/img_profile.svg" alt="Profile" class="m-profile-sheet__pic" id="profile-sheet-pic" />
+          </div>
+          <p class="m-profile-sheet__name">Hi，Jennie Tan</p>
+          <p class="m-profile-sheet__role">HQ</p>
+
+          <div class="m-avatar-menu__list">
+            <button type="button" class="m-avatar-menu__item" id="avatar-menu-profile">
+              <span class="m-avatar-menu__icon"><img src="assets/user.svg" alt="" /></span>
+              <span class="m-avatar-menu__label">Profile</span>
+              <span class="m-avatar-menu__badge">HQ</span>
+            </button>
+            <button type="button" class="m-avatar-menu__item" id="avatar-menu-password">
+              <span class="m-avatar-menu__icon"><img src="assets/pw.svg" alt="" /></span>
+              <span class="m-avatar-menu__label">Change Password</span>
+            </button>
+            <div class="m-drawer-preferences"><button type="button" class="m-drawer-language" aria-label="Choose language"><span class="m-account-preference-icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><ellipse cx="12" cy="12" rx="3.5" ry="8"/><path d="M4 12h16"/></svg></span><span class="m-account-preference-label">Language</span><span class="m-account-language-value">English</span></button><button type="button" class="m-drawer-theme" aria-label="Switch to dark theme" aria-pressed="false"><span class="m-account-preference-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.4A8.5 8.5 0 0 1 9.6 4 8.5 8.5 0 1 0 20 14.4Z"/></svg></span><span class="m-account-preference-label">Mode</span><span class="m-account-mode-value">Light</span></button></div><button type="button" class="m-avatar-menu__item" id="avatar-menu-logout">
+              <span class="m-avatar-menu__icon"><img src="assets/logout.svg" alt="" /></span>
+              <span class="m-avatar-menu__label">Logout</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal: logout confirmation (shared template — same on every page) -->
+      <div class="m-confirm-backdrop" id="logout-confirm-backdrop"></div>
+      <div class="m-confirm" id="logout-confirm" role="dialog" aria-modal="true" aria-labelledby="logout-confirm-title">
+        <p class="m-confirm__title" id="logout-confirm-title">Confirmation</p>
+        <p class="m-confirm__message">Are you sure you want to Logout?</p>
+        <div class="m-confirm__actions">
+          <button type="button" class="m-confirm__btn m-confirm__btn--no" id="logout-confirm-no">No</button>
+          <button type="button" class="m-confirm__btn m-confirm__btn--yes" id="logout-confirm-yes">Yes</button>
+        </div>
+      </div>
+
+      <header class="m-dash-topbar m-editbrand-topbar" id="stock-edit-topbar" hidden>
+        <button type="button" class="m-dash-icon-btn" id="stock-back" aria-label="Back"><span aria-hidden="true">‹</span></button>
+        <h1 class="m-editbrand-topbar__title stock-top-title" id="stock-editor-title">Add Stock Item</h1>
+        <span class="m-editbrand-topbar__spacer" aria-hidden="true"></span>
+      </header>
+      <main class="m-rpt-page" id="page-stock">
+        <div class="m-rpt-body" id="stock-list">
+          <div class="m-company-headercard">
+            <div class="m-rpt-header"><div class="m-rpt-header__titleblock"><h1 id="stock-page-title">Stock Item</h1><div class="m-rpt-breadcrumb"><span>Stock</span><span class="m-rpt-breadcrumb__sep">›</span><span id="stock-breadcrumb">Item</span></div></div></div>
+            <div id="stock-class-tabs" class="stock-tabs" hidden><a href="stock.html?view=groups" data-stock-tab="groups"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 11 5-11 5L1 7l11-5Zm-8.6 8.6L12 14.5l8.6-3.9L23 12l-11 5L1 12l2.4-1.4Zm0 5L12 19.5l8.6-3.9L23 17l-11 5L1 17l2.4-1.4Z"/></svg><span>Stock Group</span></a><a href="stock.html?view=departments" data-stock-tab="departments"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9 2h6v6H9V2ZM2 16h6v6H2v-6Zm7 0h6v6H9v-6Zm7 0h6v6h-6v-6Z"/><path d="M11 7h2v4h7v6h-2v-4h-5v4h-2v-4H6v4H4v-6h7V7Z"/></svg><span>Stock Department</span></a></div>
+          </div>
+          
+          
+          <div class="stock-title-row"><h2 class="stock-listheading" id="stock-list-title">Stock Item</h2><label id="stock-layout-control" class="stock-layout-toggle"><span id="stock-layout-label">Grouped</span><input type="checkbox" role="switch" id="stock-layout" aria-label="Group stock items" checked/><span class="stock-layout-track" aria-hidden="true"></span></label></div>
+          <div class="stock-toolbar">
+            <button type="button" class="m-rpt-export" id="stock-import"><svg class="m-rpt-export__icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m-4-4 4 4 4-4M4 16v4a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-4"/></svg>Import</button><input type="file" id="stock-import-file" accept=".csv,text/csv" hidden/>
+            <button type="button" class="m-rpt-export" id="stock-export"><img src="assets/upload.svg" class="m-rpt-export__icon" alt=""/>Export</button>
+            <button type="button" class="m-company-btn m-company-btn--save" id="stock-add">+ Add Item</button>
+          </div>
+          <p id="stock-message" class="stock-message" role="status" hidden></p>
+          
+          <div class="m-rpt-card"><div class="m-rpt-table-wrap"><table class="m-rpt-table stock-table"><thead id="stock-head"></thead><tbody id="stock-rows"></tbody></table></div><p class="stock-count" id="stock-count"></p></div>
+        </div>
+        <section class="stock-editor" id="stock-editor" hidden aria-labelledby="stock-editor-title">
+          <form id="stock-form" class="stock-form"></form>
+          <footer class="stock-editfooter"><button type="button" id="stock-cancel" class="m-company-btn m-company-btn--cancel">Cancel</button><button type="submit" form="stock-form" id="stock-save" class="m-company-btn m-company-btn--save">Save</button></footer>
+        </section>
+      </main>
+      <div class="m-confirm-backdrop" id="stock-confirm-backdrop"></div>
+      <section class="m-confirm" id="stock-confirm" role="dialog" aria-modal="true" aria-labelledby="stock-confirm-title" tabindex="-1"><p class="m-confirm__title" id="stock-confirm-title">Confirmation</p><p class="m-confirm__message" id="stock-confirm-message"></p><div class="m-confirm__actions"><button type="button" id="stock-confirm-no" class="m-confirm__btn m-confirm__btn--no">No</button><button type="button" id="stock-confirm-yes" class="m-confirm__btn m-confirm__btn--yes">Yes</button></div></section>
+
+    </div>
+  </div>
+<script>
+  /* ---------- Nav drawer (copied from the dashboard top navigation bar) ---------- */
+  const dashDrawer = document.getElementById('dash-drawer');
+
+  function openDrawer() {
+    dashDrawer.classList.add('is-open');
+  }
+  function closeDrawer() {
+    dashDrawer.classList.remove('is-open');
+  }
+  function closeDrawerInstant() {
+    dashDrawer.style.transition = 'none';
+    dashDrawer.classList.remove('is-open');
+    dashDrawer.offsetHeight;
+    dashDrawer.style.transition = '';
+  }
+
+  document.querySelector('.m-dash-menu-btn')?.addEventListener('click', openDrawer);
+  document.getElementById('dash-drawer-close')?.addEventListener('click', closeDrawer);
+
+  const drawerGroups = document.querySelectorAll('.m-drawer-group');
+  drawerGroups.forEach((group) => {
+    const trigger = group.querySelector('.m-drawer-nav__item');
+    trigger.addEventListener('click', () => {
+      const willExpand = !group.classList.contains('is-expanded');
+      drawerGroups.forEach((g) => g.classList.remove('is-expanded'));
+      if (willExpand) {
+        group.classList.add('is-expanded');
+      }
+    });
+  });
+
+  /* ---------- Notifications (shared template — same on every page) ---------- */
+  const notifSheet = document.getElementById('notif-sheet');
+
+  function openNotifSheet() {
+    notifSheet.classList.add('is-open');
+  }
+  function closeNotifSheet() {
+    notifSheet.classList.remove('is-open');
+  }
+
+  document.getElementById('notif-btn')?.addEventListener('click', openNotifSheet);
+  document.getElementById('notif-sheet-close')?.addEventListener('click', closeNotifSheet);
+
+  function setNotifItemRead(item, isUnread) {
+    item.classList.toggle('m-notif-item--unread', isUnread);
+    const icon = item.querySelector('.m-notif-item__icon-img');
+    if (icon) icon.src = isUnread ? 'assets/notif-unread.svg' : 'assets/notif-read.svg';
+  }
+
+  notifSheet?.querySelectorAll('.m-notif-item').forEach((item) => {
+    item.addEventListener('click', () => {
+      setNotifItemRead(item, !item.classList.contains('m-notif-item--unread'));
+    });
+  });
+
+  notifSheet?.querySelector('.m-notif-sheet__readall')?.addEventListener('click', () => {
+    notifSheet.querySelectorAll('.m-notif-item').forEach((item) => setNotifItemRead(item, false));
+  });
+
+  /* ---------- Account menu (shared template — same on every page) ---------- */
+  const avatarBtn = document.getElementById('avatar-btn');
+  const accountSheet = document.getElementById('account-sheet');
+
+  function openAccountSheet() {
+    accountSheet.classList.add('is-open');
+  }
+  function closeAccountSheet() {
+    accountSheet.classList.remove('is-open');
+  }
+
+  avatarBtn?.addEventListener('click', openAccountSheet);
+  document.getElementById('account-sheet-close')?.addEventListener('click', closeAccountSheet);
+
+  /* ---------- Logout confirmation (shared template — same on every page) ---------- */
+  const logoutBackdrop = document.getElementById('logout-confirm-backdrop');
+  const logoutModal = document.getElementById('logout-confirm');
+  const logoutBtn = document.getElementById('avatar-menu-logout');
+
+  function openLogoutConfirm() {
+    logoutBackdrop.classList.add('is-open');
+    logoutModal.classList.add('is-open');
+  }
+  function closeLogoutConfirm() {
+    logoutBackdrop.classList.remove('is-open');
+    logoutModal.classList.remove('is-open');
+  }
+
+  logoutBtn?.addEventListener('click', openLogoutConfirm);
+  logoutBackdrop?.addEventListener('click', closeLogoutConfirm);
+  document.getElementById('logout-confirm-no')?.addEventListener('click', closeLogoutConfirm);
+  document.getElementById('logout-confirm-yes')?.addEventListener('click', () => {
+    window.location.href = 'mobile.html';
+  });
+
+/* Condiment module: independently stored group records. */
+(()=>{
+const $=id=>document.getElementById(id),copy=v=>JSON.parse(JSON.stringify(v)),esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const key='cloudbite-condiment-v1';let groups,editing=null,draft=null,formChanged=false;
+try{const saved=JSON.parse(localStorage.getItem(key));groups=saved?.groups;if(!groups){const legacy=JSON.parse(localStorage.getItem('cloudbite-stock-v1'));groups=legacy?.condimentGroups;}}catch(_){}
+groups=groups||[{code:'SP',name:'Spicy',description2:'Spicy',items:[]},{code:'ICE',name:'Ice Level',description2:'Ice Level',items:[]},{code:'S01',name:'Sugar Level',description2:'Sugar Level',items:[]}];
+const val=id=>$(id)?.value||'';
+function field(label,id,value='',type='text',required=false,extra=''){return `<div class="m-company-formfield"><label for="${id}">${esc(label)}${required?' <span class="m-required">*</span>':''}</label><input class="m-company-forminput" id="${id}" name="${id}" type="${type}" value="${esc(value)}" ${required?'required':''} ${type==='number'?'min="0" step="0.01"':'maxlength="120"'} ${extra}/></div>`;}
+function openCondimentSelection(){const current=draft,origin=document.activeElement,code=draft.code;const defaults=code==='ICE'?[['ICE01','Normal Ice'],['ICE02','Less Ice'],['ICE03','No Ice']]:code==='S01'?[['S0101','Normal Sugar'],['S0102','Less Sugar'],['S0103','No Sugar']]:[['SP01','More Spicy'],['SP02','Normal Spicy'],['SP03','Less Spicy'],['SP04','No Spicy']];const catalog=defaults.map(([code,name])=>({code,name,description2:name}));(draft.items||[]).forEach(item=>{if(!catalog.some(r=>r.code===item.code))catalog.push(copy(item));});const selected=new Set((draft.items||[]).map(r=>r.code));const page=document.createElement('section');page.className='stock-condiment-selection';page.setAttribute('role','dialog');page.setAttribute('aria-modal','true');page.setAttribute('aria-label','Edit Condiments for Group '+code);page.innerHTML='<header><h2>Edit Condiments for Group '+esc(code)+'</h2><button type="button" data-close aria-label="Close">×</button></header><div class="m-rpt-table-wrap stock-set-wrap"><table><thead><tr><th><label><input type="checkbox" data-all aria-label="Select all condiments"/>Code</label></th><th>Description 1</th><th>Description 2</th></tr></thead><tbody>'+catalog.map((r,i)=>'<tr><td><label><input type="checkbox" data-choice="'+i+'" '+(selected.has(r.code)?'checked':'')+'/>'+esc(r.code)+'</label></td><td>'+esc(r.name)+'</td><td>'+esc(r.description2)+'</td></tr>').join('')+'</tbody></table></div><footer><button type="button" data-cancel>Cancel</button><button type="button" data-save>Save</button></footer>';document.body.appendChild(page);const all=page.querySelector('[data-all]'),choices=[...page.querySelectorAll('[data-choice]')];function sync(){all.checked=choices.every(c=>c.checked);all.indeterminate=choices.some(c=>c.checked)&&!all.checked;}sync();all.onchange=()=>choices.forEach(c=>{c.checked=all.checked;});choices.forEach(c=>c.onchange=sync);const close=()=>{page.remove();origin?.focus();};page.querySelector('[data-close]').onclick=close;page.querySelector('[data-cancel]').onclick=close;page.querySelector('[data-save]').onclick=()=>{if(draft===current){draft.items=choices.filter(c=>c.checked).map(c=>copy(catalog[Number(c.dataset.choice)]));$('cg-items').innerHTML=condimentGroupItems();formChanged=true;}close();};page.onkeydown=e=>{if(e.key==='Escape')close();};page.querySelector('[data-close]').focus();}
+function condimentGroupItems(){return '<div class="m-rpt-table-wrap stock-set-wrap"><table class="m-rpt-table stock-cg-table"><thead><tr>'+['Code','Description 1','Description 2','Action'].map(t=>'<th>'+t+'</th>').join('')+'</tr></thead><tbody>'+(draft.items||[]).map((r,i)=>`<tr><td><input class="m-company-forminput" id="cg-code-${i}" value="${esc(r.code)}" aria-label="Condiment item code" required/></td><td><input class="m-company-forminput" id="cg-name-${i}" value="${esc(r.name)}" aria-label="Description 1"/></td><td><input class="m-company-forminput" id="cg-description2-${i}" value="${esc(r.description2)}" aria-label="Description 2"/></td><td><button type="button" class="m-company-deletebtn" data-action="remove-cg-item" data-index="${i}" aria-label="Remove condiment item"><img src="assets/delete.svg" width="18" height="18" alt=""/></button></td></tr>`).join('')+'</tbody></table></div>';}
+function condimentGroupForm(){return '<div class="stock-set-card stock-cg-fields">'+field('Condiment Group Code','record-code',draft.code,'text',true,'pattern="[A-Za-z0-9_-]+" placeholder="Enter Condiment Code"')+field('Condiment Group Description 1','record-name',draft.name,'text',false,'placeholder="Group Description 1"')+field('Condiment Group Description 2','record-description2',draft.description2||'','text',false,'placeholder="Group Description 2"')+'</div>'+(editing?'<div class="stock-set-card"><div class="stock-inline-actions"><strong>Condiment Item</strong><button type="button" class="m-company-btn m-company-btn--save" data-action="add-cg-item">＋ Add Condiment Item</button></div><div id="cg-items">'+condimentGroupItems()+'</div></div>':'');}
+function render(){const filters=[...document.querySelectorAll('[data-cg-filter]')].map(x=>x.value.toLowerCase());$('stock-rows').innerHTML=groups.filter(r=>[r.code,r.name,r.description2].every((v,i)=>String(v||'').toLowerCase().includes(filters[i]||''))).map(r=>'<tr><td>'+esc(r.code)+'</td><td>'+esc(r.name)+'</td><td>'+esc(r.description2)+'</td><td><div class="m-company-actionrow"><button type="button" class="m-company-editbtn" data-edit="'+esc(r.code)+'" aria-label="Edit '+esc(r.code)+'"><img src="assets/edit.svg" class="m-company-editbtn__icon" alt=""/></button><button type="button" class="m-company-deletebtn" data-delete="'+esc(r.code)+'" aria-label="Delete '+esc(r.code)+'"><img src="assets/delete.svg" class="m-company-editbtn__icon" alt=""/></button></div></td></tr>').join('');$('stock-count').textContent=groups.length+' entries';}
+function close(){draft=null;formChanged=false;$('stock-list').hidden=false;$('stock-editor').hidden=true;$('stock-edit-topbar').hidden=true;$('main-topbar').hidden=false;}
+function open(code){editing=code||null;draft=code?copy(groups.find(r=>r.code===code)):{code:'',name:'',description2:'',items:[]};$('stock-editor-title').textContent=(code?'Edit':'Add')+' Condiment Group';$('stock-form').innerHTML=condimentGroupForm();$('stock-list').hidden=true;$('stock-editor').hidden=false;$('stock-edit-topbar').hidden=false;$('main-topbar').hidden=true;formChanged=false;}
+function capture(){draft.code=val('record-code').trim().toUpperCase();draft.name=val('record-name').trim();draft.description2=val('record-description2').trim();draft.items=(draft.items||[]).map((r,i)=>({code:val('cg-code-'+i),name:val('cg-name-'+i),description2:val('cg-description2-'+i)}));}
+function popup(title,text,success,action){const dialog=document.createElement('dialog');dialog.className='stock-cost-dialog';dialog.innerHTML=(success?'<div class="stock-cost-result success">✓</div>':'<h2>'+title+'</h2>')+'<p>'+esc(text)+'</p><div class="stock-cost-dialog-actions">'+(success?'<button data-close>Close</button>':'<button data-close>No</button><button class="primary" data-yes>Yes</button>')+'</div>';document.body.appendChild(dialog);const done=()=>{dialog.close();dialog.remove();};dialog.querySelector('[data-close]').onclick=done;dialog.querySelector('[data-yes]')?.addEventListener('click',()=>{done();action();});dialog.showModal();}
+$('stock-add').onclick=()=>open();$('stock-cancel').onclick=$('stock-back').onclick=close;
+$('stock-head').innerHTML='<tr>'+['Code','Description 1','Description 2','Action'].map(t=>'<th>'+t+'</th>').join('')+'</tr><tr class="stock-filter-row">'+[0,1,2].map(i=>'<th><input data-cg-filter="'+i+'" aria-label="Filter '+['Code','Description 1','Description 2'][i]+'"/></th>').join('')+'<th></th></tr>';
+$('stock-head').oninput=render;$('stock-rows').onclick=e=>{const edit=e.target.closest('[data-edit]'),del=e.target.closest('[data-delete]');if(edit)open(edit.dataset.edit);if(del)popup('Confirmation','Delete '+del.dataset.delete+'?',false,()=>{groups=groups.filter(r=>r.code!==del.dataset.delete);localStorage.setItem(key,JSON.stringify({groups}));render();});};
+$('stock-form').oninput=()=>{formChanged=true;};$('stock-form').onclick=e=>{const b=e.target.closest('[data-action]');if(!b)return;capture();if(b.dataset.action==='add-cg-item')openCondimentSelection();if(b.dataset.action==='remove-cg-item'){draft.items.splice(Number(b.dataset.index),1);$('cg-items').innerHTML=condimentGroupItems();}};
+$('stock-form').onsubmit=e=>{e.preventDefault();capture();if(groups.some(r=>r.code===draft.code&&r.code!==editing)){alert('This code already exists.');return;}const add=!editing;popup('Confirmation','Are you sure you want to '+(add?'Add':'Edit')+' Condiment Group ?',false,()=>{const saved=copy(draft),i=groups.findIndex(r=>r.code===editing);if(i<0)groups.push(saved);else groups[i]=saved;try{localStorage.setItem(key,JSON.stringify({groups}));}catch(_){alert('Unable to save. Browser storage is full.');return;}close();render();popup('','Condiment Group '+(add?'Added':'Saved')+' Successfully.',true);});};
+$('stock-export').onclick=()=>{const cell=v=>'"'+String(v||'').replace(/"/g,'""')+'"',csv=[['Code','Description 1','Description 2'],...groups.map(r=>[r.code,r.name,r.description2])].map(r=>r.map(cell).join(',')).join('\r\n'),a=document.createElement('a');a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv'}));a.download='condiment-groups.csv';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000);};
+$('stock-page-title').textContent=$('stock-list-title').textContent=$('stock-breadcrumb').textContent='Condiment Group';$('stock-breadcrumb').parentNode.firstElementChild.textContent='Condiment';$('stock-add').textContent='+ Add Condiment Group';$('stock-import').hidden=true;$('stock-layout-control').hidden=true;close();render();
+})();
+</script>
+
+
+<script>(()=>{const button=document.querySelector('.m-drawer-theme');if(!button)return;function apply(dark){document.documentElement.classList.toggle('m-dark-theme',dark);button.setAttribute('aria-pressed',String(dark));const value=button.querySelector('.m-account-mode-value');if(value)value.textContent=dark?'Dark':'Light';button.setAttribute('aria-label',dark?'Switch to light theme':'Switch to dark theme');}let dark=false;try{dark=localStorage.getItem('cloudbite-theme')==='dark';}catch(_){}apply(dark);button.addEventListener('click',()=>{dark=!document.documentElement.classList.contains('m-dark-theme');apply(dark);try{localStorage.setItem('cloudbite-theme',dark?'dark':'light');}catch(_){}});})();</script><script>(()=>{const trigger=document.querySelector('.m-drawer-language');if(!trigger)return;const options=[['en','🇬🇧','English','English'],['ms','🇲🇾','Malay','Bahasa Melayu'],['zh','🇨🇳','Chinese Simplified','简体中文'],['id','🇮🇩','Indonesian','Bahasa Indonesia']];let selected='en';try{selected=localStorage.getItem('cloudbite-language')||'en';}catch(_){}function sync(){trigger.querySelector('.m-account-language-value').textContent=(options.find(o=>o[0]===selected)||options[0])[2];}sync();trigger.onclick=()=>{const page=document.createElement('section');page.className='m-language-page';page.setAttribute('role','dialog');page.setAttribute('aria-modal','true');page.setAttribute('aria-label','Language');page.innerHTML='<header><button type="button" class="m-language-back" aria-label="Back">‹</button><h2>Language</h2></header><div class="m-language-options">'+options.map(([code,flag,label,native])=>'<button type="button" data-language="'+code+'" aria-pressed="'+(selected===code)+'"><span class="m-language-flag" aria-hidden="true">'+flag+'</span><span><strong>'+label+'</strong><small>'+native+'</small></span><span class="m-language-check" aria-hidden="true">'+(selected===code?'✓':'')+'</span></button>').join('')+'</div>';document.body.appendChild(page);const close=()=>{page.remove();trigger.focus();};page.querySelector('.m-language-back').onclick=close;page.onkeydown=e=>{if(e.key==='Escape')close();};page.querySelectorAll('[data-language]').forEach(button=>button.onclick=()=>{selected=button.dataset.language;try{localStorage.setItem('cloudbite-language',selected);}catch(_){}sync();close();});page.querySelector('.m-language-back').focus();};})();</script></body></html>
