@@ -4281,3 +4281,6 @@ table th{font-family:var(--font-family)!important;font-size:var(--heading-table-
 .m-company-formsection__head,.stock-editor .stock-section>summary{display:flex!important;align-items:center!important;justify-content:space-between!important;gap:12px!important;padding:10px 12px!important;text-align:left}
 .m-company-formsection__head::after,.stock-editor .stock-section>summary::after{width:7px!important;height:7px!important;margin-left:auto!important;margin-right:3px!important;flex:0 0 7px!important;border-width:0 1.5px 1.5px 0!important}
 .m-company-formsection__title{margin:0!important}
+
+/* Header layout must not override the current page's hidden state. */
+.m-editbrand-topbar[hidden],.m-notif-sheet__head[hidden],.m-language-page>header[hidden],.stock-condiment-selection>header[hidden]{display:none!important}
