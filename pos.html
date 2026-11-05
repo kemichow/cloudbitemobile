@@ -463,7 +463,24 @@
   /* ---------- Nav drawer (copied from the dashboard top navigation bar) ---------- */
   const dashDrawer = document.getElementById('dash-drawer');
 
+
+  function syncPosNavigation() {
+    const currentView = new URLSearchParams(location.search).get('view') || 'shift';
+    document.querySelectorAll('.m-drawer-group').forEach(group => {
+      const isPos = !!group.querySelector('a[href^="pos.html"]');
+      group.classList.toggle('is-expanded', isPos);
+      group.querySelector('.m-drawer-nav__item')?.setAttribute('aria-expanded', String(isPos));
+      group.querySelectorAll('.m-drawer-nav__sub').forEach(link => {
+        const active = isPos && new URL(link.href, location.href).searchParams.get('view') === currentView;
+        link.classList.toggle('m-drawer-nav__sub--active', active);
+        if (active) link.setAttribute('aria-current', 'page');
+        else link.removeAttribute('aria-current');
+      });
+    });
+  }
+
   function openDrawer() {
+    syncPosNavigation();
     dashDrawer.classList.add('is-open');
   }
   function closeDrawer() {
@@ -490,6 +507,8 @@
       }
     });
   });
+
+  syncPosNavigation();
 
   /* ---------- Notifications (shared template — same on every page) ---------- */
   const notifSheet = document.getElementById('notif-sheet');
